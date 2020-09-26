@@ -1,10 +1,4 @@
-//general conf and vars
-@import './_conf';
+
+@import "./variables";
+@import "./mixins";
 @import './global';
-
-//components
-@import '../../components/Header/styles.scss';
-@import '../../components/Footer/styles.scss';
-
-//pages
-@import '../../pages/Home/styles.scss';

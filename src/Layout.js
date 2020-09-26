@@ -1,26 +1,25 @@
-import React from 'react';
-import { withRouter } from 'react-router';
-import PropTypes from 'prop-types';
+import React from "react";
+import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { Header, Footer } from "./components";
 
-const Body = (props) => {
+const Layout = (props) => {
   const { children } = props;
 
   return (
     <>
       <Header />
-      <main className='App'>
-        <section className='App__content'>{children}</section>
+      <main className="App">
+        <section className="App__content">{children}</section>
       </main>
       <Footer />
     </>
   );
 };
 
-Body.propTypes = {
+Layout.propTypes = {
   children: PropTypes.element.isRequired,
 };
 
-export default withRouter(Body);
+export default withRouter(Layout);
