@@ -2,6 +2,8 @@
   "name": "ibicos-frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/ibicos-frontend",
+  "repository": "https://github.com/Classificantes-DH/ibicos-frontend",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -38,7 +40,6 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.9.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.22.0",
