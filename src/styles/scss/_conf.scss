@@ -1,0 +1,28 @@
+/*|---------------| App Color Schema|---------------*/
+
+/* Just color examples to show how we can define
+  the color scheme of our app */
+
+$BLUE: #00376c;
+$PINK: #b51942;
+$GRAY: #707070;
+
+/*|---------------| BREAKPOINTS|---------------*/
+
+// Usage example:  @media #{$BREAKPOINT-DESK}
+
+$BREAKPOINT-DESK: 'only screen and (min-width: 1280px)';
+$BREAKPOINT-TABLET-LAND: 'only screen and (min-width: 975px)';
+$BREAKPOINT-TABLET: 'only screen and (min-width: 600px)';
+$BREAKPOINT-MOBILE-LAND: 'only screen and (min-width: 480px)';
+
+/*|---------------|MIXINS|---------------*/
+
+@mixin margin-page {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+
+  @media #{$BREAKPOINT-DESK} {
+    max-width: 1000px;
+  }
+}
