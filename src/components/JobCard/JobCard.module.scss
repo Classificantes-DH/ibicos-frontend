@@ -1,0 +1,18 @@
+@import "./../../styles/scss/";
+
+.container {
+  @include displayFlex($direction: column, $align: center);
+  width: 62%;
+
+  border: 0.5px #262626 solid;
+  border-radius: 10px;
+
+  background-color: $ORANGE;
+
+  .logo {
+    width: 100%;
+
+    background-color: $WHITE;
+    border-radius: 9px 9px 0 0;
+  }
+}

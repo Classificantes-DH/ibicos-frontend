@@ -1,10 +1,22 @@
 /*|---------------|MIXINS|---------------*/
 
 @mixin margin-page {
-    width: calc(100% - 40px);
-    margin: 0 auto;
-  
-    @media #{$BREAKPOINT-DESK} {
-      max-width: 1000px;
-    }
+  width: calc(100% - 40px);
+  margin: 0 auto;
+
+  @media #{$BREAKPOINT-DESK} {
+    max-width: 1000px;
+  }
+}
+
+@mixin displayFlex(
+  $display: flex,
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch
+) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
 }
