@@ -1,8 +1,13 @@
 import React from "react";
-import { JobCard } from "../../components";
+import { JobCard, OrderByFilter } from "../../components";
 
 const ClassifiedAdsList = () => {
-  return <JobCard />;
+  return (
+    <>
+      <OrderByFilter />
+      <JobCard />
+    </>
+  );
 };
 
 export default ClassifiedAdsList;
