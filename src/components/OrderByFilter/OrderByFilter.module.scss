@@ -1,0 +1,40 @@
+@import "./../../styles/scss/index.scss";
+
+.container {
+  @include displayFlex($align: center, $justify: space-between);
+  height: 34px;
+
+  margin: 10px 0;
+
+  background-color: $SECONDARY_ORAGE;
+  border-radius: 5px;
+  box-shadow: 0 0 0.3px black;
+
+  .adsFoundContainer {
+    @include displayFlex();
+    font-size: 0.625rem;
+    margin-left: 5px;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .orderByContainer {
+    @include displayFlex($align: center);
+    font-size: 0.625rem;
+    margin-right: 5px;
+
+    select {
+      margin-left: 5px;
+      font-size: 0.8rem;
+      width: 140px;
+      height: 25px;
+      border: none;
+      border-radius: 2px;
+      appearance: none;
+      background: url(./../../resources/imgs/utilityIcons/drop-down.png) 96% /
+        7% no-repeat #eee;
+    }
+  }
+}
