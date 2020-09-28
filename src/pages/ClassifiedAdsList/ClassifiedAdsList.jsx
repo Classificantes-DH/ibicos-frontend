@@ -1,5 +1,5 @@
 import React from "react";
-import { JobCard } from "./../../components";
+import { JobCard } from "../../components";
 
 const ClassifiedAdsList = () => {
   return <JobCard />;
