@@ -1,18 +1,85 @@
 @import "./../../styles/scss/";
 
 .container {
-  @include displayFlex($direction: column, $align: center);
-  width: 62%;
-
-  border: 0.5px #262626 solid;
+  width: 70%;
+  border: 0.4px solid #a5a0a0;
   border-radius: 10px;
+
+  box-shadow: 0 0 2px #d6d5d5;
 
   background-color: $ORANGE;
 
-  .logo {
+  .logoContainer {
+    @include displayFlex($justify: center);
     width: 100%;
 
     background-color: $WHITE;
     border-radius: 9px 9px 0 0;
+    .jobLogo {
+      width: 229px;
+      height: 125.15px;
+
+      filter: invert(51%) sepia(54%) saturate(2738%) hue-rotate(0deg)
+        brightness(102%) contrast(103%);
+    }
+  }
+  .mainDescription {
+    @include displayFlex($align: center, $direction: column);
+    .title {
+      font-size: 1.3rem;
+    }
+
+    .title,
+    p {
+      font-weight: 400;
+      color: $WHITE;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
+  }
+  .jobDetails {
+    width: 95%;
+    margin: 0 auto;
+    .location {
+      margin: 5px 0;
+      .locationSpecific {
+        @include displayFlex($justify: space-between, $align: center);
+        .locationSpecificRegion {
+          @include displayFlex();
+        }
+
+        .icon {
+          width: 10px;
+        }
+
+        h4 {
+          margin-left: 10px;
+          font-size: 0.8rem;
+        }
+        p {
+          color: $WHITE;
+          font-size: 0.7rem;
+          font-weight: 400;
+
+          margin-right: 10px;
+        }
+      }
+    }
+    .description {
+      margin-bottom: 10px;
+      h4 {
+        font-size: 0.75rem;
+        font-weight: 800;
+      }
+      p {
+        font-size: 0.7rem;
+        font-weight: 500;
+
+        text-align: justify;
+        line-height: 12px;
+      }
+    }
   }
 }
