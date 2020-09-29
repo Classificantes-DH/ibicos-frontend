@@ -6,7 +6,7 @@
 
   margin: 10px 0;
 
-  background-color: $SECONDARY_ORAGE;
+  background-color: $SECONDARY_ORANGE;
   border-radius: 5px;
   box-shadow: 0 0 0.3px black;
 
@@ -30,11 +30,12 @@
       font-size: 0.8rem;
       width: 140px;
       height: 25px;
-      border: none;
-      border-radius: 2px;
-      appearance: none;
-      background: url(./../../resources/imgs/utilityIcons/drop-down.png) 96% /
-        7% no-repeat #eee;
+      //border: none;
+      //border-radius: 2px;
+      //appearance: none;
+      //background: url(./../../resources/imgs/utilityIcons/drop-down.png) 96% /
+      //  10px no-repeat #eee;
+      @include mainSelectPattern();
     }
   }
 }

@@ -1,11 +1,21 @@
 import React from "react";
-import { JobCard, OrderByFilter } from "../../components";
+import { JobCard, OrderByFilter, BroadFilter } from "../../components";
+
+import styles from "./ClassifiedAdsList.module.scss";
 
 const ClassifiedAdsList = () => {
   return (
     <>
       <OrderByFilter />
-      <JobCard />
+      <div className={styles.container}>
+        <BroadFilter />
+        <div className={styles.cardsContainer}>
+          <JobCard />
+          <JobCard />
+          <JobCard />
+          <JobCard />
+        </div>
+      </div>
     </>
   );
 };

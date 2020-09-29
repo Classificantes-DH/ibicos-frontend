@@ -1,10 +1,11 @@
 @import "./../../styles/scss/";
 
 .container {
-  width: 70%;
+  width: 100%;
   border: 0.4px solid #a5a0a0;
   border-radius: 10px;
 
+  margin-bottom: 10px;
   box-shadow: 0 0 2px #d6d5d5;
 
   background-color: $ORANGE;
@@ -55,15 +56,13 @@
         }
 
         h4 {
-          margin-left: 10px;
+          margin-left: 5px;
           font-size: 0.8rem;
         }
         p {
           color: $WHITE;
           font-size: 0.7rem;
           font-weight: 400;
-
-          margin-right: 10px;
         }
       }
     }

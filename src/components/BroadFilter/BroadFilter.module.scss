@@ -1,0 +1,47 @@
+@import "./../../styles/scss/index.scss";
+.container {
+  max-height: 34vh;
+  width: 33%;
+
+  background-color: $WHITE;
+  box-shadow: 0 0 1px rgb(175, 174, 174);
+  border: 1px solid hsl(0, 4%, 85%);
+  border-radius: 5px;
+
+  .header {
+    background-color: $SECONDARY_ORANGE;
+    border-radius: 5px 5px 0px 0px;
+    height: 30px;
+    @include displayFlex($align: center, $justify: center);
+
+    h3 {
+      color: $PURPLE;
+    }
+  }
+
+  .filtersContainer {
+    height: calc(100% - 30px);
+    @include displayFlex($direction: column, $justify: space-around);
+    .filter {
+      .filterTitle {
+        margin: 0 0 2px 5px;
+        font-size: 0.8rem;
+        color: $PURPLE;
+
+        span {
+          font-weight: 900;
+        }
+      }
+      .mainSelect {
+        @include mainSelectPattern();
+        width: 100px;
+        height: 25px;
+
+        margin-left: 5px;
+        font-size: 0.55rem;
+        border: 1px solid rgb(226, 223, 223);
+        box-shadow: 0 0 1px rgb(189, 184, 184);
+      }
+    }
+  }
+}

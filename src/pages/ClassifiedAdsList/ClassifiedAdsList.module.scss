@@ -1,0 +1,7 @@
+@import "./../../styles/scss/";
+.container {
+  @include displayFlex($justify: space-between);
+  .cardsContainer {
+    width: 65%;
+  }
+}
