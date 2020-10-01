@@ -11,46 +11,54 @@ const BroadFilter = () => (
         <h4 className={styles.filterTitle}>
           <span>{">"}</span> Categoria
         </h4>
-        <select className={styles.mainSelect}>
-          <option>Qualquer</option>
-          <option>Mecanico</option>
-          <option>Eletricista</option>
-          <option>Encanador</option>
-        </select>
+        <div className={styles.selectContainer}>
+          <select className={styles.mainSelect}>
+            <option>Qualquer</option>
+            <option>Mecanico</option>
+            <option>Eletricista</option>
+            <option>Encanador</option>
+          </select>
+        </div>
       </div>
       <div className={styles.filter}>
         <h4 className={styles.filterTitle}>
           <span>{">"}</span> Estado
         </h4>
-        <select className={styles.mainSelect}>
-          <option>Qualquer</option>
-          <option>São Paulo</option>
-          <option>Rio de Janeiro</option>
-          <option>Minas Gerais</option>
-          <option>Rio Grande do Sul</option>
-          <option>Mato Grosso do Sul</option>
-        </select>
+        <div className={styles.selectContainer}>
+          <select className={styles.mainSelect}>
+            <option>Qualquer</option>
+            <option>São Paulo</option>
+            <option>Rio de Janeiro</option>
+            <option>Minas Gerais</option>
+            <option>Rio Grande do Sul</option>
+            <option>Mato Grosso do Sul</option>
+          </select>
+        </div>
       </div>
       <div className={styles.filter}>
         <h4 className={styles.filterTitle}>
           <span>{">"}</span> Cidade
         </h4>
-        <select className={styles.mainSelect}>
-          <option>Qualquer</option>
-          <option>Mecanico</option>
-          <option>Eletricista</option>
-          <option>Encanador</option>
-        </select>
+        <div className={styles.selectContainer}>
+          <select className={styles.mainSelect}>
+            <option>Qualquer</option>
+            <option>Mecanico</option>
+            <option>Eletricista</option>
+            <option>Encanador</option>
+          </select>
+        </div>
       </div>
       <div className={styles.filter}>
         <h4 className={styles.filterTitle}>
           <span>{">"}</span> Região
         </h4>
-        <select className={styles.mainSelect}>
-          <option>Qualquer</option>
-          <option>Zona Sul</option>
-          <option>Zona Oeste</option>
-        </select>
+        <div className={styles.selectContainer}>
+          <select className={styles.mainSelect}>
+            <option>Qualquer</option>
+            <option>Zona Sul</option>
+            <option>Zona Oeste</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

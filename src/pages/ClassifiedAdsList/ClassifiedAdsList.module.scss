@@ -2,6 +2,14 @@
 .container {
   @include displayFlex($justify: space-between);
   .cardsContainer {
-    width: 65%;
+    @include displayFlex($wrap: wrap, $justify: flex-end);
+  }
+}
+
+@media only screen and (min-width: 754px) {
+  .container {
+    .cardsContainer {
+      justify-content: space-between;
+    }
   }
 }
