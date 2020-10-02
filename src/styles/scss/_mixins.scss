@@ -13,18 +13,13 @@
   $display: flex,
   $direction: row,
   $justify: flex-start,
-<<<<<<< HEAD
   $align: stretch,
   $wrap: nowrap
-=======
-  $align: stretch
->>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
 ) {
   display: $display;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
-<<<<<<< HEAD
   flex-wrap: $wrap;
 }
 
@@ -35,6 +30,4 @@
   appearance: none;
   border-radius: 2px;
   background: $iconUrl 96% / 10px no-repeat #eee;
-=======
->>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
 }
