@@ -3,9 +3,16 @@
 .container {
   @include displayFlex($align: center, $justify: space-between);
   height: 34px;
+<<<<<<< HEAD
   margin: 10px 0;
 
   background-color: $SECONDARY_ORANGE;
+=======
+
+  margin: 10px 0;
+
+  background-color: $SECONDARY_ORAGE;
+>>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
   border-radius: 5px;
   box-shadow: 0 0 0.3px black;
 
@@ -21,6 +28,7 @@
 
   .orderByContainer {
     @include displayFlex($align: center);
+<<<<<<< HEAD
     margin-right: 5px;
     font-size: 0.625rem;
 
@@ -100,6 +108,21 @@
         width: 17vw;
         font-size: 1.3rem;
       }
+=======
+    font-size: 0.625rem;
+    margin-right: 5px;
+
+    select {
+      margin-left: 5px;
+      font-size: 0.8rem;
+      width: 140px;
+      height: 25px;
+      border: none;
+      border-radius: 2px;
+      appearance: none;
+      background: url(./../../resources/imgs/utilityIcons/drop-down.png) 96% /
+        7% no-repeat #eee;
+>>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
     }
   }
 }

@@ -1,11 +1,18 @@
 @import "./../../styles/scss/";
 
 .container {
+<<<<<<< HEAD
   width: 95%;
   border: 0.4px solid #d6d5d5;
   border-radius: 10px;
 
   margin-bottom: 10px;
+=======
+  width: 70%;
+  border: 0.4px solid #a5a0a0;
+  border-radius: 10px;
+
+>>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
   box-shadow: 0 0 2px #d6d5d5;
 
   background-color: $ORANGE;
@@ -15,7 +22,11 @@
     width: 100%;
 
     background-color: $WHITE;
+<<<<<<< HEAD
     border-radius: 7px 7px 0 0;
+=======
+    border-radius: 9px 9px 0 0;
+>>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
     .jobLogo {
       width: 229px;
       height: 125.15px;
@@ -56,6 +67,7 @@
         }
 
         h4 {
+<<<<<<< HEAD
           margin-left: 5px;
           font-size: 0.8rem;
         }
@@ -63,6 +75,17 @@
           font-size: 0.7rem;
           font-weight: 400;
           color: $WHITE;
+=======
+          margin-left: 10px;
+          font-size: 0.8rem;
+        }
+        p {
+          color: $WHITE;
+          font-size: 0.7rem;
+          font-weight: 400;
+
+          margin-right: 10px;
+>>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
         }
       }
     }
@@ -82,6 +105,7 @@
     }
   }
 }
+<<<<<<< HEAD
 
 @media #{$BREAKPOINT-MOBILE-LAND} {
   .container {
@@ -147,3 +171,5 @@
     }
   }
 }
+=======
+>>>>>>> 291433b146fb23b2f7c47e17006702d27a6ed219
