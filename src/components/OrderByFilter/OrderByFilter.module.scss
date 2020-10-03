@@ -3,18 +3,16 @@
 .container {
   @include displayFlex($align: center, $justify: space-between);
   height: 34px;
-
   margin: 10px 0;
 
   background-color: $SECONDARY_ORANGE;
-
   border-radius: 5px;
   box-shadow: 0 0 0.3px black;
 
   .adsFoundContainer {
     @include displayFlex();
-    font-size: 0.625rem;
     margin-left: 5px;
+    font-size: 0.625rem;
 
     span {
       font-weight: bold;
@@ -31,8 +29,8 @@
 
       width: 40vw;
       height: 25px;
-
       margin-left: 5px;
+
       font-size: 0.8rem;
     }
   }
