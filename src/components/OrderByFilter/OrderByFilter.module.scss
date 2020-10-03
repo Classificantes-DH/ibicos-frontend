@@ -3,17 +3,16 @@
 .container {
   @include displayFlex($align: center, $justify: space-between);
   height: 34px;
-
   margin: 10px 0;
 
-  background-color: $SECONDARY_ORAGE;
+  background-color: $SECONDARY_ORANGE;
   border-radius: 5px;
   box-shadow: 0 0 0.3px black;
 
   .adsFoundContainer {
     @include displayFlex();
-    font-size: 0.625rem;
     margin-left: 5px;
+    font-size: 0.625rem;
 
     span {
       font-weight: bold;
@@ -22,19 +21,85 @@
 
   .orderByContainer {
     @include displayFlex($align: center);
-    font-size: 0.625rem;
     margin-right: 5px;
+    font-size: 0.625rem;
 
     select {
-      margin-left: 5px;
-      font-size: 0.8rem;
-      width: 140px;
+      @include mainSelectPattern();
+
+      width: 40vw;
       height: 25px;
-      border: none;
-      border-radius: 2px;
-      appearance: none;
-      background: url(./../../resources/imgs/utilityIcons/drop-down.png) 96% /
-        7% no-repeat #eee;
+      margin-left: 5px;
+
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    height: 40px;
+    .adsFoundContainer {
+      margin-left: 8%;
+      font-size: 0.8rem;
+    }
+    .orderByContainer {
+      margin-right: 1%;
+      font-size: 0.8rem;
+      p {
+        margin-right: 3vw;
+      }
+      select {
+        width: 30vw;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    height: 45px;
+    .orderByContainer {
+      select {
+        width: 25vw;
+      }
+    }
+  }
+}
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    height: 60px;
+    .adsFoundContainer {
+      font-size: 1.1rem;
+    }
+    .orderByContainer {
+      font-size: 1.1rem;
+      select {
+        width: 20vw;
+        height: 35px;
+
+        font-size: 1.15rem;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    height: 83px;
+    .adsFoundContainer {
+      font-size: 1.5rem;
+    }
+    .orderByContainer {
+      font-size: 1.5rem;
+      p {
+        margin-right: 1.5vw;
+      }
+      select {
+        width: 17vw;
+        font-size: 1.3rem;
+      }
     }
   }
 }
