@@ -1,0 +1,9 @@
+@import "./../../styles/scss/index.scss";
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    .cardsContainer {
+      @include displayFlex($wrap: wrap, $justify: space-around);
+    }
+  }
+}

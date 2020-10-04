@@ -6,3 +6,4 @@ export { default as RatingStars } from "./RatingStars/RatingStars";
 export { default as OrderByFilter } from "./OrderByFilter/OrderByFilter";
 export { default as BroadFilter } from "./BroadFilter/BroadFilter";
 export { default as IntroAdsList } from "./IntroAdsList/IntroAdsList";
+export { default as DashCard } from "./DashCard/DashCard";
