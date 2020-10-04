@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./Layout";
 import { Home, ClassifiedAdsList, ProviderSignup } from "./pages";
 
+import { FormSignupSuccessful } from "./components";
+
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
@@ -13,6 +15,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/listaClassificados" component={ClassifiedAdsList} />
             <Route path="/cadastroPrestador" component={ProviderSignup} />
+            <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
           </Switch>
         </Layout>
       </>

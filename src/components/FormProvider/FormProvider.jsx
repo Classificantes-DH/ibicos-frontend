@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import FormProviderDetails from "./FormProviderDetails";
 import FormProviderAddress from "./FormProviderAddress";
 import FormProviderRegionsServices from "./FormProviderRegionsServices";
-import FormSignupSuccessful from "../FormSignupSucessful/FormSignupSucessful";
 
 const FormProvider = ({
   currentStep,
@@ -43,7 +42,7 @@ const FormProvider = ({
       );
 
     default:
-      return <FormSignupSuccessful />;
+      return null;
   }
 };
 

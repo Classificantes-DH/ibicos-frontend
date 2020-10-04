@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 const useProviderSignupHook = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -19,7 +20,9 @@ const useProviderSignupHook = () => {
   const [services, setServices] = useState([{ serviceName: "Serviço Teste" }]);
   const [progressImg, setProgressImg] = useState("");
 
-  const maxStep = 4;
+  const history = useHistory();
+
+  const maxStep = 3;
 
   useEffect(() => {
     const fetchProgressImg = async () => {
@@ -36,6 +39,9 @@ const useProviderSignupHook = () => {
   const handleNextStep = () => {
     if (currentStep < maxStep) {
       setCurrentStep(currentStep + 1);
+    } else {
+      alert("cadastro efetuado com sucesso");
+      history.push("/cadastroSucesso");
     }
   };
 
@@ -51,11 +57,7 @@ const useProviderSignupHook = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({
-      ...fields,
-      regions: [...regions],
-      services: [...services],
-    });
+    handleNextStep();
   };
 
   const addRegion = () => {
