@@ -1,12 +1,5 @@
 /*|---------------| App Color Schema|---------------*/
 
-/* Just color examples to show how we can define
-  the color scheme of our app */
-
-$BLUE: #00376c;
-$PINK: #b51942;
-$GRAY: #707070;
-
 /* Main colors pallette */
 $ORANGE: #ff7a00;
 $BLACK: #262626;
@@ -14,7 +7,10 @@ $WHITE: #fff;
 $PURPLE: #5b074d;
 
 /* Secondary Colors */
-$SECONDARY_ORANGE: rgba(255, 122, 0, 0.75);
+$SECONDARY_ORANGE: rgba(255, 122, 0, 0.5);
+$TERCIARY_ORANGE: rgba(255, 122, 0, 0.25);
+$BACKGROUND_BODY: #f0f0f7;
+$BACKGROUND_INPUT: #f8f8fc;
 /*|---------------| BREAKPOINTS|---------------*/
 
 // Usage example:  @media #{$BREAKPOINT-DESK}
@@ -23,3 +19,4 @@ $BREAKPOINT-DESK: "only screen and (min-width: 1280px)";
 $BREAKPOINT-TABLET-LAND: "only screen and (min-width: 975px)";
 $BREAKPOINT-TABLET: "only screen and (min-width: 600px)";
 $BREAKPOINT-MOBILE-LAND: "only screen and (min-width: 480px)";
+$BREAKPOINT-MOBILE: "only screen and (min-width: 360px)";
