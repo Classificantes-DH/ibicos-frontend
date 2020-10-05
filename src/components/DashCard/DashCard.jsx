@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./DashCard.module.scss";
 import "./DashCardBackground.scss";
 
-// eslint-disable-next-line react/prop-types
 const DashCard = ({ cardType }) => (
   <div className={`${styles.container} background-sizing ${cardType}`}>
     <div className={styles.descriptionContainer}>
@@ -16,5 +16,9 @@ const DashCard = ({ cardType }) => (
     </div>
   </div>
 );
+
+DashCard.propTypes = {
+  cardType: PropTypes.string.isRequired,
+};
 
 export default DashCard;
