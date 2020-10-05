@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ibicos-frontend/precache-manifest.cbb07e6b25fd361f62ed51c3edec1b21.js"
+  "/ibicos-frontend/precache-manifest.133abf42e71ccef864a87656003caa2d.js"
 );
 
 self.addEventListener('message', (event) => {
