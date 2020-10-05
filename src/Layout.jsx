@@ -11,7 +11,7 @@ const Layout = (props) => {
     <>
       <Header />
       <main className="App">
-        <section className="App__content">{children}</section>
+        <section>{children}</section>
       </main>
       <Footer />
     </>

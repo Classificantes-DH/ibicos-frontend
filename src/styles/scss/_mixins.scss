@@ -1,7 +1,6 @@
 /*|---------------|MIXINS|---------------*/
 
 @mixin margin-page {
-  width: calc(100% - 20px);
   margin: 0 auto;
 
   @media #{$BREAKPOINT-DESK} {

@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./styles/scss/index.scss";
 
 import Layout from "./Layout";
-import { Home, ClassifiedAdsList, DashBoard } from "./pages";
+import { Home, ClassifiedAdsList, ProviderSignup, ClientSignup, DashBoard } from "./pages";
+
+import { FormSignupSuccessful } from "./components";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
             <Route path="/listaClassificados" component={ClassifiedAdsList} />
             <Route path="/clienteDashBoard" component={DashBoard} />
             <Route path="/prestadorDashBoard" component={DashBoard} />
+            <Route path="/cadastroPrestador" component={ProviderSignup} />
+            <Route path="/cadastroCliente" component={ClientSignup} />
+            <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
           </Switch>
         </Layout>
       </>
