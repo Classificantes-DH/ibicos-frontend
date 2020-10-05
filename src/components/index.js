@@ -6,3 +6,6 @@ export { default as RatingStars } from "./RatingStars/RatingStars";
 export { default as OrderByFilter } from "./OrderByFilter/OrderByFilter";
 export { default as BroadFilter } from "./BroadFilter/BroadFilter";
 export { default as IntroAdsList } from "./IntroAdsList/IntroAdsList";
+export { default as FormProvider } from "./FormProvider/FormProvider";
+export { default as FormClient } from "./FormClient/FormClient";
+export { default as FormSignupSuccessful } from "./FormSignupSuccessful/FormSignupSuccessful";
