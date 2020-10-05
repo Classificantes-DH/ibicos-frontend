@@ -1,0 +1,59 @@
+@import "./../../styles/scss/index.scss";
+.views {
+  background: url(./../../resources/imgs/styleSvgs/magnifying_dark_orange.svg)
+      no-repeat,
+    $PURPLE;
+}
+
+.contacts {
+  background: url(./../../resources/imgs/styleSvgs/mail_envelope_purple.svg)
+      no-repeat,
+    $ORANGE;
+}
+
+.services {
+  background: url(./../../resources/imgs/styleSvgs/qa_engineer.svg) no-repeat,
+    $PURPLE;
+}
+
+.ratings {
+  background: url(./../../resources/imgs/styleSvgs/triple_stars.svg) no-repeat,
+    $ORANGE;
+  background-size: 25%;
+}
+
+.background-sizing {
+  background-position: 98% 5px;
+  background-size: 40%;
+
+  .subcontainer-background-contacts,
+  .subcontainer-background-ratings {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .subcontainer-background-views,
+  .subcontainer-background-services {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .background-sizing {
+    background-position: 98% 15px;
+    background-size: 35%;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .background-sizing {
+    background-size: 35%;
+    background-position: 99% 10px;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .background-sizing {
+    background-size: 43%;
+    background-position: 98% 10px;
+  }
+}
