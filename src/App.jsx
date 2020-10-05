@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Layout from "./Layout";
-import { Home, ClassifiedAdsList, ProviderSignup, ClientSignup, DashBoard } from "./pages";
+
+import { Home, ClassifiedAdsList, ProviderSignup, ClientSignup, DashBoard, ProviderServices } from "./pages";
 
 import { FormSignupSuccessful } from "./components";
 
@@ -14,6 +15,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/listaClassificados" component={ClassifiedAdsList} />
+            <Route path="/listaServicos" component={ProviderServices} />
             <Route path="/clienteDashBoard" component={DashBoard} />
             <Route path="/prestadorDashBoard" component={DashBoard} />
             <Route path="/cadastroPrestador" component={ProviderSignup} />
