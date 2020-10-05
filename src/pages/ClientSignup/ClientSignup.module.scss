@@ -4,7 +4,7 @@
   @include displayFlex($justify: center, $align: center, $direction: column);
 
   border-radius: 1rem;
-  background-color: $TERCIARY_ORANGE;
+  background-color: $TERCIARY_PURPLE;
 }
 
 .container > .containerTitle {
@@ -40,7 +40,7 @@
 
   fieldset {
     input {
-      border: 1px solid $SECONDARY_ORANGE;
+      border: 1px solid $SECONDARY_PURPLE;
     }
 
     border: 0;
@@ -63,7 +63,7 @@
     button {
       background: none;
       border: 0;
-      color: $ORANGE;
+      color: $PURPLE;
       font: 700 1.6rem Poppins;
       cursor: pointer;
       transition: color 0.25s;
@@ -83,7 +83,7 @@
     margin-top: 1rem;
 
     .containerBackButton {
-      background: $PURPLE;
+      background: $ORANGE;
     }
   }
 
@@ -92,7 +92,7 @@
 
     width: 45%;
     height: 5rem;
-    background: $ORANGE;
+    background: $PURPLE;
     color: $WHITE;
     border: 0;
     border-radius: 0.8rem;
