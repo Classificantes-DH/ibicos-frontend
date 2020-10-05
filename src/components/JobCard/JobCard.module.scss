@@ -1,10 +1,11 @@
 @import "./../../styles/scss/";
 
 .container {
-  width: 70%;
-  border: 0.4px solid #a5a0a0;
-  border-radius: 10px;
+  width: 95%;
+  margin-bottom: 10px;
 
+  border: 0.4px solid #d6d5d5;
+  border-radius: 10px;
   box-shadow: 0 0 2px #d6d5d5;
 
   background-color: $ORANGE;
@@ -14,7 +15,7 @@
     width: 100%;
 
     background-color: $WHITE;
-    border-radius: 9px 9px 0 0;
+    border-radius: 7px 7px 0 0;
     .jobLogo {
       width: 229px;
       height: 125.15px;
@@ -55,15 +56,13 @@
         }
 
         h4 {
-          margin-left: 10px;
+          margin-left: 5px;
           font-size: 0.8rem;
         }
         p {
-          color: $WHITE;
           font-size: 0.7rem;
           font-weight: 400;
-
-          margin-right: 10px;
+          color: $WHITE;
         }
       }
     }
@@ -79,6 +78,71 @@
 
         text-align: justify;
         line-height: 12px;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    width: 80%;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    width: 65%;
+  }
+}
+
+@media only screen and (min-width: 754px) {
+  .container {
+    width: 49%;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    width: 48%;
+    .logoContainer {
+      .jobLogo {
+        width: 342.78px;
+        height: 188.97px;
+      }
+    }
+    .mainDescription {
+      .title {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    .jobDetails {
+      width: 90%;
+      .location {
+        .locationSpecific {
+          .icon {
+            width: 15px;
+          }
+          h4 {
+            font-size: 1rem;
+          }
+          p {
+            font-size: 0.8rem;
+          }
+        }
+      }
+      .description {
+        h4 {
+          font-size: 1.2rem;
+        }
+        p {
+          font-size: 0.9rem;
+          line-height: 15px;
+        }
       }
     }
   }
