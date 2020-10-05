@@ -27,7 +27,9 @@ const useProviderSignupHook = () => {
   useEffect(() => {
     const fetchProgressImg = async () => {
       const img = (
-        await import(`../resources/imgs/styleSvgs/pending_${currentStep}.svg`)
+        await import(
+          `../resources/imgs/styleSvgs/provider_signup_step_${currentStep}.svg`
+        )
       ).default;
 
       setProgressImg(img);
@@ -41,7 +43,10 @@ const useProviderSignupHook = () => {
       setCurrentStep(currentStep + 1);
     } else {
       alert("cadastro efetuado com sucesso");
-      history.push("/cadastroSucesso");
+      history.push({
+        pathname: "/cadastroSucesso",
+        state: { signupEntityType: "provider" },
+      });
     }
   };
 
