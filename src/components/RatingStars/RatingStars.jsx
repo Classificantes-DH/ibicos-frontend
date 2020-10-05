@@ -6,7 +6,7 @@ const RatingStars = () => {
     <ReactStars
       caption="Número de avaliações"
       count={5}
-      size={30}
+      size={20}
       color="white"
       activeColor="#5b074d"
       edit={false}

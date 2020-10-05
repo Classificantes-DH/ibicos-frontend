@@ -13,21 +13,10 @@
   $display: flex,
   $direction: row,
   $justify: flex-start,
-  $align: stretch,
-  $wrap: nowrap
+  $align: stretch
 ) {
   display: $display;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
-  flex-wrap: $wrap;
-}
-
-@mixin mainSelectPattern(
-  $iconUrl: url(../../resources/imgs/utilityIcons/drop-down.png)
-) {
-  border: none;
-  appearance: none;
-  border-radius: 2px;
-  background: $iconUrl 96% / 10px no-repeat #eee;
 }
