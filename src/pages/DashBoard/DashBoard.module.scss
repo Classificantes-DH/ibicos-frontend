@@ -1,9 +1,48 @@
 @import "./../../styles/scss/index.scss";
 
+.container {
+  margin: 5px 0;
+  .headerContainer {
+    margin: 10px 0;
+    h2 {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    .headerContainer {
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
+    .headerContainer {
+      margin: 15px 0;
+      margin-left: 1.4%;
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+
     .cardsContainer {
       @include displayFlex($wrap: wrap, $justify: space-around);
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    .headerContainer {
+      margin-left: 0.7%;
+      h2 {
+        font-size: 1.9rem;
+      }
     }
   }
 }

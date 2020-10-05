@@ -14,6 +14,7 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route path="/listaClassificados" component={ClassifiedAdsList} />
             <Route path="/clienteDashBoard" component={DashBoard} />
+            <Route path="/prestadorDashBoard" component={DashBoard} />
           </Switch>
         </Layout>
       </>

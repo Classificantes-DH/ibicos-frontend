@@ -2,16 +2,12 @@
 .container {
   @include displayFlex($direction: column, $justify: space-between);
   height: 45vw;
-  margin: 10px 0;
+  margin: 20px 0;
 
-  background: url(./../../resources/imgs/styleSvgs/magnifying_dark_orange.svg)
-      no-repeat,
-    $PURPLE;
-  background-position: 98% 60%;
-  background-size: 40%;
   font-weight: bold;
   color: $WHITE;
   border-radius: 6px;
+  box-shadow: 0 0 5px rgb(155, 149, 149);
 
   .descriptionContainer {
     @include displayFlex($direction: column, $align: center, $justify: center);
@@ -29,7 +25,6 @@
   .footerContainer {
     @include displayFlex($justify: center, $align: center);
     min-height: 30%;
-    background-color: rgba(255, 255, 255, 0.3);
     p {
       font-size: 1rem;
     }
@@ -38,8 +33,7 @@
 @media #{$BREAKPOINT-MOBILE-LAND} {
   .container {
     height: 40vw;
-    background-position: 98% 15px;
-    background-size: 35%;
+
     .descriptionContainer {
       h2 {
         font-size: 3rem;
@@ -59,8 +53,7 @@
 @media #{$BREAKPOINT-TABLET} {
   .container {
     height: 37vw;
-    background-size: 35%;
-    background-position: 99% 10px;
+
     .descriptionContainer {
       h2 {
         font-size: 3.4rem;
@@ -81,9 +74,7 @@
   .container {
     width: 30%;
     height: 15vw;
-
-    background-size: 43%;
-    background-position: 98% 10px;
+    margin: 10px 0;
     .descriptionContainer {
       h2 {
         margin-top: 1px;
