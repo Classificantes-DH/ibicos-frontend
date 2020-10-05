@@ -1,0 +1,96 @@
+@import "../../styles/scss/";
+
+:export {
+  orangeBg: $TERCIARY_ORANGE;
+  purpleBg: $TERCIARY_PURPLE;
+}
+
+.container {
+  @include displayFlex($justify: center, $align: center, $direction: column);
+
+  height: 100vh;
+
+  border-radius: 1rem;
+
+  p {
+    font: 700 2rem Poppins;
+  }
+}
+
+.container > .successIndicator {
+  @include displayFlex($justify: center, $align: center, $direction: column);
+
+  .successBanner {
+    @include displayFlex($justify: center, $align: center);
+
+    background-color: #0ead69;
+    width: 33vw;
+    height: 11vh;
+    border-radius: 1em;
+    color: $WHITE;
+
+    width: 100%;
+  }
+
+  .message {
+    @include displayFlex($justify: center, $align: center);
+
+    width: 100%;
+  }
+
+  width: 100%;
+}
+
+.container > .sucessImage {
+  @include displayFlex($justify: center, $align: center, $direction: column);
+
+  img {
+    width: 80vw;
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE} {
+  .container > .successIndicator {
+    padding: 0rem 3rem 0rem 3rem;
+
+    .message {
+      margin-top: 3vh;
+    }
+  }
+
+  .container > .sucessImage {
+    margin-top: 3vh;
+
+    img {
+      width: 80vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container > .sucessImage {
+    img {
+      width: 80vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container > .successIndicator {
+    padding: 0rem 3rem 0rem 3rem;
+
+    .message {
+      margin-top: 3vh;
+    }
+  }
+
+  .container > .sucessImage {
+    margin-top: 3vh;
+
+    img {
+      width: 60vw;
+      min-width: 400px;
+      max-width: 620px;
+    }
+  }
+}

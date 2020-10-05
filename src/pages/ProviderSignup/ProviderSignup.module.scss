@@ -1,0 +1,129 @@
+@import "../../styles/scss/";
+
+.container {
+  @include displayFlex($justify: center, $align: center, $direction: column);
+
+  border-radius: 1rem;
+  background-color: $TERCIARY_ORANGE;
+}
+
+.container > .containerTitle {
+  @include displayFlex(
+    $justify: center,
+    $align: flex-start,
+    $direction: column
+  );
+
+  p {
+    font: 700 1.6rem Poppins;
+  }
+
+  width: 100%;
+  padding: 2rem 2.5rem 2rem 2.5rem;
+}
+
+.container > .containerProgressImg {
+  @include displayFlex($justify: center, $align: center, $direction: column);
+
+  width: 100%;
+  padding: 2.5rem;
+
+  img {
+    width: 80vw;
+  }
+}
+
+.container > .containerForm {
+  width: 100%;
+  max-width: 74rem;
+  overflow: hidden;
+
+  fieldset {
+    input {
+      border: 1px solid $SECONDARY_ORANGE;
+    }
+
+    border: 0;
+    padding: 2.5rem;
+  }
+
+  fieldset + fieldset {
+    margin-top: 2rem;
+  }
+
+  fieldset legend {
+    font: 700 2rem Poppins;
+    color: $BLACK;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid $BLACK;
+
+    button {
+      background: none;
+      border: 0;
+      color: $ORANGE;
+      font: 700 1.6rem Poppins;
+      cursor: pointer;
+      transition: color 0.25s;
+    }
+  }
+
+  footer {
+    @include displayFlex(
+      $align: center,
+      $justify: space-around,
+      $direction: row,
+      $wrap: wrap
+    );
+
+    padding: 2rem 2.4rem 2rem 2.4rem;
+    border-top: 1px solid $BLACK;
+    margin-top: 1rem;
+
+    .containerBackButton {
+      background: $PURPLE;
+    }
+  }
+
+  footer button {
+    @include displayFlex($align: center, $justify: center);
+
+    width: 45%;
+    height: 5rem;
+    background: $ORANGE;
+    color: $WHITE;
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 1.5rem Poppins;
+    text-decoration: none;
+    transition: background-color 0.25s;
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE} {
+  .container > .containerProgressImg {
+    img {
+      width: 80vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container > .containerProgressImg {
+    img {
+      width: 60vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container > .containerProgressImg {
+    img {
+      width: 40vw;
+      max-width: 450px;
+    }
+  }
+}
