@@ -1,12 +1,16 @@
 @import "../../styles/scss/";
 
+:export {
+  orangeBg: $TERCIARY_ORANGE;
+  purpleBg: $TERCIARY_PURPLE;
+}
+
 .container {
   @include displayFlex($justify: center, $align: center, $direction: column);
 
   height: 100vh;
 
   border-radius: 1rem;
-  background-color: $TERCIARY_ORANGE;
 
   p {
     font: 700 2rem Poppins;
