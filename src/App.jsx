@@ -3,7 +3,16 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Layout from "./Layout";
 
-import { Home, ClassifiedAdsList, ProviderSignup, ClientSignup, DashBoard, ProviderServices } from "./pages";
+import {
+  Home,
+  ClassifiedAdsList,
+  ProviderSignup,
+  ClientSignup,
+  DashBoard,
+  ProviderServices,
+  ClientProfile,
+  ProviderProfile,
+} from "./pages";
 
 import { FormSignupSuccessful } from "./components";
 
@@ -21,6 +30,8 @@ function App() {
             <Route path="/cadastroPrestador" component={ProviderSignup} />
             <Route path="/cadastroCliente" component={ClientSignup} />
             <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
+            <Route path="/clientePerfil" component={ClientProfile} />
+            <Route path="/prestadorPerfil" component={ProviderProfile} />
           </Switch>
         </Layout>
       </>
