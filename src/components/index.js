@@ -10,3 +10,4 @@ export { default as DashCard } from "./DashCard/DashCard";
 export { default as FormProvider } from "./FormProvider/FormProvider";
 export { default as FormClient } from "./FormClient/FormClient";
 export { default as FormSignupSuccessful } from "./FormSignupSuccessful/FormSignupSuccessful";
+export { default as CardModal } from "./CardModal/CardModal";
