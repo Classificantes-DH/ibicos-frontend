@@ -10,10 +10,10 @@ import styles from "./ClassifiedAdsList.module.scss";
 
 const ClassifiedAdsList = () => {
   return (
-    <>
+    <div className={styles.container}>
       <IntroAdsList />
       <OrderByFilter />
-      <div className={styles.container}>
+      <div className={styles.mainContentcontainer}>
         <BroadFilter />
         <div className={styles.cardsContainer}>
           <ModalHolder />
@@ -22,7 +22,7 @@ const ClassifiedAdsList = () => {
           <ModalHolder />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

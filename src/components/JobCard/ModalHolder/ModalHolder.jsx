@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import styles from "./ModalHolder.module.scss";
 import { JobCard, Modal } from "../../index";
+
+// TO REFACTOR
+import FormModal from "./FormModal/FormModal";
+import OccasionalModal from "./OccasionalModal/OccasionalModal";
 
 const TEST_CSS = {
   cursor: "pointer",
@@ -8,6 +11,8 @@ const TEST_CSS = {
 
 const ModalHolder = () => {
   const [isModalOpen, setIsOpen] = useState(false);
+  const [isFormSent, setIsFormSent] = useState(false);
+  const [isSuccessfullySent, setIsSuccessfullySent] = useState(false);
 
   const handleModalOpen = () => {
     setIsOpen(true);
@@ -16,17 +21,25 @@ const ModalHolder = () => {
   const handleModalClose = () => {
     setIsOpen(false);
   };
+
+  const handleFormSent = () => {
+    setIsFormSent(!isFormSent);
+    setIsSuccessfullySent(isSuccessfullySent);
+  };
+
   return (
     <>
-      {/* <Modal isModalOpen={isModalOpen} handleModalClose={handleModalClose}> */}
       <Modal isModalOpen={isModalOpen}>
-        <div className={styles.contentContainer}>
-          <p>Children do modal</p>
-          <button onClick={handleModalClose} type="button">
-            Click to close
-          </button>
-          <p>Eu sou um modal</p>
-        </div>
+        <FormModal
+          handleModalClose={handleModalClose}
+          handleFormSent={handleFormSent}
+        />
+      </Modal>
+      <Modal isModalOpen={!isModalOpen && isFormSent}>
+        <OccasionalModal
+          handleFormSent={handleFormSent}
+          isSuccessfullySent={isSuccessfullySent}
+        />
       </Modal>
       <div
         style={TEST_CSS}
