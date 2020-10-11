@@ -1,42 +1,15 @@
-import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import React from "react";
+
 import styles from "./JobCard.module.scss";
 
 import mechanicLogo from "../../resources/imgs/jobIcons/plumber.svg";
 import mapIcon from "../../resources/imgs/utilityIcons/map-location.svg";
-import { RatingStars, CardModal } from "../index";
+import { RatingStars } from "../index";
 
 const JobCard = () => {
-  const [isModalOpen, setIsOpen] = useState(false);
-
-  const handleModalOpen = () => {
-    setIsOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsOpen(false);
-  };
   return (
     <>
-      <Switch>
-        <Route
-          path="/listaClassificados"
-          render={() => (
-            <CardModal
-              isModalOpen={isModalOpen}
-              handleModalClose={handleModalClose}
-            />
-          )}
-        />
-      </Switch>
-
-      <div
-        className={styles.container}
-        onClick={handleModalOpen}
-        role="button"
-        onKeyPress={handleModalOpen}
-        tabIndex={0}
-      >
+      <div className={styles.container}>
         <div className={styles.logoContainer}>
           <img src={mechanicLogo} alt="Job Logo" className={styles.jobLogo} />
         </div>

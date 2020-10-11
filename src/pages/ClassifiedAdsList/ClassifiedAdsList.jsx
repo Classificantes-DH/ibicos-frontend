@@ -1,9 +1,9 @@
 import React from "react";
 import {
-  JobCard,
   OrderByFilter,
   BroadFilter,
   IntroAdsList,
+  ModalHolder,
 } from "../../components";
 
 import styles from "./ClassifiedAdsList.module.scss";
@@ -16,10 +16,10 @@ const ClassifiedAdsList = () => {
       <div className={styles.container}>
         <BroadFilter />
         <div className={styles.cardsContainer}>
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
+          <ModalHolder />
+          <ModalHolder />
+          <ModalHolder />
+          <ModalHolder />
         </div>
       </div>
     </>
