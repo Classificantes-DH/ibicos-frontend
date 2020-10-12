@@ -1,0 +1,78 @@
+@import "./../../../../styles/scss/index.scss";
+.container {
+  .contentContainer {
+    margin: 16px;
+    .btnContainer {
+      position: relative;
+      button {
+        position: relative;
+        left: 86%;
+        width: 40px;
+        height: 40px;
+
+        cursor: pointer;
+        background-color: $PURPLE;
+        color: $WHITE;
+        font-weight: bold;
+        font-size: 1.5rem;
+
+        border: none;
+        border-radius: 50%;
+      }
+    }
+    .introContent {
+      margin: 15px 0;
+      p {
+        font-size: 1.2rem;
+      }
+    }
+
+    .formContainer {
+      min-height: 204px;
+      @include displayFlex(
+        $direction: column,
+        $justify: space-between,
+        $align: center
+      );
+      textarea {
+        resize: none;
+        height: 137px;
+        width: 100%;
+        font-size: 1.1rem;
+      }
+
+      button {
+        width: 154px;
+        height: 42px;
+        background-color: $ORANGE;
+        border: none;
+        border-radius: 10px;
+        color: $WHITE;
+        font-weight: bolder;
+        font-size: 1rem;
+      }
+    }
+
+    .contactInfoContainer {
+      margin: 20px 0;
+      h2 {
+        font-size: 1.5rem;
+      }
+      &,
+      .contact {
+        @include displayFlex(
+          $justify: space-between,
+          $direction: column,
+          $align: center
+        );
+      }
+
+      .contact {
+        margin: 10px 0;
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
