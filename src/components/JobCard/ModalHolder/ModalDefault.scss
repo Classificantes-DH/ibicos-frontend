@@ -1,12 +1,29 @@
+@import "./../../../styles/scss/index.scss";
+
 .container {
-  background-color: white;
-  width: 95vw;
   height: 95vh;
-  // overflow-y: hidden;
+  width: 95vw;
+
+  background-color: white;
   border-radius: 10px;
   border: 1px solid rgba(160, 160, 160, 0.6);
 }
 
-// body {
-//   overflow-y: hidden;
-// }
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    width: 90vw;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    width: 75vw;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    height: 636px;
+    width: 742px;
+  }
+}

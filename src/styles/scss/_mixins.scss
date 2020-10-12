@@ -30,3 +30,10 @@
   border-radius: 2px;
   background: $iconUrl 96% / 10px no-repeat #eee;
 }
+
+@mixin defaultButton($bg-color: $ORANGE, $color: $WHITE, $radius: 10px) {
+  background-color: $bg-color;
+  border: none;
+  border-radius: $radius;
+  color: $color;
+}
