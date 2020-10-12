@@ -7,25 +7,41 @@ import failModalIcon from "../../../../resources/imgs/styleSvgs/fail_sad_orange.
 
 const OccasionalModal = ({ handleFormSent, isSuccessfullySent }) => {
   return (
-    <div className={`${styles.contentContainer} container`}>
-      <button onClick={handleFormSent} type="button">
-        Click to close
-      </button>
-      {isSuccessfullySent ? (
-        <>
-          <p>Ops!</p>
-          <p>Algo deu errado, tente novamente mais tarde!</p>
-          <img src={failModalIcon} alt="Falha no envio da mensagem" />{" "}
-        </>
-      ) : (
-        <>
-          <p>Email Enviado com sucesso!</p>
-          <img src={emailSuccessIcon} alt="Email enviado com sucesso" />
-        </>
-      )}
-      <button onClick={handleFormSent} type="button">
-        Continue procurando profissionais!
-      </button>
+    <div className={`${styles.container} container`}>
+      <div className={styles.contentContainer}>
+        <div className={styles.btnContainer}>
+          <button
+            onClick={handleFormSent}
+            type="button"
+            className={styles.closeBtn}
+          >
+            X
+          </button>
+        </div>
+        <div className={styles.mainContent}>
+          {isSuccessfullySent ? (
+            <div className={styles.infoContainer}>
+              <img src={failModalIcon} alt="Falha no envio da mensagem" />{" "}
+              <p>Ops!</p>
+              <p>Algo deu errado, tente novamente mais tarde!</p>
+            </div>
+          ) : (
+            <div className={styles.infoContainer}>
+              <img src={emailSuccessIcon} alt="Email enviado com sucesso" />
+              <p>Email Enviado com sucesso!</p>
+            </div>
+          )}
+          <div className={styles.btnContainer}>
+            <button
+              onClick={handleFormSent}
+              type="button"
+              className={styles.keepSearchingBtn}
+            >
+              Encontrar mais profissionais
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
