@@ -3,7 +3,7 @@ import {
   OrderByFilter,
   BroadFilter,
   IntroAdsList,
-  ModalHolder,
+  JobCardModalHolder,
 } from "../../components";
 
 import styles from "./ClassifiedAdsList.module.scss";
@@ -16,10 +16,10 @@ const ClassifiedAdsList = () => {
       <div className={styles.mainContentcontainer}>
         <BroadFilter />
         <div className={styles.cardsContainer}>
-          <ModalHolder />
-          <ModalHolder />
-          <ModalHolder />
-          <ModalHolder />
+          <JobCardModalHolder />
+          <JobCardModalHolder />
+          <JobCardModalHolder />
+          <JobCardModalHolder />
         </div>
       </div>
     </div>

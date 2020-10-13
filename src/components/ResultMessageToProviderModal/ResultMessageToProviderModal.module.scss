@@ -1,4 +1,4 @@
-@import "./../../../../styles/scss/index.scss";
+@import "./../../styles/scss/index.scss";
 .container {
   .contentContainer {
     margin: 16px;
@@ -12,6 +12,7 @@
         position: relative;
         left: 85%;
 
+        cursor: pointer;
         font-size: 1.5rem;
       }
     }
@@ -44,6 +45,7 @@
           width: 250px;
           height: 43px;
           font-weight: bold;
+          cursor: pointer;
         }
       }
     }

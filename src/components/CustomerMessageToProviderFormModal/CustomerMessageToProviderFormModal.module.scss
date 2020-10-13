@@ -1,7 +1,7 @@
-@import "./../../../../styles/scss/index.scss";
+@import "./../../styles/scss/index.scss";
 
-$SMARTPHONE_CHAT_SVG: url(./../../../../resources/imgs/styleSvgs/two_people_chat_smartphone.svg);
-$BACKGROUND_FILLER: url(./../../../../resources/imgs/styleSvgs/background_filler_light_purple.svg);
+$SMARTPHONE_CHAT_SVG: url(./../../resources/imgs/styleSvgs/two_people_chat_smartphone.svg);
+$BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light_purple.svg);
 .container {
   .contentContainer {
     margin: 16px;

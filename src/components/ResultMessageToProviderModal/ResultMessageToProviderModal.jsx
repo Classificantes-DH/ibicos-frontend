@@ -1,17 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./OccasionalModal.module.scss";
-import "../ModalDefault.scss";
-import emailSuccessIcon from "../../../../resources/imgs/styleSvgs/email_success.svg";
-import failModalIcon from "../../../../resources/imgs/styleSvgs/fail_sad_orange.svg";
+import styles from "./ResultMessageToProviderModal.module.scss";
 
-const OccasionalModal = ({ handleFormSent, isSuccessfullySent }) => {
+import defaultModalStyle from "../JobCardModalHolder/JobCardModalDefault.module.scss";
+import emailSuccessIcon from "../../resources/imgs/styleSvgs/email_success.svg";
+import failIcon from "../../resources/imgs/styleSvgs/fail_sad_orange.svg";
+
+const ResultMessageToProviderModal = ({
+  handleOccasionalModalsReset,
+  hasError,
+}) => {
   return (
-    <div className={`${styles.container} container`}>
+    <div className={`${styles.container} ${defaultModalStyle.container}`}>
       <div className={styles.contentContainer}>
         <div className={styles.btnContainer}>
           <button
-            onClick={handleFormSent}
+            onClick={handleOccasionalModalsReset}
             type="button"
             className={styles.closeBtn}
           >
@@ -19,9 +23,9 @@ const OccasionalModal = ({ handleFormSent, isSuccessfullySent }) => {
           </button>
         </div>
         <div className={styles.mainContent}>
-          {isSuccessfullySent ? (
+          {hasError ? (
             <div className={styles.infoContainer}>
-              <img src={failModalIcon} alt="Falha no envio da mensagem" />{" "}
+              <img src={failIcon} alt="Falha no envio da mensagem" />{" "}
               <p>Ops!</p>
               <p>Algo deu errado, tente novamente mais tarde!</p>
             </div>
@@ -33,7 +37,7 @@ const OccasionalModal = ({ handleFormSent, isSuccessfullySent }) => {
           )}
           <div className={styles.btnContainer}>
             <button
-              onClick={handleFormSent}
+              onClick={handleOccasionalModalsReset}
               type="button"
               className={styles.keepSearchingBtn}
             >
@@ -46,9 +50,9 @@ const OccasionalModal = ({ handleFormSent, isSuccessfullySent }) => {
   );
 };
 
-OccasionalModal.propTypes = {
-  handleFormSent: PropTypes.func.isRequired,
-  isSuccessfullySent: PropTypes.bool.isRequired,
+ResultMessageToProviderModal.propTypes = {
+  handleOccasionalModalsReset: PropTypes.func.isRequired,
+  hasError: PropTypes.bool.isRequired,
 };
 
-export default OccasionalModal;
+export default ResultMessageToProviderModal;
