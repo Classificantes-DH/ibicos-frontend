@@ -6,7 +6,7 @@ import {
   CustomerMessageToProviderFormModal,
 } from "../index";
 
-import useModalFormHooks from "../../hooks/useModalFormHooks";
+import useModalFormHook from "../../hooks/useModalFormHook";
 
 import styles from "./JobCardModalHolder.module.scss";
 
@@ -24,7 +24,7 @@ const JobCardModalHolder = () => {
     handleChangeInputMessage,
     handleSendMessage,
     handleOccasionalModalsReset,
-  } = useModalFormHooks();
+  } = useModalFormHook();
 
   return (
     <>

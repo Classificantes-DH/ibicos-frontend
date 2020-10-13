@@ -85,7 +85,6 @@
 
 @media #{$BREAKPOINT-MOBILE-LAND} {
   .container {
-    // width: 80%;
     width: 53vw;
   }
 }
@@ -93,20 +92,17 @@
 @media #{$BREAKPOINT-TABLET} {
   .container {
     width: 42vw;
-    // width: 65%;
   }
 }
 
 @media only screen and (min-width: 754px) {
   .container {
-    // width: 49%;
     width: 32vw;
   }
 }
 
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
-    // width: 48%;
     width: 32vw;
     .logoContainer {
       .jobLogo {
@@ -153,7 +149,6 @@
 }
 @media #{$BREAKPOINT-DESK} {
   .container {
-    // width: 48%;
     width: 335px;
   }
 }
