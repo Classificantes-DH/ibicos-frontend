@@ -1,7 +1,7 @@
 @import "./../../styles/scss/index.scss";
 
 .container {
-  margin: 5px 0;
+  margin: 5px 10px;
   .headerContainer {
     margin: 10px 0;
     h2 {
@@ -22,6 +22,7 @@
 
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
+    margin: 5px 0;
     .headerContainer {
       margin: 15px 0;
       margin-left: 1.4%;

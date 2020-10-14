@@ -26,7 +26,7 @@ const useModalFormHooks = () => {
       }
       resolve("Message Successfully sent!");
     })
-      .then(setIsMessageSuccessfullySent(true))
+      .then(() => setIsMessageSuccessfullySent(true))
       .catch((e) => {
         console.log(e);
         setHasError(true);

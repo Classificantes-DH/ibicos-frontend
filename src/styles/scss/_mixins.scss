@@ -9,13 +9,12 @@
 }
 
 @mixin displayFlex(
-  $display: flex,
-  $direction: row,
-  $justify: flex-start,
-  $align: stretch,
-  $wrap: nowrap
+  $direction: null,
+  $justify: null,
+  $align: null,
+  $wrap: null
 ) {
-  display: $display;
+  display: flex;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
@@ -31,9 +30,14 @@
   background: $iconUrl 96% / 10px no-repeat #eee;
 }
 
-@mixin defaultButton($bg-color: $ORANGE, $color: $WHITE, $radius: 10px) {
+@mixin defaultButton(
+  $bg-color: $ORANGE,
+  $color: $WHITE,
+  $radius: 10px,
+  $border: none
+) {
   background-color: $bg-color;
-  border: none;
+  border: $border;
   border-radius: $radius;
   color: $color;
 }
