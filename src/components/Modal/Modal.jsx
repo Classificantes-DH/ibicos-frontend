@@ -15,19 +15,20 @@ const Modal = ({ isModalOpen, children }) => {
   }, [isModalOpen]);
 
   const nodeRef = useRef(null);
-  if (!isModalOpen) return null;
 
   return ReactDOM.createPortal(
     <CSSTransition
       nodeRef={nodeRef}
-      timeout={300}
+      timeout={200}
       in={isModalOpen}
       classNames="fade"
       unmountOnExit
       appear
     >
-      <div className={styles.container} ref={nodeRef}>
-        <div className={styles.contentContainer}>{children}</div>
+      <div className={styles.container}>
+        <div className={styles.contentContainer} ref={nodeRef}>
+          {children}
+        </div>
       </div>
     </CSSTransition>,
     document.getElementById("modal-portal")

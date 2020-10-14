@@ -16,7 +16,8 @@ const useModalFormHooks = () => {
     setHasError(false);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = (event) => {
+    event.preventDefault();
     new Promise((resolve, reject) => {
       const backendResult = Math.floor(Math.random() * 2 + 1);
       console.log("sending to the backend:", inputMessage);

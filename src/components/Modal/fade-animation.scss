@@ -1,36 +1,30 @@
-/*{#TODO: Review what is actually needed}*/
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms ease-in;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-
 .fade-appear {
   opacity: 0.01;
+  .fade-appear-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out;
+  }
 }
 
-.fade-appear.fade-appear-active {
+// Component mount animation
+.fade-enter {
+  opacity: 0.1;
+  transform: scale(0.1);
+}
+
+.fade-enter-active {
   opacity: 1;
-  transition: opacity 0.3s ease-in;
+  transform: translateX(0);
+  transition: opacity 500ms, transform 500ms;
 }
 
+// Component unmout animation
 .fade-exit {
   opacity: 1;
 }
+
 .fade-exit-active {
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
+  transform: scale(0.1);
+  transition: opacity 500ms, transform 500ms;
 }

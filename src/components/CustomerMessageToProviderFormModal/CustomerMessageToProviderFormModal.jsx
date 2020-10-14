@@ -28,9 +28,9 @@ const CustomerMessageToProviderFormModal = ({
         </div>
         <form
           className={styles.formContainer}
-          onSubmit={() => {
+          onSubmit={(event) => {
             handleModalEvent();
-            handleSendMessage();
+            handleSendMessage(event);
           }}
         >
           <textarea
