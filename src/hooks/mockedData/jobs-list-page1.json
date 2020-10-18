@@ -7,58 +7,58 @@
       "category": "Mecânico",
       "evaluations": 10,
       "rate": 4.5,
-      "state": "São Paulo",
+      "state": "SP",
       "cities": [
-        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
-        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+        { "name": "São Paulo", "regions": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "regions": ["Zona Leste", "Zona Oeste"] }
       ],
       "description": "Descrição do meu serviço"
     },
     {
       "id": 2,
-      "category": "Mecânico",
-      "evaluations": 10,
-      "rate": 4.5,
-      "state": "São Paulo",
+      "category": "Eletricista",
+      "evaluations": 30,
+      "rate": 2,
+      "state": "SP",
       "cities": [
-        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
-        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+        { "name": "São Paulo", "regions": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "regions": ["Zona Leste", "Zona Oeste"] }
       ],
-      "description": "Descrição do meu serviço"
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos facilis repudiandae assumenda consequuntur sed a earum laboriosam harum consequatur voluptate. Ut voluptas iure perferendis aspernatur."
     },
     {
       "id": 3,
-      "category": "Mecânico",
-      "evaluations": 10,
-      "rate": 4.5,
-      "state": "São Paulo",
+      "category": "Encanador",
+      "evaluations": 5,
+      "rate": 3,
+      "state": "SP",
       "cities": [
-        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
-        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+        { "name": "São Paulo", "regions": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "regions": ["Zona Leste", "Zona Oeste"] }
       ],
       "description": "Descrição do meu serviço"
     },
     {
       "id": 4,
-      "category": "Mecânico",
-      "evaluations": 10,
-      "rate": 4.5,
-      "state": "São Paulo",
+      "category": "Encanador",
+      "evaluations": 33,
+      "rate": 2,
+      "state": "SP",
       "cities": [
-        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
-        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+        { "name": "São Paulo", "regions": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "regions": ["Zona Leste", "Zona Oeste"] }
       ],
-      "description": "Descrição do meu serviço"
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sint?"
     },
     {
       "id": 5,
       "category": "Mecânico",
       "evaluations": 10,
-      "rate": 4.5,
-      "state": "São Paulo",
+      "rate": 1,
+      "state": "SP",
       "cities": [
-        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
-        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+        { "name": "São Paulo", "regions": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "regions": ["Zona Leste", "Zona Oeste"] }
       ],
       "description": "Descrição do meu serviço"
     },
@@ -67,10 +67,10 @@
       "category": "Mecânico",
       "evaluations": 10,
       "rate": 4.5,
-      "state": "São Paulo",
+      "state": "SP",
       "cities": [
-        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
-        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+        { "name": "São Paulo", "regions": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "regions": ["Zona Leste", "Zona Oeste"] }
       ],
       "description": "Descrição do meu serviço"
     }

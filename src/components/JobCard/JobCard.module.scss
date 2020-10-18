@@ -43,12 +43,26 @@
   .jobDetails {
     width: 95%;
     margin: 0 auto;
+
     .location {
       margin: 5px 0;
+
       .locationSpecific {
-        @include displayFlex($justify: space-between, $align: center);
+        @include displayFlex($justify: space-between, $align: flex-start);
+        margin: 10px 0;
+
         .locationSpecificRegion {
           @include displayFlex();
+        }
+
+        .locationList {
+          list-style: none;
+          text-align: end;
+          li {
+            color: $WHITE;
+            font-size: 0.7rem;
+            font-weight: 500;
+          }
         }
 
         .icon {
@@ -59,19 +73,16 @@
           margin-left: 5px;
           font-size: 0.8rem;
         }
-        p {
-          font-size: 0.7rem;
-          font-weight: 400;
-          color: $WHITE;
-        }
       }
     }
     .description {
       margin-bottom: 10px;
+
       h4 {
         font-size: 0.75rem;
         font-weight: 800;
       }
+
       p {
         font-size: 0.7rem;
         font-weight: 500;
@@ -126,6 +137,11 @@
         .locationSpecific {
           .icon {
             width: 15px;
+          }
+          .locationList {
+            li {
+              font-size: 0.8rem;
+            }
           }
           h4 {
             font-size: 1rem;
