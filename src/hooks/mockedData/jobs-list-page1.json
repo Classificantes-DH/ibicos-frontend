@@ -1,0 +1,78 @@
+{
+  "next": "next-page",
+  "previous": "previous-page",
+  "results": [
+    {
+      "id": 1,
+      "category": "Mecânico",
+      "evaluations": 10,
+      "rate": 4.5,
+      "state": "São Paulo",
+      "cities": [
+        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+      ],
+      "description": "Descrição do meu serviço"
+    },
+    {
+      "id": 2,
+      "category": "Mecânico",
+      "evaluations": 10,
+      "rate": 4.5,
+      "state": "São Paulo",
+      "cities": [
+        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+      ],
+      "description": "Descrição do meu serviço"
+    },
+    {
+      "id": 3,
+      "category": "Mecânico",
+      "evaluations": 10,
+      "rate": 4.5,
+      "state": "São Paulo",
+      "cities": [
+        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+      ],
+      "description": "Descrição do meu serviço"
+    },
+    {
+      "id": 4,
+      "category": "Mecânico",
+      "evaluations": 10,
+      "rate": 4.5,
+      "state": "São Paulo",
+      "cities": [
+        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+      ],
+      "description": "Descrição do meu serviço"
+    },
+    {
+      "id": 5,
+      "category": "Mecânico",
+      "evaluations": 10,
+      "rate": 4.5,
+      "state": "São Paulo",
+      "cities": [
+        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+      ],
+      "description": "Descrição do meu serviço"
+    },
+    {
+      "id": 6,
+      "category": "Mecânico",
+      "evaluations": 10,
+      "rate": 4.5,
+      "state": "São Paulo",
+      "cities": [
+        { "name": "Cidade 1", "region": ["Zona Sul", "Zona Leste"] },
+        { "name": "Cidade 2", "region": ["Zona Lest", "Zona Oeste"] }
+      ],
+      "description": "Descrição do meu serviço"
+    }
+  ]
+}
