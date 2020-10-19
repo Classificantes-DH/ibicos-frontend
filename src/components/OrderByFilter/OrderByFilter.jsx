@@ -1,22 +1,28 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./OrderByFilter.module.scss";
 
-const OrderByFilter = () => (
+const OrderByFilter = ({ numberOfAds, handleOrderByChange }) => (
   <div className={styles.container}>
     <div className={styles.adsFoundContainer}>
       <p>
-        Anúncios: <span>123</span>
+        Anúncios: <span>{numberOfAds}</span>
       </p>
     </div>
     <div className={styles.orderByContainer}>
       <p>Ordenar por:</p>
-      <select>
-        <option>Qualquer</option>
-        <option>Melhores Avaliados</option>
-        <option>Mais Avaliados</option>
+      <select onChange={(event) => handleOrderByChange(event)}>
+        <option value="id">Qualquer</option>
+        <option value="rate">Melhores Avaliados</option>
+        <option value="evaluations">Mais Avaliados</option>
       </select>
     </div>
   </div>
 );
+
+OrderByFilter.propTypes = {
+  numberOfAds: PropTypes.number.isRequired,
+  handleOrderByChange: PropTypes.func.isRequired,
+};
 
 export default OrderByFilter;
