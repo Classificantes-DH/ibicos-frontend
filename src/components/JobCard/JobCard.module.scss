@@ -10,6 +10,12 @@
 
   background-color: $ORANGE;
 
+  &:hover {
+    background-color: rgb(240, 123, 13);
+    transform: scale(1.03);
+    transition: 300ms transform ease-in-out;
+  }
+
   .logoContainer {
     @include displayFlex($justify: center);
     width: 100%;
