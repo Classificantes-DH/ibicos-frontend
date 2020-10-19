@@ -1,28 +1,28 @@
 import React from "react";
 import {
-  JobCard,
   OrderByFilter,
   BroadFilter,
   IntroAdsList,
+  JobCardModalHolder,
 } from "../../components";
 
 import styles from "./ClassifiedAdsList.module.scss";
 
 const ClassifiedAdsList = () => {
   return (
-    <>
+    <div className={styles.container}>
       <IntroAdsList />
       <OrderByFilter />
-      <div className={styles.container}>
+      <div className={styles.mainContentcontainer}>
         <BroadFilter />
         <div className={styles.cardsContainer}>
-          <JobCard />
-          <JobCard />
-          <JobCard />
-          <JobCard />
+          <JobCardModalHolder />
+          <JobCardModalHolder />
+          <JobCardModalHolder />
+          <JobCardModalHolder />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

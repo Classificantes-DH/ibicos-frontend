@@ -1,7 +1,7 @@
 @import "./../../styles/scss/";
 
 .container {
-  width: 95%;
+  width: 62vw;
   margin-bottom: 10px;
 
   border: 0.4px solid #d6d5d5;
@@ -85,25 +85,25 @@
 
 @media #{$BREAKPOINT-MOBILE-LAND} {
   .container {
-    width: 80%;
+    width: 53vw;
   }
 }
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
-    width: 65%;
+    width: 42vw;
   }
 }
 
 @media only screen and (min-width: 754px) {
   .container {
-    width: 49%;
+    width: 32vw;
   }
 }
 
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
-    width: 48%;
+    width: 32vw;
     .logoContainer {
       .jobLogo {
         width: 342.78px;
@@ -145,5 +145,10 @@
         }
       }
     }
+  }
+}
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    width: 335px;
   }
 }

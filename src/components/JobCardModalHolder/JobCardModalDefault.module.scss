@@ -1,0 +1,31 @@
+@import "./../../styles/scss/index.scss";
+
+.container {
+  height: 95vh;
+  width: 95vw;
+
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid rgba(160, 160, 160, 0.6);
+  box-shadow: 0 0 3px rgba(160, 160, 160, 0.8);
+  overflow: scroll;
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    width: 90vw;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    width: 75vw;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    height: 636px;
+    width: 742px;
+  }
+}
