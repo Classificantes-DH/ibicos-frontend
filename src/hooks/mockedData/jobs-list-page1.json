@@ -1,6 +1,7 @@
 {
   "next": "next-page",
   "previous": "previous-page",
+  "adsCounter": 123,
   "results": [
     {
       "id": 1,

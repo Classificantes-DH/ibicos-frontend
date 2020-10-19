@@ -18,8 +18,8 @@ const RatingStars = ({ rate, isEditable, description }) => {
 
 RatingStars.propTypes = {
   rate: PropTypes.number.isRequired,
-  isEditable: PropTypes.string.isRequired,
-  description: PropTypes.bool.isRequired,
+  isEditable: PropTypes.bool.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default RatingStars;
