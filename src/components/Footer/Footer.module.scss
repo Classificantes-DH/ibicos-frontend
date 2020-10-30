@@ -6,6 +6,10 @@
 
   @include displayFlex($justify: space-around, $direction: column);
 
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
   .verticalDivisor {
     border: 1px solid rgba(38, 38, 38, 0.3);
   }
@@ -37,18 +41,49 @@
     margin: 30px 0;
     .navigationUrls {
       list-style: none;
+      margin-left: 65px;
 
       li {
+        margin: 14px 0;
         a {
           text-decoration: none;
           color: $BLACK;
+          font-size: 1.5rem;
         }
       }
     }
   }
 
   .aboutUsContainer {
-    width: 30%;
+    margin: 30px 0;
+    .mainInfo {
+      .companyLogoContainer {
+        margin: 10px 0;
+        @include displayFlex($align: center, $direction: column);
+        img {
+          width: 104px;
+          height: 101px;
+        }
+
+        p {
+          font-size: 1.25rem;
+          font-weight: 500;
+        }
+      }
+
+      p {
+        font-size: 1.375rem;
+        font-weight: 500;
+        text-align: justify;
+      }
+    }
+  }
+
+  .socialMedia {
+    .iconsContainer {
+      @include displayFlex($justify: space-between);
+      margin-top: 18px;
+    }
   }
 }
 
