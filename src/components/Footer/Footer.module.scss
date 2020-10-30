@@ -1,3 +1,57 @@
-.testes {
-    color: green;
+@import "./../../styles/scss/index.scss";
+.container {
+  background-color: $ORANGE;
+  padding: 34px 31px 30px;
+  // position: relative;
+
+  @include displayFlex($justify: space-around, $direction: column);
+
+  .verticalDivisor {
+    border: 1px solid rgba(38, 38, 38, 0.3);
+  }
+
+  .companyInfoContainer {
+    margin-bottom: 33px;
+    .contactInfo {
+      @include displayFlex($align: center);
+      margin: 13px 0;
+
+      .infoData {
+        margin-left: 10px;
+        font-weight: 500;
+        p {
+          font-size: 1.125rem;
+        }
+        .emailInfo {
+          font-size: 0.8125rem;
+        }
+      }
+      .contactLogo {
+        width: 67.4px;
+        height: 67.4px;
+      }
+    }
+  }
+
+  .navigationContainer {
+    margin: 30px 0;
+    .navigationUrls {
+      list-style: none;
+
+      li {
+        a {
+          text-decoration: none;
+          color: $BLACK;
+        }
+      }
+    }
+  }
+
+  .aboutUsContainer {
+    width: 30%;
+  }
+}
+
+.copyRightContainer {
+  background-color: #d1690a;
 }
