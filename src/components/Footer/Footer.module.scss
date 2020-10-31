@@ -1,13 +1,13 @@
 @import "./../../styles/scss/index.scss";
-.container {
-  background-color: $ORANGE;
-  padding: 34px 31px 30px;
-  // position: relative;
 
+.container {
   @include displayFlex($justify: space-around, $direction: column);
+  background-color: $ORANGE;
+
+  padding: 6.3vw 5.5vw 5vw;
 
   .sectionTitle {
-    font-size: 1.25rem;
+    font-size: 4.505vw;
   }
 
   .verticalDivisor {
@@ -24,15 +24,14 @@
         margin-left: 10px;
         font-weight: 500;
         p {
-          font-size: 1.125rem;
+          font-size: 5.1vw;
         }
         .emailInfo {
-          font-size: 0.8125rem;
+          font-size: 3vw;
         }
       }
       .contactLogo {
-        width: 67.4px;
-        height: 67.4px;
+        width: 19vw;
       }
     }
   }
@@ -46,9 +45,39 @@
       li {
         margin: 14px 0;
         a {
+          display: inline-block;
+          position: relative;
+
           text-decoration: none;
           color: $BLACK;
-          font-size: 1.5rem;
+
+          font-size: 6.8vw;
+          overflow-x: hidden;
+
+          &::after {
+            content: "";
+            transition: all 300ms ease-in-out;
+
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            height: 1px;
+            width: 110%;
+
+            border-bottom: 2px solid #141414;
+            margin: auto;
+
+            transform: translateX(-100%);
+          }
+
+          &:hover:after {
+            transform: translateX(0);
+          }
+
+          &:hover {
+            color: #141414;
+          }
         }
       }
     }
@@ -61,18 +90,19 @@
         margin: 10px 0;
         @include displayFlex($align: center, $direction: column);
         img {
-          width: 104px;
-          height: 101px;
+          width: 29vw;
         }
 
         p {
+          margin-top: 1vw;
           font-size: 1.25rem;
+          font-size: 6vw;
           font-weight: 500;
         }
       }
 
       p {
-        font-size: 1.375rem;
+        font-size: 6vw;
         font-weight: 500;
         text-align: justify;
       }
@@ -83,10 +113,41 @@
     .iconsContainer {
       @include displayFlex($justify: space-between);
       margin-top: 18px;
+
+      .iconContainer {
+        a {
+          display: inline-block;
+          img {
+            width: 19vw;
+            transition: transform 200ms ease-in-out;
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
     }
   }
 }
 
 .copyRightContainer {
+  @include displayFlex($justify: center, $align: center);
   background-color: #d1690a;
+  height: 9vw;
+
+  p {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+}
+
+img {
+  transition: transform 400ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    filter: saturate(140%);
+    transform: scale(1.13);
+    cursor: pointer;
+  }
 }

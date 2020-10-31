@@ -92,22 +92,22 @@ const Footer = () => {
         <div className={styles.socialMedia}>
           <h4 className={styles.sectionTitle}>{">"} Siga-nos</h4>
           <div className={styles.iconsContainer}>
-            <div className={styles.content}>
+            <div className={styles.iconContainer}>
               <a href="http://www.facebook.com">
                 <img src={facebookIcon} alt="Logo do Facebook" />
               </a>
             </div>
-            <div className={styles.content}>
+            <div className={styles.iconContainer}>
               <a href="http://www.twitter.com">
                 <img src={instagramIcon} alt="Logo do Twitter" />
               </a>
             </div>
-            <div className={styles.content}>
+            <div className={styles.iconContainer}>
               <a href="http://www.instagram.com">
                 <img src={twitterIcon} alt="Logo do Instagram" />
               </a>
             </div>
-            <div className={styles.content}>
+            <div className={styles.iconContainer}>
               <a href="http://www.linkedin.com">
                 <img src={linkedinIcon} alt="Logo do Linkedin" />
               </a>
