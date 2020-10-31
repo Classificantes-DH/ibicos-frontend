@@ -2,15 +2,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Footer.module.scss";
 
-import phoneIcon from "../../resources/imgs/utilityIcons/phone.svg";
-import emailIcon from "../../resources/imgs/utilityIcons/email.svg";
-import locationIcon from "../../resources/imgs/utilityIcons/map-location.svg";
-import companyLogo from "../../resources/imgs/utilityIcons/company-logo.svg";
-
-import facebookIcon from "../../resources/imgs/utilityIcons/socialMedia/facebook.svg";
-import instagramIcon from "../../resources/imgs/utilityIcons/socialMedia/instagram.svg";
-import linkedinIcon from "../../resources/imgs/utilityIcons/socialMedia/linkedin.svg";
-import twitterIcon from "../../resources/imgs/utilityIcons/socialMedia/twitter.svg";
+import {
+  facebookIcon,
+  instagramIcon,
+  linkedinIcon,
+  twitterIcon,
+  phoneIcon,
+  emailIcon,
+  locationIcon,
+  companyLogo,
+} from "../../resources/imgs/utilityIcons/index";
 
 const Footer = () => {
   return (

@@ -2,13 +2,16 @@
 
 .container {
   margin: 5px 10px;
-  width: calc(100vw - 20px);
 
   .headerContainer {
     margin: 10px 0;
     h2 {
       font-size: 1.1rem;
     }
+  }
+
+  .cardsContainer {
+    width: calc(100vw - 20px);
   }
 }
 
@@ -25,7 +28,7 @@
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
     margin: 5px 0;
-    width: 100vw;
+
     .headerContainer {
       margin: 15px 0;
       margin-left: 1.4%;
@@ -36,6 +39,7 @@
 
     .cardsContainer {
       @include displayFlex($wrap: wrap, $justify: space-around);
+      width: calc(100vw - 20px);
     }
   }
 }
@@ -47,6 +51,11 @@
       h2 {
         font-size: 1.9rem;
       }
+    }
+
+    .cardsContainer {
+      @include displayFlex($wrap: wrap, $justify: space-around);
+      width: 1000px;
     }
   }
 }
