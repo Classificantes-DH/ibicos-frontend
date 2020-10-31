@@ -16,14 +16,14 @@ const Footer = () => {
   return (
     <footer>
       <div className={styles.container}>
-        <div className={styles.companyInfoContainer}>
+        <div className={styles.contactContainer}>
           <div className={styles.contactInfo}>
             <img
               src={locationIcon}
               alt="Ícone de representação da localidade da empresa"
               className={styles.contactLogo}
             />
-            <div className={styles.infoData}>
+            <div className={styles.contactData}>
               <p>Rua Aleatoria, 0</p>
               <p>
                 <strong>São Paulo - Brasil</strong>
@@ -36,7 +36,7 @@ const Footer = () => {
               alt="Ícone de representação do email da empresa"
               className={styles.contactLogo}
             />
-            <div className={styles.infoData}>
+            <div className={styles.contactData}>
               <p>+55 11 1234-5678</p>
             </div>
           </div>
@@ -46,7 +46,7 @@ const Footer = () => {
               alt="Ícone de representação do email da empresa"
               className={styles.contactLogo}
             />
-            <div className={styles.infoData}>
+            <div className={styles.contactData}>
               <p className={styles.emailInfo}>
                 classificantes.contato@email.com
               </p>
@@ -74,49 +74,70 @@ const Footer = () => {
           </nav>
         </div>
         <div className={styles.verticalDivisor} />
-        <div className={styles.aboutUsContainer}>
-          <h4 className={styles.sectionTitle}>{">"} Sobre nós</h4>
-          <div className={styles.mainInfo}>
-            <div className={styles.companyLogoContainer}>
-              <img src={companyLogo} alt="Logo da empresa" />
-              <p>iBicos</p>
+
+        <div className={styles.companyInfoContainer}>
+          <div className={styles.aboutUsContainer}>
+            <h4 className={styles.sectionTitle}>{">"} Sobre nós</h4>
+            <div className={styles.mainInfo}>
+              <div className={styles.companyLogoContainer}>
+                <img src={companyLogo} alt="Logo da empresa" />
+                <p>iBicos</p>
+              </div>
+              <p>
+                A <strong>iBicos</strong> surgiu a partir da necessidade da
+                mordenizaçao do contato entre clientes e prestadores de serviço
+                autonomo, nossa missao e por meio da tecnologia facilitar
+                negocios fazendo com que novas oportunidades prosperas surjam.
+              </p>
             </div>
-            <p>
-              A <strong>iBicos</strong> surgiu a partir da necessidade da
-              mordenizaçao do contato entre clientes e prestadores de serviço
-              autonomo, nossa missao e por meio da tecnologia facilitar negocios
-              fazendo com que novas oportunidades prosperas surjam.
-            </p>
           </div>
-        </div>
-        <div className={styles.socialMedia}>
-          <h4 className={styles.sectionTitle}>{">"} Siga-nos</h4>
-          <div className={styles.iconsContainer}>
-            <div className={styles.iconContainer}>
-              <a href="http://www.facebook.com">
-                <img src={facebookIcon} alt="Logo do Facebook" />
-              </a>
-            </div>
-            <div className={styles.iconContainer}>
-              <a href="http://www.twitter.com">
-                <img src={instagramIcon} alt="Logo do Twitter" />
-              </a>
-            </div>
-            <div className={styles.iconContainer}>
-              <a href="http://www.instagram.com">
-                <img src={twitterIcon} alt="Logo do Instagram" />
-              </a>
-            </div>
-            <div className={styles.iconContainer}>
-              <a href="http://www.linkedin.com">
-                <img src={linkedinIcon} alt="Logo do Linkedin" />
-              </a>
+          <div className={styles.socialMediaContainer}>
+            <h4 className={styles.sectionTitle}>{">"} Siga-nos</h4>
+            <div className={styles.iconsContainer}>
+              <div className={styles.iconContainer}>
+                <a
+                  href="http://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={facebookIcon} alt="Logo do Facebook" />
+                </a>
+              </div>
+              <div className={styles.iconContainer}>
+                <a
+                  href="http://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={instagramIcon} alt="Logo do Twitter" />
+                </a>
+              </div>
+              <div className={styles.iconContainer}>
+                <a
+                  href="http://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={twitterIcon} alt="Logo do Instagram" />
+                </a>
+              </div>
+              <div className={styles.iconContainer}>
+                <a
+                  href="http://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={linkedinIcon} alt="Logo do Linkedin" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div className={styles.copyRightContainer}>
-        <p>© Copyright 2020 iBicos</p>
+        <p>
+          © Copyright 2020 <strong>iBicos</strong>
+        </p>
       </div>
     </footer>
   );

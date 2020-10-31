@@ -1,5 +1,9 @@
 @import "./../../styles/scss/index.scss";
 
+footer {
+  margin-top: 4vw;
+}
+
 .container {
   @include displayFlex($justify: space-around, $direction: column);
   background-color: $ORANGE;
@@ -14,20 +18,20 @@
     border: 1px solid rgba(38, 38, 38, 0.3);
   }
 
-  .companyInfoContainer {
+  .contactContainer {
     margin-bottom: 33px;
     .contactInfo {
       @include displayFlex($align: center);
       margin: 13px 0;
 
-      .infoData {
+      .contactData {
         margin-left: 10px;
         font-weight: 500;
         p {
           font-size: 5.1vw;
         }
         .emailInfo {
-          font-size: 3vw;
+          font-size: 3.5vw;
         }
       }
       .contactLogo {
@@ -83,45 +87,52 @@
     }
   }
 
-  .aboutUsContainer {
-    margin: 30px 0;
-    .mainInfo {
-      .companyLogoContainer {
-        margin: 10px 0;
-        @include displayFlex($align: center, $direction: column);
-        img {
-          width: 29vw;
+  .companyInfoContainer {
+    .aboutUsContainer {
+      margin: 30px 0;
+      .mainInfo {
+        .companyLogoContainer {
+          margin: 10px 0;
+          @include displayFlex($align: center, $direction: column);
+          img {
+            width: 29vw;
+          }
+
+          p {
+            margin-top: 1vw;
+            font-size: 1.25rem;
+            font-size: 6vw;
+            font-weight: 500;
+          }
         }
 
         p {
-          margin-top: 1vw;
-          font-size: 1.25rem;
           font-size: 6vw;
           font-weight: 500;
+          text-align: justify;
         }
       }
-
-      p {
-        font-size: 6vw;
-        font-weight: 500;
-        text-align: justify;
-      }
     }
-  }
 
-  .socialMedia {
-    .iconsContainer {
-      @include displayFlex($justify: space-between);
-      margin-top: 18px;
+    .socialMediaContainer {
+      .iconsContainer {
+        @include displayFlex($justify: space-between);
+        margin-top: 18px;
 
-      .iconContainer {
-        a {
-          display: inline-block;
-          img {
-            width: 19vw;
-            transition: transform 200ms ease-in-out;
-            &:hover {
-              transform: scale(1.2);
+        .iconContainer {
+          a {
+            display: inline-block;
+            img {
+              width: 19vw;
+
+              transition: transform 200ms ease-in-out;
+              cursor: pointer;
+
+              &:hover {
+                filter: saturate(140%);
+                transform: scale(1.13);
+                cursor: pointer;
+              }
             }
           }
         }
@@ -136,18 +147,103 @@
   height: 9vw;
 
   p {
-    font-size: 0.75rem;
+    font-size: 3.5vw;
     font-weight: 500;
   }
 }
 
-img {
-  transition: transform 400ms ease-in-out;
-  cursor: pointer;
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    flex-direction: row;
 
-  &:hover {
-    filter: saturate(140%);
-    transform: scale(1.13);
-    cursor: pointer;
+    .sectionTitle {
+      font-size: 1.505vw;
+    }
+
+    .verticalDivisor {
+      margin: 0 1vw;
+    }
+
+    .contactContainer {
+      .contactInfo {
+        .contactData {
+          p {
+            font-size: 1.8vw;
+          }
+          .emailInfo {
+            font-size: 1.2vw;
+          }
+        }
+        .contactLogo {
+          width: 6vw;
+        }
+      }
+    }
+
+    .navigationContainer {
+      //padding: 0 50px;
+      margin: 1vw 0;
+      margin-right: 2vw;
+      .navigationUrls {
+        margin-left: 4vw;
+        margin-top: 0.5vw;
+        li {
+          margin: 0;
+          a {
+            font-size: 1.5vw;
+          }
+        }
+      }
+    }
+    .companyInfoContainer {
+      width: 40%;
+      margin-left: 2vw;
+      .aboutUsContainer {
+        margin: 1vw 0;
+        .mainInfo {
+          @include displayFlex($justify: flex-start, $align: center);
+          .companyLogoContainer {
+            img {
+              width: 6vw;
+            }
+            p {
+              margin: 2px;
+              font-size: 1.2vw;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 1.15vw;
+            margin-left: 1vw;
+            //width: 40%;
+          }
+        }
+      }
+
+      .socialMediaContainer {
+        .iconsContainer {
+          justify-content: flex-start;
+          margin-top: 0.5vw;
+          .iconContainer {
+            margin: 0 0.7vw;
+
+            a {
+              img {
+                width: 6vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copyRightContainer {
+    height: 3vw;
+
+    p {
+      font-size: 1.25vw;
+      font-weight: 500;
+    }
   }
 }

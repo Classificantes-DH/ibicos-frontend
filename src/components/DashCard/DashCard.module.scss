@@ -1,7 +1,9 @@
 @import "./../../styles/scss/index.scss";
+
 .container {
   @include displayFlex($direction: column, $justify: space-between);
   height: 45vw;
+
   margin: 20px 0;
 
   font-weight: bold;
