@@ -1,3 +1,97 @@
-.testes {
-    color: blue;
+@import "./../../styles/scss/index.scss";
+
+.container {
+  @include displayFlex($justify: space-around, $align: center);
+  background-color: $ORANGE;
+  box-shadow: 0 0 1.5px black;
+  margin-bottom: 2vw;
+
+  .companyLogo {
+    @include displayFlex($justify: center, $direction: column);
+    margin: 3vw 0;
+    img {
+      width: 10vw;
+    }
+
+    h4 {
+      font-weight: 500;
+      font-size: 3vw;
+      text-align: center;
+    }
+  }
+  .searchAd {
+    @include displayFlex($align: center, $justify: center);
+    input {
+      width: 50vw;
+      height: 8vw;
+      background-color: $WHITE;
+      padding-left: 2vw;
+
+      border-width: 1px 0px 1px 1px;
+      border-style: solid;
+      border-radius: 10px 0 0 10px;
+
+      font-size: 3.5vw;
+    }
+
+    .searchIconContainer {
+      height: 8vw;
+      cursor: pointer;
+
+      border-width: 1px 1px 1px 0;
+      border-style: solid;
+      border-radius: 0px 10px 10px 0px;
+
+      background-color: $WHITE;
+
+      img {
+        width: 6vw;
+        @include displayFlex($align: center, $justify: center);
+        margin-right: 1vw;
+      }
+    }
+  }
+
+  .burgerMenu {
+    button {
+      margin: 0 auto;
+      padding: 5px;
+
+      background: none;
+      border: none;
+
+      cursor: pointer;
+      transition: all 300ms ease-in-out;
+
+      .burgerLine {
+        height: 1.2vw;
+        width: 8vw;
+        margin: 1vw 0;
+
+        background-color: $BLACK;
+        transition: all 300ms ease-in-out;
+      }
+    }
+
+    .burgerActive .burgerLine {
+      background-color: black;
+    }
+
+    .burgerActive {
+      border-radius: 50%;
+      background-color: rgba(231, 225, 225, 0.8);
+      box-shadow: 0 0 1px rgb(228, 225, 225);
+    }
+
+    .burgerActive .burgerLine:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .burgerActive .burgerLine:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burgerActive .burgerLine:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
 }
