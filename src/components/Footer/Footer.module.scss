@@ -69,7 +69,7 @@ footer {
             height: 1px;
             width: 110%;
 
-            border-bottom: 2px solid #141414;
+            border-bottom: 2px solid #000000;
             margin: auto;
 
             transform: translateX(-100%);
@@ -80,7 +80,7 @@ footer {
           }
 
           &:hover {
-            color: #141414;
+            color: #000000;
           }
         }
       }
@@ -152,6 +152,187 @@ footer {
   }
 }
 
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    .sectionTitle {
+      font-size: 2.5vw;
+    }
+
+    .verticalDivisor {
+      margin: 0 1vw;
+    }
+
+    .contactContainer {
+      margin-bottom: 2vw;
+      .contactInfo {
+        .contactData {
+          p {
+            font-size: 2.8vw;
+          }
+          .emailInfo {
+            font-size: 2.8vw;
+          }
+        }
+        .contactLogo {
+          width: 10vw;
+        }
+      }
+    }
+
+    .navigationContainer {
+      margin: 2vw 0;
+      margin-right: 2vw;
+      .navigationUrls {
+        margin-left: 6vw;
+        margin-top: 0.5vw;
+        li {
+          margin: 0;
+          a {
+            font-size: 2.5vw;
+          }
+        }
+      }
+    }
+    .companyInfoContainer {
+      margin-left: 2vw;
+      .aboutUsContainer {
+        margin: 2vw 0;
+        .mainInfo {
+          .companyLogoContainer {
+            img {
+              width: 12vw;
+            }
+            p {
+              margin: 2px;
+              font-size: 1.8vw;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 2.2vw;
+            margin-left: 1vw;
+          }
+        }
+      }
+
+      .socialMediaContainer {
+        .iconsContainer {
+          justify-content: flex-start;
+          margin-top: 0.5vw;
+          .iconContainer {
+            margin: 0 1.3vw;
+
+            a {
+              img {
+                width: 10vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copyRightContainer {
+    height: 3vw;
+
+    p {
+      font-size: 1.25vw;
+      font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (min-width: 754px) {
+  .container {
+    .sectionTitle {
+      font-size: 2vw;
+    }
+
+    .verticalDivisor {
+      margin: 0 1vw;
+    }
+
+    .contactContainer {
+      .contactInfo {
+        .contactData {
+          p {
+            font-size: 2vw;
+          }
+          .emailInfo {
+            font-size: 2vw;
+          }
+        }
+        .contactLogo {
+          width: 8vw;
+        }
+      }
+    }
+
+    .navigationContainer {
+      margin: 2vw 0;
+      margin-right: 2vw;
+      .navigationUrls {
+        margin-left: 4vw;
+        margin-top: 0.5vw;
+        li {
+          margin: 0;
+          a {
+            font-size: 2.2vw;
+          }
+        }
+      }
+    }
+    .companyInfoContainer {
+      margin-left: 2vw;
+      .aboutUsContainer {
+        margin: 2vw 0;
+        .mainInfo {
+          .companyLogoContainer {
+            img {
+              width: 10vw;
+            }
+            p {
+              margin: 2px;
+              font-size: 1.4vw;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 2.5vw;
+            margin-left: 1vw;
+          }
+        }
+      }
+
+      .socialMediaContainer {
+        .iconsContainer {
+          justify-content: flex-start;
+          margin-top: 0.5vw;
+          .iconContainer {
+            margin: 0 1.3vw;
+
+            a {
+              img {
+                width: 8vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copyRightContainer {
+    height: 3vw;
+
+    p {
+      font-size: 1.25vw;
+      font-weight: 500;
+    }
+  }
+}
+
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
     flex-direction: row;
@@ -181,7 +362,6 @@ footer {
     }
 
     .navigationContainer {
-      //padding: 0 50px;
       margin: 1vw 0;
       margin-right: 2vw;
       .navigationUrls {
@@ -215,7 +395,6 @@ footer {
           p {
             font-size: 1.15vw;
             margin-left: 1vw;
-            //width: 40%;
           }
         }
       }
