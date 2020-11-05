@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import styles from "./CustomerMessageToProviderFormModal.module.scss";
 import defaultModalStyle from "../JobCardModalHolder/JobCardModalDefault.module.scss";
-import whatsAppIcon from "../../resources/imgs/utilityIcons/whatsapp.svg";
+import phoneIcon from "../../resources/imgs/utilityIcons/phone.svg";
 import emailIcon from "../../resources/imgs/utilityIcons/email.svg";
 
 const CustomerMessageToProviderFormModal = ({
@@ -43,7 +43,7 @@ const CustomerMessageToProviderFormModal = ({
         <div className={styles.contactInfoContainer}>
           <h2>Ou se preferir...</h2>
           <div className={styles.contact}>
-            <img src={whatsAppIcon} alt="Contacte por telefone/whatsapp" />
+            <img src={phoneIcon} alt="Contacte por telefone/whatsapp" />
             <p>11 123445678</p>
           </div>
           <div className={styles.contact}>

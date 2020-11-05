@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
 
 import mechanicLogo from "../../resources/imgs/jobIcons/plumber.svg";
-import mapIcon from "../../resources/imgs/utilityIcons/map-location.svg";
+import mapIcon from "../../resources/imgs/utilityIcons/map-location-pure.svg";
 import { RatingStars } from "../index";
 
 const JobCard = ({ adInfo }) => {

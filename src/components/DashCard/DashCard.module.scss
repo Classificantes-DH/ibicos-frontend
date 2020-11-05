@@ -1,13 +1,23 @@
 @import "./../../styles/scss/index.scss";
+
 .container {
   @include displayFlex($direction: column, $justify: space-between);
   height: 45vw;
+
   margin: 20px 0;
 
   font-weight: bold;
   color: $WHITE;
   border-radius: 6px;
   box-shadow: 0 0 5px rgb(155, 149, 149);
+
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: none;
+  }
 
   .descriptionContainer {
     @include displayFlex($direction: column, $align: center, $justify: center);
@@ -94,8 +104,8 @@
 
 @media #{$BREAKPOINT-DESK} {
   .container {
-    width: 32%;
-    height: 161px;
+    width: 450px;
+    height: 220px;
     .descriptionContainer {
       h2 {
         margin-top: 1px;
