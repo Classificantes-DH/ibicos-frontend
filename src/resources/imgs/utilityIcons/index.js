@@ -15,3 +15,4 @@ export { default as configToolIcon } from "./config-tool.svg";
 export { default as userIcon } from "./user.svg";
 export { default as loginIcon } from "./login.svg";
 export { default as homeIcon } from "./home.svg";
+export { default as megaphoneIcon } from "./megaphone.svg";
