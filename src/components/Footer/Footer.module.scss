@@ -152,6 +152,89 @@ footer {
   }
 }
 
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    .sectionTitle {
+      font-size: 3.5vw;
+    }
+
+    .contactContainer {
+      margin-bottom: 2vw;
+      .contactInfo {
+        .contactData {
+          p {
+            font-size: 4vw;
+          }
+          .emailInfo {
+            font-size: 3.5vw;
+          }
+        }
+        .contactLogo {
+          width: 15vw;
+        }
+      }
+    }
+
+    .navigationContainer {
+      margin-right: 2vw;
+      .navigationUrls {
+        margin-top: 0.5vw;
+        li {
+          margin: 0;
+          a {
+            font-size: 3vw;
+          }
+        }
+      }
+    }
+    .companyInfoContainer {
+      .aboutUsContainer {
+        margin: 2vw 0;
+        .mainInfo {
+          .companyLogoContainer {
+            img {
+              width: 18vw;
+            }
+            p {
+              margin: 2px;
+              font-size: 1.8vw;
+              text-align: center;
+            }
+          }
+          p {
+            font-size: 2.5vw;
+            margin-left: 1vw;
+          }
+        }
+      }
+
+      .socialMediaContainer {
+        .iconsContainer {
+          margin-top: 0.5vw;
+          .iconContainer {
+            margin: 0 1.3vw;
+
+            a {
+              img {
+                width: 13vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copyRightContainer {
+    height: 7vw;
+
+    p {
+      font-size: 3vw;
+      font-weight: 500;
+    }
+  }
+}
+
 @media #{$BREAKPOINT-TABLET} {
   .container {
     .sectionTitle {
