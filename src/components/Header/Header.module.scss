@@ -420,7 +420,7 @@ header {
                   transform: scale(1);
                 }
                 .activeExtended::before {
-                  transform: scale(1);
+                  transform: scale(1) rotate(180deg);
                 }
               }
               .extendedLoggedInMenu {
