@@ -1,3 +1,452 @@
-.testes {
-    color: blue;
+@import "./../../styles/scss/index.scss";
+header {
+  .backgroundCover {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 5;
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 300ms ease-in-out;
+    background-color: rgba(204, 204, 204, 0.7);
+  }
+
+  .backgroundCoverActive {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .container {
+    @include displayFlex($justify: space-around, $align: center);
+    position: relative;
+    margin-bottom: 2vw;
+    z-index: 10;
+
+    background-color: $ORANGE;
+    box-shadow: 0 0 1.5px black;
+
+    .leftSideContainer {
+      @include displayFlex($align: center);
+      .companyLogo {
+        margin: 3vw 0;
+        a {
+          @include displayFlex($justify: center, $direction: column);
+          text-decoration: none;
+          color: $BLACK;
+
+          img {
+            width: 10vw;
+          }
+
+          h4 {
+            font-weight: 500;
+            font-size: 3vw;
+            text-align: center;
+          }
+        }
+      }
+      .searchAd {
+        @include displayFlex($align: center, $justify: center);
+        margin-left: 8vw;
+
+        input {
+          width: 50vw;
+          height: 8vw;
+
+          background-color: $WHITE;
+          padding-left: 2vw;
+
+          border-width: 1px 0px 1px 1px;
+          border-style: solid;
+          border-radius: 10px 0 0 10px;
+
+          font-size: 3.5vw;
+        }
+
+        .searchIconContainer {
+          height: 8vw;
+          cursor: pointer;
+
+          border-width: 1px 1px 1px 0;
+          border-style: solid;
+          border-radius: 0px 10px 10px 0px;
+
+          background-color: $WHITE;
+
+          img {
+            @include displayFlex($align: center, $justify: center);
+            width: 6vw;
+            margin-right: 1vw;
+          }
+        }
+      }
+    }
+
+    .burgerMenu {
+      button {
+        margin: 0 auto;
+        padding: 5px;
+
+        background: none;
+        border: none;
+
+        cursor: pointer;
+        transition: all 300ms ease-in-out;
+
+        .burgerLine {
+          height: 1.2vw;
+          width: 8vw;
+          margin: 1vw 0;
+
+          border-radius: 5px;
+          background-color: $BLACK;
+          transition: all 300ms ease-in-out;
+        }
+      }
+
+      .burgerActive .burgerLine {
+        background-color: black;
+      }
+
+      .burgerActive {
+        border-radius: 50%;
+        background-color: rgba(231, 225, 225, 0.8);
+        box-shadow: 0 0 1px rgb(228, 225, 225);
+      }
+
+      .burgerActive:hover {
+        background-color: rgba(189, 183, 183, 0.8);
+      }
+
+      .burgerActive .burgerLine:nth-child(1) {
+        transform: translateY(2.2vw) rotate(45deg);
+      }
+
+      .burgerActive .burgerLine:nth-child(2) {
+        opacity: 0;
+      }
+
+      .burgerActive .burgerLine:nth-child(3) {
+        transform: translateY(-2.2vw) rotate(-45deg);
+      }
+    }
+
+    .comboMenu {
+      position: absolute;
+      top: 20vw;
+
+      width: 100vw;
+
+      pointer-events: none;
+      opacity: 1;
+
+      transform: translateX(-100%);
+      transition: all 300ms ease-in-out;
+
+      border-width: 1px 0 0 0;
+      border-style: solid;
+      border-color: #e7e7e7;
+
+      background-color: $ORANGE;
+
+      ul {
+        list-style-type: none;
+
+        li {
+          margin: 4.5vw 0;
+          text-align: center;
+
+          .navItem {
+            @include displayFlex($align: center);
+            position: relative;
+
+            img {
+              position: absolute;
+              left: 2.5vw;
+
+              width: 8vw;
+            }
+
+            a,
+            button {
+              margin: 0 auto;
+              font-size: 4vw;
+              font-weight: 600;
+              text-decoration: none;
+              color: $WHITE;
+            }
+          }
+
+          &.extensibleDropDown {
+            position: relative;
+
+            button {
+              background: none;
+              border: none;
+              cursor: pointer;
+
+              .arrowIcon::before {
+                content: url("./../../resources/imgs/utilityIcons/semi-arraw-down.svg");
+                display: inline-block;
+                transition: all 150ms ease-in-out;
+                margin-left: 1vw;
+                transform: scale(1.1);
+              }
+
+              .activeExtended::before {
+                transform: rotate(180deg) scale(1.1);
+              }
+            }
+
+            .extendedLoggedInMenu {
+              position: absolute;
+              top: 15px;
+
+              margin: 5vw 0;
+              width: 100vw;
+
+              border-width: 1px 0 0 0;
+              border-style: solid;
+              border-color: $WHITE;
+              background-color: $ORANGE;
+
+              transition: all 100ms ease-in-out;
+              pointer-events: none;
+              transform: translateY(-20%);
+              opacity: 0;
+            }
+
+            .extendedLoggedInMenuActive {
+              opacity: 1;
+              transform: translateY(0);
+              pointer-events: all;
+            }
+          }
+        }
+      }
+    }
+
+    .comboMenuActive {
+      transform: translateX(0);
+      pointer-events: all;
+      z-index: 10;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  header {
+    .container {
+      .leftSideContainer {
+        .searchAd {
+          input {
+            width: 50vw;
+            font-size: 2.5vw;
+          }
+        }
+      }
+
+      .comboMenu {
+        ul {
+          li {
+            .navItem {
+              a,
+              button {
+                font-size: 3.5vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  header {
+    .container {
+      .leftSideContainer {
+        .companyLogo {
+          margin: 1.5vw 0;
+          a {
+            img {
+              width: 8vw;
+            }
+            h4 {
+              font-size: 2.2vw;
+            }
+          }
+        }
+
+        .searchAd {
+          input {
+            height: 7vw;
+            font-size: 2.5vw;
+          }
+          .searchIconContainer {
+            height: 7vw;
+          }
+        }
+      }
+      .comboMenu {
+        top: 14.2vw;
+
+        ul {
+          li {
+            .navItem {
+              a,
+              button {
+                font-size: 2.5vw;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  header {
+    .backgroundCover {
+      display: none;
+    }
+
+    .container {
+      justify-content: space-around;
+      .leftSideContainer {
+        .companyLogo {
+          margin: 0.5vw 0;
+          a {
+            img {
+              width: 3vw;
+            }
+            h4 {
+              font-size: 0.8vw;
+            }
+          }
+        }
+        .searchAd {
+          margin-left: 2vw;
+          input {
+            width: 20vw;
+            font-size: 1.25vw;
+          }
+
+          input,
+          .searchIconContainer {
+            height: 2.4vw;
+          }
+
+          .searchIconContainer {
+            img {
+              width: 1.5vw;
+            }
+          }
+        }
+      }
+      .burgerMenu {
+        display: none;
+      }
+      .comboMenu {
+        position: relative;
+        top: initial;
+        transform: none;
+
+        width: initial;
+        background: none;
+        border: none;
+        ul {
+          @include displayFlex($justify: space-between);
+          li {
+            margin: 0;
+            margin-left: 1vw;
+
+            .navItem {
+              align-items: baseline;
+              img {
+                width: 1.6vw;
+                position: initial;
+                margin-right: 0.4vw;
+              }
+
+              a,
+              button {
+                font-size: 1.3vw;
+                pointer-events: all;
+                font-weight: 700;
+              }
+              a,
+              button span {
+                position: relative;
+                display: inline-block;
+                overflow-x: hidden;
+
+                &::after {
+                  content: "";
+                  transition: all 300ms ease-in-out;
+
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+
+                  height: 1px;
+                  width: 110%;
+
+                  border-bottom: 2px solid #f1f1f1;
+                  margin: auto;
+
+                  transform: translateX(-100%);
+                }
+
+                &:hover:after {
+                  transform: translateX(0);
+                }
+
+                &:hover {
+                  color: #f1f1f1;
+                }
+              }
+            }
+
+            &.extensibleDropDown {
+              button {
+                .arrowIcon::before {
+                  transform: scale(1);
+                }
+                .activeExtended::before {
+                  transform: scale(1) rotate(180deg);
+                }
+              }
+              .extendedLoggedInMenu {
+                position: absolute;
+                top: 3.7vw;
+                right: 0vw;
+
+                padding: 10px 0;
+                width: 30vw;
+                margin: 0;
+                pointer-events: none;
+
+                border: 1px solid rgba(54, 51, 51, 0.1);
+                box-shadow: 0 0 2px #262626;
+                ul {
+                  @include displayFlex($direction: column);
+
+                  li {
+                    margin: 0.5vw 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
