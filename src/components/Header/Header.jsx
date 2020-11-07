@@ -176,14 +176,14 @@ const Header = () => {
                   <li>
                     <div className={styles.navItem}>
                       <Link to="/prestadorDashBoard" onClick={handleMenuToggle}>
-                        Estatísticas como prestador
+                        Visão prestador
                       </Link>
                     </div>
                   </li>
                   <li>
                     <div className={styles.navItem}>
                       <Link to="/clienteDashBoard" onClick={handleMenuToggle}>
-                        Estatísticas como cliente
+                        Visão cliente
                       </Link>
                     </div>
                   </li>

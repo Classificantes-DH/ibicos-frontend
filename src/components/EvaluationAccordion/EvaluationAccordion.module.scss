@@ -1,0 +1,128 @@
+@import "./../../styles/scss/index.scss";
+
+.container {
+  .headerContainer {
+    @include displayFlex($align: center, $justify: space-between);
+    width: 35vw;
+    height: 4vw;
+
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background-color: $ORANGE;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(236, 121, 13);
+    }
+
+    .titleContainer {
+      margin-left: 1vw;
+
+      h2 {
+        display: flex;
+        align-items: center;
+        font-size: 1.9vw;
+
+        span {
+          margin-right: 1vw;
+          display: inline-block;
+
+          color: $PURPLE;
+          font-size: 3vw;
+          font-weight: 900;
+        }
+      }
+    }
+
+    .eventControllerContainer {
+      margin-right: 1vw;
+      position: relative;
+      cursor: pointer;
+
+      &,
+      .openerLine {
+        width: 1.9vw;
+        height: 0.7vw;
+      }
+
+      .openerLine {
+        position: absolute;
+
+        border-radius: 1px;
+        background-color: $PURPLE;
+        transition: all 300ms ease-in-out;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+
+        .openerLine:nth-of-type(2) {
+          transform: rotate(0);
+        }
+      }
+
+      .defaultPosition {
+        transform: rotate(90deg);
+      }
+
+      .activeAccordion {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  .contentContainer {
+    width: 35vw;
+    height: 15vw;
+
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 500ms ease-in-out;
+
+    .messageContainer {
+      margin: 1.5vw 1vw;
+
+      p {
+        color: $PURPLE;
+        font-weight: 800;
+        font-size: 1.3vw;
+      }
+    }
+
+    .surveyContainer {
+      @include displayFlex();
+      margin-left: 4.8vw;
+
+      .submitButton {
+        @include displayFlex($align: center, $justify: center);
+        width: 7vw;
+        height: 3.5vw;
+        margin-right: 3vw;
+
+        border: none;
+        border-radius: 3px;
+        background-color: $ORANGE;
+        box-shadow: 0 0 0.5px #262626;
+
+        color: $PURPLE;
+        font-weight: 800;
+        font-size: 2.2vw;
+        font-family: "Poppins";
+
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          background-color: rgb(228, 113, 6);
+        }
+      }
+    }
+  }
+
+  .showContent {
+    max-height: 30vw;
+  }
+}

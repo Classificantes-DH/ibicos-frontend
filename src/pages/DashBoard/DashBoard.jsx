@@ -1,12 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styles from "./DashBoard.module.scss";
-import {
-  DashCard,
-  Accordion,
-  EvaluationHeader,
-  EvaluationContent,
-} from "../../components";
+import { DashCard, EvaluationAccordion } from "../../components";
 
 const DashBoard = () => (
   <div className={styles.container}>
@@ -26,10 +21,8 @@ const DashBoard = () => (
       <DashCard cardType="ratings" />
     </div>
     <div className={styles.accordionContainer}>
-      <Accordion
-        header={<EvaluationHeader />}
-        content={<EvaluationContent />}
-      />
+      <EvaluationAccordion />
+      <EvaluationAccordion />
     </div>
   </div>
 );
