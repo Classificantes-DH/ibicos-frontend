@@ -6,8 +6,8 @@ import { DashCard, EvaluationAccordion } from "../../components";
 const DashBoard = () => (
   <div className={styles.container}>
     <div className={styles.headerContainer}>
-      <h2>Seus indicadores </h2>
-      <h2>na plataforma, Beltrano Souza</h2>
+      <h2>Seus indicadores na plataforma, </h2>
+      <h2> Beltrano Souza</h2>
     </div>
     <div className={styles.cardsContainer}>
       <Switch>
@@ -19,6 +19,9 @@ const DashBoard = () => (
       <DashCard cardType="contacts" />
       <DashCard cardType="services" />
       <DashCard cardType="ratings" />
+    </div>
+    <div className={styles.headerContainer}>
+      <h2>Avalie suas últimas experiências na plataforma</h2>
     </div>
     <div className={styles.accordionContainer}>
       <EvaluationAccordion />
