@@ -38,7 +38,8 @@ const EvaluationAccordion = () => {
         }`}
       >
         <div className={styles.messageContainer}>
-          <p>Fulano te enviou uma mensagem, vocês fecharam negocio?</p>
+          <p>Fulano te enviou uma mensagem,</p>
+          <p>vocês fecharam negocio?</p>
         </div>
         <div className={styles.surveyContainer}>
           <button className={styles.submitButton} type="submit">

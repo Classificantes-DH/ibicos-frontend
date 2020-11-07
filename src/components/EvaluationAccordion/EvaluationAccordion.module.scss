@@ -1,14 +1,13 @@
 @import "./../../styles/scss/index.scss";
 
 .container {
+  width: calc(100vw - 20px);
+
   .headerContainer {
     @include displayFlex($align: center, $justify: space-between);
-    width: 35vw;
-    height: 4vw;
 
-    border: none;
-    outline: none;
-    border-radius: 6px;
+    height: 12vw;
+    border-radius: 3px;
     background-color: $ORANGE;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
 
@@ -19,33 +18,33 @@
     }
 
     .titleContainer {
-      margin-left: 1vw;
+      margin-left: 3vw;
 
       h2 {
-        display: flex;
-        align-items: center;
-        font-size: 1.9vw;
+        @include displayFlex($align: center);
+        font-size: 6vw;
 
         span {
-          margin-right: 1vw;
           display: inline-block;
+          margin-right: 2vw;
 
           color: $PURPLE;
-          font-size: 3vw;
+          font-size: 12vw;
           font-weight: 900;
         }
       }
     }
 
     .eventControllerContainer {
-      margin-right: 1vw;
       position: relative;
+      margin-right: 3vw;
+
       cursor: pointer;
 
       &,
       .openerLine {
-        width: 1.9vw;
-        height: 0.7vw;
+        width: 6.9vw;
+        height: 2vw;
       }
 
       .openerLine {
@@ -72,35 +71,33 @@
   }
 
   .contentContainer {
-    width: 35vw;
-    height: 15vw;
-
     border-radius: 3px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+    height: 45vw;
     max-height: 0px;
+
     overflow: hidden;
     transition: max-height 500ms ease-in-out;
 
     .messageContainer {
-      margin: 1.5vw 1vw;
+      margin: 4vw 0;
+      margin-left: 4vw;
 
       p {
         color: $PURPLE;
         font-weight: 800;
-        font-size: 1.3vw;
+        font-size: 4vw;
       }
     }
 
     .surveyContainer {
       @include displayFlex();
-      margin-left: 4.8vw;
+      margin-top: 5vw;
+      margin-left: 5vw;
 
       .submitButton {
         @include displayFlex($align: center, $justify: center);
-        width: 7vw;
-        height: 3.5vw;
-        margin-right: 3vw;
 
         border: none;
         border-radius: 3px;
@@ -109,8 +106,12 @@
 
         color: $PURPLE;
         font-weight: 800;
-        font-size: 2.2vw;
         font-family: "Poppins";
+        font-size: 6vw;
+
+        width: 22vw;
+        height: 10vw;
+        margin-right: 7vw;
 
         cursor: pointer;
         transition: all 200ms ease-in-out;
@@ -123,6 +124,198 @@
   }
 
   .showContent {
-    max-height: 30vw;
+    max-height: 45vw;
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    .headerContainer {
+      height: 8.5vw;
+
+      .titleContainer {
+        h2 {
+          font-size: 4.7vw;
+
+          span {
+            font-size: 8vw;
+            margin-right: 1.5vw;
+          }
+        }
+      }
+
+      .eventControllerContainer {
+        &,
+        .openerLine {
+          width: 5.5vw;
+          height: 2vw;
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 38vw;
+
+      .messageContainer {
+        p {
+          font-size: 3.8vw;
+        }
+      }
+
+      .surveyContainer {
+        .submitButton {
+          width: 19vw;
+          height: 9vw;
+
+          font-size: 5vw;
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    .headerContainer {
+      height: 5.5vw;
+
+      .titleContainer {
+        h2 {
+          font-size: 3.5vw;
+
+          span {
+            font-size: 6.5vw;
+          }
+        }
+      }
+
+      .eventControllerContainer {
+        &,
+        .openerLine {
+          width: 4vw;
+          height: 1.5vw;
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 31vw;
+
+      .messageContainer {
+        p {
+          font-size: 3vw;
+        }
+      }
+
+      .surveyContainer {
+        .submitButton {
+          width: 16vw;
+          height: 6.5vw;
+
+          font-size: 4vw;
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    width: 42vw;
+    margin-left: 2vw;
+
+    .headerContainer {
+      height: 4vw;
+
+      .titleContainer {
+        margin-left: 1vw;
+
+        h2 {
+          font-size: 2vw;
+
+          span {
+            margin-right: 0.5vw;
+            font-size: 3.8vw;
+          }
+        }
+      }
+
+      .eventControllerContainer {
+        margin-right: 1vw;
+
+        &,
+        .openerLine {
+          width: 1.9vw;
+          height: 0.7vw;
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 16vw;
+
+      .messageContainer {
+        margin: 1.5vw 1vw;
+
+        p {
+          font-size: 1.7vw;
+        }
+      }
+
+      .surveyContainer {
+        margin-left: 4.8vw;
+        margin-top: 0;
+
+        .submitButton {
+          width: 8vw;
+          height: 3.8vw;
+          margin-right: 3vw;
+
+          font-size: 2.2vw;
+        }
+      }
+    }
+
+    .showContent {
+      max-height: 16vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    width: 35vw;
+    margin-left: 0;
+
+    .headerContainer {
+      height: 3.2vw;
+
+      .titleContainer {
+        h2 {
+          font-size: 1.5vw;
+
+          span {
+            font-size: 3.2vw;
+          }
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 14vw;
+
+      .messageContainer {
+        p {
+          font-size: 1.3vw;
+        }
+      }
+      .surveyContainer {
+        .submitButton {
+          width: 7vw;
+          height: 3vw;
+          font-size: 1.5vw;
+        }
+      }
+    }
   }
 }
