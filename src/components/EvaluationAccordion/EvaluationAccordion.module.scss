@@ -80,6 +80,22 @@
     overflow: hidden;
     transition: max-height 500ms ease-in-out;
 
+    position: relative;
+
+    .content {
+      position: absolute;
+      top: 0;
+      opacity: 0;
+
+      pointer-events: none;
+      transition: opacity ease-in 150ms;
+    }
+
+    .activeContent {
+      opacity: 1;
+      pointer-events: all;
+    }
+
     .messageContainer {
       margin: 4vw 0;
       margin-left: 4vw;
@@ -88,6 +104,20 @@
         color: $PURPLE;
         font-weight: 800;
         font-size: 4vw;
+      }
+    }
+
+    .ratingSurveyContainer {
+      @include displayFlex($justify: flex-end);
+
+      .ratingContainer {
+        @include displayFlex($justify: center);
+        padding: 0 10px;
+
+        margin-right: 5%;
+        border-radius: 5px;
+        background-color: $PURPLE;
+        box-shadow: 0px 0px 4px rgba(177, 172, 172, 0.35);
       }
     }
 
@@ -309,6 +339,7 @@
           font-size: 1.3vw;
         }
       }
+
       .surveyContainer {
         .submitButton {
           width: 7vw;

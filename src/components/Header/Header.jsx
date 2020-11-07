@@ -62,6 +62,7 @@ const Header = () => {
             </button>
           </form>
         </div>
+
         <div className={styles.burgerMenu}>
           <button
             type="button"

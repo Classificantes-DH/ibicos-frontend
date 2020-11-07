@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 
 import {
@@ -60,16 +60,16 @@ const Footer = () => {
           <nav>
             <ul className={styles.navigationUrls}>
               <li>
-                <NavLink to="/">Home </NavLink>
+                <Link to="/">Home </Link>
               </li>
               <li>
-                <NavLink to="/comoFunciona">Como Funciona</NavLink>
+                <Link to="/comoFunciona">Como Funciona</Link>
               </li>
               <li>
-                <NavLink to="/cadastro">Inscreva-se</NavLink>
+                <Link to="/cadastro">Inscreva-se</Link>
               </li>
               <li>
-                <NavLink to="/login">Login</NavLink>
+                <Link to="/login">Login</Link>
               </li>
             </ul>
           </nav>

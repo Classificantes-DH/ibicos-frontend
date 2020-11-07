@@ -23,6 +23,9 @@ const DashBoard = () => (
     <div className={styles.accordionContainer}>
       <EvaluationAccordion />
       <EvaluationAccordion />
+      <EvaluationAccordion />
+      <EvaluationAccordion />
+      <EvaluationAccordion />
     </div>
   </div>
 );
