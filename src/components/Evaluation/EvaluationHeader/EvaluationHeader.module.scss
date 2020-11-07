@@ -1,0 +1,59 @@
+@import "./../../../styles/scss/index.scss";
+
+.container {
+  @include displayFlex($align: center, $justify: space-between);
+  width: 35vw;
+  height: 4vw;
+
+  border-radius: 6px;
+  background-color: $ORANGE;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+  .titleContainer {
+    margin-left: 1vw;
+
+    h2 {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin-right: 1vw;
+        display: inline-block;
+
+        color: $PURPLE;
+        font-size: 3vw;
+        font-weight: 900;
+      }
+    }
+  }
+
+  .eventControllerContainer {
+    margin-right: 1vw;
+    position: relative;
+
+    &,
+    .openerLine {
+      // width: 20px;
+      width: 1.9vw;
+      height: 0.7vw;
+      // height: 9px;
+    }
+
+    .openerLine {
+      position: absolute;
+
+      border-radius: 1px;
+      background-color: $PURPLE;
+      transition: all 300ms ease-in-out;
+
+      &:nth-of-type(1) {
+        transform: rotate(90deg);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    &:hover .openerLine:nth-of-type(1) {
+      transform: rotate(0);
+    }
+  }
+}

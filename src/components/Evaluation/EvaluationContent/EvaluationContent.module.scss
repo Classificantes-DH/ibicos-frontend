@@ -1,0 +1,52 @@
+@import "./../../../styles/scss/index.scss";
+
+.container {
+  width: 35vw;
+  // height: 237px;
+  height: 18.5vw;
+
+  border-radius: 3px;
+  border: 1px solid rgba(38, 38, 38, 0.2);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  .messageContainer {
+    margin: 1.5vw 1vw;
+
+    p {
+      color: $PURPLE;
+      font-weight: 800;
+      font-size: 1.3vw;
+    }
+  }
+
+  .surveyContainer {
+    @include displayFlex();
+    margin-left: 4.8vw;
+
+    .submitButton {
+      @include displayFlex($align: center, $justify: center);
+      width: 7vw;
+      height: 3.5vw;
+      // margin-right: 37px;
+      margin-right: 3vw;
+
+      border: none;
+      border-radius: 3px;
+      background-color: $ORANGE;
+      box-shadow: 0 0 0.5px #262626;
+
+      color: $PURPLE;
+      font-weight: 800;
+      font-size: 2.2vw;
+      font-family: "Poppins";
+
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        background-color: #5b074d;
+        color: $ORANGE;
+      }
+    }
+  }
+}

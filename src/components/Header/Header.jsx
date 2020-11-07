@@ -175,8 +175,15 @@ const Header = () => {
                   </li>
                   <li>
                     <div className={styles.navItem}>
-                      <Link to="/estatisticas" onClick={handleMenuToggle}>
-                        Estatísticas
+                      <Link to="/prestadorDashBoard" onClick={handleMenuToggle}>
+                        Estatísticas como prestador
+                      </Link>
+                    </div>
+                  </li>
+                  <li>
+                    <div className={styles.navItem}>
+                      <Link to="/clienteDashBoard" onClick={handleMenuToggle}>
+                        Estatísticas como cliente
                       </Link>
                     </div>
                   </li>
