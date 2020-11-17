@@ -1,0 +1,352 @@
+@import "./../../styles/scss/index.scss";
+
+.container {
+  width: calc(100vw - 20px);
+
+  .headerContainer {
+    @include displayFlex($align: center, $justify: space-between);
+
+    height: 12vw;
+    border-radius: 3px;
+    background-color: $ORANGE;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgb(236, 121, 13);
+    }
+
+    .titleContainer {
+      margin-left: 3vw;
+
+      h2 {
+        @include displayFlex($align: center);
+        font-size: 6vw;
+
+        span {
+          display: inline-block;
+          margin-right: 2vw;
+
+          color: $PURPLE;
+          font-size: 12vw;
+          font-weight: 900;
+        }
+      }
+    }
+
+    .eventControllerContainer {
+      position: relative;
+      margin-right: 3vw;
+
+      cursor: pointer;
+
+      &,
+      .openerLine {
+        width: 6.9vw;
+        height: 2vw;
+      }
+
+      .openerLine {
+        position: absolute;
+
+        border-radius: 1px;
+        background-color: $PURPLE;
+        transition: all 300ms ease-in-out;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+
+        .openerLine:nth-of-type(2) {
+          transform: rotate(0);
+        }
+      }
+
+      .defaultPosition {
+        transform: rotate(90deg);
+      }
+
+      .activeAccordion {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  .contentContainer {
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    height: 45vw;
+    max-height: 0px;
+
+    overflow: hidden;
+    transition: max-height 500ms ease-in-out;
+
+    position: relative;
+
+    .content {
+      position: absolute;
+      top: 0;
+      opacity: 0;
+
+      pointer-events: none;
+      transition: opacity ease-in 150ms;
+    }
+
+    .activeContent {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .messageContainer {
+      margin: 4vw 0;
+      margin-left: 4vw;
+
+      p {
+        color: $PURPLE;
+        font-weight: 800;
+        font-size: 4vw;
+      }
+    }
+
+    .ratingSurveyContainer {
+      @include displayFlex($justify: flex-end);
+
+      .ratingContainer {
+        @include displayFlex($justify: center);
+        padding: 0 10px;
+
+        margin-right: 5%;
+        border-radius: 5px;
+        background-color: $PURPLE;
+        box-shadow: 0px 0px 4px rgba(177, 172, 172, 0.35);
+      }
+    }
+
+    .surveyContainer {
+      @include displayFlex();
+      margin-top: 5vw;
+      margin-left: 5vw;
+
+      .submitButton {
+        @include displayFlex($align: center, $justify: center);
+
+        border: none;
+        border-radius: 3px;
+        background-color: $ORANGE;
+        box-shadow: 0 0 0.5px #262626;
+
+        color: $PURPLE;
+        font-weight: 800;
+        font-family: "Poppins";
+        font-size: 6vw;
+
+        width: 22vw;
+        height: 10vw;
+        margin-right: 7vw;
+
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          background-color: rgb(228, 113, 6);
+        }
+      }
+    }
+  }
+
+  .showContent {
+    max-height: 45vw;
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    .headerContainer {
+      height: 8.5vw;
+
+      .titleContainer {
+        h2 {
+          font-size: 4.7vw;
+
+          span {
+            font-size: 8vw;
+            margin-right: 1.5vw;
+          }
+        }
+      }
+
+      .eventControllerContainer {
+        &,
+        .openerLine {
+          width: 5.5vw;
+          height: 2vw;
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 38vw;
+
+      .messageContainer {
+        p {
+          font-size: 3.8vw;
+        }
+      }
+
+      .surveyContainer {
+        .submitButton {
+          width: 19vw;
+          height: 9vw;
+
+          font-size: 5vw;
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    .headerContainer {
+      height: 5.5vw;
+
+      .titleContainer {
+        h2 {
+          font-size: 3.5vw;
+
+          span {
+            font-size: 6.5vw;
+          }
+        }
+      }
+
+      .eventControllerContainer {
+        &,
+        .openerLine {
+          width: 4vw;
+          height: 1.5vw;
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 31vw;
+
+      .messageContainer {
+        p {
+          font-size: 3vw;
+        }
+      }
+
+      .surveyContainer {
+        .submitButton {
+          width: 16vw;
+          height: 6.5vw;
+
+          font-size: 4vw;
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    width: 42vw;
+    margin-left: 2vw;
+
+    .headerContainer {
+      height: 4vw;
+
+      .titleContainer {
+        margin-left: 1vw;
+
+        h2 {
+          font-size: 2vw;
+
+          span {
+            margin-right: 0.5vw;
+            font-size: 3.8vw;
+          }
+        }
+      }
+
+      .eventControllerContainer {
+        margin-right: 1vw;
+
+        &,
+        .openerLine {
+          width: 1.9vw;
+          height: 0.7vw;
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 16vw;
+
+      .messageContainer {
+        margin: 1.5vw 1vw;
+
+        p {
+          font-size: 1.7vw;
+        }
+      }
+
+      .surveyContainer {
+        margin-left: 4.8vw;
+        margin-top: 0;
+
+        .submitButton {
+          width: 8vw;
+          height: 3.8vw;
+          margin-right: 3vw;
+
+          font-size: 2.2vw;
+        }
+      }
+    }
+
+    .showContent {
+      max-height: 16vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    width: 35vw;
+    margin-left: 0;
+
+    .headerContainer {
+      height: 3.2vw;
+
+      .titleContainer {
+        h2 {
+          font-size: 1.5vw;
+
+          span {
+            font-size: 3.2vw;
+          }
+        }
+      }
+    }
+
+    .contentContainer {
+      height: 14vw;
+
+      .messageContainer {
+        p {
+          font-size: 1.3vw;
+        }
+      }
+
+      .surveyContainer {
+        .submitButton {
+          width: 7vw;
+          height: 3vw;
+          font-size: 1.5vw;
+        }
+      }
+    }
+  }
+}

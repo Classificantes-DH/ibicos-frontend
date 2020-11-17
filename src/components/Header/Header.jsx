@@ -62,6 +62,7 @@ const Header = () => {
             </button>
           </form>
         </div>
+
         <div className={styles.burgerMenu}>
           <button
             type="button"
@@ -175,8 +176,15 @@ const Header = () => {
                   </li>
                   <li>
                     <div className={styles.navItem}>
-                      <Link to="/estatisticas" onClick={handleMenuToggle}>
-                        Estatísticas
+                      <Link to="/prestadorDashBoard" onClick={handleMenuToggle}>
+                        Visão prestador
+                      </Link>
+                    </div>
+                  </li>
+                  <li>
+                    <div className={styles.navItem}>
+                      <Link to="/clienteDashBoard" onClick={handleMenuToggle}>
+                        Visão cliente
                       </Link>
                     </div>
                   </li>

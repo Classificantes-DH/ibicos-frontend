@@ -13,6 +13,10 @@
   .cardsContainer {
     width: calc(100vw - 20px);
   }
+
+  .accordionContainer {
+    margin: 1vw 0;
+  }
 }
 
 @media #{$BREAKPOINT-MOBILE-LAND} {
