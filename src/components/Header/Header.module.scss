@@ -440,6 +440,24 @@ header {
 
                   li {
                     margin: 0.5vw 0;
+
+                    .navItem {
+                      a {
+                        pointer-events: none;
+                      }
+                    }
+                  }
+                }
+              }
+
+              .extendedLoggedInMenuActive {
+                ul {
+                  li {
+                    .navItem {
+                      a {
+                        pointer-events: all;
+                      }
+                    }
                   }
                 }
               }
