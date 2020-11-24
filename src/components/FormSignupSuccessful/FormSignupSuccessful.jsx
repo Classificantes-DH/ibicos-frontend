@@ -28,7 +28,9 @@ const FormSignupSuccessful = () => {
           </div>
 
           <div className={styles.message}>
-            <p>Você já pode navegar por nossa plataforma!</p>
+            <p>
+              Antes de poder acessar a plataforma ative sua conta via email!
+            </p>
           </div>
         </div>
 

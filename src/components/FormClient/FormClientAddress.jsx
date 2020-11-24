@@ -4,7 +4,15 @@ import Input from "../Input/Input";
 
 const FormProviderAddress = (props) => {
   const {
-    values: { state, city, neighbourhood, postalCode, street, complement },
+    values: {
+      state,
+      city,
+      neighborhood,
+      postalCode,
+      street,
+      complement,
+      numberAddress,
+    },
     handleFieldChange,
   } = props;
 
@@ -31,11 +39,11 @@ const FormProviderAddress = (props) => {
         />
         <Input
           label="Bairro"
-          name="neighbourhood"
+          name="neighborhood"
           type="text"
           onChange={handleFieldChange}
-          value={neighbourhood}
-          default={neighbourhood}
+          value={neighborhood}
+          default={neighborhood}
         />
         <Input
           label="CEP"
@@ -54,6 +62,14 @@ const FormProviderAddress = (props) => {
           default={street}
         />
         <Input
+          label="Número"
+          name="numberAddress"
+          type="text"
+          onChange={handleFieldChange}
+          value={numberAddress}
+          default={numberAddress}
+        />
+        <Input
           label="Complemento"
           name="complement"
           type="text"
@@ -70,10 +86,11 @@ FormProviderAddress.propTypes = {
   values: PropTypes.shape({
     state: PropTypes.string,
     city: PropTypes.string,
-    neighbourhood: PropTypes.string,
+    neighborhood: PropTypes.string,
     postalCode: PropTypes.string,
     street: PropTypes.string,
     complement: PropTypes.string,
+    numberAddress: PropTypes.string,
   }).isRequired,
   handleFieldChange: PropTypes.func.isRequired,
 };

@@ -28,7 +28,7 @@ function App() {
             <Route path="/clienteDashBoard" component={DashBoard} />
             <Route path="/prestadorDashBoard" component={DashBoard} />
             <Route path="/cadastroPrestador" component={ProviderSignup} />
-            <Route path="/cadastroCliente" component={ClientSignup} />
+            <Route path="/cadastrar" component={ClientSignup} />
             <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
             <Route path="/clientePerfil" component={ClientProfile} />
             <Route path="/prestadorPerfil" component={ProviderProfile} />

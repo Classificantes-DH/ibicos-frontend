@@ -20,7 +20,7 @@ const ClientSignup = () => {
   return (
     <div className={styles.container}>
       <div className={styles.containerTitle}>
-        <p>Cadastre-se para receber oportunidades!</p>
+        <p>Cadastre-se para ter acesso completo a plataforma!</p>
       </div>
 
       <div className={styles.containerProgressImg}>
@@ -40,7 +40,7 @@ const ClientSignup = () => {
           />
 
           <footer>
-            {currentStep > 1 && currentStep <= 2 && (
+            {currentStep > 1 && currentStep <= 3 && (
               <button
                 type="button"
                 onClick={handlePreviousStep}
@@ -50,7 +50,7 @@ const ClientSignup = () => {
               </button>
             )}
 
-            {currentStep === 2 && (
+            {currentStep === 3 && (
               <button
                 type="button"
                 onClick={handleSubmit}
@@ -60,7 +60,7 @@ const ClientSignup = () => {
               </button>
             )}
 
-            {currentStep >= 1 && currentStep < 2 && (
+            {currentStep >= 1 && currentStep < 3 && (
               <button
                 type="button"
                 onClick={handleNextStep}

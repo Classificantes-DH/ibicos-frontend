@@ -4,7 +4,7 @@ import Input from "../Input/Input";
 
 const FormProviderDetails = (props) => {
   const {
-    values: { name, email, telephone, nickname, cpfCnpj },
+    values: { namePerson, birthday, cpf, cnpj },
     handleFieldChange,
   } = props;
 
@@ -15,42 +15,34 @@ const FormProviderDetails = (props) => {
 
         <Input
           label="Nome"
-          name="name"
+          name="namePerson"
           type="text"
-          value={name}
-          default={name}
+          value={namePerson}
+          default={namePerson}
           onChange={handleFieldChange}
         />
         <Input
-          label="E-Mail"
-          name="email"
-          type="email"
-          value={email}
-          default={email}
+          label="Data de nascimento"
+          name="birthday"
+          type="date"
+          value={birthday}
+          default={birthday}
           onChange={handleFieldChange}
         />
         <Input
-          label="Celular"
-          name="telephone"
-          type="tel"
-          value={telephone}
-          default={telephone}
-          onChange={handleFieldChange}
-        />
-        <Input
-          label="Apelido"
-          name="nickname"
+          label="CPF"
+          name="cpf"
           type="text"
-          value={nickname}
-          default={nickname}
+          value={cpf}
+          default={cpf}
           onChange={handleFieldChange}
         />
         <Input
-          label="CPF/CNPJ"
-          name="cpfCnpj"
+          label="CNPJ"
+          name="cnpj"
           type="text"
-          value={cpfCnpj}
-          default={cpfCnpj}
+          value={cnpj}
+          default={cnpj}
           onChange={handleFieldChange}
         />
       </fieldset>
@@ -60,11 +52,10 @@ const FormProviderDetails = (props) => {
 
 FormProviderDetails.propTypes = {
   values: PropTypes.shape({
-    name: PropTypes.string,
-    email: PropTypes.string,
-    telephone: PropTypes.string,
-    nickname: PropTypes.string,
-    cpfCnpj: PropTypes.string,
+    namePerson: PropTypes.string,
+    birthday: PropTypes.string,
+    cpf: PropTypes.string,
+    cnpj: PropTypes.string,
   }).isRequired,
   handleFieldChange: PropTypes.func.isRequired,
 };
