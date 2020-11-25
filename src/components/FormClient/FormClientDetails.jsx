@@ -36,6 +36,13 @@ const FormProviderDetails = (props) => {
           default={birthday}
           onChange={handleFieldChange}
         />
+
+        <FormErrorMessage
+          fieldName="birthday"
+          fieldValue={birthday}
+          fieldNamePTBR="data de nascimento"
+        />
+
         <Input
           label="CPF*"
           name="cpf"
@@ -51,7 +58,7 @@ const FormProviderDetails = (props) => {
         />
 
         <Input
-          label="CNPJ*"
+          label="CNPJ"
           name="cnpj"
           type="text"
           value={cnpj}
