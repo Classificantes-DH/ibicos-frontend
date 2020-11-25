@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Input from "../Input/Input";
 
+import FormErrorMessage from "./FormErrorMessage";
+
 const FormUser = (props) => {
   const {
     values: { email, passwordUser, notice },
@@ -11,24 +13,32 @@ const FormUser = (props) => {
   return (
     <>
       <fieldset>
-        <legend>Seus dados de identificação</legend>
+        <legend>Seus dados de acesso</legend>
 
         <Input
-          label="Email"
+          label="Email*"
           name="email"
           type="text"
           value={email}
           default={email}
           onChange={handleFieldChange}
         />
+        <FormErrorMessage fieldValue={email} fieldName="email" />
+
         <Input
-          label="Senha"
+          label="Senha*"
           name="passwordUser"
           type="password"
           value={passwordUser}
           default={passwordUser}
           onChange={handleFieldChange}
         />
+        <FormErrorMessage
+          fieldValue={passwordUser}
+          fieldName="passwordUser"
+          fieldNamePTBR="senha"
+        />
+
         <Input
           label="Emite nota-fiscal"
           name="notice"

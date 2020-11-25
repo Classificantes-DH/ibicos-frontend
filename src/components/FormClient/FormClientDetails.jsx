@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Input from "../Input/Input";
+import FormErrorMessage from "./FormErrorMessage";
 
 const FormProviderDetails = (props) => {
   const {
@@ -14,15 +15,21 @@ const FormProviderDetails = (props) => {
         <legend>Seus dados de identificação</legend>
 
         <Input
-          label="Nome"
+          label="Nome Completo*"
           name="namePerson"
           type="text"
           value={namePerson}
           default={namePerson}
           onChange={handleFieldChange}
         />
+        <FormErrorMessage
+          fieldName="namePerson"
+          fieldValue={namePerson}
+          fieldNamePTBR="nome"
+        />
+
         <Input
-          label="Data de nascimento"
+          label="Data de nascimento*"
           name="birthday"
           type="date"
           value={birthday}
@@ -30,20 +37,31 @@ const FormProviderDetails = (props) => {
           onChange={handleFieldChange}
         />
         <Input
-          label="CPF"
+          label="CPF*"
           name="cpf"
           type="text"
           value={cpf}
           default={cpf}
           onChange={handleFieldChange}
         />
+        <FormErrorMessage
+          fieldName="cpf"
+          fieldValue={cpf}
+          fieldNamePTBR="CPF"
+        />
+
         <Input
-          label="CNPJ"
+          label="CNPJ*"
           name="cnpj"
           type="text"
           value={cnpj}
           default={cnpj}
           onChange={handleFieldChange}
+        />
+        <FormErrorMessage
+          fieldName="cnpj"
+          fieldValue={cnpj}
+          fieldNamePTBR="CNPJ"
         />
       </fieldset>
     </>

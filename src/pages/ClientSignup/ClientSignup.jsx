@@ -72,6 +72,7 @@ const ClientSignup = () => {
           </footer>
         </form>
       </div>
+      <p> Campos marcados com * são obrigatório</p>
     </div>
   );
 };
