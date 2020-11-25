@@ -5,20 +5,7 @@ const useFormValidationHook = (
   fieldName,
   fieldNamePTBR = fieldName
 ) => {
-  const [validationMessages, setValidationMessages] = useState({
-    emailErrorMessage: "",
-    passwordUserErrorMessage: "",
-    namePersonErrorMessage: "",
-    birthdayErrorMessage: "",
-    cpfErrorMessage: "",
-    cnpjErrorMessage: "",
-    postalCodeErrorMessage: "",
-    streetErrorMessage: "",
-    numberAddressErrorMessage: "",
-    neighborhoodErrorMessage: "",
-    cityErrorMessage: "",
-    stateErrorMessage: "",
-  });
+  const [validationMessages, setValidationMessages] = useState({});
 
   const setFieldErrorMessage = (validatedMessageName, message) => {
     setValidationMessages({
@@ -81,7 +68,7 @@ const useFormValidationHook = (
         if (fieldValue.length === 0) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
-            `O ${fieldNamePTBR} é de preenchimento obrigatório`
+            `A ${fieldNamePTBR} é de preenchimento obrigatório`
           );
         } else {
           const ageInMilliseconds = Date.now() - new Date(fieldValue);
