@@ -98,11 +98,20 @@ const useFormValidationHook = (
 
         break;
 
+      case "state":
+        if (fieldValue === "") {
+          setFieldErrorMessage(
+            `${fieldName}ErrorMessage`,
+            `Selecione um ${fieldNamePTBR}`
+          );
+        }
+        break;
+
       default:
         if (fieldValue.length === 0) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
-            `O campo ${fieldNamePTBR} não pode estar vazio`
+            `O campo ${fieldNamePTBR} é de seleção obrigatória`
           );
         } else {
           setFieldErrorMessage(`${fieldName}ErrorMessage`, "");

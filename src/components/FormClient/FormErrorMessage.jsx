@@ -11,7 +11,7 @@ const FormErrorMessage = ({ fieldValue, fieldName, fieldNamePTBR }) => {
 
   return (
     <div>
-      <p style={{ color: "red", fontSize: "1vw" }}>
+      <p style={{ color: "red", fontSize: "1rem" }}>
         {validationMessages[`${fieldName}ErrorMessage`]}
       </p>
     </div>

@@ -117,7 +117,9 @@ const useClientSignupHook = () => {
   };
 
   const handleFieldChange = ({ target: { name, value } }) => {
+    console.log(state);
     setFields((prevState) => ({ ...prevState, [name]: value }));
+    console.log(state);
   };
 
   const handleSubmit = (event) => {

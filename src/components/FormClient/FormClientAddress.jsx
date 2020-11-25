@@ -2,6 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 import Input from "../Input/Input";
 import FormErrorMessage from "./FormErrorMessage";
+import { Select } from "../index";
+
+const states = [
+  "AC",
+  "AL",
+  "AP",
+  "AM",
+  "BA",
+  "CE",
+  "DF",
+  "ES",
+  "GO",
+  "MA",
+  "MT",
+  "MS",
+  "MG",
+  "PA",
+  "PB",
+  "PR",
+  "PE",
+  "PI",
+  "RJ",
+  "RN",
+  "RS",
+  "RO",
+  "RR",
+  "SC",
+  "SP",
+  "TO",
+];
 
 const FormProviderAddress = (props) => {
   const {
@@ -22,14 +52,19 @@ const FormProviderAddress = (props) => {
       <fieldset>
         <legend>Seus dados de endereço</legend>
 
-        <Input
+        <Select
           label="Estado*"
           name="state"
-          type="text"
-          onChange={handleFieldChange}
+          values={states}
           value={state}
-          default={state}
+          handleSelection={handleFieldChange}
         />
+        <FormErrorMessage
+          fieldName="estado"
+          fieldValue={state}
+          fieldNamePTBR="estado"
+        />
+
         <Input
           label="Cidade*"
           name="city"

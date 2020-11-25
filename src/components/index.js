@@ -15,3 +15,4 @@ export { default as CustomerMessageToProviderFormModal } from "./CustomerMessage
 export { default as ResultMessageToProviderModal } from "./ResultMessageToProviderModal/ResultMessageToProviderModal";
 export { default as JobCardModalHolder } from "./JobCardModalHolder/JobCardModalHolder";
 export { default as EvaluationAccordion } from "./EvaluationAccordion/EvaluationAccordion";
+export { default as Select } from "./Select/Select";
