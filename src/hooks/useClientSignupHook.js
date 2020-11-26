@@ -1,27 +1,54 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+import useSignUpFormValidationHook from "./useSignUpFormValidationHook";
+
 const useClientSignupHook = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [fields, setFields] = useState({
-    name: "",
     email: "",
-    telephone: "",
-    nickname: "",
-    cpfCnpj: "",
-    state: "",
-    city: "",
-    neighbourhood: "",
+    passwordUser: "",
+    notice: false,
+    namePerson: "",
+    birthday: "",
+    cpf: "",
+    cnpj: "",
     postalCode: "",
     street: "",
+    numberAddress: "",
+    neighborhood: "",
     complement: "",
+    city: "",
+    state: "",
   });
+
+  const {
+    validationMessages,
+    handleFieldValidation,
+  } = useSignUpFormValidationHook();
+
+  const {
+    email,
+    passwordUser,
+    notice,
+    namePerson,
+    birthday,
+    cpf,
+    cnpj,
+    postalCode,
+    street,
+    numberAddress,
+    neighborhood,
+    complement,
+    city,
+    state,
+  } = fields;
 
   const [progressImg, setProgressImg] = useState("");
 
   const history = useHistory();
 
-  const maxStep = 2;
+  const maxStep = 3;
 
   useEffect(() => {
     const fetchProgressImg = async () => {
@@ -37,15 +64,66 @@ const useClientSignupHook = () => {
     fetchProgressImg();
   }, [currentStep]);
 
-  const handleNextStep = () => {
+  const handleSignUpRequest = async () => {
+    const user = {
+      email,
+      passwordUser,
+      notice,
+      person: {
+        namePerson,
+        birthday,
+        cpf,
+        cnpj,
+        address: {
+          postalCode,
+          street,
+          numberAddress,
+          neighborhood,
+          complement,
+          city,
+          state,
+          cep: postalCode,
+        },
+      },
+    };
+
+    const response = await fetch("http://localhost:8080/signUp", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.status === 201;
+  };
+
+  const handleNextStep = async () => {
     if (currentStep < maxStep) {
       setCurrentStep(currentStep + 1);
-    } else {
-      alert("cadastro efetuado com sucesso");
-      history.push({
-        pathname: "/cadastroSucesso",
-        state: { signupEntityType: "client" },
-      });
+    } else if (currentStep === maxStep) {
+      const isFormInvalid = Object.values(validationMessages).some(
+        (value) => value !== ""
+      );
+
+      if (isFormInvalid) {
+        alert(
+          "Formulário inválido, cheque campos cujo preenchimento é obrigatório"
+        );
+      } else {
+        const isUserSuccessfullySignedUp = await handleSignUpRequest();
+
+        if (isUserSuccessfullySignedUp) {
+          alert("Cadastro efetuado com sucesso");
+          history.push({
+            pathname: "/cadastroSucesso",
+            state: { signupEntityType: "client" },
+          });
+        } else {
+          alert(
+            "Ocorreu algo durante o cadastramento, por favor cheque os campos"
+          );
+        }
+      }
     }
   };
 
@@ -72,6 +150,8 @@ const useClientSignupHook = () => {
     handlePreviousStep,
     handleFieldChange,
     handleSubmit,
+    validationMessages,
+    handleFieldValidation,
   };
 };
 
