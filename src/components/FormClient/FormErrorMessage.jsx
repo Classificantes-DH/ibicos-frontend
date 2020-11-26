@@ -1,26 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
-import useSignUpFormValidationHook from "../../hooks/useSignUpFormValidationHook";
 
-const FormErrorMessage = ({ fieldValue, fieldName, fieldNamePTBR }) => {
-  const { validationMessages } = useSignUpFormValidationHook(
-    fieldValue,
-    fieldName,
-    fieldNamePTBR
-  );
-
+const FormErrorMessage = ({ message }) => {
   return (
     <div>
-      <p style={{ color: "red", fontSize: "1rem" }}>
-        {validationMessages[`${fieldName}ErrorMessage`]}
-      </p>
+      <p style={{ color: "red", fontSize: "1rem" }}>{message}</p>
     </div>
   );
 };
 
 FormErrorMessage.propTypes = {
-  fieldValue: PropTypes.string.isRequired,
-  fieldName: PropTypes.string.isRequired,
-  fieldNamePTBR: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
 };
 export default FormErrorMessage;

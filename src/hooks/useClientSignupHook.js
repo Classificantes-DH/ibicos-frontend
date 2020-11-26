@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+import useSignUpFormValidationHook from "./useSignUpFormValidationHook";
+
 const useClientSignupHook = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [fields, setFields] = useState({
@@ -19,6 +21,11 @@ const useClientSignupHook = () => {
     city: "",
     state: "",
   });
+
+  const {
+    validationMessages,
+    handleFieldValidation,
+  } = useSignUpFormValidationHook();
 
   const {
     email,
@@ -94,18 +101,28 @@ const useClientSignupHook = () => {
     if (currentStep < maxStep) {
       setCurrentStep(currentStep + 1);
     } else if (currentStep === maxStep) {
-      const isUserSuccessfullySignedUp = await handleSignUpRequest();
+      const isFormInvalid = Object.values(validationMessages).some(
+        (value) => value !== ""
+      );
 
-      if (isUserSuccessfullySignedUp) {
-        alert("Cadastro efetuado com sucesso");
-        history.push({
-          pathname: "/cadastroSucesso",
-          state: { signupEntityType: "client" },
-        });
-      } else {
+      if (isFormInvalid) {
         alert(
-          "Ocorreu algo durante o cadastramento, por favor cheque os campos"
+          "Formulário inválido, cheque campos cujo preenchimento é obrigatório"
         );
+      } else {
+        const isUserSuccessfullySignedUp = await handleSignUpRequest();
+
+        if (isUserSuccessfullySignedUp) {
+          alert("Cadastro efetuado com sucesso");
+          history.push({
+            pathname: "/cadastroSucesso",
+            state: { signupEntityType: "client" },
+          });
+        } else {
+          alert(
+            "Ocorreu algo durante o cadastramento, por favor cheque os campos"
+          );
+        }
       }
     }
   };
@@ -117,9 +134,7 @@ const useClientSignupHook = () => {
   };
 
   const handleFieldChange = ({ target: { name, value } }) => {
-    console.log(state);
     setFields((prevState) => ({ ...prevState, [name]: value }));
-    console.log(state);
   };
 
   const handleSubmit = (event) => {
@@ -135,6 +150,8 @@ const useClientSignupHook = () => {
     handlePreviousStep,
     handleFieldChange,
     handleSubmit,
+    validationMessages,
+    handleFieldValidation,
   };
 };
 

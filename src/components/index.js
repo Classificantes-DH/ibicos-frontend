@@ -16,3 +16,4 @@ export { default as ResultMessageToProviderModal } from "./ResultMessageToProvid
 export { default as JobCardModalHolder } from "./JobCardModalHolder/JobCardModalHolder";
 export { default as EvaluationAccordion } from "./EvaluationAccordion/EvaluationAccordion";
 export { default as Select } from "./Select/Select";
+export { default as Checkbox } from "./Checkbox/Checkbox";

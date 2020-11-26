@@ -15,6 +15,8 @@ const ClientSignup = () => {
     handleSubmit,
     handleNextStep,
     handlePreviousStep,
+    validationMessages,
+    handleFieldValidation,
   } = useClientSignupHooks();
 
   return (
@@ -37,6 +39,8 @@ const ClientSignup = () => {
             handleFieldChange={handleFieldChange}
             handlePreviousStep={handlePreviousStep}
             handleSubmit={handleSubmit}
+            validationMessages={validationMessages}
+            handleFieldValidation={handleFieldValidation}
           />
 
           <footer>

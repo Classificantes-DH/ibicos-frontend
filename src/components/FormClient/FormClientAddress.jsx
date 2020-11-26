@@ -45,6 +45,15 @@ const FormProviderAddress = (props) => {
       numberAddress,
     },
     handleFieldChange,
+    handleFieldValidation,
+    validationMessages: {
+      stateErrorMessage,
+      cityErrorMessage,
+      neighborhoodErrorMessage,
+      postalCodeErrorMessage,
+      streetErrorMessage,
+      numberAddressErrorMessage,
+    },
   } = props;
 
   return (
@@ -58,82 +67,74 @@ const FormProviderAddress = (props) => {
           values={states}
           value={state}
           handleSelection={handleFieldChange}
+          handleFieldValidation={handleFieldValidation}
         />
-        <FormErrorMessage
-          fieldName="estado"
-          fieldValue={state}
-          fieldNamePTBR="estado"
-        />
+        <FormErrorMessage message={stateErrorMessage} />
 
         <Input
           label="Cidade*"
           name="city"
           type="text"
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("city", event, "cidade");
+          }}
           value={city}
           default={city}
         />
-        <FormErrorMessage
-          fieldName="city"
-          fieldValue={city}
-          fieldNamePTBR="cidade"
-        />
+        <FormErrorMessage message={cityErrorMessage} />
 
         <Input
           label="Bairro*"
           name="neighborhood"
           type="text"
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("neighborhood", event, "cidade");
+          }}
           value={neighborhood}
           default={neighborhood}
         />
-        <FormErrorMessage
-          fieldName="neighborhood"
-          fieldValue={neighborhood}
-          fieldNamePTBR="bairro"
-        />
+        <FormErrorMessage message={neighborhoodErrorMessage} />
 
         <Input
           label="CEP*"
           name="postalCode"
           type="text"
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("postalCode", event, "CEP");
+          }}
           value={postalCode}
           default={postalCode}
         />
-        <FormErrorMessage
-          fieldName="postalCode"
-          fieldValue={postalCode}
-          fieldNamePTBR="CEP"
-        />
+        <FormErrorMessage message={postalCodeErrorMessage} />
 
         <Input
           label="Endereço*"
           name="street"
           type="text"
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("street", event, "endereço");
+          }}
           value={street}
           default={street}
         />
-        <FormErrorMessage
-          fieldName="street"
-          fieldValue={street}
-          fieldNamePTBR="endereço"
-        />
+        <FormErrorMessage message={streetErrorMessage} />
 
         <Input
           label="Número*"
           name="numberAddress"
           type="text"
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("numberAddress", event, "número");
+          }}
           value={numberAddress}
           default={numberAddress}
         />
-        <FormErrorMessage
-          fieldName="numberAddress"
-          fieldValue={numberAddress}
-          fieldNamePTBR="número"
-        />
+        <FormErrorMessage message={numberAddressErrorMessage} />
 
         <Input
           label="Complemento"
@@ -158,7 +159,18 @@ FormProviderAddress.propTypes = {
     complement: PropTypes.string,
     numberAddress: PropTypes.string,
   }).isRequired,
+
+  validationMessages: PropTypes.shape({
+    stateErrorMessage: PropTypes.string,
+    cityErrorMessage: PropTypes.string,
+    neighborhoodErrorMessage: PropTypes.string,
+    postalCodeErrorMessage: PropTypes.string,
+    streetErrorMessage: PropTypes.string,
+    numberAddressErrorMessage: PropTypes.string,
+  }).isRequired,
+
   handleFieldChange: PropTypes.func.isRequired,
+  handleFieldValidation: PropTypes.func.isRequired,
 };
 
 export default FormProviderAddress;

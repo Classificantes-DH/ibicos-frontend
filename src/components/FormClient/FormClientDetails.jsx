@@ -3,10 +3,19 @@ import PropTypes from "prop-types";
 import Input from "../Input/Input";
 import FormErrorMessage from "./FormErrorMessage";
 
+import { Checkbox } from "../index";
+
 const FormProviderDetails = (props) => {
   const {
-    values: { namePerson, birthday, cpf, cnpj },
+    values: { namePerson, birthday, cpf, cnpj, notice },
     handleFieldChange,
+    validationMessages: {
+      namePersonErrorMessage,
+      birthdayErrorMessage,
+      cpfErrorMessage,
+      cnpjErrorMessage,
+    },
+    handleFieldValidation,
   } = props;
 
   return (
@@ -20,13 +29,12 @@ const FormProviderDetails = (props) => {
           type="text"
           value={namePerson}
           default={namePerson}
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("namePerson", event, "nome");
+          }}
         />
-        <FormErrorMessage
-          fieldName="namePerson"
-          fieldValue={namePerson}
-          fieldNamePTBR="nome"
-        />
+        <FormErrorMessage message={namePersonErrorMessage} />
 
         <Input
           label="Data de nascimento*"
@@ -34,14 +42,12 @@ const FormProviderDetails = (props) => {
           type="date"
           value={birthday}
           default={birthday}
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("birthday", event, "data de nascimento");
+          }}
         />
-
-        <FormErrorMessage
-          fieldName="birthday"
-          fieldValue={birthday}
-          fieldNamePTBR="data de nascimento"
-        />
+        <FormErrorMessage message={birthdayErrorMessage} />
 
         <Input
           label="CPF*"
@@ -49,27 +55,41 @@ const FormProviderDetails = (props) => {
           type="text"
           value={cpf}
           default={cpf}
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("cpf", event, "CPF");
+          }}
         />
-        <FormErrorMessage
-          fieldName="cpf"
-          fieldValue={cpf}
-          fieldNamePTBR="CPF"
-        />
+        <FormErrorMessage message={cpfErrorMessage} />
 
+        {/* <Input
+          label="Emite nota-fiscal"
+          name="notice"
+          type="checkbox"
+          value={notice}
+          default={notice}
+          onChange={handleFieldChange}
+        /> */}
+
+        <Checkbox
+          label="Emite nota fiscal?"
+          name="notice"
+          onChangeHandler={handleFieldChange}
+          value={notice}
+        />
+        {/* label, name, onChangeHandler, value */}
         <Input
           label="CNPJ"
           name="cnpj"
           type="text"
           value={cnpj}
           default={cnpj}
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("cnpj", event, "CNPJ");
+          }}
         />
-        <FormErrorMessage
-          fieldName="cnpj"
-          fieldValue={cnpj}
-          fieldNamePTBR="CNPJ"
-        />
+        <FormErrorMessage message={cnpjErrorMessage} />
       </fieldset>
     </>
   );
@@ -79,10 +99,20 @@ FormProviderDetails.propTypes = {
   values: PropTypes.shape({
     namePerson: PropTypes.string,
     birthday: PropTypes.string,
+    notice: PropTypes.bool,
     cpf: PropTypes.string,
     cnpj: PropTypes.string,
   }).isRequired,
+
+  validationMessages: PropTypes.shape({
+    namePersonErrorMessage: PropTypes.string,
+    birthdayErrorMessage: PropTypes.string,
+    cpfErrorMessage: PropTypes.string,
+    cnpjErrorMessage: PropTypes.string,
+  }).isRequired,
+
   handleFieldChange: PropTypes.func.isRequired,
+  handleFieldValidation: PropTypes.func.isRequired,
 };
 
 export default FormProviderDetails;

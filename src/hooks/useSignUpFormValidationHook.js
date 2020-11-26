@@ -1,11 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const useFormValidationHook = (
-  fieldValue,
-  fieldName,
-  fieldNamePTBR = fieldName
-) => {
-  const [validationMessages, setValidationMessages] = useState({});
+const useSignUpFormValidationHook = () => {
+  const [validationMessages, setValidationMessages] = useState({
+    emailErrorMessage: "O campo é de preenchimento obrigatório",
+    passwordUserErrorMessage: "O campo é de preenchimento obrigatório",
+    stateErrorMessage: "O campo é de preenchimento obrigatório",
+    cityErrorMessage: "O campo é de preenchimento obrigatório",
+    neighborhoodErrorMessage: "O campo é de preenchimento obrigatório",
+    postalCodeErrorMessage: "O campo é de preenchimento obrigatório",
+    streetErrorMessage: "O campo é de preenchimento obrigatório",
+    numberAddressErrorMessage: "O campo é de preenchimento obrigatório",
+    namePersonErrorMessage: "O campo é de preenchimento obrigatório",
+    birthdayErrorMessage: "O campo é de preenchimento obrigatório",
+    cpfErrorMessage: "O campo é de preenchimento obrigatório",
+    cnpjErrorMessage: "O campo é de preenchimento obrigatório",
+  });
 
   const setFieldErrorMessage = (validatedMessageName, message) => {
     setValidationMessages({
@@ -14,17 +23,21 @@ const useFormValidationHook = (
     });
   };
 
-  useEffect(() => {
+  const handleFieldValidation = (
+    fieldName,
+    { target: { value } },
+    fieldNamePTBR = fieldName
+  ) => {
     setFieldErrorMessage(`${fieldName}ErrorMessage`, "");
 
     switch (fieldName) {
       case "email":
-        if (!fieldValue.includes("@")) {
+        if (!value.includes("@")) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
             "Insira um email em formato válido"
           );
-        } else if (fieldValue.length < 3) {
+        } else if (value.length < 3) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
             "O campo email precisa de ao menos 3 caracteres"
@@ -33,13 +46,13 @@ const useFormValidationHook = (
         break;
 
       case "cpf":
-        if (fieldValue.length !== 11) {
+        if (value.length !== 11) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
             `O campo ${fieldNamePTBR}
           precisa conter exatamente 11 dígitos`
           );
-        } else if (!/^[0-9]*$/.test(fieldValue)) {
+        } else if (!/^[0-9]*$/.test(value)) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
             `O campo ${fieldNamePTBR} só pode conter números`
@@ -48,14 +61,14 @@ const useFormValidationHook = (
         break;
 
       case "cnpj":
-        if (fieldValue.length !== 0) {
-          if (fieldValue.length !== 14) {
+        if (value.length !== 0) {
+          if (value.length !== 14) {
             setFieldErrorMessage(
               `${fieldName}ErrorMessage`,
               `O campo ${fieldNamePTBR}
           precisa conter exatamente 14 dígitos`
             );
-          } else if (!/^[0-9]*$/.test(fieldValue)) {
+          } else if (!/^[0-9]*$/.test(value)) {
             setFieldErrorMessage(
               `${fieldName}ErrorMessage`,
               `O campo ${fieldNamePTBR} só pode conter números`
@@ -65,13 +78,13 @@ const useFormValidationHook = (
         break;
 
       case "birthday":
-        if (fieldValue.length === 0) {
+        if (value.length === 0) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
             `A ${fieldNamePTBR} é de preenchimento obrigatório`
           );
         } else {
-          const ageInMilliseconds = Date.now() - new Date(fieldValue);
+          const ageInMilliseconds = Date.now() - new Date(value);
           const ageInEpoch = new Date(ageInMilliseconds);
           const ageInYears = Math.abs(ageInEpoch.getUTCFullYear() - 1970);
 
@@ -86,7 +99,7 @@ const useFormValidationHook = (
         break;
 
       case "state":
-        if (fieldValue === "") {
+        if (value === "") {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
             `Selecione um ${fieldNamePTBR}`
@@ -95,18 +108,18 @@ const useFormValidationHook = (
         break;
 
       default:
-        if (fieldValue.length === 0) {
+        if (value.length === 0) {
           setFieldErrorMessage(
             `${fieldName}ErrorMessage`,
-            `O campo ${fieldNamePTBR} é de seleção obrigatória`
+            `O campo ${fieldNamePTBR} é de preenchimento obrigatório`
           );
         } else {
           setFieldErrorMessage(`${fieldName}ErrorMessage`, "");
         }
     }
-  }, [fieldValue, fieldName, fieldNamePTBR]);
+  };
 
-  return { validationMessages };
+  return { validationMessages, handleFieldValidation };
 };
 
-export default useFormValidationHook;
+export default useSignUpFormValidationHook;

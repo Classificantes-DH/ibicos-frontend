@@ -5,16 +5,31 @@ import FormClientDetails from "./FormClientDetails";
 import FormClientAddress from "./FormClientAddress";
 import FormUser from "./FormUser";
 
-const FormClient = ({ currentStep, fields, handleFieldChange }) => {
+const FormClient = ({
+  currentStep,
+  fields,
+  handleFieldChange,
+  validationMessages,
+  handleFieldValidation,
+}) => {
   switch (currentStep) {
     case 1:
-      return <FormUser values={fields} handleFieldChange={handleFieldChange} />;
+      return (
+        <FormUser
+          values={fields}
+          handleFieldChange={handleFieldChange}
+          handleFieldValidation={handleFieldValidation}
+          validationMessages={validationMessages}
+        />
+      );
 
     case 2:
       return (
         <FormClientDetails
           values={fields}
           handleFieldChange={handleFieldChange}
+          handleFieldValidation={handleFieldValidation}
+          validationMessages={validationMessages}
         />
       );
 
@@ -23,6 +38,8 @@ const FormClient = ({ currentStep, fields, handleFieldChange }) => {
         <FormClientAddress
           values={fields}
           handleFieldChange={handleFieldChange}
+          handleFieldValidation={handleFieldValidation}
+          validationMessages={validationMessages}
         />
       );
 
@@ -33,6 +50,7 @@ const FormClient = ({ currentStep, fields, handleFieldChange }) => {
 
 FormClient.propTypes = {
   currentStep: PropTypes.number.isRequired,
+
   fields: PropTypes.shape({
     email: PropTypes.string,
     passwordUser: PropTypes.string,
@@ -49,7 +67,24 @@ FormClient.propTypes = {
     city: PropTypes.string,
     state: PropTypes.string,
   }).isRequired,
+
+  validationMessages: PropTypes.shape({
+    emailErrorMessage: PropTypes.string,
+    passwordUserErrorMessage: PropTypes.string,
+    stateErrorMessage: PropTypes.string,
+    cityErrorMessage: PropTypes.string,
+    neighborhoodErrorMessage: PropTypes.string,
+    postalCodeErrorMessage: PropTypes.string,
+    streetErrorMessage: PropTypes.string,
+    numberAddressErrorMessage: PropTypes.string,
+    namePersonErrorMessage: PropTypes.string,
+    birthdayErrorMessage: PropTypes.string,
+    cpfErrorMessage: PropTypes.string,
+    cnpjErrorMessage: PropTypes.string,
+  }).isRequired,
+
   handleFieldChange: PropTypes.func.isRequired,
+  handleFieldValidation: PropTypes.func.isRequired,
 };
 
 export default FormClient;

@@ -18,3 +18,17 @@
   font: 1.2rem Poppins;
   background: $BACKGROUND_INPUT;
 }
+
+.inputBlock input[type="checkbox"] {
+  background-color: blue;
+  color: red;
+  border: 5px solid blue;
+  font-size: 10rem;
+}
+
+.inputBlock input[type="checkbox"]:checked {
+  background-color: blue;
+  color: red;
+  border: 5px solid blue;
+  font-size: 10rem;
+}

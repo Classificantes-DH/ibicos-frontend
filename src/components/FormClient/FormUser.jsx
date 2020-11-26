@@ -6,8 +6,10 @@ import FormErrorMessage from "./FormErrorMessage";
 
 const FormUser = (props) => {
   const {
-    values: { email, passwordUser, notice },
+    values: { email, passwordUser },
     handleFieldChange,
+    handleFieldValidation,
+    validationMessages: { emailErrorMessage, passwordUserErrorMessage },
   } = props;
 
   return (
@@ -21,9 +23,12 @@ const FormUser = (props) => {
           type="text"
           value={email}
           default={email}
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("email", event);
+          }}
         />
-        <FormErrorMessage fieldValue={email} fieldName="email" />
+        <FormErrorMessage message={emailErrorMessage} />
 
         <Input
           label="Senha*"
@@ -31,22 +36,12 @@ const FormUser = (props) => {
           type="password"
           value={passwordUser}
           default={passwordUser}
-          onChange={handleFieldChange}
+          onChange={(event) => {
+            handleFieldChange(event);
+            handleFieldValidation("passwordUser", event, "senha");
+          }}
         />
-        <FormErrorMessage
-          fieldValue={passwordUser}
-          fieldName="passwordUser"
-          fieldNamePTBR="senha"
-        />
-
-        <Input
-          label="Emite nota-fiscal"
-          name="notice"
-          type="checkbox"
-          value={notice}
-          default={notice}
-          onChange={handleFieldChange}
-        />
+        <FormErrorMessage message={passwordUserErrorMessage} />
       </fieldset>
     </>
   );
@@ -58,7 +53,12 @@ FormUser.propTypes = {
     notice: PropTypes.bool,
     passwordUser: PropTypes.string,
   }).isRequired,
+  validationMessages: PropTypes.shape({
+    emailErrorMessage: PropTypes.string,
+    passwordUserErrorMessage: PropTypes.string,
+  }).isRequired,
   handleFieldChange: PropTypes.func.isRequired,
+  handleFieldValidation: PropTypes.func.isRequired,
 };
 
 export default FormUser;
