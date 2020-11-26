@@ -12,6 +12,7 @@ import {
   ProviderServices,
   ClientProfile,
   ProviderProfile,
+  Login,
 } from "./pages";
 
 import { FormSignupSuccessful } from "./components";
@@ -32,6 +33,7 @@ function App() {
             <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
             <Route path="/clientePerfil" component={ClientProfile} />
             <Route path="/prestadorPerfil" component={ProviderProfile} />
+            <Route path="/login" component={Login} />
           </Switch>
         </Layout>
       </>
