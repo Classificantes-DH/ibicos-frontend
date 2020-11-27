@@ -1,7 +1,7 @@
 import { useState } from "react";
 import api from "../api/api";
 
-const usePasswordRecoveryHook = () => {
+const usePasswordRecoveryRequestHook = () => {
   const [email, setEmail] = useState("");
   const [hasRecoveryRequestErrors, setHasRecoveryRequestErrors] = useState(
     false
@@ -37,4 +37,4 @@ const usePasswordRecoveryHook = () => {
   };
 };
 
-export default usePasswordRecoveryHook;
+export default usePasswordRecoveryRequestHook;

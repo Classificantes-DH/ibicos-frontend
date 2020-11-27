@@ -52,7 +52,7 @@ const Login = () => {
         </Link>
       </div>
       <div className={styles.extraRoutesContainer}>
-        <Link to="/recuperarAcesso">
+        <Link to="/recuperarAcesso/requisicao">
           Esqueceu a senha? Clique para recupera-la
         </Link>
       </div>

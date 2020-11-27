@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./PasswordRecovery.module.scss";
-import usePasswordRecoveryHook from "../../hooks/usePasswordRecoveryHook";
+import usePasswordRecoveryRequestHook from "../../hooks/usePasswordRecoveryRequestHook";
 
 const PasswordRecoveryRequest = () => {
   const {
@@ -10,7 +10,7 @@ const PasswordRecoveryRequest = () => {
     hasRecoveryRequestErrors,
     isRecoveryRequestSuccessfull,
     handlePasswordRecoveryRequest,
-  } = usePasswordRecoveryHook();
+  } = usePasswordRecoveryRequestHook();
 
   return (
     <div className={styles.container}>
@@ -46,7 +46,6 @@ const PasswordRecoveryRequest = () => {
           <h3>Com as instruções para recuperação!</h3>
         </div>
       )}
-      <div className={styles.notSignedUpContainer} />
     </div>
   );
 };
