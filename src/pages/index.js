@@ -7,3 +7,4 @@ export { default as ClientSignup } from "./ClientSignup/ClientSignup";
 export { default as ClientProfile } from "./ClientProfile/ClientProfile";
 export { default as ProviderProfile } from "./ProviderProfile/ProviderProfile";
 export { default as Login } from "./Login/Login";
+export { default as PasswordRecoveryRequest } from "./PasswordRecovery/PasswordRecoveryRequest";

@@ -10,6 +10,7 @@ import {
   ClientProfile,
   ProviderProfile,
   Login,
+  PasswordRecoveryRequest,
 } from "../pages";
 
 import { FormSignupSuccessful } from "../components";
@@ -23,6 +24,7 @@ const Routes = () => {
       <Route path="/login" component={Login} />
       <Route path="/cadastrar" component={ClientSignup} />
       <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
+      <Route path="/recuperarAcesso" component={PasswordRecoveryRequest} />
       <PrivateRoute path="/listaClassificados" component={ClassifiedAdsList} />
       <PrivateRoute path="/listaServicos" component={ProviderServices} />
       <PrivateRoute path="/clienteDashBoard" component={DashBoard} />
