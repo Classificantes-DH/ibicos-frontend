@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { Redirect, Route } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
 
 import { Context } from "../context/AuthContext/AuthContext";
 
-const PrivateRoute = ({ component, exact, path }) => {
+const PrivateRoute = ({ component, exact = false, path }) => {
   const { isUserAuthenticated, isLoading } = useContext(Context);
+  const history = useHistory();
 
   if (isLoading) {
     return null;
   }
 
   if (!isUserAuthenticated) {
-    return <Redirect to="/login" />;
+    history.push("/login");
   }
 
-  return <Route to={path} exact={exact} Component={component} />;
+  return <Route to={path} exact={exact} component={component} />;
 };
 
 PrivateRoute.propTypes = {

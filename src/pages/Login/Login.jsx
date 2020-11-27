@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 
 import { Context } from "../../context/AuthContext/AuthContext";
@@ -9,9 +10,7 @@ const Login = () => {
     passwordUser: "",
   });
 
-  const { isUserAuthenticated, handleLogin, isCredentialInvalid } = useContext(
-    Context
-  );
+  const { handleLogin, isCredentialInvalid } = useContext(Context);
 
   const { email, passwordUser } = loginCredentials;
 
@@ -21,8 +20,6 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <h1>{isUserAuthenticated}</h1>
-
       <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
         <label htmlFor="email">
           <p>Email</p>
@@ -49,6 +46,11 @@ const Login = () => {
 
         <input type="submit" value="Login" />
       </form>
+      <div className={styles.notSignedUpContainer}>
+        <Link to="/cadastrar">
+          Ainda não é um membro ? Clique para se cadastrar
+        </Link>
+      </div>
     </div>
   );
 };

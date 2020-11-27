@@ -23,7 +23,6 @@ const Routes = () => {
       <Route path="/login" component={Login} />
       <Route path="/cadastrar" component={ClientSignup} />
       <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
-
       <PrivateRoute path="/listaClassificados" component={ClassifiedAdsList} />
       <PrivateRoute path="/listaServicos" component={ProviderServices} />
       <PrivateRoute path="/clienteDashBoard" component={DashBoard} />

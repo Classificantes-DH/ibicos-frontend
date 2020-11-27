@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, useHistory } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Layout from "./Layout";
 
@@ -8,15 +8,14 @@ import Routes from "./routes/Routes";
 import { AuthenticationProvider } from "./context/AuthContext/AuthContext";
 
 function App() {
-  const history = useHistory();
   return (
-    <AuthenticationProvider>
-      <Router history={history}>
+    <Router>
+      <AuthenticationProvider>
         <Layout>
           <Routes />
         </Layout>
-      </Router>
-    </AuthenticationProvider>
+      </AuthenticationProvider>
+    </Router>
   );
 }
 

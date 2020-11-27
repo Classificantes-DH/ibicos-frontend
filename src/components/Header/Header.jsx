@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
+
 import {
   companyLogo,
   searchIcon,
@@ -12,9 +13,13 @@ import {
   megaphoneIcon,
 } from "../../resources/imgs/utilityIcons/index";
 
+import { Context } from "../../context/AuthContext/AuthContext";
+
 const Header = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
   const [isExtendedMenuOpen, setIsExtendedMenuOpen] = useState(false);
+
+  const { isUserAuthenticated, handleLogout } = useContext(Context);
 
   const handleMenuToggle = () => {
     setIsBurgerActive(!isBurgerActive);
@@ -101,17 +106,19 @@ const Header = () => {
               </div>
             </li>
 
-            <li>
-              <div className={styles.navItem}>
-                <img src={megaphoneIcon} alt="Ícone de anúncio" />
-                <Link to="/listaClassificados" onClick={handleMenuToggle}>
-                  Anúncios
-                </Link>
-              </div>
-            </li>
-
             {/* Check if the user is logged in */}
-            {true ? (
+            {isUserAuthenticated ? (
+              <li>
+                <div className={styles.navItem}>
+                  <img src={megaphoneIcon} alt="Ícone de anúncio" />
+                  <Link to="/listaClassificados" onClick={handleMenuToggle}>
+                    Anúncios
+                  </Link>
+                </div>
+              </li>
+            ) : null}
+
+            {isUserAuthenticated ? (
               <li>
                 <div className={styles.navItem}>
                   <img src={configToolIcon} alt="Ícone de anúncio" />
@@ -124,7 +131,7 @@ const Header = () => {
 
             <li className={styles.extensibleDropDown}>
               {/* Check if the user is logged in */}
-              {true ? (
+              {isUserAuthenticated ? (
                 <div className={styles.navItem}>
                   <img src={userIcon} alt="Ícone do usuário" />
                   <button onClick={handleExtendedMenuOpen} type="button">
@@ -190,7 +197,13 @@ const Header = () => {
                   </li>
                   <li>
                     <div className={styles.navItem}>
-                      <Link to="/sair" onClick={handleMenuToggle}>
+                      <Link
+                        to="/login"
+                        onClick={() => {
+                          handleMenuToggle();
+                          handleLogout();
+                        }}
+                      >
                         Sair
                       </Link>
                     </div>

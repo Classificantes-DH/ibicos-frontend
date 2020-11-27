@@ -1,21 +1,24 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+
 import api from "../api/api";
 
 const useAuthenticationHook = () => {
   const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
   const [isCredentialInvalid, setIsCredentialInvalid] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const history = useHistory();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${token}`;
+      setIsUserAuthenticated(true);
     }
     setIsLoading(false);
   }, []);
+
+  const history = useHistory();
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -39,8 +42,9 @@ const useAuthenticationHook = () => {
 
       setIsUserAuthenticated(true);
       setIsCredentialInvalid(false);
-
-      history.push("/listaClassificados");
+      history.push({
+        pathname: "/listaClassificados",
+      });
     } catch (err) {
       setIsCredentialInvalid(true);
     } finally {
@@ -48,7 +52,20 @@ const useAuthenticationHook = () => {
     }
   };
 
-  return { isUserAuthenticated, handleLogin, isCredentialInvalid, isLoading };
+  const handleLogout = () => {
+    setIsUserAuthenticated(false);
+    localStorage.removeItem("token");
+    api.defaults.Authorization = undefined;
+    history.push({ pathname: "/login" });
+  };
+
+  return {
+    isUserAuthenticated,
+    handleLogin,
+    isCredentialInvalid,
+    isLoading,
+    handleLogout,
+  };
 };
 
 export default useAuthenticationHook;

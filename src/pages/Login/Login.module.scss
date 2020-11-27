@@ -5,9 +5,8 @@
   box-shadow: 0 0 2px rgb(194, 179, 179);
   background-color: $WHITE;
   width: 90vw;
-
   .loginForm {
-    @include displayFlex($direction: column, $align: center);
+    @include displayFlex($direction: column, $align: center, $justify: center);
 
     label {
       font-size: 5vw;
@@ -31,6 +30,24 @@
       }
     }
   }
+
+  .notSignedUpContainer {
+    text-align: center;
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+
+      font-size: 3vw;
+      color: $BLACK;
+      margin-bottom: 3vw;
+
+      &:hover {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 @media #{$BREAKPOINT-TABLET} {
@@ -50,6 +67,12 @@
         height: 5vw;
         font-size: 3vw;
         width: 15vw;
+      }
+    }
+
+    .notSignedUpContainer {
+      a {
+        font-size: 2vw;
       }
     }
   }
@@ -82,6 +105,12 @@
 
       .loginErrorMessage {
         color: rgb(231, 81, 81);
+      }
+    }
+
+    .notSignedUpContainer {
+      a {
+        font-size: 1.3vw;
       }
     }
   }

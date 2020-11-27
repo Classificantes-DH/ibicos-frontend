@@ -10,6 +10,7 @@ const AuthenticationProvider = ({ children }) => {
     handleLogin,
     isCredentialInvalid,
     isLoading,
+    handleLogout,
   } = useAuthenticationHook();
 
   if (isLoading) {
@@ -23,6 +24,7 @@ const AuthenticationProvider = ({ children }) => {
         handleLogin,
         isCredentialInvalid,
         isLoading,
+        handleLogout,
       }}
     >
       {children}
