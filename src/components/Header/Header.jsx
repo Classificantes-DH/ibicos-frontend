@@ -148,7 +148,9 @@ const Header = () => {
               ) : (
                 <div className={styles.navItem}>
                   <img src={loginIcon} alt="Login icon" />
-                  <Link to="/login">Entrar</Link>
+                  <Link to="/login" onClick={handleMenuToggle}>
+                    Entrar
+                  </Link>
                 </div>
               )}
               {/* Mobile extended menu */}
