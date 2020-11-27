@@ -16,12 +16,15 @@ const usePasswordRecoveryChangeHook = () => {
     setNewPassword(value);
   };
 
-  const handlePasswordRequestChange = async (accountRecoveryToken) => {
+  const handlePasswordRequestChange = async (event, accountRecoveryToken) => {
+    event.preventDefault();
+
     try {
-      api.put(
+      await api.post(
         "/resetPassword/change",
-        JSON.stringify({ newPassword, accountRecoveryToken })
+        JSON.stringify({ accountRecoveryToken, newPassword })
       );
+
       setHasRecoveryRequestErrors(false);
       setIsRecoveryRequestSuccessfull(true);
     } catch (err) {

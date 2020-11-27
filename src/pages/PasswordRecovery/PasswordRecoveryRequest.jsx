@@ -43,7 +43,7 @@ const PasswordRecoveryRequest = () => {
       ) : (
         <div className={styles.successufulRequestContainer}>
           <h3>Enviamos um email para você,</h3>
-          <h3>Com as instruções para recuperação!</h3>
+          <h3>com as instruções para recuperação!</h3>
         </div>
       )}
     </div>

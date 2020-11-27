@@ -33,7 +33,7 @@ const PasswordRecoveryChange = ({ location: { search } }) => {
       {!isRecoveryRequestSuccessfull ? (
         <form
           className={styles.recoveryForm}
-          onSubmit={() => handlePasswordRequestChange("token")}
+          onSubmit={(event) => handlePasswordRequestChange(event, token)}
           method="POST"
         >
           <label htmlFor="email">
