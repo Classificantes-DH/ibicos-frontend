@@ -5,10 +5,26 @@ import useAuthenticationHook from "../../hooks/useAuthenticationHook";
 const Context = createContext();
 
 const AuthenticationProvider = ({ children }) => {
-  const { isUserAuthenticated, handleLogin } = useAuthenticationHook();
+  const {
+    isUserAuthenticated,
+    handleLogin,
+    isCredentialInvalid,
+    isLoading,
+  } = useAuthenticationHook();
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
-    <Context.Provider value={{ isUserAuthenticated, handleLogin }}>
+    <Context.Provider
+      value={{
+        isUserAuthenticated,
+        handleLogin,
+        isCredentialInvalid,
+        isLoading,
+      }}
+    >
       {children}
     </Context.Provider>
   );

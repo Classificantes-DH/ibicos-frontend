@@ -9,7 +9,9 @@ const Login = () => {
     passwordUser: "",
   });
 
-  const { isUserAuthenticated, handleLogin } = useContext(Context);
+  const { isUserAuthenticated, handleLogin, isCredentialInvalid } = useContext(
+    Context
+  );
 
   const { email, passwordUser } = loginCredentials;
 
@@ -41,6 +43,9 @@ const Login = () => {
             onChange={handleFieldChange}
           />
         </label>
+        {isCredentialInvalid && (
+          <p className={styles.loginErrorMessage}>Credenciais inválidas</p>
+        )}
 
         <input type="submit" value="Login" />
       </form>

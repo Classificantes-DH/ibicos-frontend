@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import api from "../api/api";
 
 const useAuthenticationHook = () => {
   const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
-  const [autheticationErrorMessage, setAutheticationErrorMessage] = useState(
-    ""
-  );
+  const [isCredentialInvalid, setIsCredentialInvalid] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -13,6 +14,7 @@ const useAuthenticationHook = () => {
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${token}`;
     }
+    setIsLoading(false);
   }, []);
 
   const handleLogin = async (event) => {
@@ -36,12 +38,17 @@ const useAuthenticationHook = () => {
       localStorage.setItem("token", JSON.stringify(token));
 
       setIsUserAuthenticated(true);
+      setIsCredentialInvalid(false);
+
+      history.push("/listaClassificados");
     } catch (err) {
-      setAutheticationErrorMessage("Email ou senha incorretos");
+      setIsCredentialInvalid(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  return { isUserAuthenticated, handleLogin, autheticationErrorMessage };
+  return { isUserAuthenticated, handleLogin, isCredentialInvalid, isLoading };
 };
 
 export default useAuthenticationHook;
