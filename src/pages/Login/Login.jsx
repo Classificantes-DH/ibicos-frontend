@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./Login.module.scss";
+
+import { Context } from "../../context/AuthContext/AuthContext";
 
 const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -7,12 +9,9 @@ const Login = () => {
     passwordUser: "",
   });
 
-  const { email, passwordUser } = loginCredentials;
+  const { isUserAuthenticated, handleLogin } = useContext(Context);
 
-  const handleSomething = (event) => {
-    event.preventDefault();
-    console.log("Doing something");
-  };
+  const { email, passwordUser } = loginCredentials;
 
   const handleFieldChange = ({ target: { value, name } }) => {
     setLoginCredentials({ ...loginCredentials, [name]: value });
@@ -20,7 +19,9 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <form action={handleSomething} method="POST" className={styles.loginForm}>
+      <h1>{isUserAuthenticated}</h1>
+
+      <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
         <label htmlFor="email">
           <p>Email</p>
           <input
@@ -30,6 +31,7 @@ const Login = () => {
             onChange={handleFieldChange}
           />
         </label>
+
         <label htmlFor="passwordUser">
           <p>Senha</p>
           <input
@@ -39,6 +41,7 @@ const Login = () => {
             onChange={handleFieldChange}
           />
         </label>
+
         <input type="submit" value="Login" />
       </form>
     </div>
