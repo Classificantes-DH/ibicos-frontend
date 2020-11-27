@@ -46,9 +46,14 @@ const Login = () => {
 
         <input type="submit" value="Login" />
       </form>
-      <div className={styles.notSignedUpContainer}>
+      <div className={styles.extraRoutesContainer}>
         <Link to="/cadastrar">
           Ainda não é um membro ? Clique para se cadastrar
+        </Link>
+      </div>
+      <div className={styles.extraRoutesContainer}>
+        <Link to="/recuperarAcesso/requisicao">
+          Esqueceu a senha? Clique para recupera-la
         </Link>
       </div>
     </div>
