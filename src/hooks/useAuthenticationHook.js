@@ -38,7 +38,7 @@ const useAuthenticationHook = () => {
 
       api.defaults.headers.Authorization = `Bearer ${token}`;
 
-      localStorage.setItem("token", JSON.stringify(token));
+      localStorage.setItem("token", token);
 
       setIsUserAuthenticated(true);
       setIsCredentialInvalid(false);

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import mockedData from "./mockedData/jobs-list-page1.json";
 
+import api from "../api/api";
+
 const useJobsAdsListDataHook = (query, pageNumber) => {
-  const [adsList, setAdsList] = useState({});
+  const [adsList, setAdsList] = useState([]);
   const [orderBy, setOrderBy] = useState("id");
   const [filteringParameters, setFilteringParameters] = useState({
     category: "",
@@ -80,14 +82,16 @@ const useJobsAdsListDataHook = (query, pageNumber) => {
   }, [orderBy, filteringParameters]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      // #TODO: Real data fetching
-      // const response = await fetch("url");
-      // const data = await response.json();
-      // setAdsList(data);
-    };
-    setAdsList(mockedData);
-    fetchData();
+    (async () => {
+      try {
+        const response = await api.get("/api/v1/ad/list/ad");
+        const data = await response.data;
+
+        setAdsList(...adsList, data);
+      } catch (err) {
+        console.log(err);
+      }
+    })();
   }, [query, pageNumber]);
 
   return {
