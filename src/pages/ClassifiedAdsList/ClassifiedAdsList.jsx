@@ -12,17 +12,19 @@ import styles from "./ClassifiedAdsList.module.scss";
 const ClassifiedAdsList = () => {
   const {
     adsList,
+    totalAds,
     filteringParameters,
     handleOrderByChange,
     handleBroadFilterChange,
   } = useJobsAdsListDataHook("url", "page");
-  if (!adsList || !adsList.results) return null;
+
+  if (!adsList) return null;
 
   return (
     <div className={styles.container}>
       <IntroAdsList />
       <OrderByFilter
-        numberOfAds={adsList.adsCounter}
+        numberOfAds={totalAds}
         handleOrderByChange={handleOrderByChange}
       />
       <div className={styles.mainContentcontainer}>
@@ -31,7 +33,7 @@ const ClassifiedAdsList = () => {
           filteringParameters={filteringParameters}
         />
         <div className={styles.cardsContainer}>
-          {adsList.results.map((ad) => {
+          {adsList.map((ad) => {
             return <JobCardModalHolder key={ad.id} adInfo={ad} />;
           })}
         </div>

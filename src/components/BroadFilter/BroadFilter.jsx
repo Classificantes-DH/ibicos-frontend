@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./BroadFilter.module.scss";
 
 const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
+  const { stateName, cityName } = filteringParameters;
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -16,7 +17,9 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
           <div className={styles.selectContainer}>
             <select
               className={styles.mainSelect}
-              onChange={(event) => handleBroadFilterChange(event, "category")}
+              onChange={(event) =>
+                handleBroadFilterChange(event, "categoryName")
+              }
             >
               <option value="">Qualquer</option>
               <option>Mecânico</option>
@@ -32,7 +35,7 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
           <div className={styles.selectContainer}>
             <select
               className={styles.mainSelect}
-              onChange={(event) => handleBroadFilterChange(event, "state")}
+              onChange={(event) => handleBroadFilterChange(event, "stateName")}
             >
               <option value="">Qualquer</option>
               <option value="SP">São Paulo</option>
@@ -50,8 +53,8 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
           <div className={styles.selectContainer}>
             <select
               className={styles.mainSelect}
-              onChange={(event) => handleBroadFilterChange(event, "cities")}
-              disabled={!filteringParameters.state}
+              onChange={(event) => handleBroadFilterChange(event, "cityName")}
+              disabled={!stateName}
             >
               <option value="">Qualquer</option>
               <option>São Paulo</option>
@@ -70,8 +73,8 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
           <div className={styles.selectContainer}>
             <select
               className={styles.mainSelect}
-              onChange={(event) => handleBroadFilterChange(event, "regions")}
-              disabled={!filteringParameters.cities}
+              onChange={(event) => handleBroadFilterChange(event, "areaName")}
+              disabled={!cityName}
             >
               <option value="">Qualquer</option>
               <option>Zona Sul</option>
@@ -89,10 +92,10 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
 BroadFilter.propTypes = {
   handleBroadFilterChange: PropTypes.func.isRequired,
   filteringParameters: PropTypes.shape({
-    category: PropTypes.string,
-    state: PropTypes.string.isRequired,
-    cities: PropTypes.string.isRequired,
-    regions: PropTypes.string.isRequired,
+    categoryName: PropTypes.string,
+    stateName: PropTypes.string.isRequired,
+    cityName: PropTypes.string.isRequired,
+    areaName: PropTypes.string,
   }).isRequired,
 };
 
