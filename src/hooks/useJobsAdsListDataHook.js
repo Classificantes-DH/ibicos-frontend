@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import mockedData from "./mockedData/jobs-list-page1.json";
 
 import api from "../api/api";
 
 const useJobsAdsListDataHook = (query, pageNumber) => {
   const [adsList, setAdsList] = useState([]);
-  const [orderBy, setOrderBy] = useState("id");
+  // const [orderBy, setOrderBy] = useState("id");
   const [filteringParameters, setFilteringParameters] = useState({
-    category: "",
-    state: "",
-    cities: "",
-    regions: "",
+    categoryName: "",
+    stateName: "",
+    cityName: "",
+    areaName: "",
   });
+
+  const { categoryName, stateName, cityName, areaName } = filteringParameters;
 
   const getSelectedValue = (event) => {
     const { target } = event;
@@ -28,66 +29,25 @@ const useJobsAdsListDataHook = (query, pageNumber) => {
 
   const handleOrderByChange = (event) => {
     const selectedValue = getSelectedValue(event);
-    setOrderBy(selectedValue);
+    // setOrderBy(selectedValue);
+    console.log(selectedValue);
   };
-
-  /*
-    This is just a mockup that needs to be altered using real back-end for fetching data
-  */
-  useEffect(() => {
-    const sortedAdsList = JSON.parse(JSON.stringify(mockedData));
-    if (!sortedAdsList.results) return;
-    const { results } = sortedAdsList;
-
-    const filteredResult = results.filter((result) => {
-      // eslint-disable-next-line no-restricted-syntax
-      for (const key in filteringParameters) {
-        if (Object.prototype.hasOwnProperty.call(filteringParameters, key)) {
-          if (
-            key !== "regions" &&
-            key !== "cities" &&
-            !result[key].includes(filteringParameters[key])
-          ) {
-            return false;
-          }
-
-          if (key === "cities" || key === "regions") {
-            // eslint-disable-next-line no-restricted-syntax
-            for (const location of result.cities) {
-              if (location.name.includes(filteringParameters.cities)) {
-                if (!filteringParameters.regions) return true;
-                // eslint-disable-next-line no-console
-                console.log(filteringParameters.regions);
-                // eslint-disable-next-line no-unused-vars
-                // eslint-disable-next-line no-restricted-syntax
-                for (const region of location.regions) {
-                  if (region.includes(filteringParameters.regions)) {
-                    return true;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-      return false;
-    });
-
-    sortedAdsList.results = filteredResult;
-
-    sortedAdsList.results.sort((a, b) => b[orderBy] - a[orderBy]);
-    setAdsList(sortedAdsList);
-    // eslint-disable-next-line
-  }, [orderBy, filteringParameters]);
 
   useEffect(() => {
     (async () => {
       try {
-        const response = await api.get("/api/v1/ad/list/ad");
-        const data = await response.data;
-
-        setAdsList(...adsList, data);
+        const response = await api.get("/api/v1/ad/list/ad/filter", {
+          params: {
+            categoryName,
+            stateName,
+            cityName,
+            areaName,
+          },
+        });
+        const {
+          data: { content },
+        } = await response;
+        setAdsList(...adsList, content);
       } catch (err) {
         console.log(err);
       }
