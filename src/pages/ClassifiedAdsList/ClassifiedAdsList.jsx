@@ -12,18 +12,19 @@ import styles from "./ClassifiedAdsList.module.scss";
 const ClassifiedAdsList = () => {
   const {
     adsList,
+    totalAds,
     filteringParameters,
     handleOrderByChange,
     handleBroadFilterChange,
   } = useJobsAdsListDataHook("url", "page");
 
-  if (!adsList || adsList.length === 0) return null;
+  if (!adsList) return null;
 
   return (
     <div className={styles.container}>
       <IntroAdsList />
       <OrderByFilter
-        numberOfAds={adsList.adsCounter}
+        numberOfAds={totalAds}
         handleOrderByChange={handleOrderByChange}
       />
       <div className={styles.mainContentcontainer}>

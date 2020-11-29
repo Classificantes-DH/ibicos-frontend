@@ -11,6 +11,7 @@ const useJobsAdsListDataHook = (query, pageNumber) => {
     cityName: "",
     areaName: "",
   });
+  const [totalAds, setTotalAds] = useState(0);
 
   const { categoryName, stateName, cityName, areaName } = filteringParameters;
 
@@ -45,17 +46,21 @@ const useJobsAdsListDataHook = (query, pageNumber) => {
           },
         });
         const {
-          data: { content },
+          data: { content, totalElements },
         } = await response;
-        setAdsList(...adsList, content);
+
+        setAdsList(content);
+
+        setTotalAds(totalElements);
       } catch (err) {
         console.log(err);
       }
     })();
-  }, [query, pageNumber]);
+  }, [query, pageNumber, filteringParameters]);
 
   return {
     adsList,
+    totalAds,
     filteringParameters,
     handleOrderByChange,
     handleBroadFilterChange,
