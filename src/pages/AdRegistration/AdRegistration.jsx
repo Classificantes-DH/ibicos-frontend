@@ -2,7 +2,20 @@ import React from "react";
 
 import styles from "./AdRegistration.module.scss";
 
+import useAdRegistrationHook from "../../hooks/useAdRegistrationHook";
+
 const AdRegistration = () => {
+  const {
+    adRegistrationObject,
+    stateAbb,
+    handleFieldChange,
+    handleCityIncrement,
+    handleRegionAreaIncrement,
+    handleRegionAreaDecrement,
+  } = useAdRegistrationHook();
+
+  const { adDescription, serviceCategory, cities } = adRegistrationObject;
+
   return (
     <div className={styles.container}>
       <header className={styles.pageHeader}>
@@ -16,6 +29,8 @@ const AdRegistration = () => {
               <textarea
                 name="adDescription"
                 className={styles.defaultTextArea}
+                value={adDescription}
+                onChange={handleFieldChange}
               />
             </label>
           </div>
@@ -23,7 +38,12 @@ const AdRegistration = () => {
           <div className={styles.inputContainer}>
             <label htmlFor="serviceCategory">
               <p>Categoria de serviço</p>
-              <select name="serviceCategory" className={styles.defaultSelect}>
+              <select
+                name="serviceCategory"
+                className={styles.defaultSelect}
+                value={serviceCategory}
+                onChange={handleFieldChange}
+              >
                 <option value="">Selecione uma categoria</option>
                 <option value="1">Mecânico</option>
                 <option value="2">Eletricista</option>
@@ -40,62 +60,83 @@ const AdRegistration = () => {
             <div className={styles.inputContainer}>
               <label htmlFor="stateAbb">
                 <p>Selecione o Estado de atuação</p>
-                <select name="stateAbb" className={styles.defaultSelect}>
+                <select
+                  name="stateAbb"
+                  className={styles.defaultSelect}
+                  value={stateAbb}
+                  onChange={handleFieldChange}
+                >
                   <option value="">Selecione um estado</option>
                   <option value="SP">SP</option>
                   <option value="RJ">RJ</option>
                 </select>
               </label>
             </div>
-            <div className={styles.locationContainer}>
-              <div className={styles.inputContainer}>
-                <label htmlFor="cityName">
-                  <p>Digite o nome da cidade de atuação</p>
-                  <input
-                    type="text"
-                    name="cityName"
-                    className={styles.defaultInputText}
-                  />
-                </label>
-              </div>
 
-              <div className={styles.regionAreaContainer}>
-                <div className={styles.regionArea}>
-                  <div className={styles.inputContainer}>
-                    <label htmlFor="areaName">
-                      <p>Selecione uma região</p>
-
-                      <select name="areaName" className={styles.defaultSelect}>
-                        <option value="">Escolha uma região</option>
-                        <option value="Zona Sul">Zona Sul</option>
-                        <option value="Zona Leste">Zona Leste</option>
-                        <option value="Zona Oeste">Zona Oeste</option>
-                        <option value="Zona Norte">Zona Norte</option>
-                      </select>
-                    </label>
-                  </div>
-                  <div className={styles.regionActionContainer}>
-                    <button
-                      type="button"
-                      className={`${styles.defaultButton} ${styles.addButton}`}
-                    >
-                      Adicionar região
-                    </button>
-                    {/* TODO: WE'RE GONNA HAVE ONLY ONE BUTTON PER CONTAINER */}
-                    {/* <button
-                      type="button"
-                      className={`${styles.defaultButton} ${styles.removeButton}`}
-                    >
-                      Remover região
-                    </button> */}
-                  </div>
+            {cities.map((city, index) => (
+              <div className={styles.locationContainer}>
+                <div className={styles.inputContainer}>
+                  <label htmlFor="cityName">
+                    <p>Digite o nome da cidade de atuação</p>
+                    <input
+                      type="text"
+                      name="cityName"
+                      className={styles.defaultInputText}
+                      value={city.cityName}
+                      onChange={handleFieldChange}
+                    />
+                  </label>
                 </div>
+
+                <div className={styles.regionAreaContainer}>
+                  {city.regionArea.map(({ areaName }, regionIndex) => (
+                    <div className={styles.regionArea}>
+                      <div className={styles.inputContainer}>
+                        <label htmlFor="areaName">
+                          <p>Selecione uma região</p>
+
+                          <select
+                            name="areaName"
+                            className={styles.defaultSelect}
+                            value={areaName}
+                            onChange={handleFieldChange}
+                          >
+                            <option value="">Escolha uma região</option>
+                            <option value="Zona Sul">Zona Sul</option>
+                            <option value="Zona Leste">Zona Leste</option>
+                            <option value="Zona Oeste">Zona Oeste</option>
+                            <option value="Zona Norte">Zona Norte</option>
+                          </select>
+                        </label>
+                      </div>
+                      <div className={styles.regionActionContainer}>
+                        <button
+                          type="button"
+                          className={`${styles.defaultButton} ${styles.removeButton}`}
+                          onClick={(event) =>
+                            handleRegionAreaDecrement(event, index, regionIndex)
+                          }
+                        >
+                          Remover região
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <button
+                  type="button"
+                  className={`${styles.defaultButton} ${styles.addButton}`}
+                  onClick={(event) => handleRegionAreaIncrement(event, index)}
+                >
+                  Adicionar região
+                </button>
               </div>
-            </div>
+            ))}
 
             <button
               type="button"
               className={`${styles.defaultButton} ${styles.addButton}`}
+              onClick={handleCityIncrement}
             >
               Adicionar cidade de atuação
             </button>
