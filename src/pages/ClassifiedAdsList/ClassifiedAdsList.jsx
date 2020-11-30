@@ -1,19 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
+
 import {
   OrderByFilter,
   BroadFilter,
   IntroAdsList,
   JobCardModalHolder,
 } from "../../components";
+
 import useJobsAdsListDataHook from "../../hooks/useJobsAdsListDataHook";
 
 import styles from "./ClassifiedAdsList.module.scss";
 
-import { SessionContext } from "../../context/SessionContext/SessionContext";
-
 const ClassifiedAdsList = () => {
-  const { userInfo } = useContext(SessionContext);
-
   const {
     adsList,
     totalAds,
@@ -23,7 +21,6 @@ const ClassifiedAdsList = () => {
   } = useJobsAdsListDataHook("url", "page");
 
   if (!adsList) return null;
-  console.log(userInfo);
 
   return (
     <div className={styles.container}>
