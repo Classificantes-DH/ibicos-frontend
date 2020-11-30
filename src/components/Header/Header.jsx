@@ -177,8 +177,8 @@ const Header = () => {
                   </li>
                   <li>
                     <div className={styles.navItem}>
-                      <Link to="/notificacao" onClick={handleMenuToggle}>
-                        Notificação
+                      <Link to="/cadastrarAnuncio" onClick={handleMenuToggle}>
+                        Cadastrar anúncio
                       </Link>
                     </div>
                   </li>
