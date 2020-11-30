@@ -6,14 +6,17 @@ import Layout from "./Layout";
 import Routes from "./routes/Routes";
 
 import { AuthenticationProvider } from "./context/AuthContext/AuthContext";
+import { SessionContextProvider } from "./context/SessionContext/SessionContext";
 
 function App() {
   return (
     <Router>
       <AuthenticationProvider>
-        <Layout>
-          <Routes />
-        </Layout>
+        <SessionContextProvider>
+          <Layout>
+            <Routes />
+          </Layout>
+        </SessionContextProvider>
       </AuthenticationProvider>
     </Router>
   );

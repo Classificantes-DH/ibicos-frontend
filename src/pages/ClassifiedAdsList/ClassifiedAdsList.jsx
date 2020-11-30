@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   OrderByFilter,
   BroadFilter,
@@ -9,7 +9,11 @@ import useJobsAdsListDataHook from "../../hooks/useJobsAdsListDataHook";
 
 import styles from "./ClassifiedAdsList.module.scss";
 
+import { SessionContext } from "../../context/SessionContext/SessionContext";
+
 const ClassifiedAdsList = () => {
+  const { sessionCookie } = useContext(SessionContext);
+
   const {
     adsList,
     totalAds,
@@ -19,6 +23,7 @@ const ClassifiedAdsList = () => {
   } = useJobsAdsListDataHook("url", "page");
 
   if (!adsList) return null;
+  console.log(sessionCookie);
 
   return (
     <div className={styles.container}>
