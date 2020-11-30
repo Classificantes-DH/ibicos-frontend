@@ -1,10 +1,12 @@
 import React from "react";
+
 import {
   OrderByFilter,
   BroadFilter,
   IntroAdsList,
   JobCardModalHolder,
 } from "../../components";
+
 import useJobsAdsListDataHook from "../../hooks/useJobsAdsListDataHook";
 
 import styles from "./ClassifiedAdsList.module.scss";

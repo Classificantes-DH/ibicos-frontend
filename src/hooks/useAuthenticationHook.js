@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import Cookie from "js-cookie";
+import { setSessionCookie } from "../session/SessionConfig";
 
 import api from "../api/api";
 
@@ -20,6 +22,24 @@ const useAuthenticationHook = () => {
 
   const history = useHistory();
 
+  const handleUserInfoSessionLogin = async (email) => {
+    try {
+      const response = await api.post(
+        "/api/v1/user/findUserByEmail",
+        JSON.stringify({ email })
+      );
+
+      const { data } = response;
+      setSessionCookie({ data });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUserInfoSessionLogout = () => {
+    Cookie.remove("session");
+  };
+
   const handleLogin = async (event) => {
     event.preventDefault();
     const { target } = event;
@@ -39,6 +59,7 @@ const useAuthenticationHook = () => {
       api.defaults.headers.Authorization = `Bearer ${token}`;
 
       localStorage.setItem("token", token);
+      handleUserInfoSessionLogin(email);
 
       setIsUserAuthenticated(true);
       setIsCredentialInvalid(false);
@@ -55,6 +76,7 @@ const useAuthenticationHook = () => {
   const handleLogout = () => {
     setIsUserAuthenticated(false);
     localStorage.removeItem("token");
+    handleUserInfoSessionLogout();
     api.defaults.Authorization = undefined;
     history.push({ pathname: "/login" });
   };

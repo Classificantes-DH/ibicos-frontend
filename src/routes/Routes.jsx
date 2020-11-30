@@ -12,6 +12,7 @@ import {
   Login,
   PasswordRecoveryRequest,
   PasswordRecoveryChange,
+  AdRegistration,
 } from "../pages";
 
 import { FormSignupSuccessful } from "../components";
@@ -39,6 +40,7 @@ const Routes = () => {
       <PrivateRoute path="/prestadorDashBoard" component={DashBoard} />
       <PrivateRoute path="/clientePerfil" component={ClientProfile} />
       <PrivateRoute path="/prestadorPerfil" component={ProviderProfile} />
+      <PrivateRoute path="/cadastrarAnuncio" component={AdRegistration} />
     </Switch>
   );
 };
