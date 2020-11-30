@@ -8,10 +8,14 @@ const AdRegistration = () => {
   const {
     adRegistrationObject,
     stateAbb,
-    handleFieldChange,
+    handleBasePropertiesChange,
+    handleStateAbbChange,
     handleCityIncrement,
+    handleServiceCategoryChange,
     handleRegionAreaIncrement,
+    handleCitiesChange,
     handleRegionAreaDecrement,
+    handleRegionAreaChange,
   } = useAdRegistrationHook();
 
   const { adDescription, serviceCategory, cities } = adRegistrationObject;
@@ -30,7 +34,7 @@ const AdRegistration = () => {
                 name="adDescription"
                 className={styles.defaultTextArea}
                 value={adDescription}
-                onChange={handleFieldChange}
+                onChange={handleBasePropertiesChange}
               />
             </label>
           </div>
@@ -41,8 +45,8 @@ const AdRegistration = () => {
               <select
                 name="serviceCategory"
                 className={styles.defaultSelect}
-                value={serviceCategory}
-                onChange={handleFieldChange}
+                value={serviceCategory.id}
+                onChange={handleServiceCategoryChange}
               >
                 <option value="">Selecione uma categoria</option>
                 <option value="1">Mecânico</option>
@@ -64,7 +68,7 @@ const AdRegistration = () => {
                   name="stateAbb"
                   className={styles.defaultSelect}
                   value={stateAbb}
-                  onChange={handleFieldChange}
+                  onChange={handleStateAbbChange}
                 >
                   <option value="">Selecione um estado</option>
                   <option value="SP">SP</option>
@@ -83,7 +87,7 @@ const AdRegistration = () => {
                       name="cityName"
                       className={styles.defaultInputText}
                       value={city.cityName}
-                      onChange={handleFieldChange}
+                      onChange={(event) => handleCitiesChange(event, index)}
                     />
                   </label>
                 </div>
@@ -99,7 +103,9 @@ const AdRegistration = () => {
                             name="areaName"
                             className={styles.defaultSelect}
                             value={areaName}
-                            onChange={handleFieldChange}
+                            onChange={(event) =>
+                              handleRegionAreaChange(event, index, regionIndex)
+                            }
                           >
                             <option value="">Escolha uma região</option>
                             <option value="Zona Sul">Zona Sul</option>
