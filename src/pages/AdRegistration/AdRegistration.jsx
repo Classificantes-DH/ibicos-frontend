@@ -16,6 +16,7 @@ const AdRegistration = () => {
     handleCitiesChange,
     handleRegionAreaDecrement,
     handleRegionAreaChange,
+    handleFormSubmition,
   } = useAdRegistrationHook();
 
   const { adDescription, serviceCategory, cities } = adRegistrationObject;
@@ -26,7 +27,7 @@ const AdRegistration = () => {
         <h2>Cadastre um novo anúncio</h2>
       </header>
       <div className={styles.formContainer}>
-        <form method="POST">
+        <form method="POST" onSubmit={handleFormSubmition}>
           <div className={styles.inputContainer}>
             <label htmlFor="adDescription">
               <p>Descrição do anúncio</p>

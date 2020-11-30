@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import api from "../api/api";
 
 const _ = require("lodash");
 
@@ -6,7 +8,7 @@ const useAdRegistrationHook = () => {
   const [adRegistrationObject, setAdRegistrationObject] = useState({
     adDescription: "",
     user: {
-      id: null,
+      id: 3,
     },
     serviceCategory: {
       id: null,
@@ -26,6 +28,33 @@ const useAdRegistrationHook = () => {
 
   const [stateAbb, setStateAbb] = useState("");
 
+  const handleFormSubmition = async (event) => {
+    event.preventDefault();
+    console.log(adRegistrationObject);
+    console.log(JSON.stringify(adRegistrationObject));
+    try {
+      const response = await api.post(
+        "/api/v1/ad/create",
+        JSON.stringify(adRegistrationObject)
+      );
+      console.log(response);
+      const { data } = await response;
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    const clonedObject = _.cloneDeep(adRegistrationObject);
+    const { cities } = clonedObject;
+
+    for (let index = 0; index < cities.length; index += 1) {
+      cities[index].stateAbb = stateAbb;
+    }
+    setAdRegistrationObject(clonedObject);
+  }, [stateAbb]);
+
   const handleStateAbbChange = ({ target: { value } }) => {
     setStateAbb(value);
   };
@@ -40,7 +69,7 @@ const useAdRegistrationHook = () => {
   const handleCityIncrement = () => {
     const clonedObject = _.cloneDeep(adRegistrationObject);
     clonedObject.cities.push({
-      stateAbb: "",
+      stateAbb,
       cityName: "",
       regionArea: [
         {
@@ -92,7 +121,7 @@ const useAdRegistrationHook = () => {
   ) => {
     setAdRegistrationObject((prevState) => {
       const newState = { ...prevState };
-      newState.cities[cityIndex].regionArea[regionIndex] = value;
+      newState.cities[cityIndex].regionArea[regionIndex].areaName = value;
       return newState;
     });
   };
@@ -108,6 +137,7 @@ const useAdRegistrationHook = () => {
     handleCityIncrement,
     handleRegionAreaIncrement,
     handleRegionAreaDecrement,
+    handleFormSubmition,
   };
 };
 
