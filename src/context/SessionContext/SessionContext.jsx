@@ -5,10 +5,10 @@ import { getSessionCookie } from "../../session/SessionConfig";
 const SessionContext = createContext(getSessionCookie().data);
 
 const SessionContextProvider = ({ children }) => {
-  const [sessionCookie] = useState(getSessionCookie().data);
+  const [userInfo] = useState(getSessionCookie().data);
 
   return (
-    <SessionContext.Provider value={{ sessionCookie }}>
+    <SessionContext.Provider value={{ userInfo }}>
       {children}
     </SessionContext.Provider>
   );

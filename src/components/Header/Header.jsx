@@ -15,11 +15,17 @@ import {
 
 import { Context } from "../../context/AuthContext/AuthContext";
 
+import { SessionContext } from "../../context/SessionContext/SessionContext";
+
 const Header = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
   const [isExtendedMenuOpen, setIsExtendedMenuOpen] = useState(false);
 
   const { isUserAuthenticated, handleLogout } = useContext(Context);
+
+  const { userInfo } = useContext(SessionContext);
+
+  const [username] = useState(userInfo ? userInfo.email.split("@")[0] : "");
 
   const handleMenuToggle = () => {
     setIsBurgerActive(!isBurgerActive);
@@ -136,7 +142,7 @@ const Header = () => {
                   <img src={userIcon} alt="Ícone do usuário" />
                   <button onClick={handleExtendedMenuOpen} type="button">
                     <div className={styles.navItem}>
-                      <span>fulano.silva</span>
+                      <span>{username}</span>
                       <i
                         className={`${styles.arrowIcon} ${
                           isExtendedMenuOpen ? `${styles.activeExtended}` : ``

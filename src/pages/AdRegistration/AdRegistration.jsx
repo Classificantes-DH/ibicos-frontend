@@ -8,6 +8,7 @@ const AdRegistration = () => {
   const {
     adRegistrationObject,
     stateAbb,
+    isAdSuccessfullyRegistered,
     handleBasePropertiesChange,
     handleStateAbbChange,
     handleCityIncrement,
@@ -130,30 +131,41 @@ const AdRegistration = () => {
                     </div>
                   ))}
                 </div>
-                <button
-                  type="button"
-                  className={`${styles.defaultButton} ${styles.addButton}`}
-                  onClick={(event) => handleRegionAreaIncrement(event, index)}
-                >
-                  Adicionar região
-                </button>
+                <div className={styles.btnContainer}>
+                  <button
+                    type="button"
+                    className={`${styles.defaultButton} ${styles.addButton}`}
+                    onClick={(event) => handleRegionAreaIncrement(event, index)}
+                  >
+                    Adicionar região
+                  </button>
+                </div>
               </div>
             ))}
 
-            <button
-              type="button"
-              className={`${styles.defaultButton} ${styles.addButton}`}
-              onClick={handleCityIncrement}
-            >
-              Adicionar cidade de atuação
-            </button>
+            <div className={styles.btnContainer}>
+              <button
+                type="button"
+                className={`${styles.defaultButton} ${styles.addButton}`}
+                onClick={handleCityIncrement}
+              >
+                Adicionar cidade de atuação
+              </button>
+            </div>
           </div>
 
-          <input
-            type="submit"
-            value="Cadastrar"
-            className={`${styles.defaultButton} ${styles.formSendButton}`}
-          />
+          <div className={styles.btnContainer}>
+            <input
+              type="submit"
+              value="Cadastrar"
+              className={`${styles.defaultButton} ${styles.formSendButton}`}
+            />
+          </div>
+          {isAdSuccessfullyRegistered ? (
+            <div className={styles.sucessRegistration}>
+              <h4>Anúncio registrado com sucesso</h4>
+            </div>
+          ) : null}
         </form>
       </div>
     </div>

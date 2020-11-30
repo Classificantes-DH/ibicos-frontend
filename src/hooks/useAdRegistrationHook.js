@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import api from "../api/api";
+
+import { SessionContext } from "../context/SessionContext/SessionContext";
 
 const _ = require("lodash");
 
 const useAdRegistrationHook = () => {
-  const [adRegistrationObject, setAdRegistrationObject] = useState({
+  const { userInfo } = useContext(SessionContext);
+
+  const [id] = useState(userInfo ? userInfo.id : null);
+
+  const initialAdRegistrationState = {
     adDescription: "",
     user: {
-      id: 3,
+      id,
     },
     serviceCategory: {
       id: null,
@@ -24,15 +30,27 @@ const useAdRegistrationHook = () => {
         ],
       },
     ],
-  });
-
+  };
   const [stateAbb, setStateAbb] = useState("");
+  const [isAdSuccessfullyRegistered, setIsAdSuccessfullyRegistered] = useState(
+    false
+  );
+
+  const [adRegistrationObject, setAdRegistrationObject] = useState(
+    _.cloneDeep(initialAdRegistrationState)
+  );
+
+  const handleResetOfIsAdSuccessfullyRegistered = () => {
+    setIsAdSuccessfullyRegistered(false);
+  };
 
   const handleFormSubmition = async (event) => {
     event.preventDefault();
 
     try {
       await api.post("/api/v1/ad/create", JSON.stringify(adRegistrationObject));
+      setIsAdSuccessfullyRegistered(true);
+      setAdRegistrationObject(_.cloneDeep(initialAdRegistrationState));
     } catch (err) {
       console.log(err);
     }
@@ -49,10 +67,12 @@ const useAdRegistrationHook = () => {
   }, [stateAbb]);
 
   const handleStateAbbChange = ({ target: { value } }) => {
+    handleResetOfIsAdSuccessfullyRegistered();
     setStateAbb(value);
   };
 
   const handleBasePropertiesChange = ({ target: { name, value } }) => {
+    handleResetOfIsAdSuccessfullyRegistered();
     setAdRegistrationObject((prevState) => ({
       ...prevState,
       [name]: value,
@@ -60,6 +80,7 @@ const useAdRegistrationHook = () => {
   };
 
   const handleCityIncrement = () => {
+    handleResetOfIsAdSuccessfullyRegistered();
     const clonedObject = _.cloneDeep(adRegistrationObject);
     clonedObject.cities.push({
       stateAbb,
@@ -74,6 +95,7 @@ const useAdRegistrationHook = () => {
   };
 
   const handleRegionAreaIncrement = (event, cityIndex) => {
+    handleResetOfIsAdSuccessfullyRegistered();
     const clonedObject = _.cloneDeep(adRegistrationObject);
     clonedObject.cities[cityIndex].regionArea.push({
       areaName: "",
@@ -83,6 +105,7 @@ const useAdRegistrationHook = () => {
   };
 
   const handleRegionAreaDecrement = (event, cityIndex, regionAreaIndex) => {
+    handleResetOfIsAdSuccessfullyRegistered();
     const clonedObject = _.cloneDeep(adRegistrationObject);
 
     clonedObject.cities[cityIndex].regionArea.splice(regionAreaIndex, 1);
@@ -91,6 +114,7 @@ const useAdRegistrationHook = () => {
   };
 
   const handleServiceCategoryChange = ({ target: { value } }) => {
+    handleResetOfIsAdSuccessfullyRegistered();
     setAdRegistrationObject((prevState) => {
       const newState = { ...prevState };
       newState.serviceCategory.id = value;
@@ -100,6 +124,7 @@ const useAdRegistrationHook = () => {
   };
 
   const handleCitiesChange = ({ target: { value, name } }, cityIndex) => {
+    handleResetOfIsAdSuccessfullyRegistered();
     setAdRegistrationObject((prevState) => {
       const newState = { ...prevState };
       newState.cities[cityIndex][name] = value;
@@ -112,6 +137,7 @@ const useAdRegistrationHook = () => {
     cityIndex,
     regionIndex
   ) => {
+    handleResetOfIsAdSuccessfullyRegistered();
     setAdRegistrationObject((prevState) => {
       const newState = { ...prevState };
       newState.cities[cityIndex].regionArea[regionIndex].areaName = value;
@@ -122,6 +148,7 @@ const useAdRegistrationHook = () => {
   return {
     adRegistrationObject,
     stateAbb,
+    isAdSuccessfullyRegistered,
     handleRegionAreaChange,
     handleBasePropertiesChange,
     handleStateAbbChange,

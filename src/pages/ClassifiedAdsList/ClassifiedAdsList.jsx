@@ -12,7 +12,7 @@ import styles from "./ClassifiedAdsList.module.scss";
 import { SessionContext } from "../../context/SessionContext/SessionContext";
 
 const ClassifiedAdsList = () => {
-  const { sessionCookie } = useContext(SessionContext);
+  const { userInfo } = useContext(SessionContext);
 
   const {
     adsList,
@@ -23,7 +23,7 @@ const ClassifiedAdsList = () => {
   } = useJobsAdsListDataHook("url", "page");
 
   if (!adsList) return null;
-  console.log(sessionCookie);
+  console.log(userInfo);
 
   return (
     <div className={styles.container}>
