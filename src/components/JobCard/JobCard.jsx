@@ -7,7 +7,7 @@ import mechanicLogo from "../../resources/imgs/jobIcons/plumber.svg";
 import mapIcon from "../../resources/imgs/utilityIcons/map-location-pure.svg";
 import { RatingStars } from "../index";
 
-const JobCard = ({ adInfo }) => {
+const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
   const {
     adDescription,
     cities,
@@ -24,13 +24,26 @@ const JobCard = ({ adInfo }) => {
         <img src={mechanicLogo} alt="Job Logo" className={styles.jobLogo} />
       </div>
       <div className={styles.mainDescription}>
-        <h2 className={styles.title}>{categoryName}</h2>
-        <RatingStars
-          rate={evaluation}
-          isEditable={false}
-          description="Quantidade de avaliações"
-        />
-        <p>{evaluationsCounter} avaliações</p>
+        <h2 className={styles.title}>
+          {categoryName}
+          {isCustomerAndProviderTheSame && (
+            <div className={styles.customerOwnedAd} />
+          )}
+        </h2>
+        {evaluationsCounter > 0 ? (
+          <div className={styles.evaluationContainer}>
+            <RatingStars
+              rate={evaluation}
+              isEditable={false}
+              description="Quantidade de avaliações"
+            />
+            <p>{evaluationsCounter} avaliações</p>
+          </div>
+        ) : (
+          <div className={styles.notEnoughEvaluationsContainer}>
+            <p>O usuário ainda não possui avaliações suficientes</p>
+          </div>
+        )}
       </div>
       <div className={styles.jobDetails}>
         <div className={styles.location}>
@@ -80,7 +93,12 @@ const JobCard = ({ adInfo }) => {
   );
 };
 
+JobCard.defaultProps = {
+  isCustomerAndProviderTheSame: false,
+};
+
 JobCard.propTypes = {
+  isCustomerAndProviderTheSame: PropTypes.bool,
   adInfo: PropTypes.shape({
     id: PropTypes.number,
 

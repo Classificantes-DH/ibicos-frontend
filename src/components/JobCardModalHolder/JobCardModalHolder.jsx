@@ -68,7 +68,10 @@ const JobCardModalHolder = ({ adInfo }) => {
         onKeyPress={handleModalEvent}
         tabIndex={0}
       >
-        <JobCard adInfo={adInfo} />
+        <JobCard
+          adInfo={adInfo}
+          isCustomerAndProviderTheSame={customerEmail === providerEmail}
+        />
       </div>
     </>
   );

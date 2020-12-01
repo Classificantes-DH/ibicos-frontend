@@ -46,8 +46,10 @@ const useMessageFromCustomerToProvider = () => {
           message,
         })
       );
+      setIsMessageSuccessfullySent(true);
+      hasError(false);
     } catch (err) {
-      console.log(err);
+      hasError(true);
     }
   };
 
