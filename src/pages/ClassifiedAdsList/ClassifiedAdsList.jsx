@@ -36,7 +36,7 @@ const ClassifiedAdsList = () => {
         />
         <div className={styles.cardsContainer}>
           {adsList.map((ad) => {
-            return <JobCardModalHolder key={ad.id} adInfo={ad} />;
+            return <JobCardModalHolder adInfo={ad} key={ad.id} />;
           })}
         </div>
       </div>

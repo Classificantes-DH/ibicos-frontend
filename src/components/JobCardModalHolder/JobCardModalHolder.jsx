@@ -83,18 +83,21 @@ JobCardModalHolder.propTypes = {
     category: PropTypes.string.isRequired,
     evaluations: PropTypes.number.isRequired,
     state: PropTypes.string.isRequired,
+
     user: PropTypes.shape({
       email: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       isAccountConfirmed: PropTypes.bool,
       notice: PropTypes.bool,
     }),
+
     cities: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         region: PropTypes.arrayOf(PropTypes.string),
       })
     ).isRequired,
+
     description: PropTypes.string.isRequired,
   }).isRequired,
 };
