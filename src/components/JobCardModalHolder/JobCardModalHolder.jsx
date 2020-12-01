@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import {
   JobCard,
@@ -7,16 +7,14 @@ import {
   CustomerMessageToProviderFormModal,
 } from "../index";
 
-import useModalFormHook from "../../hooks/useModalFormHook";
+import useMessageFromCustomerToProvider from "../../hooks/useMessageFromCustomerToProvider";
 
 import styles from "./JobCardModalHolder.module.scss";
 
+import { SessionContext } from "../../context/SessionContext/SessionContext";
+
 const JobCardModalHolder = ({ adInfo }) => {
   const [isModalOpen, setIsOpen] = useState(false);
-
-  const handleModalEvent = () => {
-    setIsOpen(!isModalOpen);
-  };
 
   const {
     inputMessage,
@@ -25,7 +23,21 @@ const JobCardModalHolder = ({ adInfo }) => {
     handleChangeInputMessage,
     handleSendMessage,
     handleOccasionalModalsReset,
-  } = useModalFormHook();
+  } = useMessageFromCustomerToProvider();
+
+  const { userInfo: customerUserInfo } = useContext(SessionContext);
+  if (!customerUserInfo) {
+    return null;
+  }
+  const { user: providerUserInfo } = adInfo;
+  const { email: customerEmail } = customerUserInfo;
+  const { email: providerEmail } = providerUserInfo;
+
+  const handleModalEvent = () => {
+    if (customerEmail !== providerEmail) {
+      setIsOpen(!isModalOpen);
+    }
+  };
 
   return (
     <>
@@ -33,8 +45,12 @@ const JobCardModalHolder = ({ adInfo }) => {
         <CustomerMessageToProviderFormModal
           inputMessage={inputMessage}
           handleChangeInputMessage={handleChangeInputMessage}
-          handleModalEvent={handleModalEvent}
-          handleSendMessage={handleSendMessage}
+          handleModalEvent={(event) => {
+            handleModalEvent(event);
+          }}
+          handleSendMessage={(event) => {
+            handleSendMessage(event, customerUserInfo, providerUserInfo);
+          }}
         />
       </Modal>
       <Modal
@@ -64,6 +80,12 @@ JobCardModalHolder.propTypes = {
     category: PropTypes.string.isRequired,
     evaluations: PropTypes.number.isRequired,
     state: PropTypes.string.isRequired,
+    user: PropTypes.shape({
+      email: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      isAccountConfirmed: PropTypes.bool,
+      notice: PropTypes.bool,
+    }),
     cities: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
