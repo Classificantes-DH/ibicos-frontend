@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 import api from "../api/api";
 
-const useJobsAdsListDataHook = (query, pageNumber) => {
+const useJobsAdsListDataHook = (pageNumber) => {
   const [adsList, setAdsList] = useState([]);
-  // const [orderBy, setOrderBy] = useState("id");
+
   const [filteringParameters, setFilteringParameters] = useState({
     categoryName: "",
     stateName: "",
@@ -14,6 +14,8 @@ const useJobsAdsListDataHook = (query, pageNumber) => {
   const [totalAds, setTotalAds] = useState(0);
 
   const { categoryName, stateName, cityName, areaName } = filteringParameters;
+
+  const [hasMore, setHasMore] = useState(false);
 
   const getSelectedValue = (event) => {
     const { target } = event;
@@ -35,6 +37,10 @@ const useJobsAdsListDataHook = (query, pageNumber) => {
   };
 
   useEffect(() => {
+    setAdsList([]);
+  }, [filteringParameters]);
+
+  useEffect(() => {
     (async () => {
       try {
         const response = await api.get("/api/v1/ad/list/ad/filter", {
@@ -43,24 +49,31 @@ const useJobsAdsListDataHook = (query, pageNumber) => {
             stateName,
             cityName,
             areaName,
+            page: pageNumber,
           },
         });
         const {
+          last,
           data: { content, totalElements },
         } = await response;
 
-        setAdsList(content);
+        // setAdsList(content);
+        setAdsList((prevAds) => {
+          return [...new Set([...prevAds, ...content])];
+        });
+        setHasMore(!last);
 
         setTotalAds(totalElements);
       } catch (err) {
         console.log(err);
       }
     })();
-  }, [query, pageNumber, filteringParameters]);
+  }, [pageNumber, filteringParameters]);
 
   return {
     adsList,
     totalAds,
+    hasMore,
     filteringParameters,
     handleOrderByChange,
     handleBroadFilterChange,
