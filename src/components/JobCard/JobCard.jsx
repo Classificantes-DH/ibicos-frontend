@@ -30,7 +30,7 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
             <div className={styles.customerOwnedAd} />
           )}
         </h2>
-        {evaluationsCounter > 0 ? (
+        {evaluationsCounter && evaluationsCounter > 0 ? (
           <div className={styles.evaluationContainer}>
             <RatingStars
               rate={evaluation}
@@ -39,11 +39,36 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
             />
             <p>{evaluationsCounter} avaliações</p>
           </div>
-        ) : (
+        ) : null}
+
+        {evaluationsCounter && evaluationsCounter === 0 ? (
           <div className={styles.notEnoughEvaluationsContainer}>
             <p>O usuário ainda não possui avaliações suficientes</p>
           </div>
-        )}
+        ) : null}
+
+        {() => {
+          if (!evaluationsCounter) {
+            return null;
+          }
+          if (evaluationsCounter > 0) {
+            return (
+              <div className={styles.evaluationContainer}>
+                <RatingStars
+                  rate={evaluation}
+                  isEditable={false}
+                  description="Quantidade de avaliações"
+                />
+                <p>{evaluationsCounter} avaliações</p>
+              </div>
+            );
+          }
+          return (
+            <div className={styles.notEnoughEvaluationsContainer}>
+              <p>O usuário ainda não possui avaliações suficientes</p>
+            </div>
+          );
+        }}
       </div>
       <div className={styles.jobDetails}>
         <div className={styles.location}>
