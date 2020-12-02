@@ -12,12 +12,15 @@ const usePasswordRecoveryChangeHook = () => {
     false
   );
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleInputChange = ({ target: { value } }) => {
     setNewPassword(value);
   };
 
   const handlePasswordRequestChange = async (event, accountRecoveryToken) => {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       await api.post(
@@ -29,13 +32,16 @@ const usePasswordRecoveryChangeHook = () => {
       setIsRecoveryRequestSuccessfull(true);
     } catch (err) {
       setHasRecoveryRequestErrors(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return {
-    isRecoveryRequestSuccessfull,
-    hasRecoveryRequestErrors,
+    isLoading,
     newPassword,
+    hasRecoveryRequestErrors,
+    isRecoveryRequestSuccessfull,
     handleInputChange,
     handlePasswordRequestChange,
   };
