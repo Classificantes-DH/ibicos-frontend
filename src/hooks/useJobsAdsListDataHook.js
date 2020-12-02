@@ -58,6 +58,7 @@ const useJobsAdsListDataHook = () => {
   useEffect(() => {
     setAdsList([]);
     setPageNumber(0);
+    setHasMore(false);
   }, [filteringParameters]);
 
   useEffect(() => {
@@ -73,8 +74,7 @@ const useJobsAdsListDataHook = () => {
           },
         });
         const {
-          last,
-          data: { content, totalElements },
+          data: { content, totalElements, last },
         } = await response;
 
         setAdsList((prevAds) => {
