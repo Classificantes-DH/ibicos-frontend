@@ -16,6 +16,16 @@
     .mainContentcontainer {
       .cardsContainer {
         min-width: 70%;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    .mainContentcontainer {
+      .cardsContainer {
         justify-content: space-between;
       }
     }

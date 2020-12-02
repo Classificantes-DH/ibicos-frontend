@@ -1,7 +1,8 @@
 import React from "react";
+import { LoadingSpinner } from "../../components/index";
 
 const Home = () => {
-  return <p>Oi sou a Home</p>;
+  return <LoadingSpinner />;
 };
 
 export default Home;
