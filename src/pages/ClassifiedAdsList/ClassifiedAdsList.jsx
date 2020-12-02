@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useState } from "react";
+import React from "react";
 
 import {
   OrderByFilter,
@@ -12,34 +12,17 @@ import useJobsAdsListDataHook from "../../hooks/useJobsAdsListDataHook";
 import styles from "./ClassifiedAdsList.module.scss";
 
 const ClassifiedAdsList = () => {
-  const [pageNumber, setPageNumber] = useState(0);
-
   const {
     adsList,
     totalAds,
-    hasMore,
+    lastAdElementRef,
     filteringParameters,
     handleOrderByChange,
     handleBroadFilterChange,
     states,
     cities,
     handleSelectedStateUpdate,
-  } = useJobsAdsListDataHook(pageNumber);
-
-  const observer = useRef();
-  const lastAdElementRef = useCallback(
-    (node) => {
-      if (!adsList) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPageNumber((prevPageNumber) => prevPageNumber + 1);
-        }
-      });
-      if (node) observer.current.observe(node);
-    },
-    [hasMore]
-  );
+  } = useJobsAdsListDataHook();
 
   if (!adsList) return null;
 
@@ -63,11 +46,7 @@ const ClassifiedAdsList = () => {
             if (adsList.length - 1 === index) {
               return (
                 <div ref={lastAdElementRef}>
-                  <JobCardModalHolder
-                    key={ad.id}
-                    adInfo={ad}
-                    ref={lastAdElementRef}
-                  />
+                  <JobCardModalHolder key={ad.id} adInfo={ad} />
                 </div>
               );
             }
