@@ -2,26 +2,38 @@ import React from "react";
 
 import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
-
-import mechanicLogo from "../../resources/imgs/jobIcons/plumber.svg";
 import mapIcon from "../../resources/imgs/utilityIcons/map-location-pure.svg";
-import { RatingStars } from "../index";
+// import { RatingStars } from "../index";
+import useJobIconImportHook from "../../hooks/useJobIconImportHook";
+
+import "../../util/svg-coloration.scss";
 
 const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
   const {
+    id,
     adDescription,
     cities,
-    providerStatistics,
+    // providerStatistics,
     serviceCategory: { categoryName },
   } = adInfo;
-  const {
-    statistics: { evaluation, evaluationsCounter },
-  } = providerStatistics;
 
+  // const {
+  //   statistics: { evaluation, evaluationsCounter },
+  // } = providerStatistics;
+
+  const img = useJobIconImportHook(categoryName.toLowerCase())[0];
+
+  const randomSvgColor = ["primary-purple", "primary-orange", "primary-black"];
   return (
     <div className={styles.container}>
       <div className={styles.logoContainer}>
-        <img src={mechanicLogo} alt="Job Logo" className={styles.jobLogo} />
+        <img
+          src={img}
+          alt="Job Logo"
+          className={`${styles.jobLogo} ${
+            randomSvgColor[id % randomSvgColor.length]
+          }`}
+        />
       </div>
       <div className={styles.mainDescription}>
         <h2 className={styles.title}>
@@ -30,7 +42,8 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
             <div className={styles.customerOwnedAd} />
           )}
         </h2>
-        {evaluationsCounter && evaluationsCounter > 0 ? (
+        {/* #TODO: fix evaluation issues */}
+        {/* {evaluationsCounter && evaluationsCounter > 0 ? (
           <div className={styles.evaluationContainer}>
             <RatingStars
               rate={evaluation}
@@ -68,7 +81,7 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
               <p>O usuário ainda não possui avaliações suficientes</p>
             </div>
           );
-        }}
+        }} */}
       </div>
       <div className={styles.jobDetails}>
         <div className={styles.location}>

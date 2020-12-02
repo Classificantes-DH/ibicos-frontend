@@ -2,8 +2,6 @@ import React from "react";
 
 import Input from "../../components/Input/Input";
 
-// import useProviderProfileHooks from "../../hooks/useProviderProfileHook";
-
 import styles from "./ProviderProfile.module.scss";
 
 const ProviderProfile = () => {

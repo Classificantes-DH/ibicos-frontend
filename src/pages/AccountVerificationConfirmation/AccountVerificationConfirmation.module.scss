@@ -1,0 +1,16 @@
+@import "./../../styles/scss/index.scss";
+
+.container {
+  @include displayFlex($direction: column, $align: center, $justify: center);
+
+  margin: 4vw 0;
+  box-shadow: 0 0 2px rgb(194, 179, 179);
+  background-color: $WHITE;
+  width: 500px;
+  height: 400px;
+  .logoContainer {
+    img {
+      width: 200px;
+    }
+  }
+}

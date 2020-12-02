@@ -2,8 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./BroadFilter.module.scss";
 
-const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
+const BroadFilter = ({
+  handleBroadFilterChange,
+  filteringParameters,
+  states,
+  cities,
+  handleSelectedStateUpdate,
+}) => {
   const { stateName, cityName } = filteringParameters;
+
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -22,9 +29,15 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
               }
             >
               <option value="">Qualquer</option>
-              <option>Mecânico</option>
+              <option>Marceneiro</option>
               <option>Eletricista</option>
               <option>Encanador</option>
+              <option>Doméstica</option>
+              <option>Pintor</option>
+              <option>Costureira</option>
+              <option>Beleza</option>
+              <option>Pedreiro</option>
+              <option>Serralheiro</option>
             </select>
           </div>
         </div>
@@ -35,14 +48,15 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
           <div className={styles.selectContainer}>
             <select
               className={styles.mainSelect}
-              onChange={(event) => handleBroadFilterChange(event, "stateName")}
+              onChange={(event) => {
+                handleBroadFilterChange(event, "stateName");
+                handleSelectedStateUpdate(event);
+              }}
             >
               <option value="">Qualquer</option>
-              <option value="SP">São Paulo</option>
-              <option value="RJ">Rio de Janeiro</option>
-              <option value="MG">Minas Gerais</option>
-              <option value="RS">Rio Grande do Sul</option>
-              <option value="MS">Mato Grosso do Sul</option>
+              {states.map(({ nome, sigla }) => (
+                <option value={sigla}>{nome}</option>
+              ))}
             </select>
           </div>
         </div>
@@ -57,12 +71,9 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
               disabled={!stateName}
             >
               <option value="">Qualquer</option>
-              <option>São Paulo</option>
-              <option>Belo Horizonte</option>
-              <option>Rio de Janeiro</option>
-              <option>Cidade 1</option>
-              <option>Cidade 2</option>
-              <option>Cidade 3</option>
+              {cities.map((city) => (
+                <option value={city}>{city}</option>
+              ))}
             </select>
           </div>
         </div>
@@ -91,6 +102,18 @@ const BroadFilter = ({ handleBroadFilterChange, filteringParameters }) => {
 
 BroadFilter.propTypes = {
   handleBroadFilterChange: PropTypes.func.isRequired,
+
+  states: PropTypes.arrayOf({
+    nome: PropTypes.string.isRequired,
+    sigla: PropTypes.string.isRequired,
+  }).isRequired,
+
+  cities: PropTypes.arrayOf({
+    city: PropTypes.string.isRequired,
+  }).isRequired,
+
+  handleSelectedStateUpdate: PropTypes.func.isRequired,
+
   filteringParameters: PropTypes.shape({
     categoryName: PropTypes.string,
     stateName: PropTypes.string.isRequired,

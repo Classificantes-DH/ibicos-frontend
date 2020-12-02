@@ -47,6 +47,7 @@ const useAdRegistrationHook = () => {
   const handleFormSubmition = async (event) => {
     event.preventDefault();
 
+    console.log(adRegistrationObject);
     try {
       await api.post("/api/v1/ad/create", JSON.stringify(adRegistrationObject));
       setIsAdSuccessfullyRegistered(true);

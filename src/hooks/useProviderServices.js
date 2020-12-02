@@ -8,8 +8,9 @@ const useProviderServices = () => {
   const [id] = useState(userInfo ? userInfo.id : null);
 
   const [providerAds, setProviderAds] = useState([]);
-  const [providerName] = useState(userInfo.person.namePerson);
+  const [providerName] = userInfo ? userInfo.person.namePerson : "";
 
+  // console.log(userInfo.person.namePerson);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,6 +18,7 @@ const useProviderServices = () => {
         const {
           data: { content },
         } = await response;
+
         setProviderAds(content);
       } catch (err) {
         console.log(err);

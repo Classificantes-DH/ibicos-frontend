@@ -10,3 +10,4 @@ export { default as Login } from "./Login/Login";
 export { default as PasswordRecoveryRequest } from "./PasswordRecovery/PasswordRecoveryRequest";
 export { default as PasswordRecoveryChange } from "./PasswordRecovery/PasswordRecoveryChange";
 export { default as AdRegistration } from "./AdRegistration/AdRegistration";
+export { default as AccountVerificationConfirmation } from "./AccountVerificationConfirmation/AccountVerificationConfirmation";

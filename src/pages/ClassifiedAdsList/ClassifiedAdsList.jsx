@@ -13,6 +13,7 @@ import styles from "./ClassifiedAdsList.module.scss";
 
 const ClassifiedAdsList = () => {
   const [pageNumber, setPageNumber] = useState(0);
+
   const {
     adsList,
     totalAds,
@@ -20,6 +21,9 @@ const ClassifiedAdsList = () => {
     filteringParameters,
     handleOrderByChange,
     handleBroadFilterChange,
+    states,
+    cities,
+    handleSelectedStateUpdate,
   } = useJobsAdsListDataHook(pageNumber);
 
   const observer = useRef();
@@ -50,6 +54,9 @@ const ClassifiedAdsList = () => {
         <BroadFilter
           handleBroadFilterChange={handleBroadFilterChange}
           filteringParameters={filteringParameters}
+          states={states}
+          cities={cities}
+          handleSelectedStateUpdate={handleSelectedStateUpdate}
         />
         <div className={styles.cardsContainer}>
           {adsList.map((ad, index) => {
