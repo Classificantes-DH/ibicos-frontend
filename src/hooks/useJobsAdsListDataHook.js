@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 
 import api from "../api/api";
 import useLocationHook from "./useLocationHook";
 
-const useJobsAdsListDataHook = ({ pageNumber }) => {
+const useJobsAdsListDataHook = () => {
   const [adsList, setAdsList] = useState([]);
   const { states, cities, handleSelectedStateUpdate } = useLocationHook();
+
+  const [pageNumber, setPageNumber] = useState(0);
 
   const [filteringParameters, setFilteringParameters] = useState({
     categoryName: "",
@@ -18,6 +20,8 @@ const useJobsAdsListDataHook = ({ pageNumber }) => {
   const { categoryName, stateName, cityName, areaName } = filteringParameters;
 
   const [hasMore, setHasMore] = useState(false);
+
+  const observer = useRef();
 
   const getSelectedValue = (event) => {
     const { target } = event;
@@ -34,12 +38,26 @@ const useJobsAdsListDataHook = ({ pageNumber }) => {
 
   const handleOrderByChange = (event) => {
     const selectedValue = getSelectedValue(event);
-    // setOrderBy(selectedValue);
     console.log(selectedValue);
   };
 
+  const lastAdElementRef = useCallback(
+    (node) => {
+      if (!adsList) return;
+      if (observer.current) observer.current.disconnect();
+      observer.current = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && hasMore) {
+          setPageNumber((prevPageNumber) => prevPageNumber + 1);
+        }
+      });
+      if (node) observer.current.observe(node);
+    },
+    [hasMore]
+  );
+
   useEffect(() => {
     setAdsList([]);
+    setPageNumber(0);
   }, [filteringParameters]);
 
   useEffect(() => {
@@ -78,6 +96,7 @@ const useJobsAdsListDataHook = ({ pageNumber }) => {
     totalAds,
     hasMore,
     filteringParameters,
+    lastAdElementRef,
     handleOrderByChange,
     handleBroadFilterChange,
     handleSelectedStateUpdate,
