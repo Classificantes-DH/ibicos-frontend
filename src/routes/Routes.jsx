@@ -13,6 +13,7 @@ import {
   PasswordRecoveryRequest,
   PasswordRecoveryChange,
   AdRegistration,
+  AccountVerificationConfirmation,
 } from "../pages";
 
 import { FormSignupSuccessful } from "../components";
@@ -26,6 +27,10 @@ const Routes = () => {
       <Route path="/login" component={Login} />
       <Route path="/cadastrar" component={ClientSignup} />
       <Route path="/cadastroSucesso" component={FormSignupSuccessful} />
+      <Route
+        path="/confirmarConta"
+        component={AccountVerificationConfirmation}
+      />
       <Route
         path="/recuperarAcesso/requisicao"
         component={PasswordRecoveryRequest}

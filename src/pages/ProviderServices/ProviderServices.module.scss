@@ -41,8 +41,19 @@
   }
 }
 
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    width: 70vw;
+    .cardsContainer {
+      @include displayFlex();
+      width: 100%;
+    }
+  }
+}
+
 @media #{$BREAKPOINT-DESK} {
   .container {
+    width: 1000px;
     .headerContainer {
       margin: 20px auto;
       h2 {

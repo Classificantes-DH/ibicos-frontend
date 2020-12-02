@@ -4,7 +4,7 @@ import styles from "./ResultMessageToProviderModal.module.scss";
 
 import defaultModalStyle from "../JobCardModalHolder/JobCardModalDefault.module.scss";
 import emailSuccessIcon from "../../resources/imgs/styleSvgs/email_success.svg";
-import failIcon from "../../resources/imgs/styleSvgs/fail_sad_orange.svg";
+// import failIcon from "../../resources/imgs/styleSvgs/fail_sad_orange.svg";
 
 const ResultMessageToProviderModal = ({
   handleOccasionalModalsReset,
@@ -23,13 +23,8 @@ const ResultMessageToProviderModal = ({
           </button>
         </div>
         <div className={styles.mainContent}>
-          {hasError ? (
-            <div className={styles.infoContainer}>
-              <img src={failIcon} alt="Falha no envio da mensagem" />{" "}
-              <p>Ops!</p>
-              <p>Algo deu errado, tente novamente mais tarde!</p>
-            </div>
-          ) : (
+          {/* @TODO: Fix modal handling issues */}
+          {hasError ? null : ( // </div> //   <p>Algo deu errado, tente novamente mais tarde!</p> //   <p>Ops!</p> //   <img src={failIcon} alt="Falha no envio da mensagem" />{" "} // <div className={styles.infoContainer}>
             <div className={styles.infoContainer}>
               <img src={emailSuccessIcon} alt="Email enviado com sucesso" />
               <p>Email Enviado com sucesso!</p>

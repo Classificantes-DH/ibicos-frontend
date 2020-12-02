@@ -31,6 +31,7 @@ const useAuthenticationHook = () => {
 
       const { data } = response;
       setSessionCookie({ data });
+      window.document.location.reload();
     } catch (err) {
       console.log(err);
     }
@@ -38,6 +39,7 @@ const useAuthenticationHook = () => {
 
   const handleUserInfoSessionLogout = () => {
     Cookie.remove("session");
+    window.document.location.reload();
   };
 
   const handleLogin = async (event) => {
@@ -63,6 +65,7 @@ const useAuthenticationHook = () => {
 
       setIsUserAuthenticated(true);
       setIsCredentialInvalid(false);
+
       history.push({
         pathname: "/listaClassificados",
       });
@@ -78,6 +81,7 @@ const useAuthenticationHook = () => {
     localStorage.removeItem("token");
     handleUserInfoSessionLogout();
     api.defaults.Authorization = undefined;
+
     history.push({ pathname: "/login" });
   };
 

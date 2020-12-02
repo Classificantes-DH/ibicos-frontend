@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
 import api from "../api/api";
+import useLocationHook from "./useLocationHook";
 
-const useJobsAdsListDataHook = (pageNumber) => {
+const useJobsAdsListDataHook = ({ pageNumber }) => {
   const [adsList, setAdsList] = useState([]);
+  const { states, cities, handleSelectedStateUpdate } = useLocationHook();
 
   const [filteringParameters, setFilteringParameters] = useState({
     categoryName: "",
@@ -57,7 +59,6 @@ const useJobsAdsListDataHook = (pageNumber) => {
           data: { content, totalElements },
         } = await response;
 
-        // setAdsList(content);
         setAdsList((prevAds) => {
           return [...new Set([...prevAds, ...content])];
         });
@@ -71,12 +72,15 @@ const useJobsAdsListDataHook = (pageNumber) => {
   }, [pageNumber, filteringParameters]);
 
   return {
+    states,
+    cities,
     adsList,
     totalAds,
     hasMore,
     filteringParameters,
     handleOrderByChange,
     handleBroadFilterChange,
+    handleSelectedStateUpdate,
   };
 };
 
