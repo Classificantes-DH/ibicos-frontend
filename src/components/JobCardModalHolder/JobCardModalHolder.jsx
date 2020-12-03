@@ -1,9 +1,7 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { JobCard, Modal, CustomerMessageToProviderFormModal } from "../index";
-
 import useMessageFromCustomerToProvider from "../../hooks/useMessageFromCustomerToProvider";
-
 import styles from "./JobCardModalHolder.module.scss";
 
 import { SessionContext } from "../../context/SessionContext/SessionContext";
@@ -30,7 +28,6 @@ const JobCardModalHolder = ({ adInfo }) => {
   const { email: providerEmail } = providerUserInfo;
 
   const handleModalEvent = () => {
-    console.log("aa");
     if (customerEmail !== providerEmail) {
       setIsOpen(!isModalOpen);
     }

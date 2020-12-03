@@ -1,16 +1,15 @@
 @import "./../../styles/scss/index.scss";
 
-@mixin defaultBoxShadow($thickness: 4px, $color: rgb(218, 213, 213)) {
-  box-shadow: 0 0 $thickness $color;
-}
 .container {
-  background-color: $WHITE;
   @include defaultBoxShadow($thickness: 4px);
+  background-color: $WHITE;
   border-radius: 5px;
+  width: calc(100vw - 20px);
+
   .headerContainer {
+    @include defaultBoxShadow($thickness: 2px, $color: #262626);
     background-color: $ORANGE;
     padding: 10px 0;
-    @include defaultBoxShadow($thickness: 2px, $color: #262626);
 
     .btnContainer {
       position: relative;
@@ -22,7 +21,7 @@
           $direction: column
         );
         position: relative;
-        left: 92.5%;
+        left: 84%;
 
         height: 40px;
         width: 40px;
@@ -37,6 +36,7 @@
         div {
           @include defaultBoxShadow($color: $BLACK, $thickness: 1px);
           position: absolute;
+
           width: 30px;
           height: 4px;
 
@@ -55,8 +55,8 @@
   }
 
   .responseContainer {
-    margin: 20px 0;
     @include displayFlex($justify: center, $direction: column, $align: center);
+    margin: 20px 0;
 
     .infoContainer {
       @include displayFlex(
@@ -64,26 +64,28 @@
         $direction: column,
         $align: center
       );
-      // margin-top: 3vh;
+
       img {
-        width: 16vw;
+        width: 36vw;
       }
 
       p {
-        // margin: 5vh 0;
-        font-size: 1.5rem;
+        margin-top: 10px;
+
+        font-size: 1rem;
         font-weight: 500;
         text-align: center;
       }
     }
 
     .btnContainer {
-      margin: 20px 0;
+      margin: 10px 0;
 
       .keepSearchingBtn {
         @include defaultButton();
         width: 250px;
         height: 43px;
+
         font-weight: bold;
         cursor: pointer;
 
@@ -93,10 +95,13 @@
       }
     }
   }
+
   .contentContainer {
-    margin: 16px;
+    padding: 16px;
+
     .introContent {
       margin: 15px 0;
+
       p {
         font-size: 1.2rem;
       }
@@ -108,6 +113,7 @@
         $justify: space-between,
         $align: center
       );
+
       textarea {
         height: 37vw;
         width: 100%;
@@ -117,11 +123,12 @@
 
       button {
         @include defaultButton($radius: 4px);
-        height: 42px;
         width: 154px;
-        margin-top: 30px;
+        height: 42px;
 
+        margin-top: 30px;
         cursor: pointer;
+
         font-weight: bolder;
         font-size: 1rem;
 
@@ -135,6 +142,7 @@
 
     .contactInfoContainer {
       margin: 20px 0;
+
       h2 {
         font-size: 1.5rem;
       }
@@ -172,9 +180,12 @@
             $align: flex-end
           );
           width: 100%;
+
           .loadingSpinnerContainer {
             @include displayFlex($justify: flex-end);
+
             width: 100%;
+
             margin: 5px 0;
             margin-right: 6%;
           }
@@ -186,16 +197,23 @@
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
-    overflow: hidden;
+    .headerContainer {
+      .btnContainer {
+        button {
+          left: 89%;
+        }
+      }
+    }
+
     .contentContainer {
       .btnContainer {
         button {
-          left: 93%;
+          left: 95%;
         }
       }
       .formContainer {
         textarea {
-          height: 11vw;
+          height: 22vw;
         }
       }
     }
@@ -204,9 +222,6 @@
 
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
-    // background: $SMARTPHONE_CHAT_SVG no-repeat, $BACKGROUND_FILLER no-repeat;
-    // background-position: 95% 95%, 45% 13%;
-    min-height: 28vw;
     width: 60vw;
 
     .contentContainer {
@@ -223,8 +238,7 @@
       }
       .formContainer {
         textarea {
-          // height: 137px;
-          // width: 659px;
+          height: 15vw;
         }
 
         button {
@@ -243,6 +257,29 @@
         .contact {
           flex-direction: row;
           align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    width: 750px;
+    min-height: auto;
+
+    .headerContainer {
+      .btnContainer {
+        button {
+          left: 92.5%;
+        }
+      }
+    }
+
+    .contentContainer {
+      .formContainer {
+        textarea {
+          height: 200px;
         }
       }
     }

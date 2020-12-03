@@ -1,12 +1,12 @@
 @import "./../../styles/scss/";
 
 .container {
-  // margin: 0 10px;
   width: calc(100vw - 20px);
   .mainContentcontainer {
     @include displayFlex($justify: space-between);
     .cardsContainer {
       @include displayFlex($wrap: wrap, $justify: flex-end);
+      width: 100%;
     }
     .loadingSpinnerContainer {
       margin-top: 20px;
@@ -14,28 +14,17 @@
     }
 
     .wrapperContainer {
-      min-width: 70%;
+      width: 100%;
     }
   }
 }
 
 @media only screen and (min-width: 754px) {
   .container {
-    // width: 90vw;
-    .mainContentcontainer {
-      .cardsContainer {
-        min-width: 70%;
-        justify-content: flex-end;
-      }
-    }
-  }
-}
-
-@media #{$BREAKPOINT-TABLET-LAND} {
-  .container {
     .mainContentcontainer {
       .cardsContainer {
         justify-content: space-between;
+        width: 100%;
       }
     }
   }
