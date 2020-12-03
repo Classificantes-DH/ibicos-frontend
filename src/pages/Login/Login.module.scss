@@ -5,12 +5,39 @@
   box-shadow: 0 0 2px rgb(194, 179, 179);
   background-color: $WHITE;
   width: 90vw;
+
   .loginForm {
     @include displayFlex($direction: column, $align: center, $justify: center);
 
     label {
       font-size: 5vw;
       margin: 2vw 0;
+
+      .inputContainer {
+        @include displayFlex();
+        border: 1px solid rgb(218, 213, 213);
+        border-radius: 5px;
+        height: 100%;
+
+        input {
+          border: none;
+
+          border-radius: 0 15px 10px 0;
+        }
+        .inputLogoContainer {
+          @include displayFlex($align: center, $justify: center);
+          border-radius: 3px 0 0 3px;
+
+          width: 10vw;
+          height: 10vw;
+          background-color: $PURPLE;
+
+          .inputLogo {
+            padding: 2px 0;
+            width: 55%;
+          }
+        }
+      }
     }
 
     input[type="submit"] {
@@ -61,9 +88,18 @@
       label {
         font-size: 3vw;
         margin: 1vw 0;
-        input {
-          width: 60vw;
-          height: 5vw;
+
+        .inputContainer {
+          width: 100%;
+          height: 6vw;
+
+          .inputLogoContainer {
+            width: 6vw;
+            height: 100%;
+            .inputLogo {
+              width: 50%;
+            }
+          }
         }
       }
 
@@ -94,12 +130,25 @@
       label {
         font-size: 2vw;
         margin: 0.5vw 0;
+        width: 75%;
 
-        input {
-          width: 30vw;
-          height: 3vw;
+        .inputContainer {
+          height: 4vw;
+
+          input {
+            max-width: 80%;
+            padding-left: 10px;
+            font-size: 1.2rem;
+          }
+          .inputLogoContainer {
+            width: 18%;
+            .inputLogo {
+              width: 40%;
+            }
+          }
         }
       }
+
       input[type="submit"] {
         width: 10vw;
         height: 4vw;

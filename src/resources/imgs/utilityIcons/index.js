@@ -16,3 +16,6 @@ export { default as userIcon } from "./user.svg";
 export { default as loginIcon } from "./login.svg";
 export { default as homeIcon } from "./home.svg";
 export { default as megaphoneIcon } from "./megaphone.svg";
+
+export { default as padlockIcon } from "./padlock-orange.svg";
+export { default as emailPureIcon } from "./email-pure-orange.svg";
