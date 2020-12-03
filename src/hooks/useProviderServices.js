@@ -10,7 +10,6 @@ const useProviderServices = () => {
   const [providerAds, setProviderAds] = useState([]);
   const [providerName] = userInfo ? userInfo.person.namePerson : "";
 
-  // console.log(userInfo.person.namePerson);
   useEffect(() => {
     const fetchData = async () => {
       try {
