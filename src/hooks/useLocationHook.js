@@ -17,10 +17,16 @@ const useLocationHook = () => {
       );
 
       const statesData = await response.json();
-      const statesNameAndAbb = statesData.map(({ nome, sigla }) => {
-        const data = { nome, sigla };
-        return data;
-      });
+      const statesNameAndAbb = statesData
+        .map(({ nome, sigla }) => {
+          const data = { nome, sigla };
+          return data;
+        })
+        .sort((a, b) => {
+          if (a.nome < b.nome) return -1;
+          if (a.nome > b.nome) return 1;
+          return 0;
+        });
 
       setStates(statesNameAndAbb);
     };
@@ -43,11 +49,13 @@ const useLocationHook = () => {
     );
     const data = await response.json();
 
-    const citiesNames = data.map(({ nome }) => {
-      const cityData = nome;
+    const citiesNames = data
+      .map(({ nome }) => {
+        const cityData = nome;
 
-      return cityData;
-    });
+        return cityData;
+      })
+      .sort();
 
     setCities(citiesNames);
   };
