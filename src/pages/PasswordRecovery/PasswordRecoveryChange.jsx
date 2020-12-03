@@ -5,21 +5,23 @@ import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 import usePasswordRecoveryChangeHook from "../../hooks/usePasswordRecoveryChangeHook";
 import styles from "./PasswordRecovery.module.scss";
+import { LoadingSpinner } from "../../components/index";
 
 const PasswordRecoveryChange = ({ location: { search } }) => {
   const history = useHistory();
 
   const {
+    newPassword,
+    isLoading,
+    handleInputChange,
     isRecoveryRequestSuccessfull,
     hasRecoveryRequestErrors,
-    newPassword,
-    handleInputChange,
     handlePasswordRequestChange,
   } = usePasswordRecoveryChangeHook();
 
   const params = new URLSearchParams(search);
 
-  const token = params.get("token"); //
+  const token = params.get("token");
 
   if (!token || token.length !== 64) {
     history.push("/home");
@@ -45,7 +47,7 @@ const PasswordRecoveryChange = ({ location: { search } }) => {
               onChange={(event) => handleInputChange(event)}
             />
           </label>
-          {hasRecoveryRequestErrors && (
+          {hasRecoveryRequestErrors && !isLoading && (
             <p className={styles.recoveryErrorMessage}>
               Ocorreu um erro durante a troca de senha, por favor contate os
               administradores!
@@ -53,6 +55,11 @@ const PasswordRecoveryChange = ({ location: { search } }) => {
           )}
 
           <input type="submit" value="Enviar" />
+          <div className={styles.loadingContainer}>
+            <LoadingSpinner
+              isLoading={isLoading && !hasRecoveryRequestErrors}
+            />
+          </div>
         </form>
       ) : (
         <div className={styles.successufulRequestContainer}>

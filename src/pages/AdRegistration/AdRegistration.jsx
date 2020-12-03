@@ -1,6 +1,7 @@
 import React from "react";
 
 import styles from "./AdRegistration.module.scss";
+import { LoadingSpinner } from "../../components/index";
 
 import useAdRegistrationHook from "../../hooks/useAdRegistrationHook";
 
@@ -8,6 +9,7 @@ const AdRegistration = () => {
   const {
     adRegistrationObject,
     stateAbb,
+    isLoading,
     isAdSuccessfullyRegistered,
     handleBasePropertiesChange,
     handleStateAbbChange,
@@ -160,7 +162,7 @@ const AdRegistration = () => {
             </div>
           </div>
 
-          <div className={styles.btnContainer}>
+          <div className={`${styles.btnContainer} ${styles.centralizedBtn}`}>
             <input
               type="submit"
               value="Cadastrar"
@@ -172,6 +174,9 @@ const AdRegistration = () => {
               <h4>Anúncio registrado com sucesso</h4>
             </div>
           ) : null}
+          <div className={styles.loadingSpinnerContainer}>
+            <LoadingSpinner isLoading={isLoading} />
+          </div>
         </form>
       </div>
     </div>

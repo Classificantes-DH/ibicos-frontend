@@ -17,3 +17,4 @@ export { default as JobCardModalHolder } from "./JobCardModalHolder/JobCardModal
 export { default as EvaluationAccordion } from "./EvaluationAccordion/EvaluationAccordion";
 export { default as Select } from "./Select/Select";
 export { default as Checkbox } from "./Checkbox/Checkbox";
+export { default as LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";

@@ -8,6 +8,10 @@
   }
 }
 
+@mixin defaultBoxShadow($thickness: 4px, $color: rgb(218, 213, 213)) {
+  box-shadow: 0 0 $thickness $color;
+}
+
 @mixin displayFlex(
   $direction: null,
   $justify: null,

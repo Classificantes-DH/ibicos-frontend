@@ -3,9 +3,12 @@ import React from "react";
 import styles from "./PasswordRecovery.module.scss";
 import usePasswordRecoveryRequestHook from "../../hooks/usePasswordRecoveryRequestHook";
 
+import { LoadingSpinner } from "../../components/index";
+
 const PasswordRecoveryRequest = () => {
   const {
     email,
+    isLoading,
     handleInputChange,
     hasRecoveryRequestErrors,
     isRecoveryRequestSuccessfull,
@@ -32,7 +35,7 @@ const PasswordRecoveryRequest = () => {
               onChange={(event) => handleInputChange(event)}
             />
           </label>
-          {hasRecoveryRequestErrors && (
+          {hasRecoveryRequestErrors && !isLoading && (
             <p className={styles.recoveryErrorMessage}>
               Não existe usuário com o email fornecido
             </p>
@@ -46,6 +49,9 @@ const PasswordRecoveryRequest = () => {
           <h3>com as instruções para recuperação!</h3>
         </div>
       )}
+      <div className={styles.loadingContainer}>
+        <LoadingSpinner isLoading={isLoading} />
+      </div>
     </div>
   );
 };

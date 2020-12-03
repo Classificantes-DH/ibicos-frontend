@@ -1,22 +1,30 @@
 @import "./../../styles/scss/";
 
 .container {
-  margin: 0 10px;
+  width: calc(100vw - 20px);
   .mainContentcontainer {
     @include displayFlex($justify: space-between);
     .cardsContainer {
       @include displayFlex($wrap: wrap, $justify: flex-end);
+      width: 100%;
+    }
+    .loadingSpinnerContainer {
+      margin-top: 20px;
+      @include displayFlex($justify: center);
+    }
+
+    .wrapperContainer {
+      width: 100%;
     }
   }
 }
 
 @media only screen and (min-width: 754px) {
   .container {
-    width: 90vw;
     .mainContentcontainer {
       .cardsContainer {
-        min-width: 70%;
         justify-content: space-between;
+        width: 100%;
       }
     }
   }

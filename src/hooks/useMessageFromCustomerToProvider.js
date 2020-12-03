@@ -9,11 +9,13 @@ const useMessageFromCustomerToProvider = () => {
   );
   const [hasError, setHasError] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleChangeInputMessage = (event) => {
     setInputMessage(event.target.value);
   };
 
-  const handleOccasionalModalsReset = () => {
+  const handleModalReset = () => {
     setIsMessageSuccessfullySent(false);
     setHasError(false);
   };
@@ -24,6 +26,8 @@ const useMessageFromCustomerToProvider = () => {
     providerUserInfo
   ) => {
     event.preventDefault();
+
+    setIsLoading(true);
 
     const message = inputMessage;
     const {
@@ -50,16 +54,19 @@ const useMessageFromCustomerToProvider = () => {
       setHasError(false);
     } catch (err) {
       setHasError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return {
+    isLoading,
     inputMessage,
     isMessageSuccessfullySent,
     hasError,
     handleChangeInputMessage,
     handleSendMessage,
-    handleOccasionalModalsReset,
+    handleModalReset,
   };
 };
 

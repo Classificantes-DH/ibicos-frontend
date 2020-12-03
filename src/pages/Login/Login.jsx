@@ -4,11 +4,15 @@ import styles from "./Login.module.scss";
 
 import { Context } from "../../context/AuthContext/AuthContext";
 
+import { LoadingSpinner } from "../../components/index";
+
 const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({
     email: "",
     passwordUser: "",
   });
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { handleLogin, isCredentialInvalid } = useContext(Context);
 
@@ -44,7 +48,9 @@ const Login = () => {
           <p className={styles.loginErrorMessage}>Credenciais inválidas</p>
         )}
 
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login" onClick={() => setIsLoading(true)} />
+
+        <LoadingSpinner isLoading={isLoading && !isCredentialInvalid} />
       </form>
       <div className={styles.extraRoutesContainer}>
         <Link to="/cadastrar">

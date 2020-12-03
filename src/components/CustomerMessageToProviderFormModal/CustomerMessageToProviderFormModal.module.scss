@@ -1,28 +1,108 @@
 @import "./../../styles/scss/index.scss";
 
-$SMARTPHONE_CHAT_SVG: url(./../../resources/imgs/styleSvgs/two_people_chat_smartphone.svg);
-$BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light_purple.svg);
 .container {
-  .contentContainer {
-    margin: 16px;
+  @include defaultBoxShadow($thickness: 4px);
+  background-color: $WHITE;
+  border-radius: 5px;
+  width: calc(100vw - 20px);
+
+  .headerContainer {
+    @include defaultBoxShadow($thickness: 2px, $color: #262626);
+    background-color: $ORANGE;
+    padding: 10px 0;
+
     .btnContainer {
       position: relative;
       button {
         @include defaultButton($bg-color: $PURPLE, $radius: 50%);
+        @include displayFlex(
+          $justify: center,
+          $align: center,
+          $direction: column
+        );
+        position: relative;
+        left: 84%;
 
         height: 40px;
         width: 40px;
 
-        position: relative;
-        left: 88%;
-
         cursor: pointer;
-        font-weight: bold;
-        font-size: 1.5rem;
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          background-color: #410d39;
+        }
+
+        div {
+          @include defaultBoxShadow($color: $BLACK, $thickness: 1px);
+          position: absolute;
+
+          width: 30px;
+          height: 4px;
+
+          background-color: $WHITE;
+          border-radius: 1px;
+        }
+
+        .r1 {
+          transform: rotate(45deg);
+        }
+        .r2 {
+          transform: rotate(-45deg);
+        }
       }
     }
+  }
+
+  .responseContainer {
+    @include displayFlex($justify: center, $direction: column, $align: center);
+    margin: 20px 0;
+
+    .infoContainer {
+      @include displayFlex(
+        $justify: center,
+        $direction: column,
+        $align: center
+      );
+
+      img {
+        width: 36vw;
+      }
+
+      p {
+        margin-top: 10px;
+
+        font-size: 1rem;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+
+    .btnContainer {
+      margin: 10px 0;
+
+      .keepSearchingBtn {
+        @include defaultButton();
+        width: 250px;
+        height: 43px;
+
+        font-weight: bold;
+        cursor: pointer;
+        margin-bottom: 10px;
+
+        &:hover {
+          background-color: #dd7412;
+        }
+      }
+    }
+  }
+
+  .contentContainer {
+    padding: 16px;
+
     .introContent {
       margin: 15px 0;
+
       p {
         font-size: 1.2rem;
       }
@@ -34,6 +114,7 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
         $justify: space-between,
         $align: center
       );
+
       textarea {
         height: 37vw;
         width: 100%;
@@ -42,19 +123,27 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
       }
 
       button {
-        @include defaultButton();
-        height: 42px;
+        @include defaultButton($radius: 4px);
         width: 154px;
-        margin-top: 30px;
+        height: 42px;
 
+        margin-top: 30px;
         cursor: pointer;
+
         font-weight: bolder;
         font-size: 1rem;
+
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          background-color: #dd7412;
+        }
       }
     }
 
     .contactInfoContainer {
       margin: 20px 0;
+
       h2 {
         font-size: 1.5rem;
       }
@@ -84,6 +173,24 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
         textarea {
           height: 29vw;
         }
+
+        .messageSendingContainer {
+          @include displayFlex(
+            $justify: flex-end,
+            $direction: column,
+            $align: flex-end
+          );
+          width: 100%;
+
+          .loadingSpinnerContainer {
+            @include displayFlex($justify: flex-end);
+
+            width: 100%;
+
+            margin: 5px 0;
+            margin-right: 6%;
+          }
+        }
       }
     }
   }
@@ -91,15 +198,31 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
+    .headerContainer {
+      .btnContainer {
+        button {
+          left: 89%;
+        }
+      }
+    }
+
+    .responseContainer {
+      .infoContainer {
+        p {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
     .contentContainer {
       .btnContainer {
         button {
-          left: 93%;
+          left: 95%;
         }
       }
       .formContainer {
         textarea {
-          height: 19vw;
+          height: 22vw;
         }
       }
     }
@@ -108,8 +231,18 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
 
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
-    background: $SMARTPHONE_CHAT_SVG no-repeat, $BACKGROUND_FILLER no-repeat;
-    background-position: 95% 95%, 45% 13%;
+    width: 60vw;
+
+    .responseContainer {
+      .infoContainer {
+        img {
+          width: 20vw;
+        }
+        p {
+          font-size: 2rem;
+        }
+      }
+    }
 
     .contentContainer {
       .btnContainer {
@@ -117,23 +250,23 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
           left: 93%;
         }
       }
+
       .introContent {
         margin: 15px 0;
-        margin-left: 10px;
         p {
           font-size: 1.25rem;
         }
       }
+
       .formContainer {
         textarea {
-          height: 137px;
-          width: 659px;
+          height: 15vw;
         }
 
         button {
           align-self: flex-end;
           margin-top: 20px;
-          margin-right: 100px;
+          margin-right: 0px;
         }
       }
 
@@ -146,6 +279,29 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
         .contact {
           flex-direction: row;
           align-items: center;
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    width: 750px;
+    min-height: auto;
+
+    .headerContainer {
+      .btnContainer {
+        button {
+          left: 92.5%;
+        }
+      }
+    }
+
+    .contentContainer {
+      .formContainer {
+        textarea {
+          height: 200px;
         }
       }
     }

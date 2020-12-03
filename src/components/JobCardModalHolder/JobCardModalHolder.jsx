@@ -1,14 +1,7 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
-import {
-  JobCard,
-  Modal,
-  ResultMessageToProviderModal,
-  CustomerMessageToProviderFormModal,
-} from "../index";
-
+import { JobCard, Modal, CustomerMessageToProviderFormModal } from "../index";
 import useMessageFromCustomerToProvider from "../../hooks/useMessageFromCustomerToProvider";
-
 import styles from "./JobCardModalHolder.module.scss";
 
 import { SessionContext } from "../../context/SessionContext/SessionContext";
@@ -17,12 +10,13 @@ const JobCardModalHolder = ({ adInfo }) => {
   const [isModalOpen, setIsOpen] = useState(false);
 
   const {
+    isLoading,
     inputMessage,
     isMessageSuccessfullySent,
     hasError,
     handleChangeInputMessage,
     handleSendMessage,
-    handleOccasionalModalsReset,
+    handleModalReset,
   } = useMessageFromCustomerToProvider();
 
   const { userInfo: customerUserInfo } = useContext(SessionContext);
@@ -51,16 +45,23 @@ const JobCardModalHolder = ({ adInfo }) => {
           handleSendMessage={(event) => {
             handleSendMessage(event, customerUserInfo, providerUserInfo);
           }}
+          isMessageSuccessfullySent={isMessageSuccessfullySent}
+          hasError={hasError}
+          isLoading={isLoading}
+          handleModalReset={() => {
+            handleModalReset();
+            handleModalReset();
+          }}
         />
       </Modal>
-      <Modal
+      {/* <Modal
         isModalOpen={!isModalOpen && (isMessageSuccessfullySent || hasError)}
       >
         <ResultMessageToProviderModal
           handleOccasionalModalsReset={handleOccasionalModalsReset}
           hasError={hasError}
         />
-      </Modal>
+      </Modal> */}
       <div
         className={styles.container}
         onClick={handleModalEvent}

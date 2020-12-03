@@ -11,12 +11,15 @@ const usePasswordRecoveryRequestHook = () => {
     setIsRecoveryRequestSuccessfull,
   ] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleInputChange = ({ target: { value } }) => {
     setEmail(value);
   };
 
   const handlePasswordRecoveryRequest = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
 
     try {
       await api.post("/resetPassword/request", JSON.stringify({ email }));
@@ -25,11 +28,14 @@ const usePasswordRecoveryRequestHook = () => {
       setHasRecoveryRequestErrors(false);
     } catch (error) {
       setHasRecoveryRequestErrors(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return {
     email,
+    isLoading,
     hasRecoveryRequestErrors,
     isRecoveryRequestSuccessfull,
     handleInputChange,
