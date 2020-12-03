@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 
 import { Context } from "../../context/AuthContext/AuthContext";
-
 import { LoadingSpinner } from "../../components/index";
+import {
+  padlockIcon,
+  emailPureIcon,
+} from "../../resources/imgs/utilityIcons/index";
 
 const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -27,22 +30,40 @@ const Login = () => {
       <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
         <label htmlFor="email">
           <p>Email</p>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={handleFieldChange}
-          />
+          <div className={styles.inputContainer}>
+            <div className={styles.inputLogoContainer}>
+              <img
+                src={emailPureIcon}
+                alt="Ícone de senha"
+                className={styles.inputLogo}
+              />
+            </div>
+            <input
+              type="text"
+              name="email"
+              value={email}
+              onChange={handleFieldChange}
+            />
+          </div>
         </label>
 
         <label htmlFor="passwordUser">
           <p>Senha</p>
-          <input
-            type="password"
-            name="passwordUser"
-            value={passwordUser}
-            onChange={handleFieldChange}
-          />
+          <div className={styles.inputContainer}>
+            <div className={styles.inputLogoContainer}>
+              <img
+                src={padlockIcon}
+                alt="Ícone de senha"
+                className={styles.inputLogo}
+              />
+            </div>
+            <input
+              type="password"
+              name="passwordUser"
+              value={passwordUser}
+              onChange={handleFieldChange}
+            />
+          </div>
         </label>
         {isCredentialInvalid && (
           <p className={styles.loginErrorMessage}>Credenciais inválidas</p>
