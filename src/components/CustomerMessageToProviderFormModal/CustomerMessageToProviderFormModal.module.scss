@@ -1,26 +1,100 @@
 @import "./../../styles/scss/index.scss";
 
-$SMARTPHONE_CHAT_SVG: url(./../../resources/imgs/styleSvgs/two_people_chat_smartphone.svg);
-$BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light_purple.svg);
+@mixin defaultBoxShadow($thickness: 4px, $color: rgb(218, 213, 213)) {
+  box-shadow: 0 0 $thickness $color;
+}
 .container {
-  .contentContainer {
-    margin: 16px;
+  background-color: $WHITE;
+  @include defaultBoxShadow($thickness: 4px);
+  border-radius: 5px;
+  .headerContainer {
+    background-color: $ORANGE;
+    padding: 10px 0;
+    @include defaultBoxShadow($thickness: 2px, $color: #262626);
+
     .btnContainer {
       position: relative;
       button {
         @include defaultButton($bg-color: $PURPLE, $radius: 50%);
+        @include displayFlex(
+          $justify: center,
+          $align: center,
+          $direction: column
+        );
+        position: relative;
+        left: 92.5%;
 
         height: 40px;
         width: 40px;
 
-        position: relative;
-        left: 88%;
-
         cursor: pointer;
-        font-weight: bold;
-        font-size: 1.5rem;
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          background-color: #410d39;
+        }
+
+        div {
+          @include defaultBoxShadow($color: $BLACK, $thickness: 1px);
+          position: absolute;
+          width: 30px;
+          height: 4px;
+
+          background-color: $WHITE;
+          border-radius: 1px;
+        }
+
+        .r1 {
+          transform: rotate(45deg);
+        }
+        .r2 {
+          transform: rotate(-45deg);
+        }
       }
     }
+  }
+
+  .responseContainer {
+    margin: 20px 0;
+    @include displayFlex($justify: center, $direction: column, $align: center);
+
+    .infoContainer {
+      @include displayFlex(
+        $justify: center,
+        $direction: column,
+        $align: center
+      );
+      // margin-top: 3vh;
+      img {
+        width: 16vw;
+      }
+
+      p {
+        // margin: 5vh 0;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-align: center;
+      }
+    }
+
+    .btnContainer {
+      margin: 20px 0;
+
+      .keepSearchingBtn {
+        @include defaultButton();
+        width: 250px;
+        height: 43px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #dd7412;
+        }
+      }
+    }
+  }
+  .contentContainer {
+    margin: 16px;
     .introContent {
       margin: 15px 0;
       p {
@@ -42,7 +116,7 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
       }
 
       button {
-        @include defaultButton();
+        @include defaultButton($radius: 4px);
         height: 42px;
         width: 154px;
         margin-top: 30px;
@@ -50,6 +124,12 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
         cursor: pointer;
         font-weight: bolder;
         font-size: 1rem;
+
+        transition: all 200ms ease-in-out;
+
+        &:hover {
+          background-color: #dd7412;
+        }
       }
     }
 
@@ -84,6 +164,21 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
         textarea {
           height: 29vw;
         }
+
+        .messageSendingContainer {
+          @include displayFlex(
+            $justify: flex-end,
+            $direction: column,
+            $align: flex-end
+          );
+          width: 100%;
+          .loadingSpinnerContainer {
+            @include displayFlex($justify: flex-end);
+            width: 100%;
+            margin: 5px 0;
+            margin-right: 6%;
+          }
+        }
       }
     }
   }
@@ -91,6 +186,7 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
+    overflow: hidden;
     .contentContainer {
       .btnContainer {
         button {
@@ -99,7 +195,7 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
       }
       .formContainer {
         textarea {
-          height: 19vw;
+          height: 11vw;
         }
       }
     }
@@ -108,8 +204,10 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
 
 @media #{$BREAKPOINT-TABLET-LAND} {
   .container {
-    background: $SMARTPHONE_CHAT_SVG no-repeat, $BACKGROUND_FILLER no-repeat;
-    background-position: 95% 95%, 45% 13%;
+    // background: $SMARTPHONE_CHAT_SVG no-repeat, $BACKGROUND_FILLER no-repeat;
+    // background-position: 95% 95%, 45% 13%;
+    min-height: 28vw;
+    width: 60vw;
 
     .contentContainer {
       .btnContainer {
@@ -119,21 +217,20 @@ $BACKGROUND_FILLER: url(./../../resources/imgs/styleSvgs/background_filler_light
       }
       .introContent {
         margin: 15px 0;
-        margin-left: 10px;
         p {
           font-size: 1.25rem;
         }
       }
       .formContainer {
         textarea {
-          height: 137px;
-          width: 659px;
+          // height: 137px;
+          // width: 659px;
         }
 
         button {
           align-self: flex-end;
           margin-top: 20px;
-          margin-right: 100px;
+          margin-right: 0px;
         }
       }
 
