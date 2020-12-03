@@ -1,11 +1,11 @@
 import React from "react";
-
 import {
+  LoadingSpinner,
   OrderByFilter,
   BroadFilter,
   IntroAdsList,
   JobCardModalHolder,
-} from "../../components";
+} from "../../components/index";
 
 import useJobsAdsListDataHook from "../../hooks/useJobsAdsListDataHook";
 
@@ -15,6 +15,7 @@ const ClassifiedAdsList = () => {
   const {
     adsList,
     totalAds,
+    isLoading,
     lastAdElementRef,
     filteringParameters,
     handleOrderByChange,
@@ -41,21 +42,26 @@ const ClassifiedAdsList = () => {
           cities={cities}
           handleSelectedStateUpdate={handleSelectedStateUpdate}
         />
-        <div className={styles.cardsContainer}>
-          {adsList.map((ad, index) => {
-            if (adsList.length - 1 === index) {
+        <div className={styles.wrapperContainer}>
+          <div className={styles.cardsContainer}>
+            {adsList.map((ad, index) => {
+              if (adsList.length - 1 === index) {
+                return (
+                  <div ref={lastAdElementRef}>
+                    <JobCardModalHolder key={ad.id} adInfo={ad} />
+                  </div>
+                );
+              }
               return (
-                <div ref={lastAdElementRef}>
+                <div>
                   <JobCardModalHolder key={ad.id} adInfo={ad} />
                 </div>
               );
-            }
-            return (
-              <div>
-                <JobCardModalHolder key={ad.id} adInfo={ad} />
-              </div>
-            );
-          })}
+            })}
+          </div>
+          <div className={styles.loadingSpinnerContainer}>
+            <LoadingSpinner isLoading={isLoading} />
+          </div>
         </div>
       </div>
     </div>

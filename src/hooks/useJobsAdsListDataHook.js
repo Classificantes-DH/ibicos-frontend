@@ -6,8 +6,8 @@ import useLocationHook from "./useLocationHook";
 const useJobsAdsListDataHook = () => {
   const [adsList, setAdsList] = useState([]);
   const { states, cities, handleSelectedStateUpdate } = useLocationHook();
-
   const [pageNumber, setPageNumber] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [filteringParameters, setFilteringParameters] = useState({
     categoryName: "",
@@ -15,10 +15,9 @@ const useJobsAdsListDataHook = () => {
     cityName: "",
     areaName: "",
   });
+
   const [totalAds, setTotalAds] = useState(0);
-
   const { categoryName, stateName, cityName, areaName } = filteringParameters;
-
   const [hasMore, setHasMore] = useState(false);
 
   const observer = useRef();
@@ -64,6 +63,7 @@ const useJobsAdsListDataHook = () => {
   useEffect(() => {
     (async () => {
       try {
+        setIsLoading(true);
         const response = await api.get("/api/v1/ad/list/ad/filter", {
           params: {
             categoryName,
@@ -73,18 +73,22 @@ const useJobsAdsListDataHook = () => {
             page: pageNumber,
           },
         });
+
         const {
           data: { content, totalElements, last },
         } = await response;
 
-        setAdsList((prevAds) => {
-          return [...new Set([...prevAds, ...content])];
-        });
-        setHasMore(!last);
-
-        setTotalAds(totalElements);
+        setTimeout(() => {
+          setAdsList((prevAds) => {
+            return [...new Set([...prevAds, ...content])];
+          });
+          setHasMore(!last);
+          setTotalAds(totalElements);
+          setIsLoading(false);
+        }, 1500);
       } catch (err) {
         console.log(err);
+        setIsLoading(false);
       }
     })();
   }, [pageNumber, filteringParameters]);
@@ -95,6 +99,7 @@ const useJobsAdsListDataHook = () => {
     adsList,
     totalAds,
     hasMore,
+    isLoading,
     filteringParameters,
     lastAdElementRef,
     handleOrderByChange,
