@@ -1,15 +1,13 @@
 import { useEffect, useState, useContext } from "react";
-
 import api from "../api/api";
-
 import { SessionContext } from "../context/SessionContext/SessionContext";
 
 const _ = require("lodash");
 
 const useAdRegistrationHook = () => {
   const { userInfo } = useContext(SessionContext);
-
   const [id] = useState(userInfo ? userInfo.id : null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const initialAdRegistrationState = {
     adDescription: "",
@@ -17,7 +15,7 @@ const useAdRegistrationHook = () => {
       id,
     },
     serviceCategory: {
-      id: null,
+      id: "",
     },
     cities: [
       {
@@ -31,6 +29,7 @@ const useAdRegistrationHook = () => {
       },
     ],
   };
+
   const [stateAbb, setStateAbb] = useState("");
   const [isAdSuccessfullyRegistered, setIsAdSuccessfullyRegistered] = useState(
     false
@@ -46,12 +45,18 @@ const useAdRegistrationHook = () => {
 
   const handleFormSubmition = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
+
     try {
       await api.post("/api/v1/ad/create", JSON.stringify(adRegistrationObject));
       setIsAdSuccessfullyRegistered(true);
-      setAdRegistrationObject(_.cloneDeep(initialAdRegistrationState));
     } catch (err) {
       console.log(err);
+    } finally {
+      const clonedObject = _.cloneDeep(initialAdRegistrationState);
+      setAdRegistrationObject(clonedObject);
+      setStateAbb("");
+      setIsLoading(false);
     }
   };
 
@@ -147,6 +152,7 @@ const useAdRegistrationHook = () => {
   return {
     adRegistrationObject,
     stateAbb,
+    isLoading,
     isAdSuccessfullyRegistered,
     handleRegionAreaChange,
     handleBasePropertiesChange,
