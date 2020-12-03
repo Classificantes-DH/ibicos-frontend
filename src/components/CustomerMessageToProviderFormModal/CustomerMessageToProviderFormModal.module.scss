@@ -88,6 +88,7 @@
 
         font-weight: bold;
         cursor: pointer;
+        margin-bottom: 10px;
 
         &:hover {
           background-color: #dd7412;
@@ -205,6 +206,14 @@
       }
     }
 
+    .responseContainer {
+      .infoContainer {
+        p {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
     .contentContainer {
       .btnContainer {
         button {
@@ -224,18 +233,31 @@
   .container {
     width: 60vw;
 
+    .responseContainer {
+      .infoContainer {
+        img {
+          width: 20vw;
+        }
+        p {
+          font-size: 2rem;
+        }
+      }
+    }
+
     .contentContainer {
       .btnContainer {
         button {
           left: 93%;
         }
       }
+
       .introContent {
         margin: 15px 0;
         p {
           font-size: 1.25rem;
         }
       }
+
       .formContainer {
         textarea {
           height: 15vw;

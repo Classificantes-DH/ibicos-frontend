@@ -29,7 +29,7 @@ const CustomerMessageToProviderFormModal = ({
           </button>
         </div>
       </header>
-      {!isMessageSuccessfullySent ? (
+      {isMessageSuccessfullySent ? (
         <div className={styles.responseContainer}>
           <div className={styles.infoContainer}>
             <img src={emailSuccessIcon} alt="Email enviado com sucesso" />
