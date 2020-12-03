@@ -4,6 +4,7 @@ import styles from "./AdRegistration.module.scss";
 import { LoadingSpinner } from "../../components/index";
 
 import useAdRegistrationHook from "../../hooks/useAdRegistrationHook";
+import useLocationHook from "../../hooks/useLocationHook";
 
 const AdRegistration = () => {
   const {
@@ -21,6 +22,12 @@ const AdRegistration = () => {
     handleRegionAreaChange,
     handleFormSubmition,
   } = useAdRegistrationHook();
+
+  const {
+    states: statesOptionsFiller,
+    cities: citiesOptionsFiller,
+    handleSelectedStateUpdate,
+  } = useLocationHook();
 
   const { adDescription, serviceCategory, cities } = adRegistrationObject;
 
@@ -78,11 +85,17 @@ const AdRegistration = () => {
                   name="stateAbb"
                   className={styles.defaultSelect}
                   value={stateAbb}
-                  onChange={handleStateAbbChange}
+                  onChange={(event) => {
+                    handleStateAbbChange(event);
+                    handleSelectedStateUpdate(event);
+                  }}
                 >
                   <option value="">Selecione um estado</option>
-                  <option value="SP">SP</option>
-                  <option value="RJ">RJ</option>
+                  {/* <option value="SP">SP</option>
+                  <option value="RJ">RJ</option> */}
+                  {statesOptionsFiller.map(({ nome, sigla }) => (
+                    <option value={sigla}>{nome}</option>
+                  ))}
                 </select>
               </label>
             </div>
@@ -99,6 +112,12 @@ const AdRegistration = () => {
                       value={city.cityName}
                       onChange={(event) => handleCitiesChange(event, index)}
                     />
+                    <select name="cityName" value={city.cityName}>
+                      <option value="">Qualquer</option>
+                      {citiesOptionsFiller.map((cityOption) => (
+                        <option value={cityOption}>{cityOption}</option>
+                      ))}
+                    </select>
                   </label>
                 </div>
 
