@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./CustomerMessageToProviderFormModal.module.scss";
 import { LoadingSpinner } from "../index";
 import emailSuccessIcon from "../../resources/imgs/styleSvgs/email_success.svg";
+import { companyLogo } from "../../resources/imgs/utilityIcons/index";
 
 const CustomerMessageToProviderFormModal = ({
   handleModalEvent,
@@ -14,8 +15,11 @@ const CustomerMessageToProviderFormModal = ({
   isMessageSuccessfullySent,
 }) => {
   return (
-    <div className={`${styles.container}`}>
+    <div className={styles.container}>
       <header className={styles.headerContainer}>
+        <div className={styles.logoContainer}>
+          <img src={companyLogo} alt="iBicos Logo" />
+        </div>
         <div className={styles.btnContainer}>
           <button
             onClick={() => {

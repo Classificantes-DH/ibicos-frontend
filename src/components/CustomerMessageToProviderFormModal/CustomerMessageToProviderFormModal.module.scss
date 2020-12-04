@@ -7,12 +7,24 @@
   width: calc(100vw - 20px);
 
   .headerContainer {
+    @include displayFlex($justify: space-between, $align: center);
     @include defaultBoxShadow($thickness: 2px, $color: #262626);
     background-color: $ORANGE;
     padding: 10px 0;
 
+    .logoContainer {
+      max-width: 50%;
+      margin-left: 12px;
+      img {
+        @include displayFlex($align: center);
+        width: 40px;
+      }
+    }
+
     .btnContainer {
       position: relative;
+      max-width: 50%;
+
       button {
         @include defaultButton($bg-color: $PURPLE, $radius: 50%);
         @include displayFlex(
@@ -20,11 +32,11 @@
           $align: center,
           $direction: column
         );
-        position: relative;
-        left: 84%;
 
         height: 40px;
         width: 40px;
+
+        margin-right: 15px;
 
         cursor: pointer;
         transition: all 200ms ease-in-out;
@@ -198,14 +210,6 @@
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
-    .headerContainer {
-      .btnContainer {
-        button {
-          left: 89%;
-        }
-      }
-    }
-
     .responseContainer {
       .infoContainer {
         p {
@@ -289,14 +293,6 @@
   .container {
     width: 750px;
     min-height: auto;
-
-    .headerContainer {
-      .btnContainer {
-        button {
-          left: 92.5%;
-        }
-      }
-    }
 
     .contentContainer {
       .formContainer {
