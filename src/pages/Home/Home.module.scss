@@ -3,6 +3,9 @@
 .container {
   @include displayFlex($direction: column, $align: center);
   margin: 10px 0;
+  background-color: $WHITE;
+  @include defaultBoxShadow();
+  padding: 20px;
 
   .backgroundContainer {
     img {
@@ -39,6 +42,9 @@
 @media #{$BREAKPOINT-DESK} {
   .container {
     width: 1000px;
+    .backgroundContainer {
+      // width: 150px;
+    }
     .pageTitleContainer {
       h1 {
         font-size: 4.5rem;
