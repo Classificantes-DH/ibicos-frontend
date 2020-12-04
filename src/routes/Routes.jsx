@@ -14,6 +14,7 @@ import {
   PasswordRecoveryChange,
   AdRegistration,
   AccountVerificationConfirmation,
+  HowItWorks,
 } from "../pages";
 
 import { FormSignupSuccessful } from "../components";
@@ -38,7 +39,8 @@ const Routes = () => {
       <Route
         path="/recuperarAcesso/trocarSenha"
         component={PasswordRecoveryChange}
-      />
+      />{" "}
+      <Route path="/comoFunciona" component={HowItWorks} />
       <PrivateRoute path="/listaClassificados" component={ClassifiedAdsList} />
       <PrivateRoute path="/listaServicos" component={ProviderServices} />
       <PrivateRoute path="/clienteDashBoard" component={DashBoard} />

@@ -11,3 +11,4 @@ export { default as PasswordRecoveryRequest } from "./PasswordRecovery/PasswordR
 export { default as PasswordRecoveryChange } from "./PasswordRecovery/PasswordRecoveryChange";
 export { default as AdRegistration } from "./AdRegistration/AdRegistration";
 export { default as AccountVerificationConfirmation } from "./AccountVerificationConfirmation/AccountVerificationConfirmation";
+export { default as HowItWorks } from "./HowItWorks/HowItWorks";

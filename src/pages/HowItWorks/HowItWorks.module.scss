@@ -1,0 +1,130 @@
+@import "./../../styles/scss/index.scss";
+
+.container {
+  @include defaultBoxShadow();
+  background-color: $WHITE;
+  width: calc(100vw - 20px);
+
+  header {
+    h1 {
+      text-align: center;
+    }
+  }
+  .contentContainer {
+    @include displayFlex($justify: space-between);
+    padding: 4px;
+
+    .columnContent {
+      header {
+        h3,
+        p {
+          text-align: center;
+        }
+      }
+      .content {
+        @include displayFlex($direction: column, $align: center);
+        margin: 15px 0;
+
+        .contentHeader {
+          background-color: $ORANGE;
+          margin-bottom: 5px;
+          padding: 5px 15px;
+          border-radius: 4px;
+
+          h3 {
+            color: $PURPLE;
+          }
+        }
+
+        .imageContainer {
+          @include displayFlex($justify: center);
+
+          img {
+            //width: 90px;
+            width: 18vw;
+          }
+        }
+        .descriptionContainer {
+          background-color: #a8a3a3;
+          //width: 170px;
+          width: 45vw;
+          margin-top: 10px;
+          border-radius: 1px 0 15px 15px;
+          padding: 10px 0;
+
+          h4 {
+            text-align: center;
+            font-size: 12px;
+            color: $WHITE;
+            margin: 0 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    @include displayFlex($direction: column, $align: center);
+
+    header {
+      margin: 1vw 0;
+      h1 {
+        font-size: 5vw;
+      }
+    }
+    .contentContainer {
+      width: 90%;
+      .columnContent {
+        .content {
+          .imageContainer {
+            img {
+              width: 20vw;
+            }
+          }
+          .descriptionContainer {
+            width: 40vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    .contentContainer {
+      width: 50%;
+      .columnContent {
+        .content {
+          .imageContainer {
+            img {
+              width: 15vw;
+            }
+          }
+          .descriptionContainer {
+            width: 20vw;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    width: 1000px;
+
+    header {
+      margin: 1vw 0;
+      h1 {
+        font-size: 3.5vw;
+      }
+    }
+
+    .contentContainer {
+      width: 60%;
+    }
+  }
+}
