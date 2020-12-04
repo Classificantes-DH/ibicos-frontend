@@ -19,3 +19,9 @@ export { default as megaphoneIcon } from "./megaphone.svg";
 
 export { default as padlockIcon } from "./padlock-orange.svg";
 export { default as emailPureIcon } from "./email-pure-orange.svg";
+
+export { default as handShaking } from "./handshaking.png";
+export { default as localizarLocalizar } from "./localizar_1localize.png";
+export { default as registrarNegocios } from "./registrar_1negocios.png";
+export { default as servicosRealize } from "./servicos_1realize.png";
+export { default as sobrecarga } from "./sobrecarga.png";
