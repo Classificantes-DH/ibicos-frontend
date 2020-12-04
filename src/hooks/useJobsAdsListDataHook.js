@@ -78,6 +78,8 @@ const useJobsAdsListDataHook = () => {
           data: { content, totalElements, last },
         } = await response;
 
+        const loadingTime = pageNumber === 0 ? 800 : 1500;
+
         setTimeout(() => {
           setAdsList((prevAds) => {
             return [...new Set([...prevAds, ...content])];
@@ -85,7 +87,7 @@ const useJobsAdsListDataHook = () => {
           setHasMore(!last);
           setTotalAds(totalElements);
           setIsLoading(false);
-        }, 1500);
+        }, loadingTime);
       } catch (err) {
         console.log(err);
         setIsLoading(false);

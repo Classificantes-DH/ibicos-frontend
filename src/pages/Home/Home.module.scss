@@ -1,0 +1,48 @@
+@import "./../../styles/scss/index.scss";
+
+.container {
+  @include displayFlex($direction: column, $align: center);
+  margin: 10px 0;
+
+  .backgroundContainer {
+    img {
+      max-width: calc(100vw - 20px);
+    }
+  }
+  .pageTitleContainer {
+    h1 {
+      font-size: 12vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    .pageTitleContainer {
+      h1 {
+        font-size: 9vw;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    .pageTitleContainer {
+      h1 {
+        font-size: 7vw;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    width: 1000px;
+    .pageTitleContainer {
+      h1 {
+        font-size: 4.5rem;
+      }
+    }
+  }
+}
