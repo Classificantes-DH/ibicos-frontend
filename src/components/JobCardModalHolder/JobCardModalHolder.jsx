@@ -23,7 +23,7 @@ const JobCardModalHolder = ({ adInfo }) => {
   if (!customerUserInfo) {
     return null;
   }
-  const { user: providerUserInfo } = adInfo;
+  const { user: providerUserInfo, serviceCategory } = adInfo;
   const { email: customerEmail } = customerUserInfo;
   const { email: providerEmail } = providerUserInfo;
 
@@ -43,7 +43,12 @@ const JobCardModalHolder = ({ adInfo }) => {
             handleModalEvent(event);
           }}
           handleSendMessage={(event) => {
-            handleSendMessage(event, customerUserInfo, providerUserInfo);
+            handleSendMessage(
+              event,
+              customerUserInfo,
+              providerUserInfo,
+              serviceCategory
+            );
           }}
           isMessageSuccessfullySent={isMessageSuccessfullySent}
           hasError={hasError}
@@ -96,6 +101,13 @@ JobCardModalHolder.propTypes = {
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         region: PropTypes.arrayOf(PropTypes.string),
+      })
+    ).isRequired,
+
+    serviceCategory: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        categoryName: PropTypes.string.isRequired,
       })
     ).isRequired,
 

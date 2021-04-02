@@ -23,31 +23,21 @@ const useMessageFromCustomerToProvider = () => {
   const handleSendMessage = async (
     event,
     customerUserInfo,
-    providerUserInfo
+    providerUserInfo,
+    serviceCategory
   ) => {
     event.preventDefault();
 
     setIsLoading(true);
 
-    const message = inputMessage;
-    const {
-      email: providerEmailAddress,
-      person: { namePerson: providerName },
-    } = providerUserInfo;
-    const {
-      email: customerEmailAddress,
-      person: { namePerson: customerName },
-    } = customerUserInfo;
-
     try {
       await api.post(
         "/api/v1/customer/ad/sendMessage",
         JSON.stringify({
-          providerEmailAddress,
-          customerEmailAddress,
-          customerName,
-          providerName,
-          message,
+          customer: customerUserInfo,
+          provider: providerUserInfo,
+          message: inputMessage,
+          serviceCategory,
         })
       );
       setIsMessageSuccessfullySent(true);
