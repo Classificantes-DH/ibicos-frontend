@@ -7,6 +7,7 @@ const RatingStars = ({
   isEditable,
   description,
   activeColor = "#5b074d",
+  handleRatingChange,
 }) => {
   return (
     <ReactStars
@@ -15,6 +16,7 @@ const RatingStars = ({
       size={30}
       color="white"
       activeColor={activeColor}
+      onChange={handleRatingChange}
       edit={isEditable}
       value={rate}
     />
@@ -26,6 +28,7 @@ RatingStars.propTypes = {
   isEditable: PropTypes.bool.isRequired,
   description: PropTypes.string.isRequired,
   activeColor: PropTypes.string.isRequired,
+  handleRatingChange: PropTypes.func.isRequired,
 };
 
 export default RatingStars;

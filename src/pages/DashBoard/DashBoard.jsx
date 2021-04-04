@@ -10,6 +10,7 @@ const DashBoard = () => {
     pendingEvaluationsData,
     handleJobConfirmation,
     handleJobDeletion,
+    handleRatingChange,
   } = useCustomerEvaluateHook();
 
   if (!pendingEvaluationsData) {
@@ -54,6 +55,7 @@ const DashBoard = () => {
                     pendingEvaluationData={pendingEvaluationData}
                     handleJobConfirmation={handleJobConfirmation}
                     handleJobDeletion={handleJobDeletion}
+                    handleRatingChange={handleRatingChange}
                   />
                 );
               })

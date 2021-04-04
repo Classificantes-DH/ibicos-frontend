@@ -8,6 +8,7 @@ const EvaluationAccordion = ({
   pendingEvaluationData,
   handleJobConfirmation,
   handleJobDeletion,
+  handleRatingChange,
 }) => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const [isHired, setIsHired] = useState(false);
@@ -77,7 +78,10 @@ const EvaluationAccordion = ({
                 isEditable
                 description="Service evaluation"
                 activeColor="#ff7a00"
-                rate={5}
+                rate={0}
+                handleRatingChange={(event) =>
+                  handleRatingChange(event, idEvaluate)
+                }
               />
             </div>
           </div>
@@ -131,6 +135,7 @@ EvaluationAccordion.propTypes = {
   }).isRequired,
   handleJobConfirmation: PropTypes.func.isRequired,
   handleJobDeletion: PropTypes.func.isRequired,
+  handleRatingChange: PropTypes.func.isRequired,
 };
 
 export default EvaluationAccordion;
