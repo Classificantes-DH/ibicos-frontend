@@ -20,14 +20,22 @@ const useCustomerEvaluateHook = () => {
   }, []);
 
   const handleJobConfirmation = async (idEvaluate) => {
-    const response = await api.put(
+    await api.put(
       "/api/v1/customer/evaluate/provider/confirmHiring",
       JSON.stringify({ id_evaluate: idEvaluate })
     );
-    console.log(response);
   };
 
-  return { pendingEvaluationsData, handleJobConfirmation };
+  const handleJobDeletion = async (idEvaluate) => {
+    await api.delete(`/api/v1/customer/evaluate/delete/${idEvaluate}`);
+    const newPendingEvaluationsData = pendingEvaluationsData.filter(
+      (ped) => ped.idEvaluate !== idEvaluate
+    );
+
+    setPendingEvaluationData(newPendingEvaluationsData);
+  };
+
+  return { pendingEvaluationsData, handleJobConfirmation, handleJobDeletion };
 };
 
 export default useCustomerEvaluateHook;

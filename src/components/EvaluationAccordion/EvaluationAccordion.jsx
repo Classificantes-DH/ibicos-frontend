@@ -7,6 +7,7 @@ import { RatingStars } from "../index";
 const EvaluationAccordion = ({
   pendingEvaluationData,
   handleJobConfirmation,
+  handleJobDeletion,
 }) => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const [isHired, setIsHired] = useState(false);
@@ -106,7 +107,11 @@ const EvaluationAccordion = ({
                   <span>Sim</span>
                 </button>
 
-                <button className={styles.submitButton} type="submit">
+                <button
+                  className={styles.submitButton}
+                  onClick={() => handleJobDeletion(idEvaluate)}
+                  type="submit"
+                >
                   <span>Não</span>
                 </button>
               </div>
@@ -125,6 +130,7 @@ EvaluationAccordion.propTypes = {
     idEvaluate: PropTypes.number.isRequired,
   }).isRequired,
   handleJobConfirmation: PropTypes.func.isRequired,
+  handleJobDeletion: PropTypes.func.isRequired,
 };
 
 export default EvaluationAccordion;
