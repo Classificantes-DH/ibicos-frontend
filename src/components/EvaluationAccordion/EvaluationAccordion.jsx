@@ -1,19 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 import styles from "./EvaluationAccordion.module.scss";
 import { RatingStars } from "../index";
 
-const EvaluationAccordion = () => {
+const EvaluationAccordion = ({
+  pendingEvaluationData,
+  handleJobConfirmation,
+}) => {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-  const [isServiceConfirmed, setIsServiceConfirmed] = useState(false);
+  const [isHired, setIsHired] = useState(false);
   const location = useLocation();
+
   const handleAccordionToggle = () => {
     setIsAccordionOpen(!isAccordionOpen);
   };
 
-  const handleJobConfirmation = () => {
-    setIsServiceConfirmed(true);
-  };
+  const { messageDate, hired, idEvaluate } = pendingEvaluationData;
+
+  useEffect(() => {
+    setIsHired(hired);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -26,7 +33,8 @@ const EvaluationAccordion = () => {
       >
         <div className={styles.titleContainer}>
           <h2>
-            <span>{">"}</span>06-11-2020
+            <span>{">"}</span>
+            {messageDate}
           </h2>
         </div>
 
@@ -50,8 +58,7 @@ const EvaluationAccordion = () => {
         {/* #TODO: Remove location path validation and use data coming from the backend */}
         <div
           className={`${styles.content} ${
-            isServiceConfirmed ||
-            location.pathname.includes("/prestadorDashBoard")
+            isHired || location.pathname.includes("/prestadorDashBoard")
               ? `${styles.activeContent}`
               : ``
           }`}
@@ -79,7 +86,7 @@ const EvaluationAccordion = () => {
           <Route path="/clienteDashBoard">
             <div
               className={`${styles.content} ${
-                !isServiceConfirmed ? `${styles.activeContent}` : ``
+                !isHired ? `${styles.activeContent}` : ``
               }`}
             >
               <div className={styles.messageContainer}>
@@ -91,7 +98,10 @@ const EvaluationAccordion = () => {
                 <button
                   className={styles.submitButton}
                   type="submit"
-                  onClick={handleJobConfirmation}
+                  onClick={() => {
+                    handleJobConfirmation(idEvaluate);
+                    setIsHired(true);
+                  }}
                 >
                   <span>Sim</span>
                 </button>
@@ -106,6 +116,15 @@ const EvaluationAccordion = () => {
       </div>
     </div>
   );
+};
+
+EvaluationAccordion.propTypes = {
+  pendingEvaluationData: PropTypes.shape({
+    messageDate: PropTypes.string.isRequired,
+    hired: PropTypes.bool.isRequired,
+    idEvaluate: PropTypes.number.isRequired,
+  }).isRequired,
+  handleJobConfirmation: PropTypes.func.isRequired,
 };
 
 export default EvaluationAccordion;
