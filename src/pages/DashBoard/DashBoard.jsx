@@ -1,9 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import styles from "./DashBoard.module.scss";
-import { DashCard, EvaluationAccordion } from "../../components";
+import { DashCard, EvaluationAccordionSwitcher } from "../../components";
 
 import useCustomerEvaluateHook from "../../hooks/useCustomerEvaluateHook";
+import useProviderEvaluateHook from "../../hooks/useProviderEvaluateHook";
 
 const DashBoard = () => {
   const {
@@ -13,9 +14,18 @@ const DashBoard = () => {
     handleRatingChange,
   } = useCustomerEvaluateHook();
 
+  const {
+    pendingEvaluationsData: providerPendingEvaluationsData,
+    handleRatingChange: handleProviderRatingChange,
+  } = useProviderEvaluateHook();
+
   if (!pendingEvaluationsData) {
     return null;
   }
+
+  const providerPath = "/prestadorDashBoard";
+  const customerPath = "/clienteDashBoard";
+
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
@@ -37,34 +47,18 @@ const DashBoard = () => {
         <h2>Avalie suas últimas experiências na plataforma</h2>
       </div>
       <div className={styles.accordionContainer}>
-        {/* <EvaluationAccordion />
-        <EvaluationAccordion />
-        <EvaluationAccordion />
-        <EvaluationAccordion />
-        <EvaluationAccordion /> */}
-        <Switch>
-          <Route
-            path="/clienteDashBoard"
-            render={() =>
-              pendingEvaluationsData.map((pendingEvaluationData) => {
-                if (pendingEvaluationData.providerEvaluated) {
-                  return null;
-                }
-                return (
-                  <EvaluationAccordion
-                    pendingEvaluationData={pendingEvaluationData}
-                    handleJobConfirmation={handleJobConfirmation}
-                    handleJobDeletion={handleJobDeletion}
-                    handleRatingChange={handleRatingChange}
-                  />
-                );
-              })
-            }
-          />
-        </Switch>
-        {/* {pendingEvaluationsData.map((ped) => (
-          <EvaluationAccordion />
-        ))} */}
+        <EvaluationAccordionSwitcher
+          path={customerPath}
+          pendingEvaluationsData={pendingEvaluationsData}
+          handleJobConfirmation={handleJobConfirmation}
+          handleJobDeletion={handleJobDeletion}
+          handleRatingChange={handleRatingChange}
+        />
+        <EvaluationAccordionSwitcher
+          path={providerPath}
+          pendingEvaluationsData={providerPendingEvaluationsData}
+          handleRatingChange={handleProviderRatingChange}
+        />
       </div>
     </div>
   );
