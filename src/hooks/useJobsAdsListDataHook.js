@@ -51,7 +51,7 @@ const useJobsAdsListDataHook = () => {
       });
       if (node) observer.current.observe(node);
     },
-    [hasMore]
+    [hasMore, adsList]
   );
 
   useEffect(() => {
@@ -89,11 +89,11 @@ const useJobsAdsListDataHook = () => {
           setIsLoading(false);
         }, loadingTime);
       } catch (err) {
-        console.log(err);
+        console.error(err);
         setIsLoading(false);
       }
     })();
-  }, [pageNumber, filteringParameters]);
+  }, [pageNumber, areaName, categoryName, cityName, stateName]);
 
   return {
     states,

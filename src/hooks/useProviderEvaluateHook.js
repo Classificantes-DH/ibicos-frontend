@@ -4,12 +4,11 @@ import api from "../api/api";
 
 const useProviderEvaluateHook = () => {
   const { userInfo } = useContext(SessionContext);
-  const { id } = userInfo;
   const [pendingEvaluationsData, setPendingEvaluationData] = useState([]);
 
-  const pendingEvaluationsEndpoint = `/api/v1/provider/evaluate/${id}/pending/evaluation`;
-
   useEffect(() => {
+    const { id } = userInfo;
+    const pendingEvaluationsEndpoint = `/api/v1/provider/evaluate/${id}/pending/evaluation`;
     const fetchData = async () => {
       const response = await api.get(pendingEvaluationsEndpoint);
       const { pendingEvaluations } = await response.data;
@@ -17,7 +16,7 @@ const useProviderEvaluateHook = () => {
     };
 
     fetchData();
-  }, []);
+  }, [userInfo]);
 
   const removedPendingEvaluation = (idEvaluate) => {
     const newPendingEvaluationsData = pendingEvaluationsData.filter(

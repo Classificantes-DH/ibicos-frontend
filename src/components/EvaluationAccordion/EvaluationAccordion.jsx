@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./EvaluationAccordion.module.scss";
@@ -10,19 +10,14 @@ const EvaluationAccordion = ({
   handleJobDeletion,
   handleRatingChange,
 }) => {
+  const { messageDate, hired, idEvaluate } = pendingEvaluationData;
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
-  const [isHired, setIsHired] = useState(false);
+  const [isHired, setIsHired] = useState(hired);
   const location = useLocation();
 
   const handleAccordionToggle = () => {
     setIsAccordionOpen(!isAccordionOpen);
   };
-
-  const { messageDate, hired, idEvaluate } = pendingEvaluationData;
-
-  useEffect(() => {
-    setIsHired(hired);
-  }, []);
 
   return (
     <div className={styles.container}>
