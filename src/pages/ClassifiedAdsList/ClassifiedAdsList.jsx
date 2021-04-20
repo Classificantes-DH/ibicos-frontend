@@ -54,7 +54,7 @@ const ClassifiedAdsList = () => {
               }
               return (
                 <div>
-                  <JobCardModalHolder key={ad.id} adInfo={ad} />
+                  <JobCardModalHolder key={ad.id} adData={ad} />
                 </div>
               );
             })}

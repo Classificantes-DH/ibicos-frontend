@@ -3,23 +3,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
 import mapIcon from "../../resources/imgs/utilityIcons/map-location-pure.svg";
-// import { RatingStars } from "../index";
+import { RatingStars } from "../index";
 import useJobIconImportHook from "../../hooks/useJobIconImportHook";
 
 import "../../util/svg-coloration.scss";
 
-const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
+const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
+  const { ad, provider_statistics: providerStatistics } = adData;
+
   const {
     id,
-    adDescription,
+    ad_description: adDescription,
     cities,
-    // providerStatistics,
-    serviceCategory: { categoryName },
-  } = adInfo;
+    service_category: serviceCategory,
+  } = ad;
 
-  // const {
-  //   statistics: { evaluation, evaluationsCounter },
-  // } = providerStatistics;
+  const { category_name: categoryName } = serviceCategory;
+
+  const {
+    statistics: { evaluation, evaluations_counter: evaluationsCounter },
+  } = providerStatistics;
 
   const img = useJobIconImportHook(categoryName.toLowerCase())[0];
 
@@ -42,8 +45,8 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
             <div className={styles.customerOwnedAd} />
           )}
         </h2>
-        {/* #TODO: fix evaluation issues */}
-        {/* {evaluationsCounter && evaluationsCounter > 0 ? (
+
+        {evaluationsCounter && evaluationsCounter > 0 ? (
           <div className={styles.evaluationContainer}>
             <RatingStars
               rate={evaluation}
@@ -52,36 +55,11 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
             />
             <p>{evaluationsCounter} avaliações</p>
           </div>
-        ) : null}
-
-        {evaluationsCounter && evaluationsCounter === 0 ? (
+        ) : (
           <div className={styles.notEnoughEvaluationsContainer}>
-            <p>O usuário ainda não possui avaliações suficientes</p>
+            <p>Sem avaliações suficientes</p>
           </div>
-        ) : null}
-
-        {() => {
-          if (!evaluationsCounter) {
-            return null;
-          }
-          if (evaluationsCounter > 0) {
-            return (
-              <div className={styles.evaluationContainer}>
-                <RatingStars
-                  rate={evaluation}
-                  isEditable={false}
-                  description="Quantidade de avaliações"
-                />
-                <p>{evaluationsCounter} avaliações</p>
-              </div>
-            );
-          }
-          return (
-            <div className={styles.notEnoughEvaluationsContainer}>
-              <p>O usuário ainda não possui avaliações suficientes</p>
-            </div>
-          );
-        }} */}
+        )}
       </div>
       <div className={styles.jobDetails}>
         <div className={styles.location}>
@@ -95,7 +73,7 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
               <h4>Locais</h4>
             </div>
             <ul className={styles.locationList}>
-              {cities.map(({ cityName, stateAbb }) => (
+              {cities.map(({ city_name: cityName, state_name: stateAbb }) => (
                 <li key={cityName}>
                   {cityName} | {stateAbb}
                 </li>
@@ -112,8 +90,8 @@ const JobCard = ({ adInfo, isCustomerAndProviderTheSame = false }) => {
               <h4>Região</h4>
             </div>
             <ul className={styles.locationList}>
-              {cities.map(({ cityName, regionArea }) =>
-                regionArea.map(({ areaName }) => (
+              {cities.map(({ city_name: cityName, region_area: regionArea }) =>
+                regionArea.map(({ area_name: areaName }) => (
                   <li key={areaName}>
                     {areaName} | {cityName}
                   </li>
@@ -137,43 +115,48 @@ JobCard.defaultProps = {
 
 JobCard.propTypes = {
   isCustomerAndProviderTheSame: PropTypes.bool,
-  adInfo: PropTypes.shape({
-    id: PropTypes.number,
-
-    serviceCategory: PropTypes.shape({
-      categoryName: PropTypes.string.isRequired,
+  adData: PropTypes.shape({
+    ad: PropTypes.shape({
       id: PropTypes.number,
-    }).isRequired,
+      ad_description: PropTypes.string.isRequired,
 
-    cities: PropTypes.arrayOf(
-      PropTypes.shape({
-        cityName: PropTypes.string.isRequired,
-        stateAbb: PropTypes.string.isRequired,
-        idCity: PropTypes.number,
-        regionArea: PropTypes.arrayOf(
-          PropTypes.arrayOf(
-            PropTypes.shape({
-              idArea: PropTypes.number,
-              areaName: PropTypes.string.isRequired,
-            })
-          )
-        ),
-      })
-    ).isRequired,
+      service_category: PropTypes.shape({
+        category_name: PropTypes.string.isRequired,
+        id: PropTypes.number,
+      }).isRequired,
 
-    providerStatistics: PropTypes.shape({
+      user: PropTypes.shape({
+        id: PropTypes.number,
+      }),
+
+      cities: PropTypes.arrayOf(
+        PropTypes.shape({
+          city_name: PropTypes.string.isRequired,
+          state_name: PropTypes.string.isRequired,
+          idy: PropTypes.number,
+          region_area: PropTypes.arrayOf(
+            PropTypes.arrayOf(
+              PropTypes.shape({
+                id: PropTypes.number,
+                area_name: PropTypes.string.isRequired,
+              })
+            )
+          ),
+        })
+      ).isRequired,
+    }),
+
+    provider_statistics: PropTypes.shape({
       id: PropTypes.number,
       visualizations: PropTypes.number,
       statistics: PropTypes.shape({
         id: PropTypes.number,
         evaluation: PropTypes.number.isRequired,
-        evaluationsCounter: PropTypes.number.isRequired,
-        messagesCounter: PropTypes.number,
-        hiredServicesCounter: PropTypes.number,
+        evaluations_counter: PropTypes.number.isRequired,
+        messages_counter: PropTypes.number,
+        hired_services_counter: PropTypes.number,
       }).isRequired,
     }),
-
-    adDescription: PropTypes.string.isRequired,
   }).isRequired,
 };
 

@@ -6,7 +6,7 @@ import styles from "./JobCardModalHolder.module.scss";
 
 import { SessionContext } from "../../context/SessionContext/SessionContext";
 
-const JobCardModalHolder = ({ adInfo }) => {
+const JobCardModalHolder = ({ adData }) => {
   const [isModalOpen, setIsOpen] = useState(false);
 
   const {
@@ -20,15 +20,19 @@ const JobCardModalHolder = ({ adInfo }) => {
   } = useMessageFromCustomerToProvider();
 
   const { userInfo: customerUserInfo } = useContext(SessionContext);
-  if (!customerUserInfo) {
+
+  if (!customerUserInfo || !adData) {
     return null;
   }
-  const { user: providerUserInfo, serviceCategory } = adInfo;
-  const { email: customerEmail } = customerUserInfo;
-  const { email: providerEmail } = providerUserInfo;
+
+  const {
+    ad: { user: providerUserInfo, service_category: serviceCategory },
+  } = adData;
+  const { id: customerId } = customerUserInfo;
+  const { id: providerId } = providerUserInfo;
 
   const handleModalEvent = () => {
-    if (customerEmail !== providerEmail) {
+    if (customerId !== providerId) {
       setIsOpen(!isModalOpen);
     }
   };
@@ -75,8 +79,8 @@ const JobCardModalHolder = ({ adInfo }) => {
         tabIndex={0}
       >
         <JobCard
-          adInfo={adInfo}
-          isCustomerAndProviderTheSame={customerEmail === providerEmail}
+          adData={adData}
+          isCustomerAndProviderTheSame={customerId === providerId}
         />
       </div>
     </>
@@ -84,34 +88,47 @@ const JobCardModalHolder = ({ adInfo }) => {
 };
 
 JobCardModalHolder.propTypes = {
-  adInfo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    category: PropTypes.string.isRequired,
-    evaluations: PropTypes.number.isRequired,
-    state: PropTypes.string.isRequired,
+  adData: PropTypes.shape({
+    ad: PropTypes.shape({
+      id: PropTypes.number,
+      ad_description: PropTypes.string.isRequired,
 
-    user: PropTypes.shape({
-      email: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-      isAccountConfirmed: PropTypes.bool,
-      notice: PropTypes.bool,
-    }),
-
-    cities: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        region: PropTypes.arrayOf(PropTypes.string),
-      })
-    ).isRequired,
-
-    serviceCategory: PropTypes.arrayOf(
-      PropTypes.shape({
+      service_category: PropTypes.shape({
+        category_name: PropTypes.string.isRequired,
         id: PropTypes.number.isRequired,
-        categoryName: PropTypes.string.isRequired,
-      })
-    ).isRequired,
+      }).isRequired,
 
-    description: PropTypes.string.isRequired,
+      user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+      }).isRequired,
+
+      cities: PropTypes.arrayOf(
+        PropTypes.shape({
+          city_name: PropTypes.string.isRequired,
+          state_name: PropTypes.string.isRequired,
+          id: PropTypes.number,
+          region_area: PropTypes.arrayOf(
+            PropTypes.arrayOf(
+              PropTypes.shape({
+                id: PropTypes.number,
+                area_name: PropTypes.string.isRequired,
+              })
+            )
+          ),
+        })
+      ).isRequired,
+    }).isRequired,
+    provider_statistics: PropTypes.shape({
+      id: PropTypes.number,
+      visualizations: PropTypes.number,
+      statistics: PropTypes.shape({
+        id: PropTypes.number,
+        evaluation: PropTypes.number.isRequired,
+        evaluations_counter: PropTypes.number.isRequired,
+        messages_counter: PropTypes.number,
+        hired_services_counter: PropTypes.number,
+      }).isRequired,
+    }),
   }).isRequired,
 };
 
