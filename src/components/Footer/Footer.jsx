@@ -86,9 +86,9 @@ const Footer = () => {
               </div>
               <p>
                 A <strong>iBicos</strong> surgiu a partir da necessidade da
-                mordenizaçao do contato entre clientes e prestadores de serviço
-                autonomo, nossa missao e por meio da tecnologia facilitar
-                negocios fazendo com que novas oportunidades prosperas surjam.
+                mordenização do contato entre clientes e prestadores de serviço
+                autonômo, nossa missão e por meio da tecnologia facilitar
+                negócios fazendo com que novas oportunidades prósperas surjam.
               </p>
             </div>
           </div>
