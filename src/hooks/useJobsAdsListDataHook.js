@@ -18,6 +18,7 @@ const useJobsAdsListDataHook = () => {
 
   const [totalAds, setTotalAds] = useState(0);
   const { categoryName, stateName, cityName, areaName } = filteringParameters;
+  const [sortBy, setSortBy] = useState("");
   const [hasMore, setHasMore] = useState(false);
 
   const observer = useRef();
@@ -37,7 +38,11 @@ const useJobsAdsListDataHook = () => {
 
   const handleOrderByChange = (event) => {
     const selectedValue = getSelectedValue(event);
-    console.log(selectedValue);
+    setSortBy(selectedValue);
+    setFilteringParameters({
+      ...filteringParameters,
+      pageNumber: 0,
+    });
   };
 
   const lastAdElementRef = useCallback(
@@ -71,6 +76,7 @@ const useJobsAdsListDataHook = () => {
             cityName,
             areaName,
             page: pageNumber,
+            sortBy,
           },
         });
 
@@ -89,11 +95,10 @@ const useJobsAdsListDataHook = () => {
           setIsLoading(false);
         }, loadingTime);
       } catch (err) {
-        console.error(err);
         setIsLoading(false);
       }
     })();
-  }, [pageNumber, areaName, categoryName, cityName, stateName]);
+  }, [pageNumber, areaName, categoryName, cityName, stateName, sortBy]);
 
   return {
     states,

@@ -13,8 +13,8 @@ const OrderByFilter = ({ numberOfAds, handleOrderByChange }) => (
       <p>Ordenar por:</p>
       <select onChange={(event) => handleOrderByChange(event)}>
         <option value="id">Qualquer</option>
-        <option value="rate">Melhores Avaliados</option>
-        <option value="evaluations">Mais Avaliados</option>
+        <option value="evaluation">Melhores Avaliados</option>
+        <option value="evaluationsCounter">Mais Avaliados</option>
       </select>
     </div>
   </div>

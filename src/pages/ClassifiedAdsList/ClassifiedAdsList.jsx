@@ -48,7 +48,7 @@ const ClassifiedAdsList = () => {
               if (adsList.length - 1 === index) {
                 return (
                   <div ref={lastAdElementRef}>
-                    <JobCardModalHolder key={ad.id} adInfo={ad} />
+                    <JobCardModalHolder key={ad.id} adData={ad} />
                   </div>
                 );
               }
