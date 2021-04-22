@@ -22,8 +22,8 @@ const useMessageFromCustomerToProvider = () => {
 
   const handleSendMessage = async (
     event,
-    customerUserInfo,
-    providerUserInfo,
+    customerId,
+    providerId,
     serviceCategory
   ) => {
     event.preventDefault();
@@ -34,8 +34,8 @@ const useMessageFromCustomerToProvider = () => {
       await api.post(
         "/api/v1/customer/ad/sendMessage",
         JSON.stringify({
-          customer: customerUserInfo,
-          provider: providerUserInfo,
+          customerId,
+          providerId,
           message: inputMessage,
           serviceCategory,
         })

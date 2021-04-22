@@ -47,12 +47,7 @@ const JobCardModalHolder = ({ adData }) => {
             handleModalEvent(event);
           }}
           handleSendMessage={(event) => {
-            handleSendMessage(
-              event,
-              customerUserInfo,
-              providerUserInfo,
-              serviceCategory
-            );
+            handleSendMessage(event, customerId, providerId, serviceCategory);
           }}
           isMessageSuccessfullySent={isMessageSuccessfullySent}
           hasError={hasError}
