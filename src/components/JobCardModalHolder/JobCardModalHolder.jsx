@@ -15,6 +15,7 @@ const JobCardModalHolder = ({ adData }) => {
     isMessageSuccessfullySent,
     hasError,
     handleChangeInputMessage,
+    handleProviderVisualizationsIncrement,
     handleSendMessage,
     handleModalReset,
   } = useMessageFromCustomerToProvider();
@@ -32,6 +33,7 @@ const JobCardModalHolder = ({ adData }) => {
   const { id: providerId } = providerUserInfo;
 
   const handleModalEvent = () => {
+    console.log("abriu o modal");
     if (customerId !== providerId) {
       setIsOpen(!isModalOpen);
     }
@@ -44,6 +46,7 @@ const JobCardModalHolder = ({ adData }) => {
           inputMessage={inputMessage}
           handleChangeInputMessage={handleChangeInputMessage}
           handleModalEvent={(event) => {
+            handleProviderVisualizationsIncrement(providerId, serviceCategory);
             handleModalEvent(event);
           }}
           handleSendMessage={(event) => {

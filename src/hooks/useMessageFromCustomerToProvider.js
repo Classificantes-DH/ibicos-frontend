@@ -49,11 +49,27 @@ const useMessageFromCustomerToProvider = () => {
     }
   };
 
+  const handleProviderVisualizationsIncrement = (
+    providerId,
+    serviceCategory
+  ) => {
+    const requestBody = JSON.stringify({
+      provider_user: {
+        id: providerId,
+      },
+      service_category: {
+        category_name: serviceCategory.category_name,
+      },
+    });
+    api.put("/api/v1/provider/evaluate/views/increment-counter", requestBody);
+  };
+
   return {
     isLoading,
     inputMessage,
     isMessageSuccessfullySent,
     hasError,
+    handleProviderVisualizationsIncrement,
     handleChangeInputMessage,
     handleSendMessage,
     handleModalReset,

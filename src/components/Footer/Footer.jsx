@@ -25,7 +25,7 @@ const Footer = () => {
               className={styles.contactLogo}
             />
             <div className={styles.contactData}>
-              <p>Rua Aleatoria, 0</p>
+              <p>Rua Aleatória, 0</p>
               <p>
                 <strong>São Paulo - Brasil</strong>
               </p>
@@ -87,7 +87,7 @@ const Footer = () => {
               <p>
                 A <strong>iBicos</strong> surgiu a partir da necessidade da
                 mordenização do contato entre clientes e prestadores de serviço
-                autonômo, nossa missão e por meio da tecnologia facilitar
+                autonômo, nossa missão é por meio da tecnologia facilitar
                 negócios fazendo com que novas oportunidades prósperas surjam.
               </p>
             </div>
