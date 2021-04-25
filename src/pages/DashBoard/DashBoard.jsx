@@ -5,6 +5,7 @@ import { DashCard, EvaluationAccordionSwitcher } from "../../components";
 
 import useCustomerEvaluateHook from "../../hooks/useCustomerEvaluateHook";
 import useProviderEvaluateHook from "../../hooks/useProviderEvaluateHook";
+import useProviderSelfStatisticsHook from "../../hooks/useProviderSelfStatisticsHook";
 
 const DashBoard = () => {
   const {
@@ -18,6 +19,15 @@ const DashBoard = () => {
     pendingEvaluationsData: providerPendingEvaluationsData,
     handleRatingChange: handleProviderRatingChange,
   } = useProviderEvaluateHook();
+
+  const { providerSelfStatistics } = useProviderSelfStatisticsHook();
+  const {
+    average_evaluation: averageEvaluation,
+    total_ads_visualizations: totalAdsVisualization,
+    total_evaluations: totalEvaluations,
+    total_hired_services: totalHiredServices,
+    total_messages_received: totalMessagesReceived,
+  } = providerSelfStatistics;
 
   if (!pendingEvaluationsData) {
     return null;
@@ -36,12 +46,32 @@ const DashBoard = () => {
         <Switch>
           <Route
             path="/prestadorDashBoard"
-            render={() => <DashCard cardType="views" />}
+            render={() => (
+              <DashCard
+                cardType="views"
+                statisticValue={totalAdsVisualization}
+                statisticTitle="Visualizações"
+              />
+            )}
           />
         </Switch>
-        <DashCard cardType="contacts" />
-        <DashCard cardType="services" />
-        <DashCard cardType="ratings" />
+        <DashCard
+          cardType="contacts"
+          statisticValue={totalMessagesReceived}
+          statisticTitle="Mensagens recebidas"
+        />
+        <DashCard
+          cardType="services"
+          statisticValue={totalHiredServices}
+          statisticTitle="Serviços efetivados"
+        />
+        <DashCard
+          cardType="ratings"
+          statisticValue={totalEvaluations}
+          statisticTitle="Avaliações recebidas"
+          optionalStatisticTitle="Avaliação média"
+          optionalStatisticValue={averageEvaluation}
+        />
       </div>
       <div className={styles.headerContainer}>
         <h2>Avalie suas últimas experiências na plataforma</h2>

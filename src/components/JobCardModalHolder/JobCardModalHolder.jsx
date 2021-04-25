@@ -33,7 +33,6 @@ const JobCardModalHolder = ({ adData }) => {
   const { id: providerId } = providerUserInfo;
 
   const handleModalEvent = () => {
-    console.log("abriu o modal");
     if (customerId !== providerId) {
       setIsOpen(!isModalOpen);
     }
