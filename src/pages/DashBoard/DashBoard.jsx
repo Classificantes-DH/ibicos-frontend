@@ -6,6 +6,7 @@ import { DashCard, EvaluationAccordionSwitcher } from "../../components";
 import useCustomerEvaluateHook from "../../hooks/useCustomerEvaluateHook";
 import useProviderEvaluateHook from "../../hooks/useProviderEvaluateHook";
 import useProviderSelfStatisticsHook from "../../hooks/useProviderSelfStatisticsHook";
+import useCustomerSelfStatisticsHook from "../../hooks/useCustomerSelfStatisticsHook";
 
 const DashBoard = () => {
   const {
@@ -29,6 +30,15 @@ const DashBoard = () => {
     total_messages_received: totalMessagesReceived,
   } = providerSelfStatistics;
 
+  const { customerSelfStatistics } = useCustomerSelfStatisticsHook();
+
+  const {
+    average_evaluation: averageCustomerEvaluation,
+    total_evaluations: totalCustomerEvaluations,
+    total_hired_services: totalCustomerHiredServices,
+    total_messages_sent: totalCustomerMessagesSent,
+  } = customerSelfStatistics;
+
   if (!pendingEvaluationsData) {
     return null;
   }
@@ -44,34 +54,52 @@ const DashBoard = () => {
       </div>
       <div className={styles.cardsContainer}>
         <Switch>
-          <Route
-            path="/prestadorDashBoard"
-            render={() => (
-              <DashCard
-                cardType="views"
-                statisticValue={totalAdsVisualization}
-                statisticTitle="Visualizações"
-              />
-            )}
-          />
+          <Route path="/prestadorDashBoard">
+            <DashCard
+              cardType="views"
+              statisticValue={totalAdsVisualization}
+              statisticTitle="Visualizações"
+            />
+            <DashCard
+              cardType="contacts"
+              statisticValue={totalMessagesReceived}
+              statisticTitle="Mensagens recebidas"
+            />
+            <DashCard
+              cardType="services"
+              statisticValue={totalHiredServices}
+              statisticTitle="Serviços efetivados"
+            />
+            <DashCard
+              cardType="ratings"
+              statisticValue={totalEvaluations}
+              statisticTitle="Avaliações recebidas"
+              optionalStatisticTitle="Avaliação média"
+              optionalStatisticValue={averageEvaluation}
+            />
+          </Route>
         </Switch>
-        <DashCard
-          cardType="contacts"
-          statisticValue={totalMessagesReceived}
-          statisticTitle="Mensagens recebidas"
-        />
-        <DashCard
-          cardType="services"
-          statisticValue={totalHiredServices}
-          statisticTitle="Serviços efetivados"
-        />
-        <DashCard
-          cardType="ratings"
-          statisticValue={totalEvaluations}
-          statisticTitle="Avaliações recebidas"
-          optionalStatisticTitle="Avaliação média"
-          optionalStatisticValue={averageEvaluation}
-        />
+        <Switch>
+          <Route path="/clienteDashBoard">
+            <DashCard
+              cardType="contacts"
+              statisticValue={totalCustomerMessagesSent}
+              statisticTitle="Mensagens recebidas"
+            />
+            <DashCard
+              cardType="services"
+              statisticValue={totalCustomerHiredServices}
+              statisticTitle="Serviços efetivados"
+            />
+            <DashCard
+              cardType="ratings"
+              statisticValue={totalCustomerEvaluations}
+              statisticTitle="Avaliações recebidas"
+              optionalStatisticTitle="Avaliação média"
+              optionalStatisticValue={averageCustomerEvaluation}
+            />
+          </Route>
+        </Switch>
       </div>
       <div className={styles.headerContainer}>
         <h2>Avalie suas últimas experiências na plataforma</h2>
@@ -93,5 +121,4 @@ const DashBoard = () => {
     </div>
   );
 };
-
 export default DashBoard;
