@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import { useHistory } from "react-router-dom";
-import usePasswordRecoveryChangeHook from "../../hooks/usePasswordRecoveryChangeHook";
+import { usePasswordRecoveryChangeHook } from "../../hooks/index";
 import styles from "./PasswordRecovery.module.scss";
 import { LoadingSpinner } from "../../components/index";
 

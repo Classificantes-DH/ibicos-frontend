@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { JobCard, Modal, CustomerMessageToProviderFormModal } from "../index";
-import useMessageFromCustomerToProvider from "../../hooks/useMessageFromCustomerToProvider";
+import { useMessageFromCustomerToProvider } from "../../hooks/index";
 import styles from "./JobCardModalHolder.module.scss";
 
 import { SessionContext } from "../../context/SessionContext/SessionContext";

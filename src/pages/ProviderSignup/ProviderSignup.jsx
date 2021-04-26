@@ -2,7 +2,7 @@ import React from "react";
 
 import { FormProvider } from "../../components";
 
-import useProviderSignupHooks from "../../hooks/useProviderSignupHook";
+import { useProviderSignupHook } from "../../hooks/index";
 
 import styles from "./ProviderSignup.module.scss";
 
@@ -19,7 +19,7 @@ const ProviderSignup = () => {
     handleSubmit,
     handleNextStep,
     handlePreviousStep,
-  } = useProviderSignupHooks();
+  } = useProviderSignupHook();
 
   return (
     <div className={styles.container}>

@@ -5,10 +5,12 @@ import {
   DashCardSwitcher,
 } from "../../components";
 
-import useCustomerEvaluateHook from "../../hooks/useCustomerEvaluateHook";
-import useProviderEvaluateHook from "../../hooks/useProviderEvaluateHook";
-import useProviderSelfStatisticsHook from "../../hooks/useProviderSelfStatisticsHook";
-import useCustomerSelfStatisticsHook from "../../hooks/useCustomerSelfStatisticsHook";
+import {
+  useCustomerEvaluateHook,
+  useProviderEvaluateHook,
+  useProviderSelfStatisticsHook,
+  useCustomerSelfStatisticsHook,
+} from "../../hooks/index";
 
 import { SessionContext } from "../../context/SessionContext/SessionContext";
 

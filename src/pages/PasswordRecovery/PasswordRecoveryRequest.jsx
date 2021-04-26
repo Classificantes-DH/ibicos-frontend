@@ -1,7 +1,7 @@
 import React from "react";
 
 import styles from "./PasswordRecovery.module.scss";
-import usePasswordRecoveryRequestHook from "../../hooks/usePasswordRecoveryRequestHook";
+import { usePasswordRecoveryRequestHook } from "../../hooks/index";
 
 import { LoadingSpinner } from "../../components/index";
 

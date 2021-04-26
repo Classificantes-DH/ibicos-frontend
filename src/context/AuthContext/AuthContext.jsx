@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 import PropTypes from "prop-types";
-import useAuthenticationHook from "../../hooks/useAuthenticationHook";
+import { useAuthenticationHook } from "../../hooks/index";
 
 const Context = createContext();
 

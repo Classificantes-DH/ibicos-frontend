@@ -3,8 +3,7 @@ import React from "react";
 import styles from "./AdRegistration.module.scss";
 import { LoadingSpinner } from "../../components/index";
 
-import useAdRegistrationHook from "../../hooks/useAdRegistrationHook";
-import useLocationHook from "../../hooks/useLocationHook";
+import { useAdRegistrationHook, useLocationHook } from "../../hooks/index";
 
 const AdRegistration = () => {
   const {

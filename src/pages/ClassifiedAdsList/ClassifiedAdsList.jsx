@@ -7,7 +7,7 @@ import {
   JobCardModalHolder,
 } from "../../components/index";
 
-import useJobsAdsListDataHook from "../../hooks/useJobsAdsListDataHook";
+import { useJobsAdsListDataHook } from "../../hooks/index";
 
 import styles from "./ClassifiedAdsList.module.scss";
 

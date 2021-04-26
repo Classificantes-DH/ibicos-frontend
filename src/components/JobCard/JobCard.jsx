@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
 import mapIcon from "../../resources/imgs/utilityIcons/map-location-pure.svg";
 import { RatingStars } from "../index";
-import useJobIconImportHook from "../../hooks/useJobIconImportHook";
+import { useJobIconImportHook } from "../../hooks/index";
 
 import "../../util/svg-coloration.scss";
 

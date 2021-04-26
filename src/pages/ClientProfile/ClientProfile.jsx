@@ -2,8 +2,6 @@ import React from "react";
 
 import Input from "../../components/Input/Input";
 
-// import useClientProfileHooks from "../../hooks/useClientProfileHook";
-
 import styles from "./ClientProfile.module.scss";
 
 const ClientProfile = () => {

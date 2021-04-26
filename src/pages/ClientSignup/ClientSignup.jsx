@@ -2,7 +2,7 @@ import React from "react";
 
 import { FormClient } from "../../components";
 
-import useClientSignupHooks from "../../hooks/useClientSignupHook";
+import { useClientSignupHook } from "../../hooks/index";
 
 import styles from "./ClientSignup.module.scss";
 
@@ -17,7 +17,7 @@ const ClientSignup = () => {
     handlePreviousStep,
     validationMessages,
     handleFieldValidation,
-  } = useClientSignupHooks();
+  } = useClientSignupHook();
 
   return (
     <div className={styles.container}>
