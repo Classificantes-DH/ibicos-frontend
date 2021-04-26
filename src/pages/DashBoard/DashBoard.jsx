@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./DashBoard.module.scss";
 import {
   EvaluationAccordionSwitcher,
@@ -9,6 +9,8 @@ import useCustomerEvaluateHook from "../../hooks/useCustomerEvaluateHook";
 import useProviderEvaluateHook from "../../hooks/useProviderEvaluateHook";
 import useProviderSelfStatisticsHook from "../../hooks/useProviderSelfStatisticsHook";
 import useCustomerSelfStatisticsHook from "../../hooks/useCustomerSelfStatisticsHook";
+
+import { SessionContext } from "../../context/SessionContext/SessionContext";
 
 const DashBoard = () => {
   const {
@@ -26,6 +28,11 @@ const DashBoard = () => {
   const { providerSelfStatistics } = useProviderSelfStatisticsHook();
   const { customerSelfStatistics } = useCustomerSelfStatisticsHook();
 
+  const { userInfo } = useContext(SessionContext);
+  const {
+    person: { namePerson },
+  } = userInfo;
+
   if (!pendingEvaluationsData) {
     return null;
   }
@@ -37,7 +44,7 @@ const DashBoard = () => {
     <div className={styles.container}>
       <div className={styles.headerContainer}>
         <h2>Seus indicadores na plataforma, </h2>
-        <h2> Beltrano Souza</h2>
+        <h2>{namePerson}</h2>
       </div>
       <div className={styles.cardsContainer}>
         <DashCardSwitcher
