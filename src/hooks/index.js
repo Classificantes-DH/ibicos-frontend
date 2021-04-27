@@ -15,3 +15,4 @@ export { default as useProviderServices } from "./useProviderServices";
 export { default as useProviderSignupHook } from "./useProviderSignupHook";
 export { default as useSignUpFormValidationHook } from "./useSignUpFormValidationHook";
 export { default as useSignInConfirmationHook } from "./useSignInConfirmationHook";
+export { default as useServiceCategoryHook } from "./useServiceCategoryHook";

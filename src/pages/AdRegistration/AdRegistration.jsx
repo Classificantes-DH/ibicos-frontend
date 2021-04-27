@@ -3,7 +3,11 @@ import React from "react";
 import styles from "./AdRegistration.module.scss";
 import { LoadingSpinner } from "../../components/index";
 
-import { useAdRegistrationHook, useLocationHook } from "../../hooks/index";
+import {
+  useAdRegistrationHook,
+  useLocationHook,
+  useServiceCategoryHook,
+} from "../../hooks/index";
 
 const AdRegistration = () => {
   const {
@@ -21,6 +25,8 @@ const AdRegistration = () => {
     handleRegionAreaChange,
     handleFormSubmition,
   } = useAdRegistrationHook();
+
+  const { serviceCategories } = useServiceCategoryHook();
 
   const {
     states: statesOptionsFiller,
@@ -58,16 +64,9 @@ const AdRegistration = () => {
                 value={serviceCategory.id}
                 onChange={handleServiceCategoryChange}
               >
-                <option value="">Selecione uma categoria</option>
-                <option value="1">Marceneiro</option>
-                <option value="2">Eletricista</option>
-                <option value="3">Encanador</option>
-                <option value="4">Doméstica</option>
-                <option value="5">Pintor</option>
-                <option value="6">Costureira</option>
-                <option value="7">Beleza</option>
-                <option value="8">Pedreiro</option>
-                <option value="9">Serralheiro</option>
+                {serviceCategories.map(({ categoryName }, index) => (
+                  <option value={index}>{categoryName}</option>
+                ))}
               </select>
             </label>
           </div>
