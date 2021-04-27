@@ -1,20 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import PropTypes from "prop-types";
 import verifiedIcon from "../../resources/imgs/utilityIcons/check.svg";
 
 import styles from "./AccountVerificationConfirmation.module.scss";
+import { useSignInConfirmationHook } from "../../hooks/index";
 
 const AccountVerificationConfirmation = ({ location: { search } }) => {
-  const params = new URLSearchParams(search);
-
-  const token = params.get("token");
-  useEffect(() => {
-    const fetchConfirmation = async () => {
-      await fetch(`http://localhost:8080/verify?token=${token}`);
-    };
-    fetchConfirmation();
-  }, [token]);
+  useSignInConfirmationHook(search);
 
   return (
     <div className={styles.container}>
