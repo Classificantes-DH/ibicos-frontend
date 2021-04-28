@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "../AdRegistration.module.scss";
-import Input from "./Input";
-import Select from "./Select";
-import Button from "./Button";
+import Input from "../../../components/Utility/Input/Input";
+import Select from "../../../components/Utility/Select/Select";
+import Button from "../../../components/Utility/Button/Button";
 import "./Input.scss";
 import "./Select.scss";
 import "./Button.scss";
