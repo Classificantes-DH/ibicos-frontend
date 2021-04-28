@@ -1,14 +1,14 @@
 import React from "react";
-import styles from "../AdRegistration.module.scss";
-import Input from "../../../components/Utility/Input/Input";
-import Select from "../../../components/Utility/Select/Select";
-import Button from "../../../components/Utility/Button/Button";
-import ProcessFeedback from "./ProcessFeedback";
-import "./Input.scss";
-import "./Select.scss";
-import "./Button.scss";
+import styles from "../../../pages/AdRegistration/AdRegistration.module.scss";
+import Input from "../../Utility/Input/Input";
+import Select from "../../Utility/Select/Select";
+import Button from "../../Utility/Button/Button";
+import ProcessFeedback from "../ProcessFeedback/ProcessFeedback";
+import "../../Utility/Input/Input.scss";
+import "../../Utility/Select/Select.scss";
+import "../../Utility/Button/Button.scss";
 
-import { LoadingSpinner } from "../../../components/index";
+import { LoadingSpinner } from "../../index";
 
 import {
   useAdRegistrationHook,
@@ -16,7 +16,7 @@ import {
   useServiceCategoryHook,
 } from "../../../hooks/index";
 
-const Form = () => {
+const FormAdRegistration = () => {
   const {
     adRegistrationObject,
     stateAbb,
@@ -197,4 +197,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormAdRegistration;

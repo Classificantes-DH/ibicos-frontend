@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./AdRegistration.module.scss";
 
-import Form from "./SubComponents/Form";
+import FormAdRegistration from "../../components/AdRegistration/FormAdRegistration/FormAdRegistration";
 
 const AdRegistration = () => {
   return (
@@ -11,7 +11,7 @@ const AdRegistration = () => {
         <h2>Cadastre um novo anúncio</h2>
       </header>
       <div className={styles.formContainer}>
-        <Form />
+        <FormAdRegistration />
       </div>
     </div>
   );
