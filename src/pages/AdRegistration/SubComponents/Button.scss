@@ -1,0 +1,44 @@
+@import "./../../../styles/scss/";
+
+.btnContainer {
+  @include displayFlex($justify: flex-end);
+}
+
+.defaultButton {
+  @include defaultButton($radius: 2px);
+  cursor: pointer;
+  padding: 7px 10px;
+  font-weight: bold;
+  margin: 3px 0;
+  height: 45px;
+
+  transition: all 100ms ease-in-out;
+
+  &:hover {
+    background-color: #b55d0d;
+  }
+}
+
+.addButton {
+  background-color: #33a166;
+
+  &:hover {
+    background-color: #237047;
+  }
+}
+
+.removeButton {
+  background-color: #cc373a;
+
+  &:hover {
+    background-color: #8a2426;
+  }
+}
+
+.centralizedBtn {
+  @include displayFlex($justify: center);
+}
+
+.formSendButton {
+  width: 130px;
+}

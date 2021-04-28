@@ -2,8 +2,10 @@ import React from "react";
 import styles from "../AdRegistration.module.scss";
 import Input from "./Input";
 import Select from "./Select";
+import Button from "./Button";
 import "./Input.scss";
 import "./Select.scss";
+import "./Button.scss";
 
 import { LoadingSpinner } from "../../../components/index";
 
@@ -153,50 +155,45 @@ const Form = () => {
                       optionsArray={regionsAreas}
                     />
                   </Input>
-                  <div className={styles.regionActionContainer}>
-                    <button
-                      type="button"
-                      className={`${styles.defaultButton} ${styles.removeButton}`}
-                      onClick={(event) =>
-                        handleRegionAreaDecrement(event, index, regionIndex)
-                      }
-                    >
-                      Remover região
-                    </button>
-                  </div>
+                  <Button
+                    onClickHandler={(event) =>
+                      handleRegionAreaDecrement(event, index, regionIndex)
+                    }
+                    containerClassName="btnContainer"
+                    buttonClassName="defaultButton removeButton"
+                    text="Remover região"
+                    type="button"
+                  />
                 </div>
               ))}
             </div>
-            <div className={styles.btnContainer}>
-              <button
-                type="button"
-                className={`${styles.defaultButton} ${styles.addButton}`}
-                onClick={(event) => handleRegionAreaIncrement(event, index)}
-              >
-                Adicionar região
-              </button>
-            </div>
+            <Button
+              onClickHandler={(event) =>
+                handleRegionAreaIncrement(event, index)
+              }
+              containerClassName="btnContainer"
+              buttonClassName="defaultButton addButton"
+              text="Adicionar região"
+              type="button"
+            />
           </div>
         ))}
 
-        <div className={styles.btnContainer}>
-          <button
-            type="button"
-            className={`${styles.defaultButton} ${styles.addButton}`}
-            onClick={handleCityIncrement}
-          >
-            Adicionar cidade de atuação
-          </button>
-        </div>
-      </div>
-
-      <div className={`${styles.btnContainer} ${styles.centralizedBtn}`}>
-        <input
-          type="submit"
-          value="Cadastrar"
-          className={`${styles.defaultButton} ${styles.formSendButton}`}
+        <Button
+          onClickHandler={handleCityIncrement}
+          containerClassName="btnContainer"
+          buttonClassName="defaultButton addButton"
+          text="Adicionar cidade de atuação"
+          type="button"
         />
       </div>
+      <Button
+        onClickHandler={handleCityIncrement}
+        containerClassName="btnContainer centralizedBtn"
+        buttonClassName="defaultButton formSendButton"
+        text="Cadastrar"
+        type="submit"
+      />
       {isAdSuccessfullyRegistered ? (
         <div className={styles.sucessRegistration}>
           <h4>Anúncio registrado com sucesso</h4>
