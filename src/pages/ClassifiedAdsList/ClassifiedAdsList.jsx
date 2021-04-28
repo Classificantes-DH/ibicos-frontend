@@ -27,6 +27,24 @@ const ClassifiedAdsList = () => {
 
   if (!adsList) return null;
 
+  const handleAdsRendering = (ads) => {
+    return ads.map((ad, index) => {
+      if (ads.length - 1 === index) {
+        return (
+          <div ref={lastAdElementRef}>
+            <JobCardModalHolder key={ad.id} adData={ad} />
+          </div>
+        );
+      }
+
+      return (
+        <div>
+          <JobCardModalHolder key={ad.id} adData={ad} />
+        </div>
+      );
+    });
+  };
+
   return (
     <div className={styles.container}>
       <IntroAdsList />
@@ -44,20 +62,7 @@ const ClassifiedAdsList = () => {
         />
         <div className={styles.wrapperContainer}>
           <div className={styles.cardsContainer}>
-            {adsList.map((ad, index) => {
-              if (adsList.length - 1 === index) {
-                return (
-                  <div ref={lastAdElementRef}>
-                    <JobCardModalHolder key={ad.id} adData={ad} />
-                  </div>
-                );
-              }
-              return (
-                <div>
-                  <JobCardModalHolder key={ad.id} adData={ad} />
-                </div>
-              );
-            })}
+            {handleAdsRendering(adsList)}
           </div>
           <div className={styles.loadingSpinnerContainer}>
             <LoadingSpinner isLoading={isLoading} />
