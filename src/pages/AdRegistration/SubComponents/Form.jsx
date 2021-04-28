@@ -85,11 +85,7 @@ const Form = () => {
         <header className={styles.locationHeader}>
           <h4>Locais de atuação</h4>
         </header>
-        <Input
-          htmlFor="stateAbb"
-          title="Selecione o Estado de atuação"
-          className="inputContainer"
-        >
+        <Input htmlFor="stateAbb" title="Estado" className="inputContainer">
           <Select
             name="stateAbb"
             className="defaultSelect"
@@ -111,11 +107,7 @@ const Form = () => {
 
         {cities.map((city, index) => (
           <div className={styles.locationContainer}>
-            <Input
-              htmlFor="cityName"
-              title="Digite o nome da cidade de atuação"
-              className="inputContainer"
-            >
+            <Input htmlFor="cityName" title="Cidade" className="inputContainer">
               <Select
                 name="cityName"
                 value={city.cityName}
@@ -138,7 +130,7 @@ const Form = () => {
                 <div className={styles.regionArea}>
                   <Input
                     htmlFor="areaName"
-                    title="Selecione uma região"
+                    title="Região"
                     className="inputContainer"
                   >
                     <Select
@@ -184,7 +176,7 @@ const Form = () => {
           onClickHandler={handleCityIncrement}
           containerClassName="btnContainer"
           buttonClassName="defaultButton addButton"
-          text="Adicionar cidade de atuação"
+          text="Adicionar cidade"
           type="button"
         />
       </div>
