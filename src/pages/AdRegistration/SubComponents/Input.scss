@@ -1,0 +1,28 @@
+@import "./../../../styles/scss/";
+.inputContainer {
+  margin: 2vw 0;
+  label {
+    p {
+      font-size: 3.8vw;
+    }
+  }
+  .defaultTextArea {
+    margin-top: 5px;
+    width: 100%;
+    resize: none;
+    height: 10vw;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .inputContainer {
+    label {
+      p {
+        font-size: 2.5vw;
+      }
+      .defaultTextArea {
+        height: 13vw;
+      }
+    }
+  }
+}
