@@ -3,6 +3,7 @@ import styles from "../AdRegistration.module.scss";
 import Input from "../../../components/Utility/Input/Input";
 import Select from "../../../components/Utility/Select/Select";
 import Button from "../../../components/Utility/Button/Button";
+import ProcessFeedback from "./ProcessFeedback";
 import "./Input.scss";
 import "./Select.scss";
 import "./Button.scss";
@@ -194,11 +195,9 @@ const Form = () => {
         text="Cadastrar"
         type="submit"
       />
-      {isAdSuccessfullyRegistered ? (
-        <div className={styles.sucessRegistration}>
-          <h4>Anúncio registrado com sucesso</h4>
-        </div>
-      ) : null}
+      <ProcessFeedback
+        isAdSuccessfullyRegistered={isAdSuccessfullyRegistered}
+      />
       <div className={styles.loadingSpinnerContainer}>
         <LoadingSpinner isLoading={isLoading} />
       </div>

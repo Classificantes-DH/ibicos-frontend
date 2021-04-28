@@ -1,0 +1,16 @@
+@import "./../../../styles/scss/";
+.sucessRegistration {
+  @include defaultBoxShadow($thickness: 9px);
+
+  margin-top: 15px;
+  padding: 10px;
+
+  background-color: #0c4d1b;
+  color: $WHITE;
+
+  border-radius: 2px;
+
+  h4 {
+    text-align: center;
+  }
+}
