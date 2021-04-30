@@ -32,7 +32,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
-        <Input htmlFor="email" title="Email" className="inputContainer">
+        <Input htmlFor="email" title="Email" className="inputContainerLogin">
           <InputField
             handleFieldChange={handleFieldChange}
             classes={{
@@ -52,7 +52,11 @@ const Login = () => {
             }}
           />
         </Input>
-        <Input htmlFor="passwordUser" title="Senha" className="inputContainer">
+        <Input
+          htmlFor="passwordUser"
+          title="Senha"
+          className="inputContainerLogin"
+        >
           <InputField
             handleFieldChange={handleFieldChange}
             classes={{

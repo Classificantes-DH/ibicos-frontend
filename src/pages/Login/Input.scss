@@ -1,68 +1,44 @@
 @import "./../../styles/scss/index.scss";
 
-.inputContainer {
-  @include displayFlex($direction: column);
-  // border: 1px solid rgb(218, 213, 213);
+.inputContainerLogin {
+  @include displayFlex($direction: column, $align: flex-start);
+  width: 90%;
   border-radius: 5px;
-  height: 100%;
+  margin-top: 3vw;
 
-  // input {
-  //   border: none;
-
-  //   border-radius: 0 15px 10px 0;
-  // }
-  // .inputLogoContainer {
-  //   @include displayFlex($align: center, $justify: center);
-  //   border-radius: 3px 0 0 3px;
-
-  //   width: 10vw;
-  //   height: 10vw;
-  //   background-color: $PURPLE;
-
-  //   .inputLogo {
-  //     padding: 2px 0;
-  //     width: 55%;
-  //   }
-  // }
+  label {
+    font-size: 3vw;
+    p {
+      font-size: 6vw;
+    }
+    margin: 2vw 0;
+  }
 }
 
 @media #{$BREAKPOINT-TABLET} {
-  .inputContainer {
-    width: 100%;
-    // height: 6vw;
+  .inputContainerLogin {
+    width: 88%;
 
-    // .inputLogoContainer {
-    //   width: 6vw;
-    //   height: 100%;
-    //   .inputLogo {
-    //     width: 50%;
-    //   }
-    // }
+    label {
+      p {
+        font-size: 5vw;
+      }
+      margin: 1vw 0;
+    }
   }
 }
 
 @media #{$BREAKPOINT-TABLET-LAND} {
-  .inputContainer {
-    // height: 4vw;
-
-    font-size: 2vw;
+  .inputContainerLogin {
     margin: 0.5vw 0;
-    width: 75%;
 
-    // @include displayFlex($direction: column);
-    // label {
-    // }
+    width: 85%;
 
-    // input {
-    //   max-width: 80%;
-    //   padding-left: 10px;
-    //   font-size: 1.2rem;
-    // }
-    // .inputLogoContainer {
-    //   width: 15%;
-    //   .inputLogo {
-    //     width: 40%;
-    //   }
-    // }
+    label {
+      margin: 0;
+      p {
+        font-size: 1.75vw;
+      }
+    }
   }
 }
