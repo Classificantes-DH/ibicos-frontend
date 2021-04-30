@@ -119,12 +119,32 @@
     header {
       margin: 1vw 0;
       h1 {
-        font-size: 3.5vw;
+        font-size: 4vw;
       }
     }
 
     .contentContainer {
-      width: 60%;
+      width: 80%;
+
+      .columnContent {
+        header {
+          h3 {
+            font-size: 2vw;
+          }
+
+          p {
+            font-size: 1.5vw;
+          }
+        }
+        .content {
+          margin-top: 10px;
+          .imageContainer {
+            img {
+              width: 250px;
+            }
+          }
+        }
+      }
     }
   }
 }
