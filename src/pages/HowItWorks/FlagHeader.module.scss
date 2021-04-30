@@ -1,0 +1,39 @@
+@import "./../../styles/scss/index.scss";
+
+.contentHeader {
+  @include displayFlex($align: center, $justify: center);
+  background-color: $ORANGE;
+  margin-bottom: 5px;
+  padding: 5px 15px;
+  border-radius: 4px;
+  width: 70%;
+
+  h3 {
+    color: $PURPLE;
+    text-align: center;
+    font-size: 1rem;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .contentHeader {
+    width: 55%;
+    height: 5vw;
+
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .contentHeader {
+    margin: 15px 0;
+    width: 60%;
+    height: 60px;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+}

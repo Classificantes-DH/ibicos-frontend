@@ -9,6 +9,9 @@ import {
   sobrecarga,
 } from "../../resources/imgs/utilityIcons/index";
 
+import Card from "./Card";
+import FlagHeader from "./FlagHeader";
+
 const HowItWorks = () => (
   <div className={styles.container}>
     <header>
@@ -20,50 +23,45 @@ const HowItWorks = () => (
           <h3>Anunciantes</h3>
           <p>Mais negócios</p>
         </header>
-        <div className={styles.content}>
-          <div className={styles.imageContainer}>
-            <img src={registrarNegocios} alt="Registrar negócios" />
-          </div>
-          <div className={styles.descriptionContainer}>
-            <h4>Aumento de renda? Registre-se aqui!!!</h4>
-          </div>
-        </div>
-        <div className={styles.content}>
-          <div className={styles.contentHeader}>
-            <h3>Realize!</h3>
-          </div>
-          <div className={styles.imageContainer}>
-            <img src={servicosRealize} alt="Registrar negócios" />
-          </div>
-          <div className={styles.descriptionContainer}>
-            <h4>Registre seus serviços e a sua região de atuação!</h4>
-          </div>
-        </div>
+
+        <Card
+          imgData={{
+            imgSrc: registrarNegocios,
+            altText: "Aumento de renda? Registre-se aqui!",
+          }}
+          text="Aumento de renda? Registre-se aqui!"
+        />
+
+        <FlagHeader text="Realize!" />
+        <Card
+          imgData={{
+            imgSrc: servicosRealize,
+            altText: "Registre seus serviços e a sua região de atuação!",
+          }}
+          text="Registre seus serviços e a sua região de atuação!"
+        />
       </div>
       <div className={styles.columnContent}>
         <header>
           <h3>Clientes</h3>
           <p>Ajuda?</p>
         </header>
-        <div className={styles.content}>
-          <div className={styles.imageContainer}>
-            <img src={sobrecarga} alt="Registrar negócios" />
-          </div>
-          <div className={styles.descriptionContainer}>
-            <h4>Está sobrecarregado e não acha ajuda?</h4>
-          </div>
-        </div>
-        <div className={styles.content}>
-          <div className={styles.contentHeader}>
-            <h3>Localize!</h3>
-          </div>
-          <div className={styles.imageContainer}>
-            <img src={localizarLocalizar} alt="Registrar negócios" />
-          </div>
-          <div className={styles.descriptionContainer}>
-            <h4>Localize aqui prestadores para auxiliar você!</h4>
-          </div>
-        </div>
+        <Card
+          imgData={{
+            imgSrc: sobrecarga,
+            altText: "Está sobrecarregado e não acha ajuda?",
+          }}
+          text="Está sobrecarregado e não acha ajuda?"
+        />
+
+        <FlagHeader text="Localize!" />
+        <Card
+          imgData={{
+            imgSrc: localizarLocalizar,
+            altText: "Localize aqui prestadores para auxiliar você!",
+          }}
+          text="Localize aqui prestadores para auxiliar você!"
+        />
       </div>
     </div>
   </div>
