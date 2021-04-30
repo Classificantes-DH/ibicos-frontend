@@ -1,0 +1,18 @@
+@import "./../../styles/scss/index.scss";
+
+.IFcontainer {
+  // background-color: black;
+  @include displayFlex($justify: space-between);
+  height: 4vw;
+  .IFinputClassName {
+    width: 100%;
+  }
+  .IFInputLogoContainer {
+    background-color: $PURPLE;
+    width: 5vw;
+    @include displayFlex($justify: center);
+    .IFInputLogo {
+      width: 50%;
+    }
+  }
+}

@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 
 import { Context } from "../../context/AuthContext/AuthContext";
-import { LoadingSpinner } from "../../components/index";
+import { LoadingSpinner, Input } from "../../components/index";
 import {
   padlockIcon,
   emailPureIcon,
 } from "../../resources/imgs/utilityIcons/index";
+
+import "./Input.scss";
+import "./InputField.scss";
+import InputField from "./InputField";
 
 const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -28,43 +32,47 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
-        <label htmlFor="email">
-          <p>Email</p>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputLogoContainer}>
-              <img
-                src={emailPureIcon}
-                alt="Ícone de senha"
-                className={styles.inputLogo}
-              />
-            </div>
-            <input
-              type="text"
-              name="email"
-              value={email}
-              onChange={handleFieldChange}
-            />
-          </div>
-        </label>
+        <Input htmlFor="email" title="Email" className="inputContainer">
+          <InputField
+            handleFieldChange={handleFieldChange}
+            classes={{
+              wrapperContainer: "IFcontainer",
+              logoContainer: "IFInputLogoContainer",
+              logo: "IFInputLogo",
+              input: "IFinputClassName",
+            }}
+            inputData={{
+              name: "email",
+              type: "text",
+              value: email,
+            }}
+            logoData={{
+              srcImg: emailPureIcon,
+              alt: "Email",
+            }}
+          />
+        </Input>
+        <Input htmlFor="passwordUser" title="Senha" className="inputContainer">
+          <InputField
+            handleFieldChange={handleFieldChange}
+            classes={{
+              wrapperContainer: "IFcontainer",
+              logoContainer: "IFInputLogoContainer",
+              logo: "IFInputLogo",
+              input: "IFinputClassName",
+            }}
+            inputData={{
+              name: "passwordUser",
+              type: "password",
+              value: passwordUser,
+            }}
+            logoData={{
+              srcImg: padlockIcon,
+              alt: "Senha",
+            }}
+          />
+        </Input>
 
-        <label htmlFor="passwordUser">
-          <p>Senha</p>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputLogoContainer}>
-              <img
-                src={padlockIcon}
-                alt="Ícone de senha"
-                className={styles.inputLogo}
-              />
-            </div>
-            <input
-              type="password"
-              name="passwordUser"
-              value={passwordUser}
-              onChange={handleFieldChange}
-            />
-          </div>
-        </label>
         {isCredentialInvalid && (
           <p className={styles.loginErrorMessage}>Credenciais inválidas</p>
         )}
