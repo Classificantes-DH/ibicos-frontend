@@ -1,6 +1,5 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 
-import { Context } from "../../../context/AuthContext/AuthContext";
 import { LoadingSpinner, Input, Button } from "../../index";
 import {
   padlockIcon,
@@ -14,21 +13,19 @@ import "../Input.scss";
 import "../Button.scss";
 import styles from "./FormLogin.module.scss";
 
+import useLoginHook from "../../../hooks/useLoginHook";
+
 const FormLogin = () => {
-  const [loginCredentials, setLoginCredentials] = useState({
-    email: "",
-    passwordUser: "",
-  });
-
-  const [isLoading, setIsLoading] = useState(false);
-
-  const { handleLogin, isCredentialInvalid } = useContext(Context);
+  const {
+    isLoading,
+    handleLogin,
+    loginCredentials,
+    isCredentialInvalid,
+    handleFieldChange,
+    handleLoadingToggle,
+  } = useLoginHook();
 
   const { email, passwordUser } = loginCredentials;
-
-  const handleFieldChange = ({ target: { value, name } }) => {
-    setLoginCredentials({ ...loginCredentials, [name]: value });
-  };
 
   return (
     <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
@@ -70,7 +67,7 @@ const FormLogin = () => {
       <Button
         type="submit"
         text="Login"
-        onClick={() => setIsLoading(true)}
+        onClickHandler={handleLoadingToggle}
         containerClassName="btn-container-login"
         buttonClassName="btn-login"
       />
