@@ -1,0 +1,12 @@
+@import "./../../styles/scss/index.scss";
+
+.loginForm {
+  @include displayFlex($direction: column, $align: center, $justify: center);
+  padding: 4vw 0;
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .loginForm {
+    padding: 2.5vw 0;
+  }
+}

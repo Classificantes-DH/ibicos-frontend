@@ -5,11 +5,6 @@
   box-shadow: 0 0 2px rgb(194, 179, 179);
   background-color: $WHITE;
   width: 92vw;
-
-  .loginForm {
-    @include displayFlex($direction: column, $align: center, $justify: center);
-    padding: 4vw 0;
-  }
 }
 
 @media #{$BREAKPOINT-TABLET} {
