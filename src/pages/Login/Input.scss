@@ -1,6 +1,6 @@
 @import "./../../styles/scss/index.scss";
 
-.inputContainerLogin {
+.input-container-login {
   @include displayFlex($direction: column, $align: flex-start);
   width: 90%;
   border-radius: 5px;
@@ -16,7 +16,7 @@
 }
 
 @media #{$BREAKPOINT-TABLET} {
-  .inputContainerLogin {
+  .input-container-login {
     width: 88%;
 
     label {
@@ -29,7 +29,7 @@
 }
 
 @media #{$BREAKPOINT-TABLET-LAND} {
-  .inputContainerLogin {
+  .input-container-login {
     margin: 0.5vw 0;
 
     width: 85%;

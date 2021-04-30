@@ -10,7 +10,6 @@ import {
 } from "../../resources/imgs/utilityIcons/index";
 
 import "./Input.scss";
-import "./InputField.scss";
 import InputField from "./InputField";
 
 const Login = () => {
@@ -32,15 +31,9 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
-        <Input htmlFor="email" title="Email" className="inputContainerLogin">
+        <Input htmlFor="email" title="Email" className="input-container-login">
           <InputField
             handleFieldChange={handleFieldChange}
-            classes={{
-              wrapperContainer: "IFcontainer",
-              logoContainer: "IFInputLogoContainer",
-              logo: "IFInputLogo",
-              input: "IFinputClassName",
-            }}
             inputData={{
               name: "email",
               type: "text",
@@ -55,16 +48,10 @@ const Login = () => {
         <Input
           htmlFor="passwordUser"
           title="Senha"
-          className="inputContainerLogin"
+          className="input-container-login"
         >
           <InputField
             handleFieldChange={handleFieldChange}
-            classes={{
-              wrapperContainer: "IFcontainer",
-              logoContainer: "IFInputLogoContainer",
-              logo: "IFInputLogo",
-              input: "IFinputClassName",
-            }}
             inputData={{
               name: "passwordUser",
               type: "password",
