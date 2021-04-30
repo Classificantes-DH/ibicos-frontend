@@ -1,0 +1,46 @@
+@import "./../../styles/scss/index.scss";
+
+.btn-container-login {
+  margin-top: 5.2vw;
+  margin-bottom: 1.2vw 0;
+
+  .btn-login {
+    @include defaultButton($radius: 4px);
+
+    cursor: pointer;
+
+    width: 28vw;
+    height: 11vw;
+
+    font-weight: 400;
+    font-size: 5vw;
+
+    &:hover {
+      background-color: rgb(209, 104, 6);
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .btn-container-login {
+    .btn-login {
+      height: 8vw;
+      width: 20vw;
+
+      font-size: 3vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .btn-container-login {
+    margin-top: 1vw;
+
+    .btn-login {
+      width: 10vw;
+      height: 3.8vw;
+
+      font-size: 2vw;
+    }
+  }
+}

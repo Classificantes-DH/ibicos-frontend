@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 
 import { Context } from "../../context/AuthContext/AuthContext";
-import { LoadingSpinner, Input } from "../../components/index";
+import { LoadingSpinner, Input, Button } from "../../components/index";
 import {
   padlockIcon,
   emailPureIcon,
@@ -11,6 +11,7 @@ import {
 
 import "./Input.scss";
 import InputField from "./InputField";
+import "./Button.scss";
 
 const Login = () => {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -68,7 +69,13 @@ const Login = () => {
           <p className={styles.loginErrorMessage}>Credenciais inválidas</p>
         )}
 
-        <input type="submit" value="Login" onClick={() => setIsLoading(true)} />
+        <Button
+          type="submit"
+          text="Login"
+          onClick={() => setIsLoading(true)}
+          containerClassName="btn-container-login"
+          buttonClassName="btn-login"
+        />
 
         <LoadingSpinner isLoading={isLoading && !isCredentialInvalid} />
       </form>
