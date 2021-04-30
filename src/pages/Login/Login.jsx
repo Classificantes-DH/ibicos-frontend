@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Login.module.scss";
 
-import AdditionalOptions from "./AdditionalOptions";
-import FormLogin from "./FormLogin";
+import AdditionalOptions from "../../components/Login/AdditionalOptions/AdditionalOptions";
+import FormLogin from "../../components/Login/FormLogin/FormLogin";
 
 const Login = () => {
   return (

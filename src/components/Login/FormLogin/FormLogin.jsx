@@ -1,17 +1,17 @@
 import React, { useState, useContext } from "react";
 
-import { Context } from "../../context/AuthContext/AuthContext";
-import { LoadingSpinner, Input, Button } from "../../components/index";
+import { Context } from "../../../context/AuthContext/AuthContext";
+import { LoadingSpinner, Input, Button } from "../../index";
 import {
   padlockIcon,
   emailPureIcon,
-} from "../../resources/imgs/utilityIcons/index";
+} from "../../../resources/imgs/utilityIcons/index";
 
-import "./Input.scss";
-import InputField from "./InputField";
-import LoginError from "./LoginError";
-import "./Button.scss";
+import InputField from "../InputField/InputField";
+import LoginError from "../LoginError/LoginError";
 
+import "../Input.scss";
+import "../Button.scss";
 import styles from "./FormLogin.module.scss";
 
 const FormLogin = () => {
