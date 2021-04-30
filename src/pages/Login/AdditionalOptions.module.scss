@@ -1,0 +1,35 @@
+@import "./../../styles/scss/index.scss";
+
+.extraRoutesContainer {
+  text-align: center;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+
+    font-size: 3vw;
+    color: $BLACK;
+    margin-bottom: 1.5vw;
+
+    &:hover {
+      color: black;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .extraRoutesContainer {
+    a {
+      font-size: 2vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .extraRoutesContainer {
+    a {
+      font-size: 1.3vw;
+    }
+  }
+}

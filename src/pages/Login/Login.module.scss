@@ -9,40 +9,12 @@
   .loginForm {
     @include displayFlex($direction: column, $align: center, $justify: center);
     padding: 4vw 0;
-
-    .loginErrorMessage {
-      color: rgb(231, 81, 81);
-    }
-  }
-
-  .extraRoutesContainer {
-    text-align: center;
-
-    a {
-      display: inline-block;
-      text-decoration: none;
-
-      font-size: 3vw;
-      color: $BLACK;
-      margin-bottom: 1.5vw;
-
-      &:hover {
-        color: black;
-        text-decoration: underline;
-      }
-    }
   }
 }
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
     width: 90vw;
-
-    .extraRoutesContainer {
-      a {
-        font-size: 2vw;
-      }
-    }
   }
 }
 
@@ -52,12 +24,6 @@
 
     .loginForm {
       padding: 2.5vw 0;
-    }
-
-    .extraRoutesContainer {
-      a {
-        font-size: 1.3vw;
-      }
     }
   }
 }

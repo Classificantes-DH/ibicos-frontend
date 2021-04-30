@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import styles from "./Login.module.scss";
 
 import { Context } from "../../context/AuthContext/AuthContext";
@@ -11,6 +11,8 @@ import {
 
 import "./Input.scss";
 import InputField from "./InputField";
+import AdditionalOptions from "./AdditionalOptions";
+import LoginError from "./LoginError";
 import "./Button.scss";
 
 const Login = () => {
@@ -65,9 +67,7 @@ const Login = () => {
           />
         </Input>
 
-        {isCredentialInvalid && (
-          <p className={styles.loginErrorMessage}>Credenciais inválidas</p>
-        )}
+        <LoginError isCredentialInvalid={isCredentialInvalid} />
 
         <Button
           type="submit"
@@ -79,16 +79,14 @@ const Login = () => {
 
         <LoadingSpinner isLoading={isLoading && !isCredentialInvalid} />
       </form>
-      <div className={styles.extraRoutesContainer}>
-        <Link to="/cadastrar">
-          Ainda não é um membro ? Clique para se cadastrar
-        </Link>
-      </div>
-      <div className={styles.extraRoutesContainer}>
-        <Link to="/recuperarAcesso/requisicao">
-          Esqueceu a senha? Clique para recupera-la
-        </Link>
-      </div>
+      <AdditionalOptions
+        path="/cadastrar"
+        text="Ainda não é um membro ? Clique para se cadastrar"
+      />
+      <AdditionalOptions
+        path="/cadastrar"
+        text="Esqueceu a senha? Clique para recupera-la"
+      />
     </div>
   );
 };
