@@ -23,3 +23,5 @@ export { default as LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
 export { default as Button } from "./Utility/Button/Button";
 export { default as Input } from "./Utility/Input/Input";
 export { default as Select } from "./Utility/Select/Select";
+export { default as DemonstrationCard } from "./HowItWorks/DemonstrationCard/DemonstrationCard";
+export { default as FlagHeader } from "./HowItWorks/FlagHeader/FlagHeader";

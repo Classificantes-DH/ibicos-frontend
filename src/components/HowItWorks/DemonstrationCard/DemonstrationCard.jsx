@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./Card.module.scss";
+import styles from "./DemonstrationCard.module.scss";
 
-const Card = ({ imgData, text }) => {
+const DemonstrationCard = ({ imgData, text }) => {
   const { imgSrc, altText } = imgData;
 
   return (
@@ -17,9 +17,9 @@ const Card = ({ imgData, text }) => {
   );
 };
 
-export default Card;
+export default DemonstrationCard;
 
-Card.propTypes = {
+DemonstrationCard.propTypes = {
   imgData: PropTypes.shape({
     imgSrc: PropTypes.string.isRequired,
     altText: PropTypes.string.isRequired,

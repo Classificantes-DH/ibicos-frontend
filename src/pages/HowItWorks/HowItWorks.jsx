@@ -9,8 +9,7 @@ import {
   sobrecarga,
 } from "../../resources/imgs/utilityIcons/index";
 
-import Card from "./Card";
-import FlagHeader from "./FlagHeader";
+import { FlagHeader, DemonstrationCard } from "../../components/index";
 
 const HowItWorks = () => (
   <div className={styles.container}>
@@ -24,7 +23,7 @@ const HowItWorks = () => (
           <p>Mais negócios</p>
         </header>
 
-        <Card
+        <DemonstrationCard
           imgData={{
             imgSrc: registrarNegocios,
             altText: "Aumento de renda? Registre-se aqui!",
@@ -33,7 +32,7 @@ const HowItWorks = () => (
         />
 
         <FlagHeader text="Realize!" />
-        <Card
+        <DemonstrationCard
           imgData={{
             imgSrc: servicosRealize,
             altText: "Registre seus serviços e a sua região de atuação!",
@@ -46,7 +45,7 @@ const HowItWorks = () => (
           <h3>Clientes</h3>
           <p>Ajuda?</p>
         </header>
-        <Card
+        <DemonstrationCard
           imgData={{
             imgSrc: sobrecarga,
             altText: "Está sobrecarregado e não acha ajuda?",
@@ -55,7 +54,7 @@ const HowItWorks = () => (
         />
 
         <FlagHeader text="Localize!" />
-        <Card
+        <DemonstrationCard
           imgData={{
             imgSrc: localizarLocalizar,
             altText: "Localize aqui prestadores para auxiliar você!",
