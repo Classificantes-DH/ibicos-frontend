@@ -14,7 +14,7 @@ const Login = () => {
         text="Ainda não é um membro ? Clique para se cadastrar"
       />
       <AdditionalOptions
-        path="/cadastrar"
+        path="/recuperarAcesso/requisicao"
         text="Esqueceu a senha? Clique para recupera-la"
       />
     </div>
