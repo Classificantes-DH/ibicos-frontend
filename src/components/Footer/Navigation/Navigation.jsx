@@ -4,7 +4,7 @@ import NavigationUrl from "./NavigationUrl/NavigationUrl";
 
 const Navigation = () => (
   <div className={styles.navigationContainer}>
-    <h4 className={styles.sectionTitle}>{"> "}Navegação</h4>
+    <h4>{"> "}Navegação</h4>
     <nav>
       <ul className={styles.navigationUrls}>
         <NavigationUrl to="/" text="Home" />

@@ -2,12 +2,13 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import Contact from "./Contact/Contact";
 import Navigation from "./Navigation/Navigation";
+import AboutUs from "./AboutUs/AboutUs";
+
 import {
   facebookIcon,
   instagramIcon,
   linkedinIcon,
   twitterIcon,
-  companyLogo,
 } from "../../resources/imgs/utilityIcons/index";
 
 const Footer = () => {
@@ -20,21 +21,8 @@ const Footer = () => {
         <div className={styles.verticalDivisor} />
 
         <div className={styles.companyInfoContainer}>
-          <div className={styles.aboutUsContainer}>
-            <h4 className={styles.sectionTitle}>{">"} Sobre nós</h4>
-            <div className={styles.mainInfo}>
-              <div className={styles.companyLogoContainer}>
-                <img src={companyLogo} alt="Logo da empresa" />
-                <p>iBicos</p>
-              </div>
-              <p>
-                A <strong>iBicos</strong> surgiu a partir da necessidade da
-                mordenização do contato entre clientes e prestadores de serviço
-                autonômo, nossa missão é por meio da tecnologia facilitar
-                negócios fazendo com que novas oportunidades prósperas surjam.
-              </p>
-            </div>
-          </div>
+          <AboutUs />
+
           <div className={styles.socialMediaContainer}>
             <h4 className={styles.sectionTitle}>{">"} Siga-nos</h4>
             <div className={styles.iconsContainer}>
