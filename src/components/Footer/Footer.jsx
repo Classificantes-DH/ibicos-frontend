@@ -4,6 +4,7 @@ import Contact from "./Contact/Contact";
 import Navigation from "./Navigation/Navigation";
 import AboutUs from "./AboutUs/AboutUs";
 import SocialMedia from "./SocialMedia/SocialMedia";
+import Copyright from "./Copyright/Copyright";
 
 const Footer = () => {
   return (
@@ -19,11 +20,7 @@ const Footer = () => {
           <SocialMedia />
         </div>
       </div>
-      <div className={styles.copyRightContainer}>
-        <p>
-          © Copyright 2020 <strong>iBicos</strong>
-        </p>
-      </div>
+      <Copyright />
     </footer>
   );
 };

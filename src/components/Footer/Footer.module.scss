@@ -20,30 +20,10 @@ footer {
   }
 }
 
-.copyRightContainer {
-  @include displayFlex($justify: center, $align: center);
-  background-color: #d1690a;
-  height: 9vw;
-
-  p {
-    font-size: 3.5vw;
-    font-weight: 500;
-  }
-}
-
 @media #{$BREAKPOINT-MOBILE-LAND} {
   .container {
     h4 {
       font-size: 3.5vw;
-    }
-  }
-
-  .copyRightContainer {
-    height: 7vw;
-
-    p {
-      font-size: 3vw;
-      font-weight: 500;
     }
   }
 }
@@ -62,15 +42,6 @@ footer {
       margin-left: 2vw;
     }
   }
-
-  .copyRightContainer {
-    height: 3vw;
-
-    p {
-      font-size: 1.25vw;
-      font-weight: 500;
-    }
-  }
 }
 
 @media only screen and (min-width: 754px) {
@@ -85,15 +56,6 @@ footer {
 
     .companyInfoContainer {
       margin-left: 2vw;
-    }
-  }
-
-  .copyRightContainer {
-    height: 3vw;
-
-    p {
-      font-size: 1.25vw;
-      font-weight: 500;
     }
   }
 }
@@ -113,15 +75,6 @@ footer {
     .companyInfoContainer {
       width: 40%;
       margin-left: 2vw;
-    }
-  }
-
-  .copyRightContainer {
-    height: 3vw;
-
-    p {
-      font-size: 1.25vw;
-      font-weight: 500;
     }
   }
 }
