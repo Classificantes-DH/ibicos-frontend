@@ -1,15 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
+import Contact from "./Contact/Contact";
 
 import {
   facebookIcon,
   instagramIcon,
   linkedinIcon,
   twitterIcon,
-  phoneIcon,
-  emailIcon,
-  locationIcon,
   companyLogo,
 } from "../../resources/imgs/utilityIcons/index";
 
@@ -17,43 +15,7 @@ const Footer = () => {
   return (
     <footer>
       <div className={styles.container}>
-        <div className={styles.contactContainer}>
-          <div className={styles.contactInfo}>
-            <img
-              src={locationIcon}
-              alt="Ícone de representação da localidade da empresa"
-              className={styles.contactLogo}
-            />
-            <div className={styles.contactData}>
-              <p>Rua Aleatória, 0</p>
-              <p>
-                <strong>São Paulo - Brasil</strong>
-              </p>
-            </div>
-          </div>
-          <div className={styles.contactInfo}>
-            <img
-              src={phoneIcon}
-              alt="Ícone de representação do email da empresa"
-              className={styles.contactLogo}
-            />
-            <div className={styles.contactData}>
-              <p>+55 11 1234-5678</p>
-            </div>
-          </div>
-          <div className={styles.contactInfo}>
-            <img
-              src={emailIcon}
-              alt="Ícone de representação do email da empresa"
-              className={styles.contactLogo}
-            />
-            <div className={styles.contactData}>
-              <p className={styles.emailInfo}>
-                classificantes.contato@email.com
-              </p>
-            </div>
-          </div>
-        </div>
+        <Contact />
         <div className={styles.verticalDivisor} />
         <div className={styles.navigationContainer}>
           <h4 className={styles.sectionTitle}>{"> "}Navegação</h4>

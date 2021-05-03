@@ -19,32 +19,6 @@ footer {
     border: 1px solid rgba(38, 38, 38, 0.3);
   }
 
-  .contactContainer {
-    margin-bottom: 33px;
-
-    .contactInfo {
-      @include displayFlex($align: center);
-      margin: 13px 0;
-
-      .contactData {
-        margin-left: 10px;
-        font-weight: 500;
-
-        p {
-          font-size: 5.1vw;
-        }
-
-        .emailInfo {
-          font-size: 3.5vw;
-        }
-      }
-
-      .contactLogo {
-        width: 19vw;
-      }
-    }
-  }
-
   .navigationContainer {
     margin: 30px 0;
 
@@ -166,23 +140,6 @@ footer {
       font-size: 3.5vw;
     }
 
-    .contactContainer {
-      margin-bottom: 2vw;
-      .contactInfo {
-        .contactData {
-          p {
-            font-size: 4vw;
-          }
-          .emailInfo {
-            font-size: 3.5vw;
-          }
-        }
-        .contactLogo {
-          width: 15vw;
-        }
-      }
-    }
-
     .navigationContainer {
       margin-right: 2vw;
       .navigationUrls {
@@ -251,26 +208,6 @@ footer {
 
     .verticalDivisor {
       margin: 0 1vw;
-    }
-
-    .contactContainer {
-      margin-bottom: 2vw;
-
-      .contactInfo {
-        .contactData {
-          p {
-            font-size: 2.8vw;
-          }
-
-          .emailInfo {
-            font-size: 2.8vw;
-          }
-        }
-
-        .contactLogo {
-          width: 10vw;
-        }
-      }
     }
 
     .navigationContainer {
@@ -355,22 +292,6 @@ footer {
       margin: 0 1vw;
     }
 
-    .contactContainer {
-      .contactInfo {
-        .contactData {
-          p {
-            font-size: 2vw;
-          }
-          .emailInfo {
-            font-size: 2vw;
-          }
-        }
-        .contactLogo {
-          width: 8vw;
-        }
-      }
-    }
-
     .navigationContainer {
       margin: 2vw 0;
       margin-right: 2vw;
@@ -453,24 +374,6 @@ footer {
 
     .verticalDivisor {
       margin: 0 1vw;
-    }
-
-    .contactContainer {
-      .contactInfo {
-        .contactData {
-          p {
-            font-size: 1.8vw;
-          }
-
-          .emailInfo {
-            font-size: 1.2vw;
-          }
-        }
-
-        .contactLogo {
-          width: 6vw;
-        }
-      }
     }
 
     .navigationContainer {
