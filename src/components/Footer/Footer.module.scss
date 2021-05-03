@@ -18,34 +18,6 @@ footer {
   .verticalDivisor {
     border: 1px solid rgba(38, 38, 38, 0.3);
   }
-
-  .companyInfoContainer {
-    .socialMediaContainer {
-      .iconsContainer {
-        @include displayFlex($justify: space-between);
-        margin-top: 18px;
-
-        .iconContainer {
-          a {
-            display: inline-block;
-
-            img {
-              width: 19vw;
-
-              transition: transform 200ms ease-in-out;
-              cursor: pointer;
-
-              &:hover {
-                filter: saturate(140%);
-                transform: scale(1.13);
-                cursor: pointer;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 .copyRightContainer {
@@ -63,23 +35,6 @@ footer {
   .container {
     h4 {
       font-size: 3.5vw;
-    }
-
-    .companyInfoContainer {
-      .socialMediaContainer {
-        .iconsContainer {
-          margin-top: 0.5vw;
-          .iconContainer {
-            margin: 0 1.3vw;
-
-            a {
-              img {
-                width: 13vw;
-              }
-            }
-          }
-        }
-      }
     }
   }
 
@@ -105,23 +60,6 @@ footer {
 
     .companyInfoContainer {
       margin-left: 2vw;
-
-      .socialMediaContainer {
-        .iconsContainer {
-          justify-content: flex-start;
-          margin-top: 0.5vw;
-
-          .iconContainer {
-            margin: 0 1.3vw;
-
-            a {
-              img {
-                width: 10vw;
-              }
-            }
-          }
-        }
-      }
     }
   }
 
@@ -147,23 +85,6 @@ footer {
 
     .companyInfoContainer {
       margin-left: 2vw;
-
-      .socialMediaContainer {
-        .iconsContainer {
-          justify-content: flex-start;
-          margin-top: 0.5vw;
-
-          .iconContainer {
-            margin: 0 1.3vw;
-
-            a {
-              img {
-                width: 8vw;
-              }
-            }
-          }
-        }
-      }
     }
   }
 
@@ -192,23 +113,6 @@ footer {
     .companyInfoContainer {
       width: 40%;
       margin-left: 2vw;
-
-      .socialMediaContainer {
-        .iconsContainer {
-          justify-content: flex-start;
-          margin-top: 0.5vw;
-
-          .iconContainer {
-            margin: 0 0.7vw;
-
-            a {
-              img {
-                width: 6vw;
-              }
-            }
-          }
-        }
-      }
     }
   }
 
