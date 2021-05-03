@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styles from "./Footer.module.scss";
 import Contact from "./Contact/Contact";
-
+import Navigation from "./Navigation/Navigation";
 import {
   facebookIcon,
   instagramIcon,
@@ -17,6 +16,8 @@ const Footer = () => {
       <div className={styles.container}>
         <Contact />
         <div className={styles.verticalDivisor} />
+        <Navigation />
+        {/*
         <div className={styles.navigationContainer}>
           <h4 className={styles.sectionTitle}>{"> "}Navegação</h4>
           <nav>
@@ -35,7 +36,7 @@ const Footer = () => {
               </li>
             </ul>
           </nav>
-        </div>
+        </div> */}
         <div className={styles.verticalDivisor} />
 
         <div className={styles.companyInfoContainer}>

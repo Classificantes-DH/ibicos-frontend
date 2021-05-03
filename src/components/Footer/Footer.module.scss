@@ -11,60 +11,12 @@ footer {
 
   padding: 6.3vw 5.5vw 5vw;
 
-  .sectionTitle {
+  h4 {
     font-size: 4.505vw;
   }
 
   .verticalDivisor {
     border: 1px solid rgba(38, 38, 38, 0.3);
-  }
-
-  .navigationContainer {
-    margin: 30px 0;
-
-    .navigationUrls {
-      list-style: none;
-      margin-left: 65px;
-
-      li {
-        margin: 14px 0;
-        a {
-          display: inline-block;
-          position: relative;
-
-          text-decoration: none;
-          color: $BLACK;
-
-          font-size: 6.8vw;
-          overflow-x: hidden;
-
-          &::after {
-            content: "";
-            transition: all 300ms ease-in-out;
-
-            position: absolute;
-            left: 0;
-            bottom: 0;
-
-            height: 1px;
-            width: 110%;
-
-            border-bottom: 2px solid #000000;
-            margin: auto;
-
-            transform: translateX(-100%);
-          }
-
-          &:hover:after {
-            transform: translateX(0);
-          }
-
-          &:hover {
-            color: #000000;
-          }
-        }
-      }
-    }
   }
 
   .companyInfoContainer {
@@ -136,22 +88,10 @@ footer {
 
 @media #{$BREAKPOINT-MOBILE-LAND} {
   .container {
-    .sectionTitle {
+    h4 {
       font-size: 3.5vw;
     }
 
-    .navigationContainer {
-      margin-right: 2vw;
-      .navigationUrls {
-        margin-top: 0.5vw;
-        li {
-          margin: 0;
-          a {
-            font-size: 3vw;
-          }
-        }
-      }
-    }
     .companyInfoContainer {
       .aboutUsContainer {
         margin: 2vw 0;
@@ -202,7 +142,7 @@ footer {
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
-    .sectionTitle {
+    h4 {
       font-size: 2.5vw;
     }
 
@@ -210,23 +150,6 @@ footer {
       margin: 0 1vw;
     }
 
-    .navigationContainer {
-      margin: 2vw 0;
-      margin-right: 2vw;
-
-      .navigationUrls {
-        margin-left: 6vw;
-        margin-top: 0.5vw;
-
-        li {
-          margin: 0;
-
-          a {
-            font-size: 2.5vw;
-          }
-        }
-      }
-    }
     .companyInfoContainer {
       margin-left: 2vw;
 
@@ -284,7 +207,7 @@ footer {
 
 @media only screen and (min-width: 754px) {
   .container {
-    .sectionTitle {
+    h4 {
       font-size: 2vw;
     }
 
@@ -292,23 +215,6 @@ footer {
       margin: 0 1vw;
     }
 
-    .navigationContainer {
-      margin: 2vw 0;
-      margin-right: 2vw;
-
-      .navigationUrls {
-        margin-left: 4vw;
-        margin-top: 0.5vw;
-
-        li {
-          margin: 0;
-
-          a {
-            font-size: 2.2vw;
-          }
-        }
-      }
-    }
     .companyInfoContainer {
       margin-left: 2vw;
 
@@ -368,7 +274,7 @@ footer {
   .container {
     flex-direction: row;
 
-    .sectionTitle {
+    h4 {
       font-size: 1.505vw;
     }
 
@@ -376,23 +282,6 @@ footer {
       margin: 0 1vw;
     }
 
-    .navigationContainer {
-      margin: 1vw 0;
-      margin-right: 2vw;
-
-      .navigationUrls {
-        margin-left: 4vw;
-        margin-top: 0.5vw;
-
-        li {
-          margin: 0;
-
-          a {
-            font-size: 1.5vw;
-          }
-        }
-      }
-    }
     .companyInfoContainer {
       width: 40%;
       margin-left: 2vw;
