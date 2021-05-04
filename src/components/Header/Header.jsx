@@ -1,34 +1,23 @@
-import React, { useState, useContext } from "react";
+import React from "react";
 
 import styles from "./Header.module.scss";
-
-import { SessionContext } from "../../context/SessionContext/SessionContext";
-import { Context } from "../../context/AuthContext/AuthContext";
 
 import ComboMenu from "./ComboMenu/ComboMenu";
 import BackgroundCover from "./BackgroundCover/BackgroundCover";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import LeftSideMenu from "./LeftSideMenu/LeftSideMenu";
+import useHeaderHook from "../../hooks/useHeaderHook";
 
 const Header = () => {
-  const [isBurgerActive, setIsBurgerActive] = useState(false);
-
-  const [isExtendedMenuOpen, setIsExtendedMenuOpen] = useState(false);
-
-  const { isUserAuthenticated, handleLogout } = useContext(Context);
-
-  const { userInfo } = useContext(SessionContext);
-
-  const [username] = useState(userInfo ? userInfo.email.split("@")[0] : "");
-
-  const handleMenuToggle = () => {
-    setIsBurgerActive(!isBurgerActive);
-    setIsExtendedMenuOpen(false);
-  };
-
-  const handleExtendedMenuOpen = () => {
-    setIsExtendedMenuOpen(!isExtendedMenuOpen);
-  };
+  const {
+    isUserAuthenticated,
+    handleLogout,
+    handleMenuToggle,
+    handleExtendedMenuOpen,
+    username,
+    isBurgerActive,
+    isExtendedMenuOpen,
+  } = useHeaderHook();
 
   return (
     <header>
