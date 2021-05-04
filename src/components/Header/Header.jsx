@@ -1,18 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+
 import styles from "./Header.module.scss";
 
 import { SessionContext } from "../../context/SessionContext/SessionContext";
 import { Context } from "../../context/AuthContext/AuthContext";
 
-import {
-  companyLogo,
-  searchIcon,
-} from "../../resources/imgs/utilityIcons/index";
-
 import ComboMenu from "./ComboMenu/ComboMenu";
 import BackgroundCover from "./BackgroundCover/BackgroundCover";
 import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import LeftSideMenu from "./LeftSideMenu/LeftSideMenu";
 
 const Header = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
@@ -42,29 +38,7 @@ const Header = () => {
       />
 
       <div className={styles.container}>
-        <div className={styles.leftSideContainer}>
-          <div className={styles.companyLogo}>
-            <Link to="/">
-              <img src={companyLogo} alt="Logo da empresa iBicos" />
-              <h4>iBicos</h4>
-            </Link>
-          </div>
-
-          <form
-            className={styles.searchAd}
-            action="/listaClassificados"
-            method="GET"
-          >
-            <input
-              type="text"
-              placeholder="Pesquise nossos anunciantes!"
-              name="category"
-            />
-            <button className={styles.searchIconContainer} type="button">
-              <img src={searchIcon} alt="Ícone da lupa" />
-            </button>
-          </form>
-        </div>
+        <LeftSideMenu />
 
         <BurgerMenu
           handleMenuToggle={handleMenuToggle}
