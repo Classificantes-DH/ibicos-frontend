@@ -1,0 +1,79 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.searchAd {
+  @include displayFlex($align: center, $justify: center);
+  margin-left: 8vw;
+
+  input {
+    width: 50vw;
+    height: 8vw;
+
+    background-color: $WHITE;
+    padding-left: 2vw;
+
+    border-width: 1px 0px 1px 1px;
+    border-style: solid;
+    border-radius: 10px 0 0 10px;
+
+    font-size: 3.5vw;
+  }
+
+  .searchIconContainer {
+    height: 8vw;
+    cursor: pointer;
+
+    border-width: 1px 1px 1px 0;
+    border-style: solid;
+    border-radius: 0px 10px 10px 0px;
+
+    background-color: $WHITE;
+
+    img {
+      @include displayFlex($align: center, $justify: center);
+      width: 6vw;
+      margin-right: 1vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .searchAd {
+    input {
+      width: 50vw;
+      font-size: 2.5vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .searchAd {
+    input {
+      height: 7vw;
+      font-size: 2.5vw;
+    }
+    .searchIconContainer {
+      height: 7vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .searchAd {
+    margin-left: 2vw;
+    input {
+      width: 20vw;
+      font-size: 1.25vw;
+    }
+
+    input,
+    .searchIconContainer {
+      height: 2.4vw;
+    }
+
+    .searchIconContainer {
+      img {
+        width: 1.5vw;
+      }
+    }
+  }
+}

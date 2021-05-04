@@ -1,0 +1,92 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.contactInfo {
+  @include displayFlex($align: center);
+  margin: 13px 0;
+
+  .contactData {
+    margin-left: 10px;
+    font-weight: 500;
+
+    p {
+      font-size: 5.1vw;
+    }
+
+    .emailInfo {
+      font-size: 3.5vw;
+    }
+  }
+
+  .contactLogo {
+    display: none;
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .contactInfo {
+    .contactData {
+      p {
+        font-size: 4vw;
+      }
+      .emailInfo {
+        font-size: 3.5vw;
+      }
+    }
+    .contactLogo {
+      display: block;
+      width: 15vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .contactInfo {
+    .contactData {
+      p {
+        font-size: 2.8vw;
+      }
+
+      .emailInfo {
+        font-size: 2.8vw;
+      }
+    }
+
+    .contactLogo {
+      width: 10vw;
+    }
+  }
+}
+
+@media only screen and (min-width: 754px) {
+  .contactInfo {
+    .contactData {
+      p {
+        font-size: 2vw;
+      }
+      .emailInfo {
+        font-size: 2vw;
+      }
+    }
+    .contactLogo {
+      width: 8vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .contactInfo {
+    .contactData {
+      p {
+        font-size: 1.2vw;
+      }
+
+      .emailInfo {
+        font-size: 1.2vw;
+      }
+    }
+
+    .contactLogo {
+      width: 5vw;
+    }
+  }
+}

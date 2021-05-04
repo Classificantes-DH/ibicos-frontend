@@ -1,0 +1,48 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.companyLogo {
+  margin: 3vw 0;
+  a {
+    @include displayFlex($justify: center, $direction: column);
+    text-decoration: none;
+    color: $BLACK;
+
+    img {
+      width: 10vw;
+    }
+
+    h4 {
+      font-weight: 500;
+      font-size: 3vw;
+      text-align: center;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .companyLogo {
+    margin: 1.5vw 0;
+    a {
+      img {
+        width: 8vw;
+      }
+      h4 {
+        font-size: 2.2vw;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .companyLogo {
+    margin: 0.5vw 0;
+    a {
+      img {
+        width: 3vw;
+      }
+      h4 {
+        font-size: 0.8vw;
+      }
+    }
+  }
+}

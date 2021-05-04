@@ -1,0 +1,36 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.extensibleDropDown {
+  position: relative;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    .arrowIcon::before {
+      content: url("./../../../../../resources/imgs/utilityIcons/semi-arraw-down.svg");
+      display: inline-block;
+      transition: all 150ms ease-in-out;
+      margin-left: 1vw;
+      transform: scale(1.1);
+    }
+
+    .activeExtended::before {
+      transform: rotate(180deg) scale(1.1);
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  &.extensibleDropDown {
+    button {
+      .arrowIcon::before {
+        transform: scale(1);
+      }
+      .activeExtended::before {
+        transform: scale(1) rotate(180deg);
+      }
+    }
+  }
+}
