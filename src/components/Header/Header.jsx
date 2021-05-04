@@ -11,6 +11,7 @@ import {
 } from "../../resources/imgs/utilityIcons/index";
 
 import ComboMenu from "./ComboMenu/ComboMenu";
+import BackgroundCover from "./BackgroundCover/BackgroundCover";
 
 const Header = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
@@ -34,15 +35,9 @@ const Header = () => {
 
   return (
     <header>
-      <div
-        className={`${styles.backgroundCover} ${
-          isBurgerActive ? `${styles.backgroundCoverActive}` : ``
-        }`}
-        onClick={handleMenuToggle}
-        role="button"
-        aria-label="Menu background"
-        onKeyPress={handleMenuToggle}
-        tabIndex={0}
+      <BackgroundCover
+        isBurgerActive={isBurgerActive}
+        handleMenuToggle={handleMenuToggle}
       />
 
       <div className={styles.container}>
