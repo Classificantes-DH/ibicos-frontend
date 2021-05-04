@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+
 import styles from "./ComboMenu.module.scss";
 
 import {
@@ -49,14 +49,6 @@ const ComboMenu = () => {
           label="Home"
           onClickHandler={handleMenuToggle}
         />
-        {/* <li>
-          <div className={styles.navItem}>
-          <img src={homeIcon} alt="Ícone Home page" />
-          <Link to="/" onClick={handleMenuToggle}>
-          Home
-          </Link>
-          </div>
-        </li> */}
         <NavItem
           imgData={{
             alt: "Ícone do como funciona",
@@ -67,25 +59,8 @@ const ComboMenu = () => {
           onClickHandler={handleMenuToggle}
         />
 
-        {/* <li>
-          <div className={styles.navItem}>
-            <img src={helpCircleIcon} alt="Ícone do como funciona" />
-            <Link to="/comoFunciona" onClick={handleMenuToggle}>
-              Como funciona?
-            </Link>
-          </div>
-        </li> */}
-
         {/* Check if the user is logged in */}
         {isUserAuthenticated ? (
-          // <li>
-          //   <div className={styles.navItem}>
-          //     <img src={megaphoneIcon} alt="Ícone de anúncio" />
-          //     <Link to="/listaClassificados" onClick={handleMenuToggle}>
-          //       Anúncios
-          //     </Link>
-          //   </div>
-          // </li>
           <NavItem
             imgData={{
               alt: "Ícone de anúncio",
@@ -98,14 +73,6 @@ const ComboMenu = () => {
         ) : null}
 
         {isUserAuthenticated ? (
-          // <li>
-          //   <div className={styles.navItem}>
-          //     <img src={configToolIcon} alt="Ícone de anúncio" />
-          //     <Link to="/listaServicos" onClick={handleMenuToggle}>
-          //       Meus anúncios
-          //     </Link>
-          //   </div>
-          // </li>
           <NavItem
             imgData={{
               alt: "Ícone de anúncio",
@@ -134,12 +101,15 @@ const ComboMenu = () => {
               </button>
             </div>
           ) : (
-            <div className={styles.navItem}>
-              <img src={loginIcon} alt="Login icon" />
-              <Link to="/login" onClick={handleMenuToggle}>
-                Entrar
-              </Link>
-            </div>
+            <NavItem
+              label="Entrar"
+              imgData={{
+                alt: "Ícone de login",
+                imgSrc: loginIcon,
+              }}
+              path="/login"
+              onClickHandler={handleMenuToggle}
+            />
           )}
           {/* Mobile extended menu */}
           <div
@@ -148,54 +118,43 @@ const ComboMenu = () => {
             }`}
           >
             <ul>
-              <li>
-                <div className={styles.navItem}>
-                  <Link to="/meu-perfil" onClick={handleMenuToggle}>
-                    Meu Perfil
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className={styles.navItem}>
-                  <Link to="/cadastrarAnuncio" onClick={handleMenuToggle}>
-                    Cadastrar anúncio
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className={styles.navItem}>
-                  <Link to="/favoritos" onClick={handleMenuToggle}>
-                    Favoritos
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className={styles.navItem}>
-                  <Link to="/prestadorDashBoard" onClick={handleMenuToggle}>
-                    Visão prestador
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className={styles.navItem}>
-                  <Link to="/clienteDashBoard" onClick={handleMenuToggle}>
-                    Visão cliente
-                  </Link>
-                </div>
-              </li>
-              <li>
-                <div className={styles.navItem}>
-                  <Link
-                    to="/login"
-                    onClick={() => {
-                      handleMenuToggle();
-                      handleLogout();
-                    }}
-                  >
-                    Sair
-                  </Link>
-                </div>
-              </li>
+              <NavItem
+                label="Meu Perfil"
+                path="/meu-perfil"
+                onClickHandler={handleMenuToggle}
+              />
+
+              <NavItem
+                label="Cadastrar anúncio"
+                path="/cadastrarAnuncio"
+                onClickHandler={handleMenuToggle}
+              />
+
+              <NavItem
+                label="Favoritos"
+                path="/favoritos"
+                onClickHandler={handleMenuToggle}
+              />
+
+              <NavItem
+                label="Visão prestador"
+                path="/prestadorDashBoard"
+                onClickHandler={handleMenuToggle}
+              />
+
+              <NavItem
+                label="Visão cliente"
+                path="/clienteDashBoard"
+                onClickHandler={handleMenuToggle}
+              />
+              <NavItem
+                label="Sair"
+                path="/login"
+                onClickHandler={() => {
+                  handleMenuToggle();
+                  handleLogout();
+                }}
+              />
             </ul>
           </div>
         </li>
