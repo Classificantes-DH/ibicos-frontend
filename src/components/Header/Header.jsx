@@ -12,6 +12,7 @@ import {
 
 import ComboMenu from "./ComboMenu/ComboMenu";
 import BackgroundCover from "./BackgroundCover/BackgroundCover";
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 const Header = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
@@ -65,19 +66,11 @@ const Header = () => {
           </form>
         </div>
 
-        <div className={styles.burgerMenu}>
-          <button
-            type="button"
-            onClick={handleMenuToggle}
-            className={`${styles.burgerMenu} ${
-              isBurgerActive ? `${styles.burgerActive}` : ``
-            }`}
-          >
-            <div className={styles.burgerLine} />
-            <div className={styles.burgerLine} />
-            <div className={styles.burgerLine} />
-          </button>
-        </div>
+        <BurgerMenu
+          handleMenuToggle={handleMenuToggle}
+          isBurgerActive={isBurgerActive}
+        />
+
         <ComboMenu
           isBurgerActive={isBurgerActive}
           handleMenuToggle={handleMenuToggle}
