@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
+
+import { SessionContext } from "../../context/SessionContext/SessionContext";
+import { Context } from "../../context/AuthContext/AuthContext";
 
 import {
   companyLogo,
@@ -12,8 +15,21 @@ import ComboMenu from "./ComboMenu/ComboMenu";
 const Header = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
 
+  const [isExtendedMenuOpen, setIsExtendedMenuOpen] = useState(false);
+
+  const { isUserAuthenticated, handleLogout } = useContext(Context);
+
+  const { userInfo } = useContext(SessionContext);
+
+  const [username] = useState(userInfo ? userInfo.email.split("@")[0] : "");
+
   const handleMenuToggle = () => {
     setIsBurgerActive(!isBurgerActive);
+    setIsExtendedMenuOpen(false);
+  };
+
+  const handleExtendedMenuOpen = () => {
+    setIsExtendedMenuOpen(!isExtendedMenuOpen);
   };
 
   return (
@@ -67,7 +83,15 @@ const Header = () => {
             <div className={styles.burgerLine} />
           </button>
         </div>
-        <ComboMenu />
+        <ComboMenu
+          isBurgerActive={isBurgerActive}
+          handleMenuToggle={handleMenuToggle}
+          isUserAuthenticated={isUserAuthenticated}
+          handleExtendedMenuOpen={handleExtendedMenuOpen}
+          username={username}
+          isExtendedMenuOpen={isExtendedMenuOpen}
+          handleLogout={handleLogout}
+        />
       </div>
     </header>
   );

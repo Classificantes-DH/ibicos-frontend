@@ -25,51 +25,51 @@
       margin: 4.5vw 0;
       text-align: center;
 
-      &.extensibleDropDown {
-        position: relative;
+      // &.extensibleDropDown {
+      //   position: relative;
 
-        button {
-          background: none;
-          border: none;
-          cursor: pointer;
+      //   button {
+      //     background: none;
+      //     border: none;
+      //     cursor: pointer;
 
-          .arrowIcon::before {
-            content: url("./../../../resources/imgs/utilityIcons/semi-arraw-down.svg");
-            display: inline-block;
-            transition: all 150ms ease-in-out;
-            margin-left: 1vw;
-            transform: scale(1.1);
-          }
+      //     .arrowIcon::before {
+      //       content: url("./../../../resources/imgs/utilityIcons/semi-arraw-down.svg");
+      //       display: inline-block;
+      //       transition: all 150ms ease-in-out;
+      //       margin-left: 1vw;
+      //       transform: scale(1.1);
+      //     }
 
-          .activeExtended::before {
-            transform: rotate(180deg) scale(1.1);
-          }
-        }
+      //     .activeExtended::before {
+      //       transform: rotate(180deg) scale(1.1);
+      //     }
+      //   }
 
-        .extendedLoggedInMenu {
-          position: absolute;
-          top: 15px;
+      //   .extendedLoggedInMenu {
+      //     position: absolute;
+      //     top: 15px;
 
-          margin: 5vw 0;
-          width: 100vw;
+      //     margin: 5vw 0;
+      //     width: 100vw;
 
-          border-width: 1px 0 0 0;
-          border-style: solid;
-          border-color: $WHITE;
-          background-color: $ORANGE;
+      //     border-width: 1px 0 0 0;
+      //     border-style: solid;
+      //     border-color: $WHITE;
+      //     background-color: $ORANGE;
 
-          transition: all 100ms ease-in-out;
-          pointer-events: none;
-          transform: translateY(-20%);
-          opacity: 0;
-        }
+      //     transition: all 100ms ease-in-out;
+      //     pointer-events: none;
+      //     transform: translateY(-20%);
+      //     opacity: 0;
+      //   }
 
-        .extendedLoggedInMenuActive {
-          opacity: 1;
-          transform: translateY(0);
-          pointer-events: all;
-        }
-      }
+      //   .extendedLoggedInMenuActive {
+      //     opacity: 1;
+      //     transform: translateY(0);
+      //     pointer-events: all;
+      //   }
+      // }
     }
   }
 }
@@ -101,54 +101,54 @@
         margin: 0;
         margin-left: 1vw;
 
-        &.extensibleDropDown {
-          button {
-            .arrowIcon::before {
-              transform: scale(1);
-            }
-            .activeExtended::before {
-              transform: scale(1) rotate(180deg);
-            }
-          }
-          .extendedLoggedInMenu {
-            position: absolute;
-            top: 3.7vw;
-            right: 0vw;
+        // &.extensibleDropDown {
+        //   button {
+        //     .arrowIcon::before {
+        //       transform: scale(1);
+        //     }
+        //     .activeExtended::before {
+        //       transform: scale(1) rotate(180deg);
+        //     }
+        //   }
+        //   .extendedLoggedInMenu {
+        //     position: absolute;
+        //     top: 3.7vw;
+        //     right: 0vw;
 
-            padding: 10px 0;
-            width: 30vw;
-            margin: 0;
-            pointer-events: none;
+        //     padding: 10px 0;
+        //     width: 30vw;
+        //     margin: 0;
+        //     pointer-events: none;
 
-            border: 1px solid rgba(54, 51, 51, 0.1);
-            box-shadow: 0 0 2px #262626;
-            ul {
-              @include displayFlex($direction: column);
+        //     border: 1px solid rgba(54, 51, 51, 0.1);
+        //     box-shadow: 0 0 2px #262626;
+        //     ul {
+        //       @include displayFlex($direction: column);
 
-              li {
-                margin: 0.5vw 0;
+        //       li {
+        //         margin: 0.5vw 0;
 
-                .navItem {
-                  a {
-                    pointer-events: none;
-                  }
-                }
-              }
-            }
-          }
+        //         .navItem {
+        //           a {
+        //             pointer-events: none;
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
 
-          .extendedLoggedInMenuActive {
-            ul {
-              li {
-                .navItem {
-                  a {
-                    pointer-events: all;
-                  }
-                }
-              }
-            }
-          }
-        }
+        //   .extendedLoggedInMenuActive {
+        //     ul {
+        //       li {
+        //         .navItem {
+        //           a {
+        //             pointer-events: all;
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
       }
     }
   }
