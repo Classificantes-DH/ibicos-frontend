@@ -7,6 +7,7 @@
   margin-top: 3vw;
 
   label {
+    width: 100%;
     font-size: 3vw;
     p {
       font-size: 6vw;
@@ -32,10 +33,11 @@
   .input-container-login {
     margin: 0.5vw 0;
 
-    width: 85%;
+    width: 100%;
 
     label {
       margin: 0;
+      width: 100%;
       p {
         font-size: 1.75vw;
       }

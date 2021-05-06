@@ -29,38 +29,40 @@ const FormLogin = () => {
 
   return (
     <form className={styles.loginForm} onSubmit={handleLogin} method="POST">
-      <Input htmlFor="email" title="Email" className="input-container-login">
-        <InputField
-          handleFieldChange={handleFieldChange}
-          inputData={{
-            name: "email",
-            type: "text",
-            value: email,
-          }}
-          logoData={{
-            srcImg: emailPureIcon,
-            alt: "Email",
-          }}
-        />
-      </Input>
-      <Input
-        htmlFor="passwordUser"
-        title="Senha"
-        className="input-container-login"
-      >
-        <InputField
-          handleFieldChange={handleFieldChange}
-          inputData={{
-            name: "passwordUser",
-            type: "password",
-            value: passwordUser,
-          }}
-          logoData={{
-            srcImg: padlockIcon,
-            alt: "Senha",
-          }}
-        />
-      </Input>
+      <fieldset>
+        <Input htmlFor="email" title="Email" className="input-container-login">
+          <InputField
+            handleFieldChange={handleFieldChange}
+            inputData={{
+              name: "email",
+              type: "text",
+              value: email,
+            }}
+            logoData={{
+              srcImg: emailPureIcon,
+              alt: "Email",
+            }}
+          />
+        </Input>
+        <Input
+          htmlFor="passwordUser"
+          title="Senha"
+          className="input-container-login"
+        >
+          <InputField
+            handleFieldChange={handleFieldChange}
+            inputData={{
+              name: "passwordUser",
+              type: "password",
+              value: passwordUser,
+            }}
+            logoData={{
+              srcImg: padlockIcon,
+              alt: "Senha",
+            }}
+          />
+        </Input>
+      </fieldset>
 
       <LoginError isCredentialInvalid={isCredentialInvalid} />
 

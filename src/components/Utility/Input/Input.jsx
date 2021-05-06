@@ -6,8 +6,8 @@ const Input = ({ children, htmlFor, title, className }) => {
     <div className={`${className}`}>
       <label htmlFor={htmlFor}>
         <p>{title}</p>
+        {children}
       </label>
-      {children}
     </div>
   );
 };
