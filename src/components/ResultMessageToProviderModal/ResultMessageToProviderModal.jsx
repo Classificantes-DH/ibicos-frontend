@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./ResultMessageToProviderModal.module.scss";
 
-import defaultModalStyle from "../JobCardModalHolder/JobCardModalDefault.module.scss";
+import defaultModalStyle from "../ClassifiedAdsList/JobCardModalHolder/JobCardModalDefault.module.scss";
 import emailSuccessIcon from "../../resources/imgs/styleSvgs/email_success.svg";
 // import failIcon from "../../resources/imgs/styleSvgs/fail_sad_orange.svg";
 

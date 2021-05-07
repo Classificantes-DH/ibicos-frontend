@@ -1,10 +1,14 @@
 import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
-import { JobCard, Modal, CustomerMessageToProviderFormModal } from "../index";
-import { useMessageFromCustomerToProvider } from "../../hooks/index";
+import {
+  JobCard,
+  Modal,
+  CustomerMessageToProviderFormModal,
+} from "../../index";
+import { useMessageFromCustomerToProvider } from "../../../hooks/index";
 import styles from "./JobCardModalHolder.module.scss";
 
-import { SessionContext } from "../../context/SessionContext/SessionContext";
+import { SessionContext } from "../../../context/SessionContext/SessionContext";
 
 const JobCardModalHolder = ({ adData }) => {
   const [isModalOpen, setIsOpen] = useState(false);
