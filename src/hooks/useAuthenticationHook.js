@@ -45,8 +45,9 @@ const useAuthenticationHook = () => {
   const handleLogin = async (event) => {
     event.preventDefault();
     const { target } = event;
-    const email = target[0].value;
-    const passwordUser = target[1].value;
+
+    const email = target[1].value;
+    const passwordUser = target[2].value;
 
     try {
       const response = await api.post(
