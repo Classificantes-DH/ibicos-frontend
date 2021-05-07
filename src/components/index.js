@@ -19,7 +19,7 @@ export { default as EvaluationAccordion } from "./DashBoard/EvaluationAccordion/
 export { default as EvaluationAccordionSwitcher } from "./DashBoard/EvaluationAccordion/EvaluationAccordionSwitcher";
 // export { default as Select } from "./Select/Select";
 export { default as Checkbox } from "./Checkbox/Checkbox";
-export { default as LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
+export { default as LoadingSpinner } from "./Utility/LoadingSpinner/LoadingSpinner";
 export { default as Button } from "./Utility/Button/Button";
 export { default as Input } from "./Utility/Input/Input";
 export { default as Select } from "./Utility/Select/Select";
