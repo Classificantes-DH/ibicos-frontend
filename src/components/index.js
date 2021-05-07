@@ -11,7 +11,7 @@ export { default as DashCardSwitcher } from "./DashBoard/DashCard/DashCardSwitch
 export { default as FormProvider } from "./FormProvider/FormProvider";
 export { default as FormClient } from "./FormClient/FormClient";
 export { default as FormSignupSuccessful } from "./FormSignupSuccessful/FormSignupSuccessful";
-export { default as Modal } from "./Modal/Modal";
+export { default as Modal } from "./Utility/Modal/Modal";
 export { default as CustomerMessageToProviderFormModal } from "./CustomerMessageToProviderFormModal/CustomerMessageToProviderFormModal";
 export { default as ResultMessageToProviderModal } from "./ResultMessageToProviderModal/ResultMessageToProviderModal";
 export { default as JobCardModalHolder } from "./ClassifiedAdsList/JobCardModalHolder/JobCardModalHolder";
