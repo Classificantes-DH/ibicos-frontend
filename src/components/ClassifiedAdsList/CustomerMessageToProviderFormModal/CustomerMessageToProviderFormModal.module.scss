@@ -1,4 +1,4 @@
-@import "./../../styles/scss/index.scss";
+@import "./../../../styles/scss/index.scss";
 
 .container {
   @include defaultBoxShadow($thickness: 4px);

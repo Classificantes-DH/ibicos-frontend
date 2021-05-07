@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./CustomerMessageToProviderFormModal.module.scss";
-import { LoadingSpinner } from "../index";
-import emailSuccessIcon from "../../resources/imgs/styleSvgs/email_success.svg";
-import { companyLogo } from "../../resources/imgs/utilityIcons/index";
+import { LoadingSpinner } from "../../index";
+import emailSuccessIcon from "../../../resources/imgs/styleSvgs/email_success.svg";
+import { companyLogo } from "../../../resources/imgs/utilityIcons/index";
 
 const CustomerMessageToProviderFormModal = ({
   handleModalEvent,
