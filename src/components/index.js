@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 export { default as Footer } from "./Base/Footer/Footer";
 export { default as Header } from "./Base/Header/Header";
-export { default as JobCard } from "./JobCard/JobCard";
+export { default as JobCard } from "./Base/JobCard/JobCard";
 export { default as RatingStars } from "./RatingStars/RatingStars";
 export { default as OrderByFilter } from "./ClassifiedAdsList/OrderByFilter/OrderByFilter";
 export { default as BroadFilter } from "./ClassifiedAdsList/BroadFilter/BroadFilter";

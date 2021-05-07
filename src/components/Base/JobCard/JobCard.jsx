@@ -2,11 +2,11 @@ import React from "react";
 
 import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
-import mapIcon from "../../resources/imgs/utilityIcons/map-location-pure.svg";
-import { RatingStars } from "../index";
-import { useJobIconImportHook } from "../../hooks/index";
+import mapIcon from "../../../resources/imgs/utilityIcons/map-location-pure.svg";
+import { RatingStars } from "../../index";
+import { useJobIconImportHook } from "../../../hooks/index";
 
-import "../../util/svg-coloration.scss";
+import "../../../util/svg-coloration.scss";
 
 const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
   const { ad, provider_statistics: providerStatistics } = adData;
