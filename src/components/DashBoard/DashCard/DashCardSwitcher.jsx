@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import PropTypes from "prop-types";
-import { DashCard } from "../index";
+import { DashCard } from "../../index";
 
 const DashCardSwitcher = ({ cardData, path }) => {
   const {

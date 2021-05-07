@@ -3,7 +3,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { EvaluationAccordion } from "../index";
+import { EvaluationAccordion } from "../../index";
 
 const EvaluationAccordionSwitcher = ({
   path,

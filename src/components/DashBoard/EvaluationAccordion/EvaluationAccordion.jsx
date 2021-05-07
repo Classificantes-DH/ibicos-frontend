@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Route, Switch, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./EvaluationAccordion.module.scss";
-import { RatingStars } from "../index";
+import { RatingStars } from "../../index";
 
 const EvaluationAccordion = ({
   pendingEvaluationData,

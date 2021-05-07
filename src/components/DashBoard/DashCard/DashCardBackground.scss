@@ -1,24 +1,25 @@
-@import "./../../styles/scss/index.scss";
+@import "./../../../styles/scss/index.scss";
 
 .views {
-  background: url(./../../resources/imgs/styleSvgs/magnifying_dark_orange.svg)
+  background: url(./../../../resources/imgs/styleSvgs/magnifying_dark_orange.svg)
       no-repeat,
     $PURPLE;
 }
 
 .contacts {
-  background: url(./../../resources/imgs/styleSvgs/mail_envelope_purple.svg)
+  background: url(./../../../resources/imgs/styleSvgs/mail_envelope_purple.svg)
       no-repeat,
     $ORANGE;
 }
 
 .services {
-  background: url(./../../resources/imgs/styleSvgs/qa_engineer.svg) no-repeat,
+  background: url(./../../../resources/imgs/styleSvgs/qa_engineer.svg) no-repeat,
     $PURPLE;
 }
 
 .ratings {
-  background: url(./../../resources/imgs/styleSvgs/triple_stars.svg) no-repeat,
+  background: url(./../../../resources/imgs/styleSvgs/triple_stars.svg)
+      no-repeat,
     $ORANGE;
   background-size: 25%;
 }
