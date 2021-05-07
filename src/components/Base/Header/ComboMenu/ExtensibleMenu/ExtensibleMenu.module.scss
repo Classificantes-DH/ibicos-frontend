@@ -1,5 +1,26 @@
 @import "./../../../../../styles/scss/index.scss";
 
+.navItem {
+  @include displayFlex($align: center);
+  position: relative;
+
+  img {
+    position: absolute;
+    left: 2.5vw;
+
+    width: 8vw;
+  }
+
+  a,
+  button {
+    margin: 0 auto;
+    font-size: 4vw;
+    font-weight: 600;
+    text-decoration: none;
+    color: $WHITE;
+  }
+}
+
 .extensibleDropDown {
   position: relative;
 
@@ -22,7 +43,63 @@
   }
 }
 
+@media #{$BREAKPOINT-TABLET} {
+  .navItem {
+    a,
+    button {
+      font-size: 3.5vw;
+    }
+  }
+}
+
 @media #{$BREAKPOINT-TABLET-LAND} {
+  .navItem {
+    align-items: baseline;
+    img {
+      width: 1.6vw;
+      position: initial;
+      margin-right: 0.4vw;
+    }
+
+    a,
+    button {
+      font-size: 1.3vw;
+      pointer-events: all;
+      font-weight: 700;
+    }
+    a,
+    button span {
+      position: relative;
+      display: inline-block;
+      overflow-x: hidden;
+
+      &::after {
+        content: "";
+        transition: all 300ms ease-in-out;
+
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        height: 1px;
+        width: 110%;
+
+        border-bottom: 2px solid #f1f1f1;
+        margin: auto;
+
+        transform: translateX(-100%);
+      }
+
+      &:hover:after {
+        transform: translateX(0);
+      }
+
+      &:hover {
+        color: #f1f1f1;
+      }
+    }
+  }
+
   &.extensibleDropDown {
     button {
       .arrowIcon::before {

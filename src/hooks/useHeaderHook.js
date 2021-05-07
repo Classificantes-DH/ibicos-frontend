@@ -28,6 +28,7 @@ const useHeaderHook = () => {
     handleLogout,
     handleMenuToggle,
     handleExtendedMenuOpen,
+    isExtendedMenuOpen,
     username,
     isBurgerActive,
   };
