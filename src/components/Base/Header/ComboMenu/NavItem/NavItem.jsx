@@ -3,14 +3,18 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./NavItem.module.scss";
 
-const NavItem = ({ imgData, label, onClickHandler, path }) => {
+const NavItem = ({ imgData, linkData, children }) => {
   return (
     <li>
       <div className={styles.navItem}>
         {imgData ? <img src={imgData.imgSrc} alt={imgData.alt} /> : null}
-        <Link to={path} onClick={onClickHandler}>
-          {label}
-        </Link>
+
+        {linkData ? (
+          <Link to={linkData.path} onClick={linkData.onClickHandler}>
+            {linkData.label}
+          </Link>
+        ) : null}
+        {children}
       </div>
     </li>
   );
@@ -23,11 +27,16 @@ NavItem.propTypes = {
     alt: PropTypes.string.isRequired,
     imgSrc: PropTypes.node.isRequired,
   }),
-  label: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired,
-  onClickHandler: PropTypes.func.isRequired,
+  linkData: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    onClickHandler: PropTypes.func.isRequired,
+  }),
+  children: PropTypes.node,
 };
 
 NavItem.defaultProps = {
   imgData: null,
+  linkData: null,
+  children: null,
 };

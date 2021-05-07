@@ -29,46 +29,53 @@ const ComboMenu = ({
     >
       <ul>
         <NavItem
+          linkData={{
+            path: "/",
+            label: "Home",
+            onClickHandler: handleMenuToggle,
+          }}
           imgData={{
             alt: "Ícone Home page",
             imgSrc: homeIcon,
           }}
-          path="/"
-          label="Home"
-          onClickHandler={handleMenuToggle}
         />
         <NavItem
+          linkData={{
+            path: "/comoFunciona",
+            label: "Como funciona?",
+            onClickHandler: handleMenuToggle,
+          }}
           imgData={{
             alt: "Ícone do como funciona",
             imgSrc: helpCircleIcon,
           }}
-          label="Como funciona?"
-          path="/comoFunciona"
-          onClickHandler={handleMenuToggle}
         />
 
-        {/* Check if the user is logged in */}
         {isUserAuthenticated ? (
           <NavItem
+            linkData={{
+              path: "/listaClassificados",
+              label: "Anúncios",
+              onClickHandler: handleMenuToggle,
+            }}
             imgData={{
               alt: "Ícone de anúncio",
               imgSrc: megaphoneIcon,
             }}
-            label="Anúncios"
-            path="/listaClassificados"
-            onClickHandler={handleMenuToggle}
           />
         ) : null}
 
         {isUserAuthenticated ? (
           <NavItem
+            linkData={{
+              path: "/listaServicos",
+              label: "Meus anúncios",
+              onClickHandler: handleMenuToggle,
+            }}
             imgData={{
               alt: "Ícone de anúncio",
               imgSrc: configToolIcon,
             }}
-            label="Meus anúncios"
-            path="/listaServicos"
-            onClickHandler={handleMenuToggle}
           />
         ) : null}
         <ExtensibleMenu

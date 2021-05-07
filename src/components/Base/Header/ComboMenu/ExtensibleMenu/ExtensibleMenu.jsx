@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./ExtensibleMenu.module.scss";
 import NavItem from "../NavItem/NavItem";
 import MobileOnlyExtendedMenu from "./MobileOnlyExtendedMenu/MobileOnlyExtendedMenu";
+import ArrowDropDownIcon from "./ArrowDropDownIcon/ArrowDropDownIcon";
 
 import {
   userIcon,
@@ -20,28 +21,29 @@ const ExtensibleMenu = ({
   return (
     <li className={styles.extensibleDropDown}>
       {isUserAuthenticated ? (
-        <div className={styles.navItem}>
-          <img src={userIcon} alt="Ícone do usuário" />
+        <NavItem
+          imgData={{
+            alt: "Nome de usuário",
+            imgSrc: userIcon,
+          }}
+          onClick={handleExtendedMenuOpen}
+        >
           <button onClick={handleExtendedMenuOpen} type="button">
-            <div className={styles.navItem}>
-              <span>{username}</span>
-              <i
-                className={`${styles.arrowIcon} ${
-                  isExtendedMenuOpen ? `${styles.activeExtended}` : ``
-                }`}
-              />
-            </div>
+            {username}
+            <ArrowDropDownIcon isExtendedMenuOpen={isExtendedMenuOpen} />
           </button>
-        </div>
+        </NavItem>
       ) : (
         <NavItem
-          label="Entrar"
+          linkData={{
+            label: "Entrar",
+            path: "/login",
+            onClickHandler: handleMenuToggle,
+          }}
           imgData={{
             alt: "Ícone de login",
             imgSrc: loginIcon,
           }}
-          path="/login"
-          onClickHandler={handleMenuToggle}
         />
       )}
       <MobileOnlyExtendedMenu

@@ -50,7 +50,7 @@
     background: none;
     border: none;
     ul {
-      @include displayFlex($justify: space-between);
+      @include displayFlex($justify: space-between, $align: center);
       li {
         margin: 0;
         margin-left: 1vw;

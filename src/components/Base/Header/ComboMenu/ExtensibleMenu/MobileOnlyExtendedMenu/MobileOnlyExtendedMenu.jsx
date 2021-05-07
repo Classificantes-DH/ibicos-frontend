@@ -15,40 +15,49 @@ const MobileOnlyExtendedMenu = ({
   >
     <ul>
       <NavItem
-        label="Meu Perfil"
-        path="/meu-perfil"
-        onClickHandler={handleMenuToggle}
+        linkData={{
+          path: "/meu-perfil",
+          label: "Meu Perfil",
+          onClickHandler: handleMenuToggle,
+        }}
       />
 
       <NavItem
-        label="Cadastrar anúncio"
-        path="/cadastrarAnuncio"
-        onClickHandler={handleMenuToggle}
+        linkData={{
+          path: "/cadastrarAnuncio",
+          label: "Cadastrar anúncio",
+          onClickHandler: handleMenuToggle,
+        }}
       />
 
       <NavItem
-        label="Favoritos"
-        path="/favoritos"
-        onClickHandler={handleMenuToggle}
+        linkData={{
+          path: "/favoritos",
+          label: "Favoritos",
+          onClickHandler: handleMenuToggle,
+        }}
       />
 
       <NavItem
-        label="Visão prestador"
-        path="/prestadorDashBoard"
-        onClickHandler={handleMenuToggle}
+        linkData={{
+          path: "/prestadorDashBoard",
+          label: "Visão prestador",
+          onClickHandler: handleMenuToggle,
+        }}
       />
 
       <NavItem
-        label="Visão cliente"
-        path="/clienteDashBoard"
-        onClickHandler={handleMenuToggle}
+        linkData={{
+          path: "/clienteDashBoard",
+          label: "Visão cliente",
+          onClickHandler: handleMenuToggle,
+        }}
       />
       <NavItem
-        label="Sair"
-        path="/login"
-        onClickHandler={() => {
-          handleMenuToggle();
-          handleLogout();
+        linkData={{
+          path: "/login",
+          label: "Sair",
+          onClickHandler: handleLogout,
         }}
       />
     </ul>
