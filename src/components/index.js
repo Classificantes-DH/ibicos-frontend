@@ -13,7 +13,7 @@ export { default as FormClient } from "./FormClient/FormClient";
 export { default as FormSignupSuccessful } from "./FormSignupSuccessful/FormSignupSuccessful";
 export { default as Modal } from "./Utility/Modal/Modal";
 export { default as CustomerMessageToProviderFormModal } from "./ClassifiedAdsList/CustomerMessageToProviderFormModal/CustomerMessageToProviderFormModal";
-export { default as ResultMessageToProviderModal } from "./ResultMessageToProviderModal/ResultMessageToProviderModal";
+export { default as ResultMessageToProviderModal } from "./ClassifiedAdsList/ResultMessageToProviderModal/ResultMessageToProviderModal";
 export { default as JobCardModalHolder } from "./ClassifiedAdsList/JobCardModalHolder/JobCardModalHolder";
 export { default as EvaluationAccordion } from "./DashBoard/EvaluationAccordion/EvaluationAccordion";
 export { default as EvaluationAccordionSwitcher } from "./DashBoard/EvaluationAccordion/EvaluationAccordionSwitcher";
