@@ -2,12 +2,10 @@ import React from "react";
 
 import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
-import mapIcon from "../../../resources/imgs/utilityIcons/map-location-pure.svg";
 
 import JobLogo from "./JobLogo/JobLogo";
 import MainDescription from "./MainDescription/MainDescription";
-
-import "../../../util/svg-coloration.scss";
+import Location from "./Location/Location";
 
 const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
   const { ad, provider_statistics: providerStatistics } = adData;
@@ -35,44 +33,8 @@ const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
         evaluationsCounter={evaluationsCounter}
       />
       <div className={styles.jobDetails}>
-        <div className={styles.location}>
-          <div className={styles.locationSpecific}>
-            <div className={styles.locationSpecificRegion}>
-              <img
-                src={mapIcon}
-                alt="Map Location Icon"
-                className={styles.icon}
-              />
-              <h4>Locais</h4>
-            </div>
-            <ul className={styles.locationList}>
-              {cities.map(({ city_name: cityName, state_name: stateAbb }) => (
-                <li key={cityName}>
-                  {cityName} | {stateAbb}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className={styles.locationSpecific}>
-            <div className={styles.locationSpecificRegion}>
-              <img
-                src={mapIcon}
-                alt="Map Location Icon"
-                className={styles.icon}
-              />
-              <h4>Região</h4>
-            </div>
-            <ul className={styles.locationList}>
-              {cities.map(({ city_name: cityName, region_area: regionArea }) =>
-                regionArea.map(({ area_name: areaName }) => (
-                  <li key={areaName}>
-                    {areaName} | {cityName}
-                  </li>
-                ))
-              )}
-            </ul>
-          </div>
-        </div>
+        <Location cities={cities} />
+
         <div className={styles.description}>
           <h4>Descrição</h4>
           <p>{adDescription}</p>
