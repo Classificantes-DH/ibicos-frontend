@@ -4,8 +4,8 @@ import styles from "./WorkingLocation.module.scss";
 import mapIcon from "../../../../../resources/imgs/utilityIcons/map-location-pure.svg";
 
 const WorkingLocation = ({ title, location }) => (
-  <div className={styles.locationSpecific}>
-    <div className={styles.locationSpecificRegion}>
+  <div className={styles.container}>
+    <div className={styles.titleContainer}>
       <img src={mapIcon} alt="Map Location Icon" className={styles.icon} />
       <h4>{title}</h4>
     </div>

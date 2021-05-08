@@ -4,7 +4,7 @@ import styles from "./Location.module.scss";
 import WorkingLocation from "./WorkingLocation/WorkingLocation";
 
 const Location = ({ cities }) => (
-  <div className={styles.location}>
+  <div className={styles.container}>
     <WorkingLocation
       title="Locais"
       location={cities.map(({ city_name: cityName, state_name: stateAbb }) => ({
