@@ -4,6 +4,11 @@
   @include displayFlex($justify: center, $direction: column, $align: center);
 }
 
+.evaluationContainer,
+.notEnoughEvaluationsContainer {
+  color: $WHITE;
+}
+
 .notEnoughEvaluationsContainer {
   margin: 10px 4px;
   p {

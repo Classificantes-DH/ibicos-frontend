@@ -6,6 +6,7 @@
 
   text-align: center;
   font-size: 1.3rem;
+  color: $WHITE;
 
   .customerOwnedAd {
     position: absolute;
@@ -25,7 +26,7 @@
 .title,
 p {
   font-weight: 400;
-  color: $WHITE;
+  // color: $WHITE;
 }
 
 @media #{$BREAKPOINT-TABLET-LAND} {
