@@ -32,11 +32,10 @@ Location.propTypes = {
     PropTypes.shape({
       city_name: PropTypes.string.isRequired,
       state_name: PropTypes.string.isRequired,
-      idy: PropTypes.number,
+
       region_area: PropTypes.arrayOf(
         PropTypes.arrayOf(
           PropTypes.shape({
-            id: PropTypes.number,
             area_name: PropTypes.string.isRequired,
           })
         )

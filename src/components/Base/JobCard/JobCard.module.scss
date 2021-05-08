@@ -19,23 +19,6 @@
   .jobDetails {
     width: 95%;
     margin: 0 auto;
-
-    .description {
-      margin-bottom: 10px;
-
-      h4 {
-        font-size: 0.75rem;
-        font-weight: 800;
-      }
-
-      p {
-        font-size: 0.7rem;
-        font-weight: 500;
-
-        text-align: justify;
-        line-height: 12px;
-      }
-    }
   }
 }
 
@@ -63,16 +46,6 @@
 
     .jobDetails {
       width: 90%;
-
-      .description {
-        h4 {
-          font-size: 1.2rem;
-        }
-        p {
-          font-size: 0.9rem;
-          line-height: 15px;
-        }
-      }
     }
   }
 }

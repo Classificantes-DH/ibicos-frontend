@@ -6,6 +6,7 @@ import styles from "./JobCard.module.scss";
 import JobLogo from "./JobLogo/JobLogo";
 import MainDescription from "./MainDescription/MainDescription";
 import Location from "./Location/Location";
+import ProviderDescription from "./ProviderDescription/ProviderDescription";
 
 const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
   const { ad, provider_statistics: providerStatistics } = adData;
@@ -34,11 +35,7 @@ const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
       />
       <div className={styles.jobDetails}>
         <Location cities={cities} />
-
-        <div className={styles.description}>
-          <h4>Descrição</h4>
-          <p>{adDescription}</p>
-        </div>
+        <ProviderDescription description={adDescription} />
       </div>
     </div>
   );
@@ -52,27 +49,18 @@ JobCard.propTypes = {
   isCustomerAndProviderTheSame: PropTypes.bool,
   adData: PropTypes.shape({
     ad: PropTypes.shape({
-      id: PropTypes.number,
       ad_description: PropTypes.string.isRequired,
-
       service_category: PropTypes.shape({
         category_name: PropTypes.string.isRequired,
-        id: PropTypes.number,
       }).isRequired,
-
-      user: PropTypes.shape({
-        id: PropTypes.number,
-      }),
 
       cities: PropTypes.arrayOf(
         PropTypes.shape({
           city_name: PropTypes.string.isRequired,
           state_name: PropTypes.string.isRequired,
-          idy: PropTypes.number,
           region_area: PropTypes.arrayOf(
             PropTypes.arrayOf(
               PropTypes.shape({
-                id: PropTypes.number,
                 area_name: PropTypes.string.isRequired,
               })
             )
@@ -82,14 +70,9 @@ JobCard.propTypes = {
     }),
 
     provider_statistics: PropTypes.shape({
-      id: PropTypes.number,
-      visualizations: PropTypes.number,
       statistics: PropTypes.shape({
-        id: PropTypes.number,
         evaluation: PropTypes.number.isRequired,
         evaluations_counter: PropTypes.number.isRequired,
-        messages_counter: PropTypes.number,
-        hired_services_counter: PropTypes.number,
       }).isRequired,
     }),
   }).isRequired,
