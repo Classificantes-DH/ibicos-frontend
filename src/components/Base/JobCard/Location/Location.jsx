@@ -1,38 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import mapIcon from "../../../../resources/imgs/utilityIcons/map-location-pure.svg";
 import styles from "./Location.module.scss";
+import WorkingLocation from "./WorkingLocation/WorkingLocation";
 
 const Location = ({ cities }) => (
   <div className={styles.location}>
-    <div className={styles.locationSpecific}>
-      <div className={styles.locationSpecificRegion}>
-        <img src={mapIcon} alt="Map Location Icon" className={styles.icon} />
-        <h4>Locais</h4>
-      </div>
-      <ul className={styles.locationList}>
-        {cities.map(({ city_name: cityName, state_name: stateAbb }) => (
-          <li key={cityName}>
-            {cityName} | {stateAbb}
-          </li>
-        ))}
-      </ul>
-    </div>
-    <div className={styles.locationSpecific}>
-      <div className={styles.locationSpecificRegion}>
-        <img src={mapIcon} alt="Map Location Icon" className={styles.icon} />
-        <h4>Região</h4>
-      </div>
-      <ul className={styles.locationList}>
-        {cities.map(({ city_name: cityName, region_area: regionArea }) =>
-          regionArea.map(({ area_name: areaName }) => (
-            <li key={areaName}>
-              {areaName} | {cityName}
-            </li>
-          ))
-        )}
-      </ul>
-    </div>
+    <WorkingLocation
+      title="Locais"
+      location={cities.map(({ city_name: cityName, state_name: stateAbb }) => ({
+        specific: cityName,
+        broad: stateAbb,
+      }))}
+    />
+    <WorkingLocation
+      title="Região"
+      location={cities.flatMap(
+        ({ city_name: cityName, region_area: regionArea }) =>
+          regionArea.map(({ area_name: areaName }) => ({
+            specific: cityName,
+            broad: areaName,
+          }))
+      )}
+    />
   </div>
 );
 

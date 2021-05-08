@@ -1,0 +1,48 @@
+@import "./../../../../../styles/scss/";
+
+.locationSpecific {
+  @include displayFlex($justify: space-between, $align: flex-start);
+  margin: 10px 0;
+
+  .locationSpecificRegion {
+    @include displayFlex();
+  }
+
+  .locationList {
+    list-style: none;
+    text-align: end;
+    li {
+      color: $WHITE;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+  }
+
+  .icon {
+    width: 10px;
+  }
+
+  h4 {
+    margin-left: 5px;
+    font-size: 0.8rem;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .locationSpecific {
+    .icon {
+      width: 15px;
+    }
+    .locationList {
+      li {
+        font-size: 0.8rem;
+      }
+    }
+    h4 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
