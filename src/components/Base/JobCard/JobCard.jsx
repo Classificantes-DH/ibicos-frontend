@@ -3,8 +3,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
 import mapIcon from "../../../resources/imgs/utilityIcons/map-location-pure.svg";
-import { RatingStars } from "../../index";
+
 import JobLogo from "./JobLogo/JobLogo";
+import MainDescription from "./MainDescription/MainDescription";
 
 import "../../../util/svg-coloration.scss";
 
@@ -26,29 +27,13 @@ const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
   return (
     <div className={styles.container}>
       <JobLogo categoryName={categoryName} />
-      <div className={styles.mainDescription}>
-        <h2 className={styles.title}>
-          {categoryName}
-          {isCustomerAndProviderTheSame && (
-            <div className={styles.customerOwnedAd} />
-          )}
-        </h2>
 
-        {evaluationsCounter && evaluationsCounter > 0 ? (
-          <div className={styles.evaluationContainer}>
-            <RatingStars
-              rate={evaluation}
-              isEditable={false}
-              description="Quantidade de avaliações"
-            />
-            <p>{evaluationsCounter} avaliações</p>
-          </div>
-        ) : (
-          <div className={styles.notEnoughEvaluationsContainer}>
-            <p>Sem avaliações suficientes</p>
-          </div>
-        )}
-      </div>
+      <MainDescription
+        categoryName={categoryName}
+        isCustomerAndProviderTheSame={isCustomerAndProviderTheSame}
+        rate={evaluation}
+        evaluationsCounter={evaluationsCounter}
+      />
       <div className={styles.jobDetails}>
         <div className={styles.location}>
           <div className={styles.locationSpecific}>
