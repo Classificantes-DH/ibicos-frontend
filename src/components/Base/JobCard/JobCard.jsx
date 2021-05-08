@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "./JobCard.module.scss";
 import mapIcon from "../../../resources/imgs/utilityIcons/map-location-pure.svg";
 import { RatingStars } from "../../index";
-import { useJobIconImportHook } from "../../../hooks/index";
+import JobLogo from "./JobLogo/JobLogo";
 
 import "../../../util/svg-coloration.scss";
 
@@ -12,7 +12,6 @@ const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
   const { ad, provider_statistics: providerStatistics } = adData;
 
   const {
-    id,
     ad_description: adDescription,
     cities,
     service_category: serviceCategory,
@@ -24,20 +23,9 @@ const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
     statistics: { evaluation, evaluations_counter: evaluationsCounter },
   } = providerStatistics;
 
-  const img = useJobIconImportHook(categoryName.toLowerCase())[0];
-
-  const randomSvgColor = ["primary-purple", "primary-orange", "primary-black"];
   return (
     <div className={styles.container}>
-      <div className={styles.logoContainer}>
-        <img
-          src={img}
-          alt="Job Logo"
-          className={`${styles.jobLogo} ${
-            randomSvgColor[id % randomSvgColor.length]
-          }`}
-        />
-      </div>
+      <JobLogo categoryName={categoryName} />
       <div className={styles.mainDescription}>
         <h2 className={styles.title}>
           {categoryName}

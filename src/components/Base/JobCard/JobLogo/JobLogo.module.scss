@@ -1,0 +1,23 @@
+@import "./../../../../styles/scss/";
+
+.container {
+  @include displayFlex($justify: center);
+  width: 100%;
+
+  background-color: $WHITE;
+  border-radius: 7px 7px 0 0;
+
+  .logo {
+    width: 229px;
+    height: 125.15px;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    .logo {
+      width: 342.78px;
+      height: 188.97px;
+    }
+  }
+}
