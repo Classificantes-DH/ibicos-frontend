@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import styles from "./EvaluationAccordion.module.scss";
 
 import Opener from "./Opener/Opener";
-import SuccessfulService from "./SuccessfulService/SuccessfulService";
-import RatingSurvey from "./SuccessfulService/RatingSurvey/RatingSurvey";
-import ConfirmHiringSurvey from "./SuccessfulService/ConfirmHiringSurvey/ConfirmHiringSurvey";
+import Survey from "./Survey/Survey";
+import RatingSurvey from "./Survey/RatingSurvey/RatingSurvey";
+import ConfirmHiringSurvey from "./Survey/ConfirmHiringSurvey/ConfirmHiringSurvey";
 
 const EvaluationAccordion = ({
   pendingEvaluationData,
@@ -39,7 +39,7 @@ const EvaluationAccordion = ({
           isAccordionOpen ? `${styles.showContent}` : ``
         }`}
       >
-        <SuccessfulService
+        <Survey
           handleRatingChange={handleRatingChange}
           idEvaluate={idEvaluate}
           isHired={isHired}
@@ -54,11 +54,11 @@ const EvaluationAccordion = ({
             handleRatingChange={handleRatingChange}
             idEvaluate={idEvaluate}
           />
-        </SuccessfulService>
+        </Survey>
 
         <Switch>
           <Route path="/clienteDashBoard">
-            <SuccessfulService
+            <Survey
               isHired={!isHired}
               message={
                 <>
@@ -73,7 +73,7 @@ const EvaluationAccordion = ({
                 idEvaluate={idEvaluate}
                 handleJobConfirmation={handleJobConfirmation}
               />
-            </SuccessfulService>
+            </Survey>
           </Route>
         </Switch>
       </div>
