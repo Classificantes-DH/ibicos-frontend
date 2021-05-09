@@ -53,16 +53,15 @@ const EvaluationAccordion = ({
 
         <Switch>
           <Route path="/clienteDashBoard">
-            <div
-              className={`${styles.content} ${
-                !isHired ? `${styles.activeContent}` : ``
-              }`}
+            <SuccessfulService
+              isHired={!isHired}
+              message={
+                <>
+                  <p>Fulano te enviou uma mensagem,</p>
+                  <p>vocês fecharam negocio?</p>
+                </>
+              }
             >
-              <div className={styles.messageContainer}>
-                <p>Fulano te enviou uma mensagem,</p>
-                <p>vocês fecharam negocio?</p>
-              </div>
-
               <div className={styles.surveyContainer}>
                 <button
                   className={styles.submitButton}
@@ -83,7 +82,7 @@ const EvaluationAccordion = ({
                   <span>Não</span>
                 </button>
               </div>
-            </div>
+            </SuccessfulService>
           </Route>
         </Switch>
       </div>
