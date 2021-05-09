@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Opener.module.scss";
 import Title from "./Title/Title";
+import EventToggler from "./EventToggler/EventToggler";
 
 const Opener = ({ handleAccordionToggle, messageDate, isAccordionOpen }) => (
   <header
@@ -13,7 +14,9 @@ const Opener = ({ handleAccordionToggle, messageDate, isAccordionOpen }) => (
   >
     <Title messageDate={messageDate} />
 
-    <div className={styles.eventControllerContainer}>
+    <EventToggler isAccordionOpen={isAccordionOpen} />
+
+    {/* <div className={styles.eventControllerContainer}>
       <div
         className={`${styles.openerLine} ${
           isAccordionOpen
@@ -22,7 +25,7 @@ const Opener = ({ handleAccordionToggle, messageDate, isAccordionOpen }) => (
         }`}
       />
       <div className={styles.openerLine} />
-    </div>
+    </div> */}
   </header>
 );
 export default Opener;
