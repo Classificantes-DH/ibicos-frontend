@@ -3,7 +3,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import styles from "./SuccessfulService.module.scss";
-import { RatingStars } from "../../../index";
+
+import RatingSurvey from "./RatingSurvey/RatingSurvey";
 
 const SuccessfulService = ({ isHired, handleRatingChange, idEvaluate }) => {
   const location = useLocation();
@@ -24,17 +25,10 @@ const SuccessfulService = ({ isHired, handleRatingChange, idEvaluate }) => {
       </div>
 
       <div className={styles.ratingSurveyContainer}>
-        <div className={styles.ratingContainer}>
-          <RatingStars
-            isEditable
-            description="Service evaluation"
-            activeColor="#ff7a00"
-            rate={0}
-            handleRatingChange={(event) =>
-              handleRatingChange(event, idEvaluate)
-            }
-          />
-        </div>
+        <RatingSurvey
+          handleRatingChange={handleRatingChange}
+          idEvaluate={idEvaluate}
+        />
       </div>
     </div>
   );

@@ -27,16 +27,6 @@
 
 .ratingSurveyContainer {
   @include displayFlex($justify: flex-end);
-
-  .ratingContainer {
-    @include displayFlex($justify: center);
-    padding: 0 10px;
-
-    margin-right: 5%;
-    border-radius: 5px;
-    background-color: $PURPLE;
-    box-shadow: 0px 0px 4px rgba(177, 172, 172, 0.35);
-  }
 }
 
 @media #{$BREAKPOINT-MOBILE-LAND} {
