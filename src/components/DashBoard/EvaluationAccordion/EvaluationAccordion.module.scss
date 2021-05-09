@@ -14,37 +14,6 @@
     transition: max-height 500ms ease-in-out;
 
     position: relative;
-
-    .surveyContainer {
-      @include displayFlex();
-      margin-top: 5vw;
-      margin-left: 5vw;
-
-      .submitButton {
-        @include displayFlex($align: center, $justify: center);
-
-        border: none;
-        border-radius: 3px;
-        background-color: $ORANGE;
-        box-shadow: 0 0 0.5px #262626;
-
-        color: $PURPLE;
-        font-weight: 800;
-        font-family: "Poppins";
-        font-size: 6vw;
-
-        width: 22vw;
-        height: 10vw;
-        margin-right: 7vw;
-
-        cursor: pointer;
-        transition: all 200ms ease-in-out;
-
-        &:hover {
-          background-color: rgb(228, 113, 6);
-        }
-      }
-    }
   }
 
   .showContent {
@@ -56,15 +25,6 @@
   .container {
     .contentContainer {
       height: 38vw;
-
-      .surveyContainer {
-        .submitButton {
-          width: 19vw;
-          height: 9vw;
-
-          font-size: 5vw;
-        }
-      }
     }
   }
 }
@@ -73,15 +33,6 @@
   .container {
     .contentContainer {
       height: 31vw;
-
-      .surveyContainer {
-        .submitButton {
-          width: 16vw;
-          height: 6.5vw;
-
-          font-size: 4vw;
-        }
-      }
     }
   }
 }
@@ -93,19 +44,6 @@
 
     .contentContainer {
       height: 16vw;
-
-      .surveyContainer {
-        margin-left: 4.8vw;
-        margin-top: 0;
-
-        .submitButton {
-          width: 8vw;
-          height: 3.8vw;
-          margin-right: 3vw;
-
-          font-size: 2.2vw;
-        }
-      }
     }
 
     .showContent {
@@ -121,14 +59,6 @@
 
     .contentContainer {
       height: 14vw;
-
-      .surveyContainer {
-        .submitButton {
-          width: 7vw;
-          height: 3vw;
-          font-size: 1.5vw;
-        }
-      }
     }
   }
 }

@@ -6,6 +6,7 @@ import styles from "./EvaluationAccordion.module.scss";
 import Opener from "./Opener/Opener";
 import SuccessfulService from "./SuccessfulService/SuccessfulService";
 import RatingSurvey from "./SuccessfulService/RatingSurvey/RatingSurvey";
+import ConfirmHiringSurvey from "./SuccessfulService/ConfirmHiringSurvey/ConfirmHiringSurvey";
 
 const EvaluationAccordion = ({
   pendingEvaluationData,
@@ -19,6 +20,10 @@ const EvaluationAccordion = ({
 
   const handleAccordionToggle = () => {
     setIsAccordionOpen(!isAccordionOpen);
+  };
+
+  const handleHiredChange = (newIsHired) => {
+    setIsHired(newIsHired);
   };
 
   return (
@@ -62,26 +67,12 @@ const EvaluationAccordion = ({
                 </>
               }
             >
-              <div className={styles.surveyContainer}>
-                <button
-                  className={styles.submitButton}
-                  type="submit"
-                  onClick={() => {
-                    handleJobConfirmation(idEvaluate);
-                    setIsHired(true);
-                  }}
-                >
-                  <span>Sim</span>
-                </button>
-
-                <button
-                  className={styles.submitButton}
-                  onClick={() => handleJobDeletion(idEvaluate)}
-                  type="submit"
-                >
-                  <span>Não</span>
-                </button>
-              </div>
+              <ConfirmHiringSurvey
+                handleHiredChange={handleHiredChange}
+                handleJobDeletion={handleJobDeletion}
+                idEvaluate={idEvaluate}
+                handleJobConfirmation={handleJobConfirmation}
+              />
             </SuccessfulService>
           </Route>
         </Switch>
