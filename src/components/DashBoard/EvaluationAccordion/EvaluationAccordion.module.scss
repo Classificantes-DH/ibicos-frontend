@@ -15,45 +15,6 @@
 
     position: relative;
 
-    .content {
-      position: absolute;
-      top: 0;
-      opacity: 0;
-
-      pointer-events: none;
-      transition: opacity ease-in 150ms;
-    }
-
-    .activeContent {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .messageContainer {
-      margin: 4vw 0;
-      margin-left: 4vw;
-
-      p {
-        color: $PURPLE;
-        font-weight: 800;
-        font-size: 4vw;
-      }
-    }
-
-    .ratingSurveyContainer {
-      @include displayFlex($justify: flex-end);
-
-      .ratingContainer {
-        @include displayFlex($justify: center);
-        padding: 0 10px;
-
-        margin-right: 5%;
-        border-radius: 5px;
-        background-color: $PURPLE;
-        box-shadow: 0px 0px 4px rgba(177, 172, 172, 0.35);
-      }
-    }
-
     .surveyContainer {
       @include displayFlex();
       margin-top: 5vw;
@@ -96,12 +57,6 @@
     .contentContainer {
       height: 38vw;
 
-      .messageContainer {
-        p {
-          font-size: 3.8vw;
-        }
-      }
-
       .surveyContainer {
         .submitButton {
           width: 19vw;
@@ -118,12 +73,6 @@
   .container {
     .contentContainer {
       height: 31vw;
-
-      .messageContainer {
-        p {
-          font-size: 3vw;
-        }
-      }
 
       .surveyContainer {
         .submitButton {
@@ -144,14 +93,6 @@
 
     .contentContainer {
       height: 16vw;
-
-      .messageContainer {
-        margin: 1.5vw 1vw;
-
-        p {
-          font-size: 1.7vw;
-        }
-      }
 
       .surveyContainer {
         margin-left: 4.8vw;
@@ -180,12 +121,6 @@
 
     .contentContainer {
       height: 14vw;
-
-      .messageContainer {
-        p {
-          font-size: 1.3vw;
-        }
-      }
 
       .surveyContainer {
         .submitButton {
