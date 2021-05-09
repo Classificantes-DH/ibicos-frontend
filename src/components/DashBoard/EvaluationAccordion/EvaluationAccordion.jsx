@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import styles from "./EvaluationAccordion.module.scss";
 import { RatingStars } from "../../index";
+import Opener from "./Opener/Opener";
 
 const EvaluationAccordion = ({
   pendingEvaluationData,
@@ -21,31 +22,11 @@ const EvaluationAccordion = ({
 
   return (
     <div className={styles.container}>
-      <header
-        className={styles.headerContainer}
-        onClick={handleAccordionToggle}
-        role="button"
-        onKeyPress={handleAccordionToggle}
-        tabIndex={0}
-      >
-        <div className={styles.titleContainer}>
-          <h2>
-            <span>{">"}</span>
-            {messageDate}
-          </h2>
-        </div>
-
-        <div className={styles.eventControllerContainer}>
-          <div
-            className={`${styles.openerLine} ${
-              isAccordionOpen
-                ? `${styles.activeAccordion}`
-                : `${styles.defaultPosition}`
-            }`}
-          />
-          <div className={styles.openerLine} />
-        </div>
-      </header>
+      <Opener
+        handleAccordionToggle={handleAccordionToggle}
+        messageDate={messageDate}
+        isAccordionOpen={isAccordionOpen}
+      />
 
       <div
         className={`${styles.contentContainer} ${
