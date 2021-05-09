@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Opener.module.scss";
+import Title from "./Title/Title";
 
 const Opener = ({ handleAccordionToggle, messageDate, isAccordionOpen }) => (
   <header
@@ -10,12 +11,7 @@ const Opener = ({ handleAccordionToggle, messageDate, isAccordionOpen }) => (
     onKeyPress={handleAccordionToggle}
     tabIndex={0}
   >
-    <div className={styles.titleContainer}>
-      <h2>
-        <span>{">"}</span>
-        {messageDate}
-      </h2>
-    </div>
+    <Title messageDate={messageDate} />
 
     <div className={styles.eventControllerContainer}>
       <div

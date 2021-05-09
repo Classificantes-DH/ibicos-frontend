@@ -14,24 +14,6 @@
     background-color: rgb(236, 121, 13);
   }
 
-  .titleContainer {
-    margin-left: 3vw;
-
-    h2 {
-      @include displayFlex($align: center);
-      font-size: 6vw;
-
-      span {
-        display: inline-block;
-        margin-right: 2vw;
-
-        color: $PURPLE;
-        font-size: 12vw;
-        font-weight: 900;
-      }
-    }
-  }
-
   .eventControllerContainer {
     position: relative;
     margin-right: 3vw;
@@ -71,17 +53,6 @@
   .headerContainer {
     height: 8.5vw;
 
-    .titleContainer {
-      h2 {
-        font-size: 4.7vw;
-
-        span {
-          font-size: 8vw;
-          margin-right: 1.5vw;
-        }
-      }
-    }
-
     .eventControllerContainer {
       &,
       .openerLine {
@@ -96,16 +67,6 @@
   .headerContainer {
     height: 5.5vw;
 
-    .titleContainer {
-      h2 {
-        font-size: 3.5vw;
-
-        span {
-          font-size: 6.5vw;
-        }
-      }
-    }
-
     .eventControllerContainer {
       &,
       .openerLine {
@@ -119,19 +80,6 @@
 @media #{$BREAKPOINT-TABLET-LAND} {
   .headerContainer {
     height: 4vw;
-
-    .titleContainer {
-      margin-left: 1vw;
-
-      h2 {
-        font-size: 2vw;
-
-        span {
-          margin-right: 0.5vw;
-          font-size: 3.8vw;
-        }
-      }
-    }
 
     .eventControllerContainer {
       margin-right: 1vw;
@@ -148,15 +96,5 @@
 @media #{$BREAKPOINT-DESK} {
   .headerContainer {
     height: 3.2vw;
-
-    .titleContainer {
-      h2 {
-        font-size: 1.5vw;
-
-        span {
-          font-size: 3.2vw;
-        }
-      }
-    }
   }
 }

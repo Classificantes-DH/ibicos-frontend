@@ -1,0 +1,71 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.container {
+  margin-left: 3vw;
+
+  h2 {
+    @include displayFlex($align: center);
+    font-size: 6vw;
+
+    span {
+      display: inline-block;
+      margin-right: 2vw;
+
+      color: $PURPLE;
+      font-size: 12vw;
+      font-weight: 900;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .container {
+    h2 {
+      font-size: 4.7vw;
+
+      span {
+        font-size: 8vw;
+        margin-right: 1.5vw;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .container {
+    h2 {
+      font-size: 3.5vw;
+
+      span {
+        font-size: 6.5vw;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    margin-left: 1vw;
+
+    h2 {
+      font-size: 2vw;
+
+      span {
+        margin-right: 0.5vw;
+        font-size: 3.8vw;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .container {
+    h2 {
+      font-size: 1.5vw;
+
+      span {
+        font-size: 3.2vw;
+      }
+    }
+  }
+}
