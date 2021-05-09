@@ -5,6 +5,7 @@ import styles from "./EvaluationAccordion.module.scss";
 
 import Opener from "./Opener/Opener";
 import SuccessfulService from "./SuccessfulService/SuccessfulService";
+import RatingSurvey from "./SuccessfulService/RatingSurvey/RatingSurvey";
 
 const EvaluationAccordion = ({
   pendingEvaluationData,
@@ -43,8 +44,12 @@ const EvaluationAccordion = ({
               avalia o serviço contratado:
             </p>
           }
-        />
-        {/* #TODO: Remove location path validation and use data coming from the backend */}
+        >
+          <RatingSurvey
+            handleRatingChange={handleRatingChange}
+            idEvaluate={idEvaluate}
+          />
+        </SuccessfulService>
 
         <Switch>
           <Route path="/clienteDashBoard">
