@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./ConfirmHiringSurvey.module.scss";
 
+import { Button } from "../../../../index";
+import "./Button.scss";
+
 const ConfirmHiringSurvey = ({
   handleHiredChange,
   handleJobConfirmation,
@@ -9,24 +12,26 @@ const ConfirmHiringSurvey = ({
   idEvaluate,
 }) => (
   <div className={styles.surveyContainer}>
-    <button
-      className={styles.submitButton}
-      type="submit"
-      onClick={() => {
+    <Button
+      onClickHandler={() => {
         handleJobConfirmation(idEvaluate);
         handleHiredChange(true);
       }}
-    >
-      <span>Sim</span>
-    </button>
-
-    <button
-      className={styles.submitButton}
-      onClick={() => handleJobDeletion(idEvaluate)}
+      text={<span>Sim</span>}
       type="submit"
-    >
-      <span>Não</span>
-    </button>
+      buttonClassName="survey-btn"
+      containerClassName="survey-container-confirm-hiring-survey"
+    />
+
+    <Button
+      onClickHandler={() => {
+        handleJobDeletion(idEvaluate);
+      }}
+      text={<span>Não</span>}
+      type="submit"
+      buttonClassName="survey-btn"
+      containerClassName="survey-container-confirm-hiring-survey"
+    />
   </div>
 );
 export default ConfirmHiringSurvey;

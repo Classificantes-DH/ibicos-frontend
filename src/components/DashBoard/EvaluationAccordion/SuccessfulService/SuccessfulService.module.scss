@@ -17,3 +17,9 @@
 .ratingSurveyContainer {
   @include displayFlex($justify: flex-end);
 }
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .content {
+    width: 100%;
+  }
+}
