@@ -37,6 +37,12 @@ const EvaluationAccordion = ({
           handleRatingChange={handleRatingChange}
           idEvaluate={idEvaluate}
           isHired={isHired}
+          message={
+            <p>
+              Excelente! Indique para nós, em uma escala de 1 à 5 como você
+              avalia o serviço contratado:
+            </p>
+          }
         />
         {/* #TODO: Remove location path validation and use data coming from the backend */}
 

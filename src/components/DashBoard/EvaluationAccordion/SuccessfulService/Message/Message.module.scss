@@ -1,0 +1,46 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.messageContainer {
+  margin: 4vw 0;
+  margin-left: 4vw;
+
+  p {
+    color: $PURPLE;
+    font-weight: 800;
+    font-size: 4vw;
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .messageContainer {
+    p {
+      font-size: 3.8vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .messageContainer {
+    p {
+      font-size: 3vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .messageContainer {
+    margin: 1.5vw 1vw;
+
+    p {
+      font-size: 1.7vw;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .messageContainer {
+    p {
+      font-size: 1.3vw;
+    }
+  }
+}
