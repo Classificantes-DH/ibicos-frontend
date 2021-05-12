@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./BroadFilter.module.scss";
 import Filter from "./Filter/Filter";
+import Header from "./Header/Header";
 import { useServiceCategoryHook } from "../../../hooks/index";
 
 const BroadFilter = ({
@@ -19,9 +20,7 @@ const BroadFilter = ({
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h3>Filtro</h3>
-      </div>
+      <Header />
       <div className={styles.filtersContainer}>
         <Filter
           handleSelectChange={(event) =>
