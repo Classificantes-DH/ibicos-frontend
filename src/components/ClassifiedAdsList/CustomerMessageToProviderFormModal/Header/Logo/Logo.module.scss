@@ -1,0 +1,10 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.logoContainer {
+  max-width: 50%;
+  margin-left: 12px;
+  img {
+    @include displayFlex($align: center);
+    width: 40px;
+  }
+}

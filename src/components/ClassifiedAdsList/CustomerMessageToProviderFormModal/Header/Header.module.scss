@@ -6,15 +6,6 @@
   background-color: $ORANGE;
   padding: 10px 0;
 
-  .logoContainer {
-    max-width: 50%;
-    margin-left: 12px;
-    img {
-      @include displayFlex($align: center);
-      width: 40px;
-    }
-  }
-
   .btnContainer {
     position: relative;
     max-width: 50%;
