@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./CustomerMessageToProviderFormModal.module.scss";
-import { LoadingSpinner } from "../../index";
+
 import Header from "./Header/Header";
 import EmailSuccessfullySent from "./EmailSuccessfullySent/EmailSuccessfullySent";
+import MessageSubmission from "./MessageSubmission/MessageSubmission";
 
 const CustomerMessageToProviderFormModal = ({
   handleModalEvent,
@@ -27,33 +28,12 @@ const CustomerMessageToProviderFormModal = ({
           onClickHandler={{ handleModalEvent, handleModalReset }}
         />
       ) : (
-        <div className={styles.contentContainer}>
-          <div className={styles.introContent}>
-            <p>
-              <strong>Se interessou?</strong> Entre em contato agora mesmo com o
-              profissional!
-            </p>
-          </div>
-          <form
-            className={styles.formContainer}
-            onSubmit={(event) => {
-              handleSendMessage(event);
-            }}
-          >
-            <textarea
-              placeholder="Insira sua mensagem"
-              onChange={handleChangeInputMessage}
-              value={inputMessage}
-            />
-
-            <div className={styles.messageSendingContainer}>
-              <button type="submit">Enviar</button>
-              <div className={styles.loadingSpinnerContainer}>
-                <LoadingSpinner isLoading={isLoading} />
-              </div>
-            </div>
-          </form>
-        </div>
+        <MessageSubmission
+          handleChangeInputMessage={handleChangeInputMessage}
+          inputMessage={inputMessage}
+          isLoading={isLoading}
+          handleSendMessage={handleSendMessage}
+        />
       )}
     </div>
   );
