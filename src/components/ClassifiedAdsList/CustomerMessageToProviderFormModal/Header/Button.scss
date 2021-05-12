@@ -1,0 +1,23 @@
+@import "./../../../../styles/scss/index.scss";
+
+.customer-message-modal-header-container {
+  position: relative;
+  max-width: 50%;
+
+  .customer-message-modal-header-btn {
+    @include defaultButton($bg-color: $PURPLE, $radius: 50%);
+    @include displayFlex($justify: center, $align: center, $direction: column);
+
+    height: 40px;
+    width: 40px;
+
+    margin-right: 15px;
+
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      background-color: #410d39;
+    }
+  }
+}

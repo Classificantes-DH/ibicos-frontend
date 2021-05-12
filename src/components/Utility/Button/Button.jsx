@@ -22,6 +22,7 @@ export default Button;
 
 Button.defaultProps = {
   children: null,
+  text: "",
 };
 
 Button.propTypes = {
@@ -29,6 +30,6 @@ Button.propTypes = {
   children: PropTypes.node,
   containerClassName: PropTypes.string.isRequired,
   buttonClassName: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   type: PropTypes.oneOf(["submit", "button"]).isRequired,
 };
