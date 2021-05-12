@@ -6,48 +6,48 @@
   border-radius: 5px;
   width: calc(100vw - 20px);
 
-  .responseContainer {
-    @include displayFlex($justify: center, $direction: column, $align: center);
-    margin: 20px 0;
+  // .responseContainer {
+  //   @include displayFlex($justify: center, $direction: column, $align: center);
+  //   margin: 20px 0;
 
-    .infoContainer {
-      @include displayFlex(
-        $justify: center,
-        $direction: column,
-        $align: center
-      );
+  //   .infoContainer {
+  //     @include displayFlex(
+  //       $justify: center,
+  //       $direction: column,
+  //       $align: center
+  //     );
 
-      img {
-        width: 36vw;
-      }
+  //     img {
+  //       width: 36vw;
+  //     }
 
-      p {
-        margin-top: 10px;
+  //     p {
+  //       margin-top: 10px;
 
-        font-size: 1rem;
-        font-weight: 500;
-        text-align: center;
-      }
-    }
+  //       font-size: 1rem;
+  //       font-weight: 500;
+  //       text-align: center;
+  //     }
+  //   }
 
-    .btnContainer {
-      margin: 10px 0;
+  //   .btnContainer {
+  //     margin: 10px 0;
 
-      .keepSearchingBtn {
-        @include defaultButton();
-        width: 250px;
-        height: 43px;
+  //     .keepSearchingBtn {
+  //       @include defaultButton();
+  //       width: 250px;
+  //       height: 43px;
 
-        font-weight: bold;
-        cursor: pointer;
-        margin-bottom: 10px;
+  //       font-weight: bold;
+  //       cursor: pointer;
+  //       margin-bottom: 10px;
 
-        &:hover {
-          background-color: #dd7412;
-        }
-      }
-    }
-  }
+  //       &:hover {
+  //         background-color: #dd7412;
+  //       }
+  //     }
+  //   }
+  // }
 
   .contentContainer {
     padding: 16px;
@@ -150,13 +150,13 @@
 
 @media #{$BREAKPOINT-TABLET} {
   .container {
-    .responseContainer {
-      .infoContainer {
-        p {
-          font-size: 1.8rem;
-        }
-      }
-    }
+    // .responseContainer {
+    //   .infoContainer {
+    //     p {
+    //       font-size: 1.8rem;
+    //     }
+    //   }
+    // }
 
     .contentContainer {
       .btnContainer {
@@ -177,16 +177,16 @@
   .container {
     width: 60vw;
 
-    .responseContainer {
-      .infoContainer {
-        img {
-          width: 20vw;
-        }
-        p {
-          font-size: 2rem;
-        }
-      }
-    }
+    // .responseContainer {
+    //   .infoContainer {
+    //     img {
+    //       width: 20vw;
+    //     }
+    //     p {
+    //       font-size: 2rem;
+    //     }
+    //   }
+    // }
 
     .contentContainer {
       .btnContainer {

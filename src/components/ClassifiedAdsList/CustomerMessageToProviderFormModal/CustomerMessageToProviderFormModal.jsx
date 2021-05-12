@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./CustomerMessageToProviderFormModal.module.scss";
 import { LoadingSpinner } from "../../index";
-import emailSuccessIcon from "../../../resources/imgs/styleSvgs/email_success.svg";
-// import { companyLogo } from "../../../resources/imgs/utilityIcons/index";
 import Header from "./Header/Header";
+import EmailSuccessfullySent from "./EmailSuccessfullySent/EmailSuccessfullySent";
 
 const CustomerMessageToProviderFormModal = ({
   handleModalEvent,
@@ -18,28 +17,15 @@ const CustomerMessageToProviderFormModal = ({
   return (
     <div className={styles.container}>
       <Header
-        handleModalEvent={handleModalEvent}
-        handleModalReset={handleModalReset}
+        onClickHandlers={{
+          handleModalEvent,
+          handleModalReset,
+        }}
       />
       {isMessageSuccessfullySent ? (
-        <div className={styles.responseContainer}>
-          <div className={styles.infoContainer}>
-            <img src={emailSuccessIcon} alt="Email enviado com sucesso" />
-            <p>Email Enviado com sucesso!</p>
-          </div>
-          <div className={styles.btnContainer}>
-            <button
-              onClick={() => {
-                handleModalEvent();
-                handleModalReset();
-              }}
-              type="button"
-              className={styles.keepSearchingBtn}
-            >
-              Encontrar mais profissionais
-            </button>
-          </div>
-        </div>
+        <EmailSuccessfullySent
+          onClickHandler={{ handleModalEvent, handleModalReset }}
+        />
       ) : (
         <div className={styles.contentContainer}>
           <div className={styles.introContent}>
