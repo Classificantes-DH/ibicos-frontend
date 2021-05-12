@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./BroadFilter.module.scss";
+import Filter from "./Filter/Filter";
+import { useServiceCategoryHook } from "../../../hooks/index";
 
 const BroadFilter = ({
   handleBroadFilterChange,
@@ -10,6 +12,8 @@ const BroadFilter = ({
   handleSelectedStateUpdate,
 }) => {
   const { stateName, cityName } = filteringParameters;
+  const { serviceCategories } = useServiceCategoryHook();
+  console.log(serviceCategories);
 
   return (
     <div className={styles.container}>
@@ -17,30 +21,16 @@ const BroadFilter = ({
         <h3>Filtro</h3>
       </div>
       <div className={styles.filtersContainer}>
-        <div className={styles.filter}>
-          <h4 className={styles.filterTitle}>
-            <span>{">"}</span> Categoria
-          </h4>
-          <div className={styles.selectContainer}>
-            <select
-              className={styles.mainSelect}
-              onChange={(event) =>
-                handleBroadFilterChange(event, "categoryName")
-              }
-            >
-              <option value="">Qualquer</option>
-              <option>Marceneiro</option>
-              <option>Eletricista</option>
-              <option>Encanador</option>
-              <option>Doméstica</option>
-              <option>Pintor</option>
-              <option>Costureira</option>
-              <option>Beleza</option>
-              <option>Pedreiro</option>
-              <option>Serralheiro</option>
-            </select>
-          </div>
-        </div>
+        <Filter
+          handleSelectChange={(event) =>
+            handleBroadFilterChange(event, "categoryName")
+          }
+          options={serviceCategories.map(({ categoryName }) => ({
+            title: categoryName,
+            value: categoryName,
+          }))}
+          title="Categoria"
+        />
         <div className={styles.filter}>
           <h4 className={styles.filterTitle}>
             <span>{">"}</span> Estado

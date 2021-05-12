@@ -7,7 +7,7 @@ const useServiceCategoryHook = () => {
     const fetchData = async () => {
       const response = await api.get("/api/v1/service-category");
       const { data } = await response;
-      console.log(data);
+
       setServiceCategories(data);
     };
     fetchData();
