@@ -1,14 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Header.module.scss";
-
-import { companyLogo } from "../../../../resources/imgs/utilityIcons/index";
+import Logo from "./Logo/Logo";
 
 const Header = ({ handleModalEvent, handleModalReset }) => (
   <header className={styles.headerContainer}>
-    <div className={styles.logoContainer}>
-      <img src={companyLogo} alt="iBicos Logo" />
-    </div>
+    <Logo />
     <div className={styles.btnContainer}>
       <button
         onClick={() => {
