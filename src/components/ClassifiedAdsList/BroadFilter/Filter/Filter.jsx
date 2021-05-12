@@ -6,7 +6,7 @@ import "../Select.scss";
 import Title from "./Title/Tile";
 
 const Filter = ({ handleSelectChange, title, options, disabled }) => (
-  <div className={styles.filter}>
+  <div className={styles.container}>
     <Title title={title} />
     <div className={styles.selectContainer}>
       <Select

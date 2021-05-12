@@ -1,6 +1,6 @@
 @import "./../../../../../styles/scss/index.scss";
 
-.filterTitle {
+.title {
   margin: 0 0 5px 5px;
   font-size: 0.8rem;
   color: $PURPLE;
@@ -10,22 +10,20 @@
 }
 
 @media #{$BREAKPOINT-MOBILE-LAND} {
-  .filterTitle {
+  .title {
     font-size: 1rem;
     margin-left: 10px;
   }
 }
 
 @media only screen and (min-width: 754px) {
-  .filterTitle {
+  .title {
     font-size: 1.2rem;
   }
 }
 
 @media #{$BREAKPOINT-TABLET-LAND} {
-  .filter {
-    .filterTitle {
-      font-size: 1.4rem;
-    }
+  .title {
+    font-size: 1.4rem;
   }
 }

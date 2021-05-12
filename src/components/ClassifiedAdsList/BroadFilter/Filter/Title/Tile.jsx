@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./Title.module.scss";
 
 const Title = ({ title }) => (
-  <h4 className={styles.filterTitle}>
+  <h4 className={styles.title}>
     <span>{">"}</span> {title}
   </h4>
 );
