@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./MessageSubmission.module.scss";
-import { LoadingSpinner } from "../../../index";
+import FormMessage from "./FormMessage/FormMessage";
 
 const MessageSubmission = ({
   handleSendMessage,
@@ -16,27 +16,12 @@ const MessageSubmission = ({
         profissional!
       </p>
     </div>
-    <form
-      className={styles.formContainer}
-      onSubmit={(event) => {
-        handleSendMessage(event);
-      }}
-    >
-      <fieldset>
-        <textarea
-          placeholder="Insira sua mensagem"
-          onChange={handleChangeInputMessage}
-          value={inputMessage}
-        />
-      </fieldset>
-
-      <div className={styles.messageSendingContainer}>
-        <button type="submit">Enviar</button>
-        <div className={styles.loadingSpinnerContainer}>
-          <LoadingSpinner isLoading={isLoading} />
-        </div>
-      </div>
-    </form>
+    <FormMessage
+      handleChangeInputMessage={handleChangeInputMessage}
+      inputMessage={inputMessage}
+      isLoading={isLoading}
+      handleSendMessage={handleSendMessage}
+    />
   </div>
 );
 

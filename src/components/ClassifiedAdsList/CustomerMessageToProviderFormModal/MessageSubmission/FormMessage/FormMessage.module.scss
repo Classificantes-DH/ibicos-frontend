@@ -1,0 +1,103 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.formContainer {
+  @include displayFlex(
+    $direction: column,
+    $justify: space-between,
+    $align: center
+  );
+
+  fieldset {
+    border: none;
+    width: 100%;
+
+    textarea {
+      height: 37vw;
+      width: 100%;
+      resize: none;
+      font-size: 1.1rem;
+    }
+  }
+
+  button {
+    @include defaultButton($radius: 4px);
+    width: 154px;
+    height: 42px;
+
+    margin-top: 30px;
+    cursor: pointer;
+
+    font-weight: bolder;
+    font-size: 1rem;
+
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      background-color: #dd7412;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .formContainer {
+    fieldset {
+      textarea {
+        height: 29vw;
+      }
+    }
+
+    .messageSendingContainer {
+      @include displayFlex(
+        $justify: flex-end,
+        $direction: column,
+        $align: flex-end
+      );
+      width: 100%;
+
+      .loadingSpinnerContainer {
+        @include displayFlex($justify: flex-end);
+
+        width: 100%;
+
+        margin: 5px 0;
+        margin-right: 6%;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET} {
+  .formContainer {
+    fieldset {
+      textarea {
+        height: 22vw;
+      }
+    }
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .formContainer {
+    fieldset {
+      textarea {
+        height: 15vw;
+      }
+    }
+
+    button {
+      align-self: flex-end;
+      margin-top: 20px;
+      margin-right: 0px;
+    }
+  }
+}
+
+@media #{$BREAKPOINT-DESK} {
+  .formContainer {
+    fieldset {
+      textarea {
+        height: 200px;
+      }
+    }
+  }
+}
