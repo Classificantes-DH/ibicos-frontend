@@ -38,26 +38,3 @@
     }
   }
 }
-
-@media #{$BREAKPOINT-TABLET} {
-  .container {
-    .infoContainer {
-      p {
-        font-size: 1.8rem;
-      }
-    }
-  }
-}
-
-@media #{$BREAKPOINT-TABLET-LAND} {
-  .container {
-    .infoContainer {
-      img {
-        width: 20vw;
-      }
-      p {
-        font-size: 2rem;
-      }
-    }
-  }
-}

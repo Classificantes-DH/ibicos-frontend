@@ -1,16 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import emailSuccessIcon from "../../../../resources/imgs/styleSvgs/email_success.svg";
+// import emailSuccessIcon from "../../../../resources/imgs/styleSvgs/email_success.svg";
 import styles from "./EmailSuccessfullySent.module.scss";
+import ResponseMessage from "./ResponseMessage/ResponseMessage";
 
 const EmailSuccessfullySent = ({ onClickHandler }) => {
   const { handleModalEvent, handleModalReset } = onClickHandler;
   return (
     <div className={styles.container}>
-      <div className={styles.infoContainer}>
-        <img src={emailSuccessIcon} alt="Email enviado com sucesso" />
-        <p>Email Enviado com sucesso!</p>
-      </div>
+      <ResponseMessage />
       <div className={styles.btnContainer}>
         <button
           onClick={() => {
