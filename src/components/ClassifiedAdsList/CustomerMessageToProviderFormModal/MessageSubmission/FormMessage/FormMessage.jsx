@@ -1,19 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styles from "./FormMessage.module.scss";
 import { LoadingSpinner } from "../../../../index";
 
-const FormMessage = (
+const FormMessage = ({
   handleSendMessage,
   handleChangeInputMessage,
   inputMessage,
-  isLoading
-) => (
-  <form
-    className={styles.formContainer}
-    onSubmit={(event) => {
-      handleSendMessage(event);
-    }}
-  >
+  isLoading,
+}) => (
+  <form className={styles.formContainer} onSubmit={handleSendMessage}>
     <fieldset>
       <textarea
         placeholder="Insira sua mensagem"
@@ -32,3 +28,10 @@ const FormMessage = (
 );
 
 export default FormMessage;
+
+FormMessage.propTypes = {
+  handleSendMessage: PropTypes.func.isRequired,
+  inputMessage: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  handleChangeInputMessage: PropTypes.func.isRequired,
+};
