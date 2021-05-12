@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./MessageSubmission.module.scss";
 import FormMessage from "./FormMessage/FormMessage";
+import Intro from "./Intro/Intro";
 
 const MessageSubmission = ({
   handleSendMessage,
@@ -10,12 +11,7 @@ const MessageSubmission = ({
   inputMessage,
 }) => (
   <div className={styles.container}>
-    <div className={styles.introContent}>
-      <p>
-        <strong>Se interessou?</strong> Entre em contato agora mesmo com o
-        profissional!
-      </p>
-    </div>
+    <Intro />
     <FormMessage
       handleChangeInputMessage={handleChangeInputMessage}
       inputMessage={inputMessage}

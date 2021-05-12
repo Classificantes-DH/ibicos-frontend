@@ -1,0 +1,18 @@
+@import "./../../../../../styles/scss/index.scss";
+
+.container {
+  margin: 15px 0;
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .container {
+    margin: 15px 0;
+    p {
+      font-size: 1.25rem;
+    }
+  }
+}
