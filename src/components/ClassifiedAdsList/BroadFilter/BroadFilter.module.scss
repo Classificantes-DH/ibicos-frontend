@@ -24,29 +24,6 @@
   .filtersContainer {
     @include displayFlex($direction: column, $justify: space-around);
     height: calc(100% - 30px);
-    .filter {
-      .filterTitle {
-        margin: 0 0 5px 5px;
-        font-size: 0.8rem;
-        color: $PURPLE;
-        span {
-          font-weight: 900;
-        }
-      }
-      .selectContainer {
-        @include displayFlex($justify: center);
-        .mainSelect {
-          @include mainSelectPattern();
-
-          width: 95%;
-          height: 25px;
-
-          font-size: 0.55rem;
-          border: 1px solid rgb(226, 223, 223);
-          box-shadow: 0 0 1px rgb(189, 184, 184);
-        }
-      }
-    }
   }
 }
 
@@ -63,18 +40,6 @@
     }
     .filtersContainer {
       height: calc(100% - 40px);
-      .filter {
-        .filterTitle {
-          font-size: 1rem;
-          margin-left: 10px;
-        }
-        .selectContainer {
-          .mainSelect {
-            width: 80%;
-            font-size: 0.68rem;
-          }
-        }
-      }
     }
   }
 }
@@ -82,19 +47,6 @@
 @media #{$BREAKPOINT-TABLET} {
   .container {
     min-width: 30%;
-    .filtersContainer {
-      .filter {
-        .filterTitle {
-          //font-size: 1rem;
-        }
-        .selectContainer {
-          .mainSelect {
-            //width: 80%;
-            //font-size: 0.7rem;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -102,20 +54,6 @@
   .container {
     height: 350px;
     min-width: 28%;
-    .filtersContainer {
-      .filter {
-        .filterTitle {
-          font-size: 1.2rem;
-        }
-        .selectContainer {
-          .mainSelect {
-            //width: 80%;
-            font-size: 1rem;
-            height: 30px;
-          }
-        }
-      }
-    }
   }
 }
 
@@ -132,18 +70,6 @@
     }
     .filtersContainer {
       height: calc(450px - 60px);
-      .filter {
-        .filterTitle {
-          font-size: 1.4rem;
-        }
-        .selectContainer {
-          .mainSelect {
-            //width: 80%;
-            font-size: 1.2rem;
-            height: 40px;
-          }
-        }
-      }
     }
   }
 }

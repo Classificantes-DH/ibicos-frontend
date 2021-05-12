@@ -1,27 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styles from "./Filter.module.scss";
+import { Select } from "../../../index";
+import "../Select.scss";
 
-const Filter = ({ handleSelectChange, title, options }) => (
+const Filter = ({ handleSelectChange, title, options, disabled }) => (
   <div className={styles.filter}>
     <h4 className={styles.filterTitle}>
       <span>{">"}</span> {title}
     </h4>
     <div className={styles.selectContainer}>
-      <select className={styles.mainSelect} onChange={handleSelectChange}>
-        {options.map(({ title: fieldTitle, value }) => (
-          <option value={value}>{fieldTitle}</option>
-        ))}
-      </select>
+      <Select
+        defaultOption={{ value: "", title: "Qualquer" }}
+        name={title}
+        onChangeHandler={handleSelectChange}
+        optionsArray={options}
+        className="broad-filter-main-select"
+        disabled={disabled}
+      />
     </div>
   </div>
 );
 
 export default Filter;
 
+Filter.defaultProps = {
+  disabled: false,
+};
+
 Filter.propTypes = {
   handleSelectChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string.isRequired,

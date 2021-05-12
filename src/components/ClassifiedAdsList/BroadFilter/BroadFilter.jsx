@@ -13,7 +13,9 @@ const BroadFilter = ({
 }) => {
   const { stateName, cityName } = filteringParameters;
   const { serviceCategories } = useServiceCategoryHook();
-  console.log(serviceCategories);
+
+  // @TODO: get regions generated from backend
+  const regionAreas = ["Zona Sul", "Zona Leste", "Zona Oeste", "Zona Norte"];
 
   return (
     <div className={styles.container}>
@@ -31,60 +33,42 @@ const BroadFilter = ({
           }))}
           title="Categoria"
         />
-        <div className={styles.filter}>
-          <h4 className={styles.filterTitle}>
-            <span>{">"}</span> Estado
-          </h4>
-          <div className={styles.selectContainer}>
-            <select
-              className={styles.mainSelect}
-              onChange={(event) => {
-                handleBroadFilterChange(event, "stateName");
-                handleSelectedStateUpdate(event);
-              }}
-            >
-              <option value="">Qualquer</option>
-              {states.map(({ nome, sigla }) => (
-                <option value={sigla}>{nome}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-        <div className={styles.filter}>
-          <h4 className={styles.filterTitle}>
-            <span>{">"}</span> Cidade
-          </h4>
-          <div className={styles.selectContainer}>
-            <select
-              className={styles.mainSelect}
-              onChange={(event) => handleBroadFilterChange(event, "cityName")}
-              disabled={!stateName}
-            >
-              <option value="">Qualquer</option>
-              {cities.map((city) => (
-                <option value={city}>{city}</option>
-              ))}
-            </select>
-          </div>
-        </div>
-        <div className={styles.filter}>
-          <h4 className={styles.filterTitle}>
-            <span>{">"}</span> Região
-          </h4>
-          <div className={styles.selectContainer}>
-            <select
-              className={styles.mainSelect}
-              onChange={(event) => handleBroadFilterChange(event, "areaName")}
-              disabled={!cityName}
-            >
-              <option value="">Qualquer</option>
-              <option>Zona Sul</option>
-              <option>Zona Oeste</option>
-              <option>Zona Leste</option>
-              <option>Zona Norte</option>
-            </select>
-          </div>
-        </div>
+
+        <Filter
+          handleSelectChange={(event) => {
+            handleBroadFilterChange(event, "stateName");
+            handleSelectedStateUpdate(event);
+          }}
+          options={states.map(({ nome, sigla }) => ({
+            title: nome,
+            value: sigla,
+          }))}
+          title="Estado"
+        />
+
+        <Filter
+          handleSelectChange={(event) =>
+            handleBroadFilterChange(event, "cityName")
+          }
+          options={cities.map((city) => ({
+            title: city,
+            value: city,
+          }))}
+          title="Cidade"
+          disabled={!stateName}
+        />
+
+        <Filter
+          handleSelectChange={(event) =>
+            handleBroadFilterChange(event, "areaName")
+          }
+          options={regionAreas.map((region) => ({
+            title: region,
+            value: region,
+          }))}
+          title="Região"
+          disabled={!cityName}
+        />
       </div>
     </div>
   );

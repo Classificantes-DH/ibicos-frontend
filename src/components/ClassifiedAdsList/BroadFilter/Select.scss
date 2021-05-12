@@ -1,0 +1,35 @@
+@import "./../../../styles/scss/index.scss";
+
+.broad-filter-main-select {
+  @include mainSelectPattern();
+
+  width: 95%;
+  height: 25px;
+
+  font-size: 0.55rem;
+  border: 1px solid rgb(226, 223, 223);
+  box-shadow: 0 0 1px rgb(189, 184, 184);
+}
+
+@media #{$BREAKPOINT-MOBILE-LAND} {
+  .broad-filter-main-select {
+    width: 80%;
+    font-size: 0.68rem;
+  }
+}
+
+@media only screen and (min-width: 754px) {
+  .broad-filter-main-select {
+    //width: 80%;
+    font-size: 1rem;
+    height: 30px;
+  }
+}
+
+@media #{$BREAKPOINT-TABLET-LAND} {
+  .broad-filter-main-select {
+    //width: 80%;
+    font-size: 1.2rem;
+    height: 40px;
+  }
+}
