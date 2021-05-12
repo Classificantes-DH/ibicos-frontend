@@ -1,0 +1,61 @@
+@import "./../../../../styles/scss/index.scss";
+
+.headerContainer {
+  @include displayFlex($justify: space-between, $align: center);
+  @include defaultBoxShadow($thickness: 2px, $color: #262626);
+  background-color: $ORANGE;
+  padding: 10px 0;
+
+  .logoContainer {
+    max-width: 50%;
+    margin-left: 12px;
+    img {
+      @include displayFlex($align: center);
+      width: 40px;
+    }
+  }
+
+  .btnContainer {
+    position: relative;
+    max-width: 50%;
+
+    button {
+      @include defaultButton($bg-color: $PURPLE, $radius: 50%);
+      @include displayFlex(
+        $justify: center,
+        $align: center,
+        $direction: column
+      );
+
+      height: 40px;
+      width: 40px;
+
+      margin-right: 15px;
+
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        background-color: #410d39;
+      }
+
+      div {
+        @include defaultBoxShadow($color: $BLACK, $thickness: 1px);
+        position: absolute;
+
+        width: 30px;
+        height: 4px;
+
+        background-color: $WHITE;
+        border-radius: 1px;
+      }
+
+      .r1 {
+        transform: rotate(45deg);
+      }
+      .r2 {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
