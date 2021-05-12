@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import styles from "./Filter.module.scss";
 import { Select } from "../../../index";
 import "../Select.scss";
+import Title from "./Title/Tile";
 
 const Filter = ({ handleSelectChange, title, options, disabled }) => (
   <div className={styles.filter}>
-    <h4 className={styles.filterTitle}>
-      <span>{">"}</span> {title}
-    </h4>
+    <Title title={title} />
     <div className={styles.selectContainer}>
       <Select
         defaultOption={{ value: "", title: "Qualquer" }}
