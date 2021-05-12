@@ -15,6 +15,7 @@ const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
     ad_description: adDescription,
     cities,
     service_category: serviceCategory,
+    id,
   } = ad;
 
   const { category_name: categoryName } = serviceCategory;
@@ -25,7 +26,7 @@ const JobCard = ({ adData, isCustomerAndProviderTheSame = false }) => {
 
   return (
     <div className={styles.container}>
-      <JobLogo categoryName={categoryName} />
+      <JobLogo categoryName={categoryName} id={id} />
 
       <MainDescription
         categoryName={categoryName}
@@ -50,6 +51,7 @@ JobCard.propTypes = {
   adData: PropTypes.shape({
     ad: PropTypes.shape({
       ad_description: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
       service_category: PropTypes.shape({
         category_name: PropTypes.string.isRequired,
       }).isRequired,
