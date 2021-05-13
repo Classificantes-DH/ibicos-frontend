@@ -12,10 +12,10 @@ Bem vindo, este é o repositório back-end da plataforma  iBicos. O repositório
 A plataforma visa integrar pessoas prestadores de serviços autônomos com potenciais cliente via anúncios, assim a ideia inicial ter a plataforma como uma intermediária na comunicação cliente-prestador.
 
 
-Execute os seguintes comandos na linha comando:
-`git clone git@github.com:Classificantes-DH/ibicos-frontend.git #Clonar repositório`
-`yarn #Download das dependências `
-`yarn start`
+Execute os seguintes comandos na linha comando:  
+`git clone git@github.com:Classificantes-DH/ibicos-frontend.git #Clonar repositório`  
+`yarn #Download das dependências `  
+`yarn start`  
 
 ## Contribuindo
 
