@@ -17,9 +17,9 @@ Execute os seguintes comandos na linha comando:
 `yarn #Download das dependências `  
 `yarn start`  
 
-Executando com docker:
-`docker-compose --file docker-compose.dev.yaml up --build`
-Acesse a aplicação via localhost:3000
+Executando com docker:  
+`docker-compose --file docker-compose.dev.yaml up --build`  
+Acesse a aplicação via localhost:3000  
 
 ### Contribuindo
 
